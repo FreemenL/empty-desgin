@@ -4,7 +4,8 @@
   "description": "react+typescript+antd",
   "main": "index.tsx",
   "scripts": {
-    "start": "webpack --config ./build/webpack.config.js"
+    "webpack": "webpack",
+    "start": "node scripts/start.js"
   },
   "repository": {
     "type": "git",
@@ -16,25 +17,50 @@
   "author": "freemenL",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-redux": "^6.0.11",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
+    "babel-plugin-import": "^1.11.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "chalk": "^2.4.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.0.0",
     "eslint": "^5.10.0",
     "fork-ts-checker-webpack-plugin": "^0.5.0",
     "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "nodemon": "^1.18.7",
+    "pm2": "^3.2.3",
+    "redux-devtools-extension": "^2.13.7",
     "shelljs": "^0.8.3",
     "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
     "typescript": "^3.2.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "antd": "^3.11.2",
+    "connected-react-router": "^6.0.0",
+    "history": "^4.7.2",
     "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0"
+    "react-dom": "^16.7.0-alpha.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.2"
   }
 }

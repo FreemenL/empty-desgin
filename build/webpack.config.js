@@ -12,8 +12,28 @@ module.exports={
     	path:paths.appBuild,
     	publicPath: '/',
 	},
+	resolve: {
+		extensions: [ '.ts','.tsx', '.js' , '.json']
+	},
 	module: {
    	rules: [{
+      test: /\.(le|c)ss$/,
+      use:[
+        "style-loader",
+         {
+            loader:'css-loader',
+            options: {
+              importLoaders: 1,
+            }
+          },{
+            loader: "less-loader",
+            options: {
+              sourceMap:true,
+              javascriptEnabled: true
+            }
+          }
+      ]
+    },{
 	    enforce: 'pre',
 	    test: /\.(ts|tsx)$/,
 	    use: [{
@@ -31,6 +51,7 @@ module.exports={
 	    }]
 	},
 	plugins:[
+		new webpack.HotModuleReplacementPlugin(),
 		new ForkTsCheckerWebpackPlugin({
 		    ignoreLints: [
 	         'no-console',

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "paths": {//配合webpack alias 字段的配置 
-      "reducers/*": ["src/store/reducers/*"],
       "router/*": ["src/router/*"],
       "store/*":["src/store/*"],
       "components/*":["src/components/*"],
@@ -23,7 +22,7 @@
     "allowJs":false,
     "importHelpers": true,//
     "locale":"en-us",
-    "lib": ["esnext", "es7", "es6", "es5", "es2015.Promise", "es2015.Generator", "dom","es2015.Reflect","esnext.asynciterable"],
+    "lib": ["esnext", "es7", "es6", "es5", "es2015.promise", "es2015.generator", "dom","es2015.reflect","esnext.asynciterable"],
     "moduleResolution": "node",
     "noImplicitAny":false,//避免类型检查
     "emitDecoratorMetadata":true,// 给源码里的装饰器声明加上设计类型元数据
