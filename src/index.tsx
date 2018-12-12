@@ -15,7 +15,7 @@ class Login extends Component{
 	}
 	render(){
 		return(
-			<div>admin</div>
+			<div>11admin</div>
 		)
 	}
 }
