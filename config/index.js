@@ -3,6 +3,8 @@ module.exports ={
 	systemPath:{//系统路径配置 相对命令行启动目录 
 		//依赖包路径
 		appNodeModules:"node_modules",
+		//日志目录
+		appLog:"log",
 		//源码目录
 		appSrc:"src",
 		//打包路径
@@ -60,6 +62,6 @@ module.exports ={
 	},
 	//是否生成编译报告  为true时候可在 127.0.0.1:8888查看编译结果
 	bundleAnalyzerReport:false,
-	//动态连接库中排除
+	//动态连接库中排除 
 	dllLibraryExclude:["antd"]
 }

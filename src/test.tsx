@@ -18,7 +18,6 @@ class Test extends Component{
                 <div>1111a2113dmin</div>
                 <div>1111a2113dmin</div>
             </div>
-			
 		)
 	}
 }

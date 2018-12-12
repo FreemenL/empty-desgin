@@ -29,13 +29,14 @@ const resolveModule = (resolveFn, filePath) => {
 
 const transformAppPathAlias = (appPathAlias) => {Object.entries(appPathAlias).forEach((path,index)=>{path[1]=`${appSrc}/${path[1]}`;appPathAlias[path[0]]=path[1]}); return appPathAlias};
 
-module.exports = {	
+module.exports = {
+  appSrc,	
   appTsConfig:resolveModule(resolveApp,systemPath.appTsConfig),
   appIndex: resolveModule(resolveApp,systemPath.appIndex),
   appFavicon:resolveModule(resolveApp,systemPath.appFavicon),
   appNodeModules:resolveApp(systemPath.appNodeModules),
   appStatic:resolveApp(systemPath.appStatic),
-	appSrc,
+  appLog:resolveApp(systemPath.appLog),
   appBuild: resolveApp(systemPath.appBuild),
   appLoader:resolveApp(systemPath.appLoader),
   appPathAlias:transformAppPathAlias(systemPath.appPathAlias),                 

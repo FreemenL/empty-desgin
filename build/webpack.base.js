@@ -26,11 +26,10 @@ module.exports = {
   entry:{
 	app:['babel-polyfill',paths.appIndex]
   },
-  devtool: 'inline-source-map',//只在开发环境下配置
   output:{
     filename: 'static/js/[name].[hash].js',
     path:paths.appBuild,
-    publicPath: './',
+    publicPath: '/',
   },
   module: {
    rules: [

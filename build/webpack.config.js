@@ -15,6 +15,7 @@ const utils = require('./utils');
 const basePort = process.env.PORT || systemConfig.devConfig.localServerPort;
 
 const devconfig = {
+  devtool: 'inline-source-map',//只在开发环境下配置
   devServer: {
     contentBase:paths.appBuild,
     compress: true,//一切服务都启用gzip 压缩
