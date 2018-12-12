@@ -1,18 +1,22 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 const systemConfig = require(path.resolve(process.cwd(),'config/index'));
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const { systemPath } = systemConfig;
+const appSrc = resolveApp(systemPath.appSrc);
 const moduleFileExtensions = [
-  'ts',
-  'tsx',
-  'json',
+  "ts",
+  "tsx",
+  "json",
+  "js",
+  "png"
 ];
 
 const resolveModule = (resolveFn, filePath) => {
+  console.log(filePath);
   const extension = moduleFileExtensions.find(extension =>
     fs.existsSync(resolveFn(`${filePath}.${extension}`))
   );
@@ -24,10 +28,19 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 
-module.exports = {
-	appNodeModules:resolveApp(systemPath.appNodeModules),
-	appSrc:resolveApp(systemPath.appSrc),
-	appBuild: resolveApp(systemPath.appBuild),
-	appTsConfig:resolveApp(systemPath.appTsConfig),
-	appIndex: resolveModule(resolveApp,systemPath.appIndex),
+const transformAppPathAlias = (appPathAlias) => {Object.entries(appPathAlias).forEach((path,index)=>{path[1]=`${appSrc}/${path[1]}`;appPathAlias[path[0]]=path[1]}); return appPathAlias};
+
+module.exports = {	
+  appTsConfig:resolveModule(resolveApp,systemPath.appTsConfig),
+  appIndex: resolveModule(resolveApp,systemPath.appIndex),
+  appFavicon:resolveModule(resolveApp,systemPath.appFavicon),
+  appNodeModules:resolveApp(systemPath.appNodeModules),
+  appStatic:resolveApp(systemPath.appStatic),
+	appSrc,
+  appBuild: resolveApp(systemPath.appBuild),
+  appLoader:resolveApp(systemPath.appLoader),
+  appPathAlias:transformAppPathAlias(systemPath.appPathAlias),                 
+  appExcludeCssModule:systemPath.appExcludeCssModule&&systemPath.appExcludeCssModule.map((path,index)=>new RegExp(`[\\\\/]node_modules[\\\\/].*${path}`)),
+  appConfig:systemPath.appConfig&&systemPath.appConfig.map((path,index)=>resolveApp(path)),
+  appTsLoader:systemPath.appTsLoader&&systemPath.appTsLoader.map((path,index)=>resolveApp(path))
 }

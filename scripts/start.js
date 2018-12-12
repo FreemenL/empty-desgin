@@ -1,13 +1,7 @@
-const { rm, cp, mkdir, exec, echo } = require('shelljs');
+const {run} = require('runjs')
 const chalk = require('chalk');
 
-console.log(chalk.green('You application is start building...'));
-// exec("cross-env NODE_ENV=development pm2 --watch ../build/* --watch ../package.json");
-const pwd = process.cwd()
 
-exec(`${pwd}/node_modules/.bin/webpack --config ${pwd}/build/webpack.config.js`, function(res) {
-    console.log(res)
-});
-// exec('pwd')
-// const {run} = require('runjs')
-// run('webpack --config ./build/webpack.config.js')
+// run("webpack --config ./build/webpack.dll.js --mode development");
+console.log(chalk.green('You application is start building...'));
+run("webpack --config ./build/webpack.config.js --profile --json > compilation-stats.json");
