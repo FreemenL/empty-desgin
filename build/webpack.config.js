@@ -46,7 +46,7 @@ const devconfig = {
   cache:true,
   plugins:[
     new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
+		// new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
         'process.env': {

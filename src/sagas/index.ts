@@ -37,7 +37,8 @@ function* loginFlow(){
 }
 
 export function* rootSaga({dispatch,getState}){
-	yield [
-		fork(loginFlow)
-	]
+	yield all([
+		loginFlow(),
+		// watchAndLog(dispatch,getState)
+	])
 }

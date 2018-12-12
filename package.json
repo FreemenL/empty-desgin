@@ -57,6 +57,7 @@
     "portfinder": "^1.0.20",
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.11.0",
+    "react-hot-loader": "^4.3.12",
     "redux-devtools-extension": "^2.13.7",
     "runjs": "^4.3.2",
     "source-map-loader": "^0.2.4",

@@ -4,21 +4,22 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route ,Switch ,Redirect} from 'react-router-dom';
 import { LocaleProvider } from 'antd';
+import { hot } from "react-hot-loader";
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
-
+import Test from './test';
 import store,{ history } from './store';
 
 
-class Login extends Component{
-	constructor(props){
-		super(props)
-	}
-	render(){
-		return(
-			<div>11admin</div>
-		)
-	}
-}
+// class Login extends Component{
+// 	constructor(props){
+// 		super(props)
+// 	}
+// 	render(){
+// 		return(
+// 			<div>a23dmin</div>
+// 		)
+// 	}
+// }
 
 
 const App = {
@@ -36,5 +37,5 @@ const App = {
 	}
 }
 
-App.run(Login)
-hot(module)(App.run(Login));
+App.run(Test)
+

@@ -13,7 +13,7 @@ module.exports ={
 		appConfig:["build","config"],
 		//自定义loader目录
 		appLoader:"build/loaders",
-		//自定义包路径下需要awesome-typescript-loader 处理的文件目录
+		//自定义　依赖包路径下需要awesome-typescript-loader 处理的文件目录
 		appTsLoader:["node_modules/_emptyd@0.0.7@emptyd","node_modules/_freetool@0.0.2@freetool"],
 		//ts配置文件
 		appTsConfig:"tsconfig",

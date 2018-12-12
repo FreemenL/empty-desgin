@@ -1,7 +1,6 @@
 const {run} = require('runjs')
 const chalk = require('chalk');
 
-
-// run("webpack --config ./build/webpack.dll.js --mode development");
 console.log(chalk.green('You application is start building...'));
-run("webpack --config ./build/webpack.config.js");
+//run("cross-env NODE_ENV=development nodemon --watch ./build/* --watch ./package.json --exec \"webpack-dev-server  --hot --inline --display-error-details --mode development --config ./build/webpack.config.js\"");
+run("webpack --display-error-details --mode development --config ./build/webpack.config.js");

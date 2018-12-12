@@ -16,7 +16,6 @@ const moduleFileExtensions = [
 ];
 
 const resolveModule = (resolveFn, filePath) => {
-  console.log(filePath);
   const extension = moduleFileExtensions.find(extension =>
     fs.existsSync(resolveFn(`${filePath}.${extension}`))
   );
