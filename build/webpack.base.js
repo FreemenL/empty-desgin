@@ -20,7 +20,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 const lessToJs = require('less-vars-to-js');
 const systemConfig = require(path.resolve(process.cwd(),'config/index'));
 const themeVariables = lessToJs(fs.readFileSync(path.join(paths.appSrc, './ant-theme-vars.less'), 'utf8'));
-const { systemConstant:{htmlTemplate,title} } = systemConfig;
+const { systemConstant:{htmlTemplate,title},systemPath } = systemConfig;
 
 module.exports = {
   entry:{
@@ -191,7 +191,7 @@ module.exports = {
       favicon:paths.appFavicon,
       hash:true
     }),
-    new webpack.ProvidePlugin({}),
+      //new webpack.ProvidePlugin({}),
     new ProgressBarPlugin({
       format:  chalk.yellow('build for '+process.env.NODE_ENV)+'[:bar]'+ chalk.green.bold(':percent') + ' (:elapsed seconds)',
       width:300,
@@ -200,10 +200,10 @@ module.exports = {
     }),
      new DllReferencePlugin({
       // 描述 react 动态链接库的文件内容
-      manifest: path.resolve(paths.appStatic,'dllLibrary.manifest.json')
+      manifest: path.resolve(paths.appStatic,`${systemPath.appdllLibrary}_${process.env.NODE_ENV.substring(0,3)}.manifest.json`)
     }),
     new AddAssetHtmlPlugin({
-      filepath: path.resolve(paths.appStatic,"dllLibrary.dll.js"),
+      filepath: path.resolve(paths.appStatic,`${systemPath.appdllLibrary}_${process.env.NODE_ENV.substring(0,3)}.dll.js`),
       hash: true
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),

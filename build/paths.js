@@ -14,7 +14,6 @@ const moduleFileExtensions = [
   "js",
   "png"
 ];
-
 const resolveModule = (resolveFn, filePath) => {
   const extension = moduleFileExtensions.find(extension =>
     fs.existsSync(resolveFn(`${filePath}.${extension}`))
@@ -31,6 +30,7 @@ const transformAppPathAlias = (appPathAlias) => {Object.entries(appPathAlias).fo
 
 module.exports = {
   appSrc,	
+  appdllLibrary:resolveModule(resolveApp,systemPath.appdllLibrary),
   appTsConfig:resolveModule(resolveApp,systemPath.appTsConfig),
   appIndex: resolveModule(resolveApp,systemPath.appIndex),
   appFavicon:resolveModule(resolveApp,systemPath.appFavicon),

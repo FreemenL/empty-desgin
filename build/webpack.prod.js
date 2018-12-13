@@ -33,22 +33,27 @@ module.exports = merge(common,{
  optimization: {
     nodeEnv: 'production',
     namedModules: true,
-    noEmitOnErrors: true,//在编译时出现错误时，使用跳过发射阶段。
-    runtimeChunk: { //运行时的每个入口点添加一个额外的块
+    //在编译时出现错误时，使用跳过发射阶段。
+    noEmitOnErrors: true,
+    //运行时的每个入口点添加一个额外的块
+    runtimeChunk: { 
       name: 'manifest'
     },
 	  minimizer: [
 	    new UglifyJSPlugin({
+        exclude: /.dll.js$/,
         uglifyOptions:{
           warnings: false,
           output: {
-            comments: false,//去掉注释
             beautify: false,
           }
         },
-	    sourceMap: true,
+        //提取注释
+        extractComments: true,
+	      sourceMap: false,
         cache: true,
-        parallel: true //开启多线程。默认并发运行数：os.cpus().length - 1 (当前配置的数值为4)
+        //开启多线程。默认并发运行数：os.cpus().length - 1
+        parallel: true 
 	    })
 	  ],
 	  splitChunks: {//代码拆分
@@ -56,20 +61,25 @@ module.exports = merge(common,{
       chunks: 'all',
       minSize: 30000,
       minChunks: 1,
-      maxAsyncRequests: 5,//最大的异步请求数
-      maxInitialRequests: 3,//最大的初始请求数
+      //最大的异步请求数
+      maxAsyncRequests: 5,
+      //最大的初始请求数
+      maxInitialRequests: 3,
       automaticNameDelimiter: '~',
-      cacheGroups: {//缓存组
+      cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10 // 该配置项是设置处理的优先级，数值越大越优先处理
+          // 该配置项是设置处理的优先级，数值越大越优先处理
+          priority: -10 
         },
-        commons: {//创建一个vendors块，其中包括node_modules整个应用程序中的所有代码。
+        //创建一个vendors块，其中包括node_modules整个应用程序中的所有代码。
+        commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
-        },   
-        'async-vendors': {// 处理异步chunk 
+        },
+        // 处理异步chunk 
+        'async-vendors': {
           test: /[\\/]node_modules[\\/]/,
           minChunks: 2,
           chunks: 'async',
@@ -104,6 +114,7 @@ module.exports = merge(common,{
     }),
     //  缩减代码量  使代码在浏览器中具有更快的执行时间
     new webpack.optimize.ModuleConcatenationPlugin(),
+    //自定义插件 输出打包产出文件 
     new FilesPlugin({path:paths.appLog,filename:"file-list.md"}),
  ]
 });

@@ -1,6 +1,17 @@
 
 module.exports ={
-	systemPath:{//系统路径配置 相对命令行启动目录 
+	//模式  dev | run  区别:dev 会开启配置文件监听 run 不会
+	pattern:"run",
+	//系统路径配置 相对命令行启动目录 
+	systemPath:{
+		//入口文件
+		appIndex:"src/index",
+		//ts配置文件
+		appTsConfig:"tsconfig",
+		//动态链接库
+		appdllLibrary:"_dllLibrary_",
+		//title图标
+		appFavicon:"src/public/favicon",
 		//依赖包路径
 		appNodeModules:"node_modules",
 		//日志目录
@@ -9,18 +20,12 @@ module.exports ={
 		appSrc:"src",
 		//打包路径
 		appBuild:"dist",
-		//入口文件
-		appIndex:"src/index",
 		//配置文件目录
 		appConfig:["build","config"],
 		//自定义loader目录
 		appLoader:"build/loaders",
 		//自定义　依赖包路径下需要awesome-typescript-loader 处理的文件目录
 		appTsLoader:["node_modules/_emptyd@0.0.7@emptyd","node_modules/_freetool@0.0.2@freetool"],
-		//ts配置文件
-		appTsConfig:"tsconfig",
-		//title图标
-		appFavicon:"src/public/favicon",
 		//静态资源路径 存放较大文件 该目录下存放文件会被 CopyWebpackPlugin 直接复制到打包后dist/static 路径
 		appStatic:"static",
 		//node_modules 下不会被cssmodule 处理的文件路径
@@ -50,7 +55,7 @@ module.exports ={
 	//开发环境配置
 	devConfig:{
 		//本地服务端口 支持同时启动多个服务
-		localServerPort:8000,
+		localServerPort:8091,
 		//代理配置
 		proxyTable:{
 			'/**': {
