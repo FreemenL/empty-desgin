@@ -29,7 +29,7 @@ module.exports ={
 		//静态资源路径 存放较大文件 该目录下存放文件会被 CopyWebpackPlugin 直接复制到打包后dist/static 路径
 		appStatic:"static",
 		//node_modules 下不会被cssmodule 处理的文件路径
-		appExcludeCssModule:["antd","normalize","rc-texty","nprogress","braft-editor","rc-queue-anim","viewerjs"],
+		appExcludeCssModule:["antd","normalize.css","rc-texty","nprogress","braft-editor","rc-queue-anim","viewerjs"],
 		//路径别名相对源码目录
 		appPathAlias:{
 			"@src":"",
@@ -68,5 +68,5 @@ module.exports ={
 	//是否生成编译报告  为true时候可在 127.0.0.1:8888查看编译结果
 	bundleAnalyzerReport:false,
 	//动态连接库中排除 
-	dllLibraryExclude:["antd"]
+	dllLibraryExclude:["antd","normalize.css"]
 }

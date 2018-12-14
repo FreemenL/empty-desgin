@@ -1,44 +1,57 @@
 const {run} = require('runjs')
 const chalk = require('chalk');
 const utils = require('./utils');
-const queue = utils.syncQueueGenerator();
+const queue = utils.queueGenerator();
 
 const SUCCESS = "SUCCESS";
 const ERROR = "ERROR";
+
 /**
  * 删除开发环境dll
 */
-queue.tap("delDev",(tag)=>{
-    utils.hint(tag);
-    if(utils.existsDllLibrary("dev")){
-        utils.rm(utils.devDllLibrary,(error)=>{
-            if(error){
-                throw Error(error);
-            }
-        })
-    }
+queue.tapAsync("delDev",(tag,task,result,next)=>{
+   setTimeout(() => {
+        utils.hint(tag);
+        if(utils.existsDllLibrary("dev")){
+            const manifest = utils.devDllLibrary.replace(/dll.js/,"manifest.json");
+            utils.rm([utils.devDllLibrary,manifest],(error)=>{
+                if(error){
+                    throw Error(error);
+                }
+            },next)
+        }else{
+            next();
+        }
+   });
 })
 
 /**
  * 处理生产环境dll 
 */
-queue.tap("generatorDll",(tag)=>{
-    utils.hint(tag);
-    if(!utils.existsDllLibrary("pro")){
-        run("cross-env NODE_ENV=production webpack --config ./build/webpack.dll.js");
-    }
+queue.tapAsync("generatorDll",(tag,task,result,next)=>{
+    setTimeout(() => {
+       utils.hint(tag);
+        if(!utils.existsDllLibrary("pro")){
+            run("cross-env NODE_ENV=production webpack --config ./build/webpack.dll.js");
+        }  
+        next();
+    });
 })
 
 
 /**
  * 开始构建
 */
-queue.tap("start building...",(tag)=>{
-    utils.hint(tag);
-    run("cross-env NODE_ENV=production webpack --profile --json > ./log/compilation-build.json --config ./build/webpack.prod.js")
+queue.tapAsync("start building...",(tag,task,result,next)=>{
+    setTimeout(() => {
+        utils.hint(tag);
+        run("cross-env NODE_ENV=production webpack --profile --json > ./log/compilation-build.json --config ./build/webpack.prod.js") 
+    });
 })
 
 
-queue.call();
+queue.callAsync("build",()=>{
+    utils.hint("build complete");
+});
 
 

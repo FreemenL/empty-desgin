@@ -11,8 +11,42 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const existsDllLibrary = (env)=>fs.existsSync(resolveApp(`${paths.appStatic}/${systemPath.appdllLibrary}_${env}.dll.js`));
 const devDllLibrary = `${paths.appStatic}/${systemPath.appdllLibrary}_dev.dll.js`
-const rm = (file,callback) =>rimraf(file,callback);
 const hint = (msg)=> console.log(chalk.green(msg));
+
+const PromiseAll=(params)=>{
+	if(Array.isArray(params)){
+		const length = params.length;
+		let num = 0;
+		let response = [];
+		return new Promise((resolve,reject)=>{
+			for(let i=0;i<length;i++){
+				Promise.resolve(params[i]).then((res)=>{
+					response.push(res);
+					if(i==length-1){
+						resolve(response);
+					}
+				},(err)=>{
+					reject(err);
+				})
+			}
+		})
+	}
+}
+/**
+ * 删除文件
+ * @param {*} params  string|Array
+ * @param {*} callback Function 
+ * @param {*} done Function 
+*/
+const rm = (params,callback,done)=>{
+   if(Array.isArray(params)){
+   	  PromiseAll(params.map((file,index)=>rimraf(file,callback))).then((res)=>{
+        done();
+   	  })
+   }else{
+   	  rimraf(file,callback)
+   }
+}
 
 //异步流
 class AsyncHook{

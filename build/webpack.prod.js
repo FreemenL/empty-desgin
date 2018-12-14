@@ -25,7 +25,7 @@ let cleanOptions = {
 module.exports = merge(common,{
   mode:"production",
   output:{
-    filename: 'static/js/[name].[hash].js',
+    filename: 'static/js/[name].[contenthash].js',
     path:paths.appBuild,
     publicPath: './',
     chunkFilename: 'static/js/[id].[chunkhash].js'
@@ -54,7 +54,12 @@ module.exports = merge(common,{
         cache: true,
         //开启多线程。默认并发运行数：os.cpus().length - 1
         parallel: true 
-	    })
+      }),
+      new OptimizeCSSPlugin({
+        cssProcessorOptions: {
+            safe: true
+        }
+      })
 	  ],
 	  splitChunks: {//代码拆分
       name:true,
@@ -105,12 +110,6 @@ module.exports = merge(common,{
         'process.env': {
           NODE_ENV: '"production"'//node提供的常量api
        }
-    }),
-    //压缩css
-    new OptimizeCSSPlugin({
-        cssProcessorOptions: {
-            safe: true
-        }
     }),
     //  缩减代码量  使代码在浏览器中具有更快的执行时间
     new webpack.optimize.ModuleConcatenationPlugin(),

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "paths": {//配合webpack alias 字段的配置 
-      "router/*": ["src/router/*"],
-      "store/*":["src/store/*"],
+      "@router/*": ["src/router/*"],
+      "@store/*":["src/store/*"],
       "components/*":["src/components/*"],
       "utils/*":["src/utils/*"],
       "config/*":["config/*"],

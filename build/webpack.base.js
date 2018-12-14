@@ -5,8 +5,9 @@ const chalk = require('chalk');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 //优化
@@ -58,14 +59,14 @@ module.exports = {
         include:[paths.appSrc,...paths.appTsLoader], // 精确指定要处理的目录
         use: [
           { 
-            loader:'style-loader',
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader:'css-loader',
             options: {
               modules: true,
               importLoaders: 1,
-              sourceMap:true,
+              sourceMap:devMode,
               localIdentName: '[path][name]__[local]--[hash:base64:5]'
             }
           },
@@ -73,7 +74,7 @@ module.exports = {
           {
             loader: "less-loader",
             options: {
-              sourceMap:true
+              sourceMap:devMode
             }
           },
         ],
@@ -81,7 +82,9 @@ module.exports = {
       test: /\.(le|c)ss$/,
       include:paths.appExcludeCssModule,
       use:[
-        "style-loader",
+        { 
+          loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+        },
          {
             loader:'css-loader',
             options: {
@@ -90,7 +93,7 @@ module.exports = {
           },{
             loader: "less-loader",
             options: {
-              sourceMap:true,
+              sourceMap:devMode,
               modifyVars: themeVariables,
               javascriptEnabled: true
             }
@@ -202,9 +205,14 @@ module.exports = {
       // 描述 react 动态链接库的文件内容
       manifest: path.resolve(paths.appStatic,`${systemPath.appdllLibrary}_${process.env.NODE_ENV.substring(0,3)}.manifest.json`)
     }),
-    new AddAssetHtmlPlugin({
-      filepath: path.resolve(paths.appStatic,`${systemPath.appdllLibrary}_${process.env.NODE_ENV.substring(0,3)}.dll.js`),
+    new HtmlIncludeAssetsPlugin({
+      assets: [{ path: "static", glob:`${systemPath.appdllLibrary}_${process.env.NODE_ENV.substring(0,3)}.dll.js`, globPath: "static/" }],
+      append: false, // false 在其他资源的之前添加 true 在其他资源之后添加
       hash: true
+    }),
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
