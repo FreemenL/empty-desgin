@@ -101,7 +101,7 @@ $ cd emptyd-admin-webpack
 |build|打包|
 |ls|将dist目录在本地8080端口运行|
 
-###系统配置说明
+### 系统配置说明
 
 ```typescript
 module.exports ={
