@@ -70,3 +70,33 @@
 ├── postcss.config.js        # postcss配置
 └── tsconfig.json            # ts配置
 ```
+
+## 项目启动
+
+### 环境配置
+* 为了把保证项目正常运行，请自行更新相关环境。
+1. 安装[node.js](https://nodejs.org/)
+2. 安装[git](https://git-scm.com/)
+
+### 依赖配置
+1. 首先clone项目
+```bash
+$ git clone https://github.com/FreemenL/emptyd-admin-webpack.git
+$ cd emptyd-admin-webpack
+```
+2. 下载依赖
+* 请确保你的环境配置完成，然后就可以开始以下步骤
+  ```bash
+  $ npm install                   # Install project dependencies
+  $ npm start                     # Compile and launch
+  ```
+
+  ## 命令说明
+
+开发过程中，你用得最多的会是`npm run dev`，但是这里还有很多其它的处理：
+
+|`npm run <script>`|Explain|
+|------------------|-----------|
+|start|初始化启动项目（生成Dll文件并启动服务）|
+|build|打包|
+|ls|将dist目录在本地8080端口运行|
