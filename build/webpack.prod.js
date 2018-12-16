@@ -2,17 +2,18 @@
  * 生产环境配置
  */
 const path = require('path');
-const paths = require('./paths');
 const chalk = require('chalk');//终端样式
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./webpack.base.js');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const FilesPlugin = require("./plugins/FilesPlugin");
 const devMode = process.env.NODE_ENV !== 'production';
+const common = require('./webpack.base.js');
+const paths = require('./paths');
+
 
 let pathsToClean = [
   'dist'
@@ -23,6 +24,7 @@ let cleanOptions = {
 }
 
 module.exports = merge(common,{
+  devtool: false,
   mode:"production",
   output:{
     filename: 'static/js/[name].[contenthash].js',
@@ -31,6 +33,8 @@ module.exports = merge(common,{
     chunkFilename: 'static/js/[id].[chunkhash].js'
   },
  optimization: {
+    sideEffects:true,
+    usedExports: true,
     nodeEnv: 'production',
     namedModules: true,
     //在编译时出现错误时，使用跳过发射阶段。
@@ -39,6 +43,7 @@ module.exports = merge(common,{
     runtimeChunk: { 
       name: 'manifest'
     },
+    minimize:true,
 	  minimizer: [
 	    new UglifyJSPlugin({
         exclude: /.dll.js$/,
@@ -57,7 +62,11 @@ module.exports = merge(common,{
       }),
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
-            safe: true
+            safe: true,
+            autoprefixer: { disable: true },
+            discardComments:{
+              removeAll: true // 移除注释
+            }
         }
       })
 	  ],

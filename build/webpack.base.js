@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
@@ -37,16 +38,19 @@ module.exports = {
     {
       enforce: 'pre',
       test: /\.(ts|tsx)$/,
-      use: [{
-              loader: 'awesome-typescript-loader',
-              options: {
-                useBabel: true,
-                transpileOnly: true,
-                useTranspileModule: false,
-                sourceMap: devMode,
-              },
-            },
-        "source-map-loader"
+      use:[{
+        loader: 'awesome-typescript-loader',
+        options: {
+          useCache:true,
+          useBabel: true,
+          transpileOnly: true,
+          useTranspileModule: false,
+          sourceMap: devMode,
+          forceIsolatedModules:true,
+          configFileName:paths.appTsConfig
+        },
+      },
+      "source-map-loader"
       ],
       include:[paths.appSrc,...paths.appTsLoader], // 精确指定要处理的目录
     },{
@@ -81,58 +85,27 @@ module.exports = {
     },{
       test: /\.(le|c)ss$/,
       include:paths.appExcludeCssModule,
-      use:[
-        { 
-          loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        },
-         {
-            loader:'css-loader',
-            options: {
-              importLoaders: 1,
-            }
-          },{
-            loader: "less-loader",
-            options: {
-              sourceMap:devMode,
-              modifyVars: themeVariables,
-              javascriptEnabled: true
-            }
-          }
-      ]
+      use:[ { 
+        loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      },'happypack/loader?id=happyStyle']
     },{
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-            limit: 10000,
-            name: "static/img/[name].[hash:7].[ext]",
-        },
+        loader:['happypack/loader?id=happyImg']
     },
     {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-            limit: 10000,
-            name: "static/media/[name].[hash:7].[ext]",
-        },
+        loader: ['happypack/loader?id=happyVideo']
     },
     {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url-loader",
-        options: {
-            limit: 10000,
-            name: "static/fonts/[name].[hash:7].[ext]",
-        },
+        loader: ['happypack/loader?id=happyFont']
     },{
        test: /\.(csv|tsv)$/,
-       use: [
-         'csv-loader'
-       ]
-      },{
+       use: ['happypack/loader?id=happyCvs']
+    },{
        test: /\.xml$/,
-       use: [
-         'xml-loader'
-       ]
-      }
+       use: ['happypack/loader?id=happyXml']
+    }
    ]
   },
   resolveLoader: {
@@ -214,9 +187,16 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
+    new HardSourceWebpackPlugin({
+      cacheDirectory: 'node_modules/.cache/hard-source/[confighash]',
+      cachePrune: {
+        maxAge: 2 * 24 * 60 * 60 * 1000,
+        sizeThreshold: 50 * 1024 * 1024
+      },
+    }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
-     new HappyPack({
+    new HappyPack({
         //用id来标识 happypack处理那里类文件
       id: 'happyBabel',
       //如何处理  用法和loader 的配置一样
@@ -235,11 +215,110 @@ module.exports = {
       threadPool: happyThreadPool,
       //允许 HappyPack 输出日志
       verbose: false,
-    })
+    }),
+    new HappyPack({
+      //用id来标识 happypack处理那里类文件
+    id: 'happyImg',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+      {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: "static/img/[name].[hash:7].[ext]",
+          }
+    }],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  }),
+  new HappyPack({
+    //用id来标识 happypack处理那里类文件
+    id: 'happyVideo',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+      {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: "static/media/[name].[hash:7].[ext]",
+          }
+    }],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  }),
+  new HappyPack({
+    //用id来标识 happypack处理那里类文件
+    id: 'happyFont',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+      {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: "static/fonts/[name].[hash:7].[ext]",
+          }
+    }],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  }),
+  new HappyPack({
+    //用id来标识 happypack处理那里类文件
+    id: 'happyCvs',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+      {
+          loader: 'csv-loader',     
+      }],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  }),
+  new HappyPack({
+    //用id来标识 happypack处理那里类文件
+    id: 'happyXml',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+      {
+          loader:"xml-loader",     
+      }],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  }),
+  new HappyPack({
+    //用id来标识 happypack处理那里类文件
+    id: 'happyStyle',
+    //如何处理  用法和loader 的配置一样
+    loaders:[
+       {
+          loader:'css-loader',
+          options: {
+            importLoaders: 1,
+          }
+        },{
+          loader: "less-loader",
+          options: {
+            sourceMap:devMode,
+            modifyVars: themeVariables,
+            javascriptEnabled: true
+          }
+        }
+    ],
+    //共享进程池
+    threadPool: happyThreadPool,
+    //允许 HappyPack 输出日志
+    verbose: false,
+  })
   ]
 }
-
-
 
 
 

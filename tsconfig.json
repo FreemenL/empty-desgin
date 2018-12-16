@@ -12,8 +12,8 @@
       "servies/*":["src/servies/*"]
     },
     "types": [ "lodash" ],
-    "module": "esnext", 
-    "target": "ES5", // 编译成 ES2015 (Babel 将做剩下的事情)
+    "module": "es2015", 
+    "target": "es6", // 编译成 ES2015 (Babel 将做剩下的事情)
     "baseUrl": "./", // 可以相对这个目录 import 文件
     "sourceMap": true, // 使 TypeScript 生成 sourcemaps 
     "outDir": "dist", // 构建输出目录 (因为我们大部分时间都在使用 Webpack，所以不太相关)

@@ -8,13 +8,14 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import Routes from '@router/router';
 import store,{ history } from '@store/store';
 
-import './app.less'
+import styles from './app.less'
 import "normalize.css"
 
 const App = {
 	run:function(Component){
 	   render(
 	    <Provider store={store}>
+		       <div className={styles.test}>qwe</div>
 				<ConnectedRouter history={history}> 
 					<LocaleProvider locale={zh_CN}>
 			  			<Component/>

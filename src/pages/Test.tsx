@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { hot } from "react-hot-loader";
-
+import { test } from './qq';
 
 
 class Test extends Component{
@@ -9,8 +9,8 @@ class Test extends Component{
 	}
 	render(){
 		return(
-            <div>
-                <div>1111a2113dmin</div>
+            <div className="test-font">
+                <div onClick={test}>1111a2113dmin</div>
                 <div>1111a2113dmin</div>
                 <div>1113dmin</div>
                 <div>1111a2113dmin</div>
