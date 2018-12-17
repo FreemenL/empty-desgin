@@ -7,7 +7,9 @@ module.exports ={
 		//入口文件
 		appIndex:"src/index",
 		//ts配置文件
-		appTsConfig:"tsconfig",
+		appTsConfig:"config/tsconfig",
+		//webpack ts配置
+		webpackTsConfig:"config/tsconfig-for-webpack-config",
 		//动态链接库
 		appdllLibrary:"_dllLibrary_",
 		//title图标

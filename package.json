@@ -4,8 +4,9 @@
   "description": "react+typescript+antd",
   "main": "index.tsx",
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "ts-node -P config/tsconfig-for-webpack-config.json scripts/start.ts",
+    "build": "ts-node -P config/tsconfig-for-webpack-config.json scripts/build.ts",
+    "postbuild": "npm run ls",
     "ls": "http-server dist"
   },
   "repository": {
@@ -18,11 +19,14 @@
   "author": "freemenL",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^10.12.15",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
     "@types/redux": "^3.6.0",
+    "@types/webpack": "^4.4.21",
+    "@types/webpack-dev-server": "^3.1.1",
     "atcss": "^2.0.0",
     "autoprefixer": "^9.4.2",
     "awesome-typescript-loader": "^5.2.1",
@@ -73,6 +77,8 @@
     "runjs": "^4.3.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
     "typescript": "^3.2.2",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.2",

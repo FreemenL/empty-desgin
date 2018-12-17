@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", 
+    "target": "es5", // 编译成 es6 (Babel 将做剩下的事情)
+    "lib": [ 
+      "es5",
+      "es2015",
+      "es2015.core",
+      "es2015.promise",
+      "es2015.generator",
+      "es2015.reflect"
+    ],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny":false,//避免类型检查
+  }
+}
+
+      

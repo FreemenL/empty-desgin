@@ -6,6 +6,7 @@ interface FileRequire {
   interface System {
     import<T = any>(module: string): Promise<T>
   }
+
   declare let TcPlayer:any;
   declare let flowplayer:any;
   declare let _: any;

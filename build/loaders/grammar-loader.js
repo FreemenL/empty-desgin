@@ -9,7 +9,7 @@
 */
 function replace(source) {
 	let template = "import React,{Component,PureComponent,Fragment} from 'react';";
-	let reg = new RegExp(/\/\/@react/,["g"]);
+	let reg = new RegExp(/\/\/@react/,"g");
     return source.replace(reg,template);
 }
 module.exports = function(source) {
