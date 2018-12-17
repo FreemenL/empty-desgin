@@ -1,4 +1,5 @@
 node_modules/
 dist/
 compilation-stats.json
-.vscode
+.vscode/
+.awcache/
