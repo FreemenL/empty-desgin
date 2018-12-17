@@ -6,7 +6,6 @@
   "scripts": {
     "start": "ts-node -P config/tsconfig-for-webpack-config.json scripts/start.ts",
     "build": "ts-node -P config/tsconfig-for-webpack-config.json scripts/build.ts",
-    "postbuild": "npm run ls",
     "ls": "http-server dist"
   },
   "repository": {
