@@ -4,23 +4,22 @@
  * @redux-thunk: 分发异步action 
  */
 import { createHashHistory } from 'history';
-import { createStore , applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import createRootReducer from '../reducers/index';
 import { rootSaga } from '../sagas';
-import { persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { persistReducer } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 export const history = createHashHistory();
 const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
-  key: 'root',
-  storage,
+    key: 'root',
+    storage,
 }
-const middlewares = [ sagaMiddleware ];
+const middlewares = [sagaMiddleware];
 //Reducer 数据持久化
 const persistedReducer = persistReducer(persistConfig, createRootReducer(history));
 //创建store 
@@ -36,6 +35,6 @@ const store = createStore(
 persistStore(store);
 
 //通过中间件执行或者运行saga
-sagaMiddleware.run(rootSaga,store);
+sagaMiddleware.run(rootSaga, store);
 
 export default store;

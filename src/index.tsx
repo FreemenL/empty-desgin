@@ -1,29 +1,30 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import { Route ,Switch ,Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { LocaleProvider } from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import Routes from '@router/router';
-import store,{ history } from '@store/store';
+import store, { history } from '@store/store';
 
-import styles from './app.less'
-import "normalize.css"
+import styles from './app.less';
+import "normalize.css";
 
+// console.log("qwe");
 const App = {
-	run:function(Component){
-	   render(
-	    <Provider store={store}>
-		       <div className={styles.test}>q1111qweqqq</div>
-				<ConnectedRouter history={history}> 
+	run: function (Component) {
+		render(
+			<Provider store={store}>
+				<div className={styles.test}>q1111qweqqq</div>
+				<ConnectedRouter history={history}>
 					<LocaleProvider locale={zh_CN}>
-			  			<Component/>
+						<Component />
 					</LocaleProvider>
-		  	</ConnectedRouter>
-		  </Provider>, 
-		document.getElementById('root') as HTMLElement
-	  )
+				</ConnectedRouter>
+			</Provider>,
+			document.getElementById('root') as HTMLElement
+		)
 	}
 }
 

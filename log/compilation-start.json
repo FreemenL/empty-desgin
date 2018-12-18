@@ -1,0 +1,7 @@
+ ERROR  Failed to compile with 1 errors15:04:02
+
+This dependency was not found:
+
+* d:\Personal\Desktop\emptyd-desq\emptyd\emptyd-admin-webpack\src\index.tsx in multi ./node_modules/_webpack-dev-server@3.1.10@webpack-dev-server/client?http://172.17.5.235:8091 (webpack)/hot/dev-server.js babel-polyfill ./src/index.tsx
+
+To install it, you can run: npm install --save d:\Personal\Desktop\emptyd-desq\emptyd\emptyd-admin-webpack\src\index.tsx
