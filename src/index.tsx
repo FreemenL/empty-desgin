@@ -15,7 +15,7 @@ const App = {
 	run:function(Component){
 	   render(
 	    <Provider store={store}>
-		       <div className={styles.test}>qwe</div>
+		       <div className={styles.test}>q1111qweqqq</div>
 				<ConnectedRouter history={history}> 
 					<LocaleProvider locale={zh_CN}>
 			  			<Component/>

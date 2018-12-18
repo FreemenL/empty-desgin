@@ -1,11 +1,8 @@
 import React from 'react';
 import NProgress from 'nprogress'
 import Loadable from 'react-loadable';
-// import components from 'components/Prompt';
-// import ErrorCom from 'components/ErrorCom';
 import { Button } from 'antd';
-// import { cookieUtil , Session ,Local} from 'utils/tool';
-// const { component:Prompt } = components;
+
 
 
 const _import_views = file => Loadable.Map({

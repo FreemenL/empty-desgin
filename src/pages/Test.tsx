@@ -9,8 +9,8 @@ class Test extends Component{
 	render(){
 		return(
             <div className="test-font">
-                <div>1111a2113dmin</div>
-                <div>1111a2113dmin</div>
+                <div>112312312312321111a2113dmin</div>
+                <div>qeqew1111a2113dmin</div>
                 <div>1113dmin</div>
                 <div>1111a2113dmin</div>
                 <div>2113dmin</div>
