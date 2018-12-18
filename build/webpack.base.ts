@@ -340,7 +340,7 @@ type Effects = {
 
 const effect: Effects = {
   onCompiltionCache() {
-    webpackBaseConfig.plugins.push(
+    devMode && webpackBaseConfig.plugins.push(
       new HardSourceWebpackPlugin({
         cacheDirectory: 'node_modules/.cache/hard-source/[confighash]',
         cachePrune: {
