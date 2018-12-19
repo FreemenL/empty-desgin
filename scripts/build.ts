@@ -32,7 +32,7 @@ queue.tapAsync("generatorDll", (tag, task, result, next) => {
     setTimeout(() => {
         utils.hint(tag);
         if (!utils.existsDllLibrary("pro")) {
-            run("cross-env NODE_ENV=production TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack --config ./build/webpack.dll.js");
+            run("cross-env NODE_ENV=production TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack --config ./build/webpack.dll.ts");
         }
         next();
     }, 0);
