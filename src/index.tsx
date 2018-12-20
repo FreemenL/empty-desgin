@@ -11,12 +11,10 @@ import store, { history } from '@store/store';
 import styles from './app.less';
 import "normalize.css";
 
-// console.log("qwe");
 const App = {
 	run: function (Component) {
 		render(
 			<Provider store={store}>
-				<div className={styles.test}>q1111qweqqq</div>
 				<ConnectedRouter history={history}>
 					<LocaleProvider locale={zh_CN}>
 						<Component />

@@ -89,21 +89,45 @@ const webpackBaseConfig = {
       }, 'happypack/loader?id=happyStyle']
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      loader: ['happypack/loader?id=happyImg']
+      use:[{
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name:'[path][name].[ext]?[hash]'
+        }
+      }]
     },
     {
       test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-      loader: ['happypack/loader?id=happyVideo']
+      use:[{
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name:'[path][name].[ext]?[hash]'
+        }
+      }]
     },
     {
       test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      loader: ['happypack/loader?id=happyFont']
+      use:[{
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name:'[path][name].[ext]?[hash]'
+        }
+      }]
     }, {
       test: /\.(csv|tsv)$/,
-      use: ['happypack/loader?id=happyCvs']
+      use:[
+        {
+          loader: 'csv-loader',
+      }]
     }, {
       test: /\.xml$/,
-      use: ['happypack/loader?id=happyXml']
+      use:[
+        {
+          loader: "xml-loader",
+      }]
     }
     ]
   },
@@ -212,83 +236,6 @@ const webpackBaseConfig = {
     }),
     new HappyPack({
       //用id来标识 happypack处理那里类文件
-      id: 'happyImg',
-      //如何处理  用法和loader 的配置一样
-      loaders: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: "static/img/[name].[hash:7].[ext]",
-          }
-        }],
-      //共享进程池
-      threadPool: happyThreadPool,
-      //允许 HappyPack 输出日志
-      verbose: false,
-    }),
-    new HappyPack({
-      //用id来标识 happypack处理那里类文件
-      id: 'happyVideo',
-      //如何处理  用法和loader 的配置一样
-      loaders: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: "static/media/[name].[hash:7].[ext]",
-          }
-        }],
-      //共享进程池
-      threadPool: happyThreadPool,
-      //允许 HappyPack 输出日志
-      verbose: false,
-    }),
-    new HappyPack({
-      //用id来标识 happypack处理那里类文件
-      id: 'happyFont',
-      //如何处理  用法和loader 的配置一样
-      loaders: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: "static/fonts/[name].[hash:7].[ext]",
-          }
-        }],
-      //共享进程池
-      threadPool: happyThreadPool,
-      //允许 HappyPack 输出日志
-      verbose: false,
-    }),
-    new HappyPack({
-      //用id来标识 happypack处理那里类文件
-      id: 'happyCvs',
-      //如何处理  用法和loader 的配置一样
-      loaders: [
-        {
-          loader: 'csv-loader',
-        }],
-      //共享进程池
-      threadPool: happyThreadPool,
-      //允许 HappyPack 输出日志
-      verbose: false,
-    }),
-    new HappyPack({
-      //用id来标识 happypack处理那里类文件
-      id: 'happyXml',
-      //如何处理  用法和loader 的配置一样
-      loaders: [
-        {
-          loader: "xml-loader",
-        }],
-      //共享进程池
-      threadPool: happyThreadPool,
-      //允许 HappyPack 输出日志
-      verbose: false,
-    }),
-    new HappyPack({
-      //用id来标识 happypack处理那里类文件
       id: 'happyStyle',
       //如何处理  用法和loader 的配置一样
       loaders: [
@@ -331,7 +278,6 @@ const webpackBaseConfig = {
     })
   ]
 }
-
 type Effects = {
   onCompiltionCache: Function,
   onLint: Function,

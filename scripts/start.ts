@@ -11,7 +11,7 @@ if (!utils.existsDllLibrary("dev")) {
 // 运行模式
 const patterns = [{
     name: "dev",
-    run: () => run("cross-env NODE_ENV=development nodemon --watch ./build/* --watch ./package.json --exec \"TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack-dev-server  --hot --inline --display-error-details --mode development --config ./build/webpack.config.ts\""),
+    run: () => run("cross-env NODE_ENV=development TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" nodemon -e js,ts --watch ./build/* --watch ./package.json --exec \"webpack-dev-server  --hot --inline --display-error-details --mode development --config ./build/webpack.config.ts\""),
 }, {
     name: "run",
     run: () => run("cross-env NODE_ENV=development TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack-dev-server  --hot --inline --display-error-details --mode development --config ./build/webpack.config.ts")

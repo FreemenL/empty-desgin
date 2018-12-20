@@ -30,7 +30,7 @@ const devconfig = {
     stats: "errors-only",
     historyApiFallback: true,
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true
     },
     proxy:systemConfig.devConfig.proxyTable||{}

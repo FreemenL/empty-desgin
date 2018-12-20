@@ -1,7 +1,6 @@
 import React from 'react';
 import NProgress from 'nprogress'
 import Loadable from 'react-loadable';
-import { Button } from 'antd';
 
 
 
@@ -20,20 +19,18 @@ const _import_views = file => Loadable.Map({
 });
 
 
-
 /**
  * [ loadingProxy description  策略对象 ]  
 */
 const loadingProxy = {
   error(params) {
-    // return (<ErrorCom error={params.error.message} info={params.error.stack}/>);
-    return (<p>加载错误...</p>);
+    return (<p>加载错误...{params.error.message}</p>);
   },
   timedOut(params) {
-    return (<div>加载超时...... <Button onClick={params.retry}>重试</Button></div>);
+    return (<div>加载超时...... <button onClick={params.retry}>重试</button></div>);
   },
-  pastDelay() {
-    // return Prompt["pLoading"]();
+  pastDelay(){
+    
   }
 }
 

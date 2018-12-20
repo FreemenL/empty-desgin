@@ -1,6 +1,6 @@
 module.exports = {
   // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
-  pattern: 'run',
+  pattern: 'dev',
   // 系统路径配置 相对命令行启动目录 
   systemPath: {
     // 入口文件
@@ -58,20 +58,20 @@ module.exports = {
     // 本地服务端口 支持同时启动多个服务
     localServerPort: 8091,
     // 代理配置
-    proxyTable: {
-      '/**': {
-        target: 'http://193.112.220.120',
-        changeOrigin: true,
-        secure: true
-      }
-    }
+    // proxyTable: {
+    //   '/**': {
+    //     target: 'http://193.112.220.120',
+    //     changeOrigin: true,
+    //     secure: true
+    //   }
+    // }
   },
   // 是否生成编译报告  为true时候可在 127.0.0.1:8888查看编译结果
   bundleAnalyzerReport: false,
   // 动态连接库中排除
   dllLibraryExclude: ['antd', 'normalize.css'],
   // 是否开启编译缓存 
-  onCompiltionCache: true,
+  onCompiltionCache: false,
   // 是否开启代码检查 
   onLint: true
 }

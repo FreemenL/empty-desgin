@@ -30,7 +30,7 @@ module.exports = {
     'react/no-render-return-value': 2,
     'react/no-typos': 2,
     'react/no-string-refs': 2,
-    'react/no-this-in-sfc': 2,
+    'react/no-this-in-sfc': 0,
     'react/no-unescaped-entities': 2,
     'react/no-unused-state': 2,
     'react/no-will-update-set-state': 2,
