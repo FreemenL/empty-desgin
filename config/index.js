@@ -1,6 +1,6 @@
 module.exports = {
   // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
-  pattern: 'dev',
+  pattern: 'run',
   // 系统路径配置 相对命令行启动目录 
   systemPath: {
     // 入口文件
@@ -26,7 +26,7 @@ module.exports = {
     // 自定义loader目录
     appLoader: 'build/loaders',
     // 自定义　依赖包路径下需要awesome-typescript-loader 处理的文件目录
-    appTsLoader: ['node_modules/_emptyd@0.0.7@emptyd', 'node_modules/_freetool@0.0.2@freetool'],
+    appTsLoader: ['node_modules/_emptyd@0.0.7@emptyd', 'node_modules/_freetool@0.0.3@freetool'],
     // 静态资源路径 存放较大文件 该目录下存放文件会被 CopyWebpackPlugin 直接复制到打包后dist/static 路径
     appStatic: 'static',
     // node_modules 下不会被cssmodule 处理的文件路径
@@ -43,7 +43,7 @@ module.exports = {
       '@store': `store`,
       '@public': `public`,
       '@utils': `utils`,
-      '@servies': `servies`
+      '@service': `service`
     }
   },
   // 系统常量
@@ -60,7 +60,7 @@ module.exports = {
     // 代理配置
     // proxyTable: {
     //   '/**': {
-    //     target: 'http://193.112.220.120',
+    //     target: 'http://193.112.220.100',
     //     changeOrigin: true,
     //     secure: true
     //   }
@@ -69,9 +69,26 @@ module.exports = {
   // 是否生成编译报告  为true时候可在 127.0.0.1:8888查看编译结果
   bundleAnalyzerReport: false,
   // 动态连接库中排除
-  dllLibraryExclude: ['antd', 'normalize.css'],
+  dllLibraryExclude: ['freetool','antd','antd-mobile', 'normalize.css'],
   // 是否开启编译缓存 
   onCompiltionCache: false,
   // 是否开启代码检查 
-  onLint: true
+  onLint: true,
+  //上传服务器配置
+  remoteServer:{
+    uploadFile:'./dist/**',
+    sshConfig:{
+      remotePath:'/root/nginx_szcg/website/zhifa/dist',
+      ssh: { // 正式
+        host: "129.139.254.333",
+        port: 22,
+        username: 'root',
+        password: 'xxxxxxxxxxxxx'
+      }, 
+      commands: [
+        // 删除现有文件
+        `rm -rf /root/nginx_szcg/website/zhifa/dist`
+      ]
+    }
+  }
 }

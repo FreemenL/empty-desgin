@@ -1,6 +1,6 @@
 import * as types from '../action-types';
 export default {
-	login(username,password){
+	doLogin(username,password){
 		return {type:types.LOGIN_REQUEST,username,password}
 	},
 	logout(){

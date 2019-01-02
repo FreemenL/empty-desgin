@@ -1,0 +1,47 @@
+@import '../styles/mixins.less';
+.prompt{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.5);
+    .canter();
+    &-modal{
+        padding: 0 15px 15px 0; 
+        border-radius:5px;
+        background: #fff;
+        width:300px;
+        section{
+            margin-bottom: 25px;
+            color:#666;
+            text-align: center;
+        }
+        p{
+            span{
+                width:20px;
+                height:20px;
+                margin:0 10px;
+                display: inline-block;
+                color:#fff;
+                text-align: center;
+                border-radius:50%;
+                background: orange;
+            }
+        }
+        button{
+            .base_button();
+            margin-left:10px;
+            float: right;
+            font-size: 14px;
+            padding:6px 8px 5px;
+            border-radius:16px;
+            &.sure{
+               background:rgb(0, 119, 255); 
+               color:#fff;
+            }
+        }
+    }
+}
+
+

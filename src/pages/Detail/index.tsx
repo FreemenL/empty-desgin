@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { hot } from "react-hot-loader";
-
 import styles from './index.less';
-
+import { Toast } from 'antd-mobile';
 
 class Test extends Component<any, any>{
     constructor(props) {
@@ -18,29 +16,22 @@ class Test extends Component<any, any>{
                 name: "办理结果查询",
                 icon: ""
             }, {
-                name: "精彩活动",
+                name: "精彩活动1123",
                 icon: ""
             },]
         }
         this.handleCheck = this.handleCheck.bind(this);
     }
     handleCheck(event) {
-        alert(event)
+       this.props.history.push("/home/2")
     }
     render() {
         return (
             <div className={styles.container}>
-                <div className={styles["container-dog-pic"]}></div>
-                <ul onClick={this.handleCheck} className={styles["container-dog-options"]}>
-                    {this.state.dogOptions.map((option, index) => {
-                        return (
-                            <li key={option.name}><em>{option.icon}</em>{option.name}</li>
-                        )
-                    })}
-                </ul>
+              detail
             </div>
         )
     }
 }
 
-export default hot(module)(Test)
+export default Test;

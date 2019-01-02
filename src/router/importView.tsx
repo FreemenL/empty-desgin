@@ -3,17 +3,15 @@ import NProgress from 'nprogress'
 import Loadable from 'react-loadable';
 
 
-
 const _import_views = file => Loadable.Map({
   loader: {
-    Component: () => import(`pages/${file}`),
+    Component: () => import(`@pages/${file}`),
   },
   loading,
   timeout: 8000,
   render(loaded, props: any) {
     const { history, location } = props;
     const Com = loaded.Component.default;
-    // NProgress.done();
     return React.createElement(Com, { ...props }, null);
   }
 });
@@ -35,7 +33,6 @@ const loadingProxy = {
 }
 
 const propArr = Reflect.ownKeys(loadingProxy);
-let returnEle = null;
 
 const loading = (props) => {
   for (let i = 0; i < propArr.length; i++) {
