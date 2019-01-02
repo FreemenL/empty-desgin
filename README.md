@@ -1,8 +1,5 @@
 # emptyd-admin-webpack
 基于typescript react webpack的脚手架 
->说明：一些第三方库缺少或者类型声明文件错误的情况下 ，需要手动编写类型声明文件或者对原本的文件进行改 ，此脚手架中所依赖的redux-persist的类型声明文件有误， 所以需要手动修改 ，可以直接拿[这个文件](https://github.com/FreemenL/react16-redux-typescript-webpck4-antd/blob/master/index.d.ts)覆盖 node_modules/redux-persist/src/index.d.ts
-
->因为该项目部署了Jinkens 所以直接把服务器上的依赖包进行了修改， 所以在package.json 中去掉了redux-persist依赖项 ```所以需要在install 之后单独下载redux-persist依赖 并且按上面步骤进行操作```
 
 ### 关于本项目功能
 
