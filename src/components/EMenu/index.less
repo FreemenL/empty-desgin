@@ -1,0 +1,20 @@
+@import "../styles/index.less";
+.@{empty-prefix}-menu-item{
+	cursor:pointer;
+	a{
+		color:#f0f0f0;
+		user-select: none;
+		text-decoration: none;
+	}
+	&:hover{
+		background:#263445;
+		color:rgb(51, 167, 235);
+	}
+	&-active{
+		background:rgb(51, 167, 235);
+		&:hover{
+			background:rgb(51, 167, 235);
+			color:#f0f0f0;
+		}
+	}
+}

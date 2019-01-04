@@ -1,0 +1,76 @@
+
+.loginCommon(){
+    width:100%;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    outline: none;
+    border-radius: 50px;
+}
+.container{
+    background:url("../../public/login.png");
+    background-size: 100% 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    &-login-form{
+        width:365px;
+        height:485px;
+        padding: 36px;
+        box-sizing: content-box;
+        border:1px solid #fff;   
+        border-radius: 20px;
+        &-avatar{
+            margin: 0 auto;
+            display: block;
+        }
+        &-login-btn{
+            .loginCommon;
+            border:none;
+            background: #fff;
+            color:#1f6f4a;
+            font-size:22px;
+            font-weight: 0;
+            cursor: pointer;
+        }
+        &-item{
+            width:100%;
+            margin-bottom:34px;
+            position: relative;
+            input{
+                .loginCommon;
+                background:transparent;
+                border:1px solid #fff;
+                text-indent:3em;
+                color:#fff;
+                font-size:22px;
+                &::placeholder{
+                    color:#fff;
+                    font-size:22px;
+                }
+            }
+            &:nth-child(1){
+                input{
+                    background:url('../../public/user.png') no-repeat;
+                    background-position: 20px 15px;
+                }
+            }
+            &:nth-child(2){
+                input{
+                    background:url('../../public/password.png') no-repeat;
+                    background-position: 20px 12px;
+                }
+            }
+        }
+    }
+}
+
+.login-form{
+    margin-top:77px;
+    width:100%;
+}

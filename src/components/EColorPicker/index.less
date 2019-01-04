@@ -1,0 +1,28 @@
+@import "../styles/index.less";
+
+.@{empty-prefix}-color-picker{
+	position: absolute;
+	z-index:9999;
+	top:45px;
+	left:-10px;
+	&::before{
+  	    content: '';
+	    display: block;
+	    position: absolute;
+	    width: 25px;
+	    height:25px;
+	    top:-14px;
+	    left:7px;
+	    transform:rotate(46deg);
+	    border:1px solid rgba(0, 0, 0, 0.15) ;
+	    border-right:0;
+	    border-bottom:0;
+	    background: #fff;
+  	}
+}
+.show{
+	display: block
+}
+.hide{
+	display: none;
+}

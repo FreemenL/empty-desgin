@@ -1,0 +1,233 @@
+<!doctype html>
+<html data-scale="true">
+
+<head>
+	<meta charset="utf-8">
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<!-- 视口适配 兼容iphonex -->
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- 用于设定是否将网页内容中的手机号码显示为拨号的超链接，iPhone上默认为yes -->
+	<meta content="telephone=no,email=no" name="format-detection">
+	<!-- 把一个web app添加到了主屏幕中，那么从主屏幕中打开这个web app则全屏显示 -->
+	<meta name="apple-touch-fullscreen" content="yes">
+	<!-- 通过删除苹果默认的工具栏和菜单栏，来给用户腾出更多的空间从而让网页得到更好的展现  -->
+	<meta name=”apple-mobile-web-app-capable” content=”yes” />
+</head>
+
+<body>
+	<div id="root">
+		<div>
+			<div class="lds-spinner" style="width:100%;height:100%;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<style type="text/css">
+				@keyframes lds-spinner {
+					0% {
+						opacity: 1;
+					}
+					100% {
+						opacity: 0;
+					}
+				}
+
+				@-webkit-keyframes lds-spinner {
+					0% {
+						opacity: 1;
+					}
+					100% {
+						opacity: 0;
+					}
+				}
+
+				.lds-spinner {
+					position: relative;
+				}
+
+				.lds-spinner div {
+					left: 94px;
+					top: 48px;
+					position: absolute;
+					-webkit-animation: lds-spinner linear 0.9s infinite;
+					animation: lds-spinner linear 0.9s infinite;
+					background: #4080bf;
+					width: 12px;
+					height: 24px;
+					border-radius: 40%;
+					-webkit-transform-origin: 6px 52px;
+					transform-origin: 6px 52px;
+				}
+
+				.lds-spinner div:nth-child(1) {
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+					-webkit-animation-delay: -0.825s;
+					animation-delay: -0.825s;
+				}
+
+				.lds-spinner div:nth-child(2) {
+					-webkit-transform: rotate(30deg);
+					transform: rotate(30deg);
+					-webkit-animation-delay: -0.75s;
+					animation-delay: -0.75s;
+				}
+
+				.lds-spinner div:nth-child(3) {
+					-webkit-transform: rotate(60deg);
+					transform: rotate(60deg);
+					-webkit-animation-delay: -0.675s;
+					animation-delay: -0.675s;
+				}
+
+				.lds-spinner div:nth-child(4) {
+					-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+					-webkit-animation-delay: -0.6s;
+					animation-delay: -0.6s;
+				}
+
+				.lds-spinner div:nth-child(5) {
+					-webkit-transform: rotate(120deg);
+					transform: rotate(120deg);
+					-webkit-animation-delay: -0.525s;
+					animation-delay: -0.525s;
+				}
+
+				.lds-spinner div:nth-child(6) {
+					-webkit-transform: rotate(150deg);
+					transform: rotate(150deg);
+					-webkit-animation-delay: -0.45s;
+					animation-delay: -0.45s;
+				}
+
+				.lds-spinner div:nth-child(7) {
+					-webkit-transform: rotate(180deg);
+					transform: rotate(180deg);
+					-webkit-animation-delay: -0.375s;
+					animation-delay: -0.375s;
+				}
+
+				.lds-spinner div:nth-child(8) {
+					-webkit-transform: rotate(210deg);
+					transform: rotate(210deg);
+					-webkit-animation-delay: -0.3s;
+					animation-delay: -0.3s;
+				}
+
+				.lds-spinner div:nth-child(9) {
+					-webkit-transform: rotate(240deg);
+					transform: rotate(240deg);
+					-webkit-animation-delay: -0.225s;
+					animation-delay: -0.225s;
+				}
+
+				.lds-spinner div:nth-child(10) {
+					-webkit-transform: rotate(270deg);
+					transform: rotate(270deg);
+					-webkit-animation-delay: -0.15s;
+					animation-delay: -0.15s;
+				}
+
+				.lds-spinner div:nth-child(11) {
+					-webkit-transform: rotate(300deg);
+					transform: rotate(300deg);
+					-webkit-animation-delay: -0.075s;
+					animation-delay: -0.075s;
+				}
+
+				.lds-spinner div:nth-child(12) {
+					-webkit-transform: rotate(330deg);
+					transform: rotate(330deg);
+					-webkit-animation-delay: 0s;
+					animation-delay: 0s;
+				}
+
+				.lds-spinner {
+					width: 200px !important;
+					height: 200px !important;
+					-webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+					transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+				}
+			</style>
+		</div>
+	</div>
+	<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+	<script>
+		if ('addEventListener' in document) {
+			document.addEventListener('DOMContentLoaded', function () {
+				FastClick.attach(document.body);
+			}, false);
+		}
+		if (!window.Promise) {
+			document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+		};
+		/**
+		 * promise 最后一个方法 无论是以then结尾还是catch结尾 都有可能无法捕获到 因为promise内部的错误不会冒泡到全局 
+		 * @Author   freemenL
+		 * @DateTime 2018-08-27T20:46:52+0800
+		 * @param    {[type]}                 onFulfilled [description]
+		 * @param    {[type]}                 onRejected  [description]
+		 * @return   {Function}                           [description]
+		*/
+		Promise.prototype.done = function (onFulfilled, onRejected) {
+			this.then(onFulfilled, onRejected).
+				catch(function (reason) {
+					setTimeout(() => { throw reason }, 0)
+				})
+		};
+		/**
+		 * 不管 promise 对象的最后是何状态都会执行的操作
+		 * @Author   freemenL
+		 * @DateTime 2018-08-27T20:58:44+0800
+		 * @param    {Function}               callback [description]
+		 * @return   {[type]}                          [description]
+		 */
+		Promise.prototype.finally = function (callback) {
+			let p = this.constructor;
+			return this.then(
+				value => p.resolve(callback()).then(() => value),
+				reason => p.resolve(callback()).then(() => { throw reason })
+			)
+		}
+		/**
+		 * AOP 
+		 * @Author   freemenL
+		 * @DateTime 2018-12-05T14:39:43+0800
+		 * @param    {[type]}                 beforefn [description]
+		 * @return   {[type]}                          [description]
+		 */
+		Function.prototype.before = function (beforefn) {
+			var __self = this; // 保存原函数的引用
+			return function () { // 返回包含了原函数和新函数的"代理"函数
+				beforefn.apply(this, arguments); // 执行新函数，修正 this 
+				return __self.apply(this, arguments); // 执行原函数
+			}
+		};
+
+		Function.prototype.after = function (afterfn) {
+			var __self = this;
+			return function () {
+				var ret = __self.apply(this, arguments);
+				afterfn.apply(this, arguments);
+				return ret;
+			}
+		};
+
+	</script>
+</body>
+
+</html>

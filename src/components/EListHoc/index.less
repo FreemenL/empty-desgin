@@ -1,0 +1,40 @@
+@import "../styles/index.less";
+
+.@{empty-prefix}-detail-wrapper{
+	background:#fff;
+	border:1px solid #eee;
+	border-top:0;
+	height:100%;
+	padding:16px;
+	&-row{
+		display: grid;
+		grid-template-columns: repeat(2,1fr);
+		&:not(:first-child){
+			div{
+				border-top:0;
+			}
+		}
+		div{
+			display: grid;
+			border:@list-border;
+			grid-template-columns: 1fr 2fr;
+			&:nth-child(1){
+				border-right:0;
+			}
+			span{
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+				&:nth-child(1){
+					text-align: left;
+					color:#000;
+	  				padding-left: 15px;
+	  	  			background:@list-first-bg;
+				}
+			}
+		}
+	}
+}

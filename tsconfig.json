@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "paths": { //配合webpack alias 字段的配置 
+      "@router/*": [
+        "src/router/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ],
+      "config/*": [
+        "config/*"
+      ],
+      "public/*": [
+        "src/public/*"
+      ],
+      "@actions/*": [
+        "src/store/actions/*"
+      ],
+      "constants/*": [
+        "src/store/constants/*"
+      ],
+      "@service/*": [
+        "src/service/*"
+      ]
+    },
+    "types": [
+      "lodash"
+    ],
+    "module": "esnext",
+    "target": "es6", // 编译成 es6 (Babel 将做剩下的事情)
+    "baseUrl": "./", // 可以相对这个目录 import 文件
+    "sourceMap": true, // 使 TypeScript 生成 sourcemaps 
+    "outDir": "dist", // 构建输出目录 (因为我们大部分时间都在使用 Webpack，所以不太相关)
+    "jsx": "react",
+    "strict": true,
+    "allowJs": false,
+    "importHelpers": true,
+    "locale": "en-us",
+    "lib": [
+      "esnext",
+      "es7",
+      "es6",
+      "es5",
+      "es2015.promise",
+      "es2015.generator",
+      "dom",
+      "es2015.reflect",
+      "esnext.asynciterable"
+    ],
+    "moduleResolution": "node",
+    "noImplicitAny": false, //避免类型检查
+    "emitDecoratorMetadata": true, // 给源码里的装饰器声明加上设计类型元数据
+    "experimentalDecorators": true, //启用实验性的装饰器
+    "noImplicitThis": true, //当 this表达式的值为 any类型的时候，生成一个错误
+    // "traceResolution":true,// 生成模块解析日志信息
+    "allowSyntheticDefaultImports": true //允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查
+  },
+  "typeRoots": [
+    "node",
+    "node_modules/@types",
+    "./typings"
+  ],
+  "exclude": [ // 这些目录下的代码不会被 typescript 处理
+    "dist",
+    "build",
+    "node_modules"
+  ]
+}

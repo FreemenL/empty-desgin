@@ -1,0 +1,38 @@
+@import "../styles/index.less";
+.@{empty-prefix}-page-header{
+	background: #304156;
+	.display(flex);
+	&-logo{
+		cursor:pointer;
+		margin:8px 20px;
+	}
+	&-title{
+		display: grid;
+    	grid-template-columns: 90px 300px;
+    	color:#f0f0f0;
+    	font-size:20px;
+	}
+	&-menu{
+		.display(flex);
+		li{
+			padding:0 20px;
+			color:#f0f0f0;
+		}
+	}
+	&-avatar-menu{
+		background:#ddd;
+		margin-top:-4px;
+		width:110%;
+		border:@list-border;
+		border-top:2px solid #33a7eb;
+	}
+	&-avatar{
+		cursor: pointer;
+		span:nth-last-of-type(1){
+			color:#fff;
+			position: relative;
+			top:2px;
+			margin-left:10px
+		}
+	}
+}
