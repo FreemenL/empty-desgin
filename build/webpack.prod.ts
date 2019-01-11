@@ -82,34 +82,75 @@ module.exports = merge(common, {
       maxInitialRequests: 3,
       automaticNameDelimiter: '~',
       cacheGroups: {
+        default:false,
+        "ant-icon": {
+          test: /[\\/]node_modules[\\/](@ant-design|_@ant-design)/,
+          chunks: 'initial',
+          minChunks: 1,
+          name: 'ant-icon',
+          priority:100,
+          enforce: true,
+        },        
+        moment: {
+          test: /[\\/]node_modules[\\/](moment|_moment)/,
+          chunks: 'initial',
+          minChunks: 1,
+          name: 'moment',
+          priority:99,
+          enforce: true,
+        },        
+        antd: {
+          test: /[\\/]node_modules[\\/](antd|_antd)/,
+          chunks: 'initial',
+          minChunks: 1,
+          name: 'antd',
+          priority:98,
+          enforce: true,
+        },        
+        emptyd: {
+          test: /[\\/]node_modules[\\/]emptyd/,
+          chunks: 'initial',
+          minChunks: 1,
+          name: 'emptyd',
+          priority:97,
+          enforce: true,
+        },        
+        echarts: {
+          test: /[\\/]node_modules[\\/](echarts|_echarts)/,
+          chunks: 'initial',
+          minChunks: 1,
+          name: 'echarts',
+          priority:97,
+          enforce: true,
+        },        
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          // 该配置项是设置处理的优先级，数值越大越优先处理
-          priority: -10
-        },
-        //创建一个vendors块，其中包括node_modules整个应用程序中的所有代码。
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial',
+          minChunks: 1,
           name: 'vendors',
-          chunks: 'all',
-        },
-        // 处理异步chunk 
+          priority:94,
+          enforce: true,
+        },        
+         // 处理异步chunk
         'async-vendors': {
           test: /[\\/]node_modules[\\/]/,
           minChunks: 2,
           chunks: 'async',
-          name: 'async-vendors'
+          priority:94,
+          name: 'async-vendors',
+          enforce: true,
         },
         style: {
           chunks: 'all',
-          name: 'styles',
+          name: 'style',
           minChunks: 1,
+          priority:90,
+          reuseExistingChunk: true,
           enforce: true,
-          test: /.(css|scss|less)/
+          test: /.(css|scss|less)$/
         }
       }
-    }
-  },
+    },
   plugins: [
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
