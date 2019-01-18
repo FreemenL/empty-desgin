@@ -21,7 +21,7 @@ class doLogin extends Component<any, any>{
         let validator = new Validator();
         validator.add(registerForm.elements[0],[{
             strategy:'isNonEmpty',
-            errorMsg:'用户名不能为空'
+            errorMsg:'用户名不为空'
         },{
             strategy:'minLength:11',
             errorMsg:'用户名不能小于11位'
