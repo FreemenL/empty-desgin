@@ -150,7 +150,8 @@ module.exports = merge(common, {
           test: /.(css|scss|less)$/
         }
       }
-    },
+    }
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
