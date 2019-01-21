@@ -1,37 +1,19 @@
-import React, { Component } from 'react';
-import styles from './index.less';
-import { Toast } from 'antd-mobile';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Prompt } from 'react-router'
+import {
+    Link
+} from 'react-router-dom';
 
-class Test extends Component<any, any>{
-    constructor(props) {
-        super(props);
-        this.state = {
-            dogOptions: [{
-                name: "线上犬证办理",
-                icon: ""
-            }, {
-                name: "办证点地图",
-                icon: ""
-            }, {
-                name: "办理结果查询",
-                icon: ""
-            }, {
-                name: "精彩活动1123",
-                icon: ""
-            },]
-        }
-        this.handleCheck = this.handleCheck.bind(this);
-    }
-    handleCheck(event) {
-       this.props.history.push("/home/2")
-    }
+class MyComponent extends React.Component {
     render() {
         return (
-            <div className={styles.container}>
-              detail
+            <div>
+              <Prompt message="表单尚未保存"/>
+              <Link to="/">取消</Link>
+              <Link to="/home">保存</Link>
             </div>
         )
     }
 }
-
-export default Test;
+export default MyComponent;

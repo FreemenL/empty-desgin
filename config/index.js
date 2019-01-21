@@ -34,6 +34,8 @@ module.exports = {
     // 路径别名相对源码目录
     appPathAlias: {
       '@src': '',
+      '@config':'config',
+      '@styles':"styles",
       '@components': `components`,
       '@actions': `store/actions`,
       '@constants': `store/constants`,

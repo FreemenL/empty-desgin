@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
-    "paths": { //配合webpack alias 字段的配置 
+    "paths": { //配合webpack alias 字段的配置
+      "@config/*":[
+        "src/config/*"
+      ], 
+      "@styles/*":[
+        "src/styles/*"
+      ],
       "@router/*": [
         "src/router/*"
       ],

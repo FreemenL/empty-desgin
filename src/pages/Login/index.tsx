@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import styles from './index.less';
 import connectAid, { Actions } from '@store/connect';
 import { Validator } from 'free-validator';
-const avatarPic = require("../../public/avatar.png");
+const avatarPic = require("./assets/img/avatar.png");
 
 @connectAid([Actions.LOGIN])
 @hot(module)
@@ -41,12 +41,12 @@ class doLogin extends Component<any, any>{
         const error = this.validataFunc(formElement);
         const errorMsgNode = formElement.getElementsByClassName("validator-tip");
         if(errorMsgNode.length>0){
-            Array.from(errorMsgNode).forEach((item,index)=>{
+            Array.from(errorMsgNode).forEach((item:any,index)=>{
                 item.parentNode.removeChild(item);
             })
         }
         if(error){
-            Array.from(formElement.elements).forEach((item,index)=>{
+            Array.from(formElement.elements).forEach((item:any,index)=>{
                 if(item["name"]==error["name"]){
                     const parentNode = item.parentNode;
                     const insert = parentNode.childElementCount==1;
