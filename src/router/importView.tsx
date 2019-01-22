@@ -1,7 +1,7 @@
 import React from 'react';
 import NProgress from 'nprogress'
 import Loadable from 'react-loadable';
-
+import components from '@components/load-component';
 
 const _import_views = file => Loadable.Map({
   loader: {
@@ -28,7 +28,7 @@ const loadingProxy = {
     return (<div>加载超时...... <button onClick={params.retry}>重试</button></div>);
   },
   pastDelay(){
-    return <p>loading...</p>
+    return components.Eloading.component;
   }
 }
 

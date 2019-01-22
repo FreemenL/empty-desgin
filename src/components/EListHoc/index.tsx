@@ -37,7 +37,7 @@ function EListHoc(data,Effect?:any){
 				<ul className={emptyListpanel}>
 					{data.data.map((dataItem,index)=>{
 						return(
-							<li>{dataItem.icon?<Icon type={dataItem.icon} />:null}{dataItem.title}</li>
+							<li key={dataItem.title}>{dataItem.icon?<Icon type={dataItem.icon} />:null}{dataItem.title}</li>
 						)
 					})}
 				</ul>
