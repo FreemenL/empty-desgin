@@ -1,7 +1,7 @@
 import  React,{ Component ,Fragment} from 'react';
 import freetool from 'freetool';
 
-import SearchControl from './SearchControl';
+import SearchControl from '@src/components/EsearchListHoc/SearchControl';
 import BadeSearch from "./BadeSearch";
 import ListPanel from "./ListPanel";
 import { defaultEsearchConfig } from "../constant";
