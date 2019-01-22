@@ -21,9 +21,9 @@
 -static/_dllLibrary__pro.dll.js
 -favicon.png
 -index.html
+-static/js/0.9c77952feb73c946f0c9.js.gz
 -static/js/1.ff62b69dff163a6072e8.js.gz
 -static/js/6.0873ee8232713b7585bf.js.gz
--static/js/0.9c77952feb73c946f0c9.js.gz
 -static/js/8.c70382f2c24e4432f7cb.js.gz
 -0.afe988a4fff2cb5ba71a.css.gz
 -static/_dllLibrary__pro.dll.js.gz
