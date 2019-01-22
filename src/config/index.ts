@@ -1,20 +1,22 @@
 export const config ={
-    LogoSrc:require('../public/favicon.png'),
     name:"emptyd-design",
+    LogoSrc:require('../public/favicon.png'),
     menuList:[
         {
-          pathname: '/home/rules', title: '开发规范', icon: 'schedule',
-          sub: [
-              { pathname: '/home/rules/index', title: '开发规范', icon: 'hdd'}
-          ]
+            pathname: '/home/home', title: '首页', icon: 'schedule'
+        },
+        {
+            pathname: '/home/rules', title: '开发规范', icon: 'schedule'
         }
     ],
+    mainRoute: ["/login","/"],
+    footerText:"emptyd-desigin created by lxj",
     userMsg:{
         accessToken: "048a7418-b74f-4a64-a245-1d1076db6930",
         userId: 251,
         lawenforceCode: null,
         telephone: "123",
-        name: "123",
+        name: "lxj",
         roleType: 0,
         roleTypeName: null,
         deptId: 43,

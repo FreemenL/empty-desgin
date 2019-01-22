@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 
-function Loading(){
+function ELoading(){
     return(
         <div className={styles["lds-spinner"]}>
             <div></div>
@@ -22,7 +22,7 @@ function Loading(){
 
 
 export default{
-	name:"Loading",
-	component:Loading
+	name:"ELoading",
+	component:ELoading
 }
 

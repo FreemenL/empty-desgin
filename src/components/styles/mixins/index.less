@@ -4,9 +4,14 @@
 }
 
 .transition(@prop){
-	transition: @prop .5s ease;
+	transition: @prop .3s ease;
 }
 
+.flex-around(){
+  .display(flex);
+  justify-content: space-around;
+  align-items: center
+}
 // mixins for clearfix
 .clearfix() {
   zoom: 1;

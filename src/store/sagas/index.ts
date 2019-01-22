@@ -16,7 +16,7 @@ function* login(){
 		try{
 			let token = yield call(service.home.login,username,password);
 			yield put({type:types.LOGIN_SUCCESS,token});
-			yield put(push('/home'));
+			yield put(push('/home/home'));
 			return token;
 		 }catch(error){
 			put({type:types.LOGIN_ERROR,error});

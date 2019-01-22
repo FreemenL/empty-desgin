@@ -1,6 +1,6 @@
 export default [
 	{
-		path:'/',
+		path:'/login',
 		component:"Login/index",
 	}
 ]

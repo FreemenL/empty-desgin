@@ -1,10 +1,11 @@
 @import "../styles/index.less";
 .@{empty-prefix}-page-header{
 	background: #304156;
+	padding: 0;
 	.display(flex);
 	&-logo{
 		cursor:pointer;
-		margin:8px 20px;
+		margin:8px 20px 0px 10px;
 	}
 	&-title{
 		&-text{
@@ -18,18 +19,20 @@
 	&-menu{
 		.display(flex);
 		li{
-			padding:0 20px;
+			padding:0 50px;
 			color:#f0f0f0;
 		}
 	}
 	&-avatar-menu{
-		background:#ddd;
-		margin-top:-4px;
-		width:110%;
-		border:@list-border;
-		border-top:2px solid #33a7eb;
+		visibility: hidden;
+		position: absolute;
+		right: 0;
+		transform: translateY(50px);
+		.transition(transform);
 	}
 	&-avatar{
+		position: relative;
+		padding: 0 20px;
 		cursor: pointer;
 		span:nth-last-of-type(1){
 			color:#fff;
@@ -37,9 +40,12 @@
 			top:2px;
 			margin-left:10px
 		}
-		padding:0px 20px;
 		&:hover{
 			background:#263445;
+			.@{empty-prefix}-page-header-avatar-menu{
+				visibility:visible;
+				transform: translateY(0px);
+			}
 		}
 	}
 }

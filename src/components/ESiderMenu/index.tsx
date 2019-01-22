@@ -147,7 +147,7 @@ class ESiderMenu extends Component<Props,any>{
 				  openKeys={this.state.openKeys}
 				  onOpenChange={this.onOpenChange}
 				  onClick={this.handleClick}
-				  style={{ height: '100%', borderRight: 0 }}
+				  style={{borderRight: 0 }}
 				>
 					{this.getMenu(this.props.menuList)}
 				</Menu>

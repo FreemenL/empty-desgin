@@ -36,11 +36,23 @@ interface headerConfig{
 function EheaderHoc(headerConfig:headerConfig){
 	@(withRouter as any)
 	class Eheader extends Component<any>{
+	myRef
 	constructor(props){
 		super(props);
+		this.myRef = React.createRef();
+	}
+	state={
+		menuTop:0
+	}
+	componentDidMount() {
+	  this.setState((prevState,props)=>{
+		  return{
+			menuTop:this.myRef.current.offsetHeight
+		  }
+	  })
 	}
 	render(){
-		   	transformMemuList.func(headerConfig.menuList);
+			transformMemuList.func(headerConfig.menuList);
 			return(
 			    <Header className={ EmptyPageHeader } style={{justifyContent:"space-between"}}>
 			     <div className={ EmptyPageHeader }>
@@ -55,12 +67,11 @@ function EheaderHoc(headerConfig:headerConfig){
 			      	</ul>
 			     </div>
 			     <div>
-			     	<Dropdown overlay={headerConfig.getMenu()} placement="bottomRight">
-			      		<div  className={EmptyAvatar}>
-			      			<Avatar src={headerConfig.userMsg.pic} size="large"/>
-			      			<span>{headerConfig.userMsg.name}</span>
-			      		</div>
-			    	</Dropdown>
+					<div  className={EmptyAvatar} ref={this.myRef}>
+						<Avatar src={headerConfig.userMsg.pic} size="large"/>
+						<span>{headerConfig.userMsg.name}</span>
+						<div className={EmptyAvatarMenu} style={{top:this.state.menuTop}}>{headerConfig.getMenu()}</div>	
+					</div>
 			     </div>
 			     
 			    </Header>

@@ -1,23 +1,36 @@
 import React,{Component} from 'react';
 import NProgress from 'nprogress';
-import ReactDOM from 'react-dom';
 import childRoutes from '@pages/load-child-routes';
 import { Prompt } from 'react-router';
 import getConfirmation from '@components/getConfirmation';
-import Routers,{ HashRouter as Router, Route, Switch ,Redirect} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch ,Redirect} from 'react-router-dom';
+import { config } from '@config/index';
 
 
 const RouteWithSubRoutes = (route) =>{
   return(
-  <Route exact path={route.path} render={props =>{ 
+  <Route  path={route.path} render={props =>{ 
     return(
-    <route.component  jump={props.history.push} params={props.match.params} {...props}/>
+      <route.component  jump={props.history.push} params={props.match.params} {...props}/>
   )}}/>
 
 )}
 // 路由配置
+const transRoute:Array<any> = [];
 
-class Routes extends Component{
+childRoutes.forEach((route:any)=>{
+  config.mainRoute.forEach((tem)=>{
+    if(route.path ===   tem ){
+      transRoute.unshift(route)
+    }
+  })
+})
+
+class Routes extends Component<any>{
+  static defaultProps = {
+    route:transRoute,
+    type:"main"
+  }
   static getDerivedStateFromProps(nextProps,prevState){
     NProgress.start();
     return null
@@ -29,18 +42,27 @@ class Routes extends Component{
   }
 
   render() {
-    return (
-      <Router  getUserConfirmation={getConfirmation("comfirm")}>
-        <div className="app">
+    const renderEle={
+      main:(
+        <Router  getUserConfirmation={getConfirmation("comfirm")}>
             <Switch>
-              {childRoutes.map((route:any, i) =>(
+              {this.props.route.map((route:any, i) =>(
                 <RouteWithSubRoutes key={route.path} {...route}/>
               ))}
             </Switch>
-        </div>
-      </Router>
-    )
+        </Router>
+      ),
+      child:(
+        <Switch>
+        {this.props.route.map((route:any, i) =>(
+            <RouteWithSubRoutes key={route.path} {...route}/>
+          ))}
+        </Switch>
+      )
+    }
+    return renderEle[this.props.type]
   }
 }
+
 
 export default Routes;

@@ -8,8 +8,10 @@ interface Props{
 }
 
 class EColorPicker extends Component<Props,any>{
+  handleChange
   constructor(props){
     super(props);
+    this.handleChange = this.props.handleChange.bind(this)
   }
   shouldComponentUpdate(nextProps,nextState){
     if(this.props.showPicker!==nextProps.showPicker){
@@ -25,7 +27,7 @@ class EColorPicker extends Component<Props,any>{
   }
   render(){
     return(
-      <SketchPicker  onChange={ this.props.handleChange.bind(this) } className={`${styles["empty-color-picker"]} ${styles[this.props.showPicker]}`}/>
+      <SketchPicker  onChange={ this.handleChange } className={`${styles["empty-color-picker"]} ${styles[this.props.showPicker]}`}/>
     )
   }
 }

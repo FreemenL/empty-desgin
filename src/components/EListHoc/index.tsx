@@ -34,10 +34,10 @@ function EListHoc(data,Effect?:any){
 	const listResult = {
 		panel:(function(){
 			return(
-				<ul className={emptyListpanel}>
+				<ul className={emptyListpanel} style={{width:data.width||""}}>
 					{data.data.map((dataItem,index)=>{
 						return(
-							<li key={dataItem.title}>{dataItem.icon?<Icon type={dataItem.icon} />:null}{dataItem.title}</li>
+							<li key={dataItem.title} onClick={dataItem.click.bind(this)}>{dataItem.icon?<Icon type={dataItem.icon} />:null}{dataItem.title}</li>
 						)
 					})}
 				</ul>
