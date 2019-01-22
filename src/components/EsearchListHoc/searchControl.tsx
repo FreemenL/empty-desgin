@@ -6,8 +6,8 @@ import autobind from 'autobind-decorator';
 
 /* 自定义模块 */
 import freetool from 'freetool';
-import { SearchLayout } from '../Layout/layout';
-import EformIndex from '../Eform/index';
+import { SearchLayout } from '@src/components/Layout/layout';
+import EformIndex from '@src/components/Eform';
 
 //less
 import styles from './index.less';
