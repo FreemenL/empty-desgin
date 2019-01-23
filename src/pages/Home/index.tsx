@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader';
 import { Layout ,BackTop} from 'antd';
 import componentes from '@components/load-component';
@@ -11,6 +10,7 @@ import freeTool from 'freetool';
 const { Content, Footer} = Layout;
 const { EheaderHoc ,EListHoc ,Prompt ,ESiderMenu ,Ebeard } = componentes;
 const contentClass = styles["empty-system-content"];
+const contentFooterClass = styles["empty-system-content-footer"];
 
 @hot(module)
 class Home extends Component<any,any> {
@@ -94,7 +94,7 @@ class Home extends Component<any,any> {
       <Layout  className={contentClass} >
         <HeaderCom/>
         <Layout>
-            { menuLists.length>0?<ESiderMenu.component callback={this.handleback} menuList={menuList}/>:null}
+            { menuLists.length>0?<ESiderMenu.component callback={this.handleback} menuList={menuLists}/>:null}
             <Layout>
               {(isHome)?
                 null:
@@ -102,10 +102,10 @@ class Home extends Component<any,any> {
                   <Ebeard.component menus={menuLists}/>
                 </div>
               }              
-                <Content id='content' >
+                <Content id='content'>
                     <ChildRoute route={Routes.filter((route:any)=>!mainRoute.includes(route.path))} type='child' />
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>
+                <Footer className={contentFooterClass}>
                     { footerText }
                 </Footer>
               <BackTop  target ={()=>document.getElementById('content')} visibilityHeight='100'/>

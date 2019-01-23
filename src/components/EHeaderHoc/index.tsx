@@ -54,7 +54,7 @@ function EheaderHoc(headerConfig:headerConfig){
 	render(){
 			transformMemuList.func(headerConfig.menuList);
 			return(
-			    <Header className={ EmptyPageHeader } style={{justifyContent:"space-between"}}>
+			    <Header className={ EmptyPageHeader } style={{justifyContent:"space-between",zIndex:9}}>
 			     <div className={ EmptyPageHeader }>
 			     	<span className={ EmptyPageHeaderTitle }>
 						<img  src={ headerConfig.LogoSrc} alt="logo" width={62} height={50} className={EmptyPageHeaderLogo}/>
@@ -73,7 +73,6 @@ function EheaderHoc(headerConfig:headerConfig){
 						<div className={EmptyAvatarMenu} style={{top:this.state.menuTop}}>{headerConfig.getMenu()}</div>	
 					</div>
 			     </div>
-			     
 			    </Header>
 			)
 		}

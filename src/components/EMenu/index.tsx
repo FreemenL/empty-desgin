@@ -3,7 +3,7 @@ import { Route ,Link } from 'react-router-dom';
 
 import styles from './index.less';
 
-function Emenu({to,children}){
+function Emenu({to,children}:{to:string,children:any}){
   return (
   	<Route path={to} children={(props)=>{
   		const target = props.location.pathname.split('/')[2];
@@ -13,9 +13,10 @@ function Emenu({to,children}){
   		return(
   			<Link to={ to }>
 	  			<li key={to} className={(props.match||active)?`${styles['empty-menu-item'] } ${styles['empty-menu-item-active']}`:`${styles['empty-menu-item']}`}>
-	  				{ children }
+					{ children }
+					<span className={styles["pointer"]}></span>
 	  			</li>
-	  	    </Link>
+	  	  </Link>
   		)
   	}}/>
   )

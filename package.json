@@ -108,6 +108,7 @@
     "maintained node versions"
   ],
   "dependencies": {
+    "animate.css": "^3.7.0",
     "antd": "^3.11.2",
     "autobind-decorator": "^2.4.0",
     "classnames": "^2.2.6",

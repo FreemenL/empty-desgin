@@ -56,8 +56,8 @@ function EListHoc(data,Effect?:any){
 											<div key={`list${Math.random()}`}>
 												<span>{Object.keys(items)[0]}</span>
 												<Tooltip placement="right" title={Object.values(items)[0]}>
-												<span>{Object.values(items)[0]}</span>
-											</Tooltip>
+													<span>{Object.values(items)[0]}</span>
+												</Tooltip>
 											</div>
 										)
 									})}

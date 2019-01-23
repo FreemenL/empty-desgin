@@ -93,7 +93,7 @@ const webpackBaseConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name:'[path][name].[ext]?[hash]'
+          name:'static/imgs/[name].[ext]?[hash]'
         }
       }]
     },
@@ -103,7 +103,7 @@ const webpackBaseConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name:'[path][name].[ext]?[hash]'
+          name:'static/vedio/[name].[ext]?[hash]'
         }
       }]
     },
@@ -113,7 +113,7 @@ const webpackBaseConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name:'[path][name].[ext]?[hash]'
+          name:'static/file/[name].[ext]?[hash]'
         }
       }]
     }, {

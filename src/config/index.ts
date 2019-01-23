@@ -6,7 +6,11 @@ export const config ={
             pathname: '/home/home', title: '首页', icon: 'schedule'
         },
         {
-            pathname: '/home/rules', title: '开发规范', icon: 'schedule'
+            pathname: '/home/rules', title: '开发规范', icon: 'schedule',
+            sub: [
+                { pathname: '/home/rules/web', title: 'web规范', icon: 'form', },
+                { pathname: '/home/rules/mobile', title: '移动规范', icon: 'table', },
+            ]
         }
     ],
     mainRoute: ["/login","/"],
