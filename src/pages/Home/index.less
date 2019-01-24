@@ -2,9 +2,98 @@
 
 .@{empty-prefix}-system-content{
     min-height: 100%;
+    &-wrapper{
+      background: #fff;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin-right:10px;
+    }
     &-footer{
         text-align: center;
         font-weight: 600;
         color:#999
     }
 }
+
+:global{ 
+    /* Base Application Styles */
+  a{
+    text-decoration: none;
+  }
+  ul,li{
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+  }
+  h1,h2,h3,h4,h5{
+    margin: 0;
+    padding:0;
+    font-weight: normal;
+  }
+  img{
+    max-width: 100%;
+  }
+  .validator-tip{
+    color: #f50;
+    position: absolute;
+    top: 46px;
+    padding-left: 24px;
+  }
+
+  #root{
+    width: 100%;
+    height:100%;
+  }
+
+  .ant-layout-sider{
+    margin-right:20px;
+  }
+
+  .empty-title{
+    color:#000;
+    font-weight:600;
+    margin-bottom: 10px;
+  }
+
+  .empty-code{
+    color: #c41d7f;
+    padding: 4px 8px;
+    background-color: #f0eaea;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+  .empty-line-content{
+    color:#333;
+    height:40px;
+    line-height: 40px;
+  }
+  .emptyd-content{
+    padding-left:10px;
+    padding-top:10px;
+  }
+
+  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+  ::-webkit-scrollbar  
+  {  
+      width:5px;  
+      height:5px;  
+      background-color: #F5F5F5;  
+  }  
+
+  /*定义滚动条轨道 内阴影+圆角*/  
+  ::-webkit-scrollbar-track  
+  {  
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+      border-radius: 10px;  
+      background-color: #F5F5F5;  
+  }  
+    
+  /*定义滑块 内阴影+圆角*/  
+  ::-webkit-scrollbar-thumb  
+  {  
+      border-radius: 10px;  
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+      background-color: #666;  
+  }
+}
+

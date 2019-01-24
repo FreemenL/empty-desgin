@@ -20,7 +20,7 @@ class MyComponent extends React.Component {
 
     handleProxy={
        start(_this){
-          _this.props.jump("/home/rules/web");
+          _this.props.jump("/home/rules/intro");
        },
        jump(){
           window.open('https://github.com/FreemenL/emptyd-admin-webpack')

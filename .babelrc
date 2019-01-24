@@ -10,6 +10,12 @@
       "libraryName": "antd",
       "libraryDirectory": "es", "style": true
     }],
+    ["prismjs", {
+      "languages": ["ts","less", "tsx","json"],
+      "plugins": ["line-numbers"],
+      "theme": "twilight",
+      "css": true
+    }],
     "transform-runtime",
     "syntax-dynamic-import",
     "react-hot-loader/babel"

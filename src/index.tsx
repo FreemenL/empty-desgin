@@ -6,7 +6,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import  Routes from '@router/router';
 import store, { history } from '@store/store';
 
-import "./app.less";
 import "normalize.css";
 import "animate.css"
 

@@ -9,7 +9,10 @@ import ChildRoute from '@router/router';
 import freeTool from 'freetool';
 const { Content, Footer} = Layout;
 const { EheaderHoc ,EListHoc ,Prompt ,ESiderMenu ,Ebeard } = componentes;
+
+
 const contentClass = styles["empty-system-content"];
+const contentWrapperClass = `${styles["empty-system-content-wrapper"]}`;
 const contentFooterClass = styles["empty-system-content-footer"];
 
 @hot(module)
@@ -102,7 +105,7 @@ class Home extends Component<any,any> {
                   <Ebeard.component menus={menuLists}/>
                 </div>
               }              
-                <Content id='content'>
+                <Content id='content' className={contentWrapperClass}>
                     <ChildRoute route={Routes.filter((route:any)=>!mainRoute.includes(route.path))} type='child' />
                 </Content>
                 <Footer className={contentFooterClass}>

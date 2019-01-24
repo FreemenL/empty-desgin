@@ -29,7 +29,7 @@ module.exports = {
     appTsLoader: ['node_modules/_free-validator@1.0.7@free-validator', 'node_modules/_freetool@0.0.3@freetool'],
     // 静态资源路径 存放较大文件 该目录下存放文件会被 CopyWebpackPlugin 直接复制到打包后dist/static 路径
     appStatic: 'static',
-    // node_modules 下不会被cssmodule 处理的文件路径
+    // 下不会被 cssmodule 处理的文件路径
     appExcludeCssModule: ['antd', 'normalize.css','animate.css', 'rc-texty', 'nprogress', 'braft-editor', 'rc-queue-anim', 'viewerjs'],
     // 路径别名相对源码目录
     appPathAlias: {

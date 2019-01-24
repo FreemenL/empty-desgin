@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
+import styles from './index.less';
 
 let breadcrumbNameMap = {};
 const readMenuData = (data)=>{
@@ -30,14 +31,14 @@ const Ebeard = withRouter((props:any) => {
     const tempObj =  readMenuData(menus);
     if (tempObj.hasOwnProperty(url)) {
       return (
-        <Breadcrumb.Item key={url}>
+        <Breadcrumb.Item key={url} className={`${styles['empty-beard-menu-animate']} animated slideInRight`}>
             {tempObj[url]}
         </Breadcrumb.Item>
       )
     }
   });
   return (
-    <div style={{ 'letterSpacing': "3px"}}>
+    <div className={`${styles['empty-beard-menu']}`}>
       <Breadcrumb>
         {breadcrumbItems}
       </Breadcrumb>

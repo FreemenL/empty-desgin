@@ -8,6 +8,7 @@ export const config ={
         {
             pathname: '/home/rules', title: '开发规范', icon: 'schedule',
             sub: [
+                { pathname: '/home/rules/intro', title: '简介', icon: 'form', },
                 { pathname: '/home/rules/web', title: 'web规范', icon: 'form', },
                 { pathname: '/home/rules/mobile', title: '移动规范', icon: 'table', },
             ]

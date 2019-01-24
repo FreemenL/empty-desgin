@@ -1,6 +1,6 @@
 export default [
 	{
-		path:'/render',
+		path:'/home/rules/intro',
 		component:"Render/index",
 	}
 ]
