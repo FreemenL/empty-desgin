@@ -1,5 +1,3 @@
-
-import { delay } from 'redux-saga';
 import { all, call ,put, takeEvery ,fork } from "redux-saga/effects";
 import * as types from '../action-types';
 import { push } from 'connected-react-router'

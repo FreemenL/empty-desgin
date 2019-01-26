@@ -3,10 +3,9 @@ import { bindActionCreators } from 'redux';
 import freetool from 'freetool';
 import controller from '@store/connect/controller';
 
-const { getDisplayName } = freetool;
 import { connect } from 'react-redux';
 import actions from '@actions/index';
-
+const { getDisplayName } = freetool;
 
 interface Props {
 	Actions: any,
