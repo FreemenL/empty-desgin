@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs", 
-    "target": "es5", // 编译成 es6 (Babel 将做剩下的事情)
+    "target": "es5", 
     "lib": [ 
       "es5",
       "es2015",

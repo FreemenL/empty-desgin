@@ -73,22 +73,21 @@ module.exports = {
     'no-ex-assign': 2, // 禁止对 catch 子句的参数重新赋值
     'no-extra-boolean-cast': 2, // 禁止不必要的布尔转换
     'no-extra-semi': 0, // 禁止不必要的分号
-    'no-func-assign': 2, // 禁止对 function 声明重新赋值
+    // 'no-func-assign': 2, // 禁止对 function 声明重新赋值
     'no-inner-declarations': 2, // 禁止在嵌套的块中出现变量声明或 function 声明
     'no-invalid-regexp': 2, // 禁止 RegExp 构造函数中存在无效的正则表达式字符串
     'no-irregular-whitespace': 2, // 禁止在字符串和注释之外不规则的空白
     'no-obj-calls': 2, // 禁止把全局对象作为函数调用
     'no-regex-spaces': 2, // 禁止正则表达式字面量中出现多个空格
-    'no-sparse-arrays': 2, // 禁用稀疏数组
     'no-template-curly-in-string': 2, // 禁止在常规字符串中出现模板字面量占位符语法      
     'no-unreachable': 2, // 禁止在return、throw、continue 和 break 语句之后出现不可达代码
     'no-unsafe-negation': 2, // 禁止对关系运算符的左操作数使用否定操作符
     'use-isnan': 2, // 要求使用 isNaN() 检查 NaN
     'valid-typeof': 2, // 强制 typeof 表达式与有效的字符串进行比较
-    'curly': 2, // 强制所有控制语句使用一致的括号风格
+    // 'curly': 2, // 强制所有控制语句使用一致的括号风格
     'dot-location': 2, // 强制在点号之前和之后一致的换行
     'no-caller': 2, // 禁用 arguments.caller 或 arguments.callee
-    'no-empty-function': 1, // 禁止出现空函数 
+    // 'no-empty-function': 1, // 禁止出现空函数 
     'no-empty-pattern': 2, // 禁止使用空解构模式
     'no-lone-blocks': 2, // 禁用不必要的嵌套块
     'no-redeclare': 2, // 禁止多次声明同一变量

@@ -1,15 +1,14 @@
 import React,{Component}from 'react';
 import { Form } from 'antd';
-import { emptyFormConfig } from '../constant';
-
 import freetool from 'freetool';
+import autobind from 'autobind-decorator';
+
+import { emptyFormConfig } from '../constant';
 import EwapperHoc from '../EwapperHoc';
 import EformIndex from '../Eform/index';
 
-import autobind from 'autobind-decorator';
 const { mergeConfig } = freetool;
 const {component:Eform} = EformIndex;
-
 
 function EFormHoc(this:any,EformConfig,pattern){
 	const that = this;

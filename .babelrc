@@ -11,9 +11,9 @@
       "libraryDirectory": "es", "style": true
     }],
     ["prismjs", {
-      "languages": ["ts","less", "tsx","json"],
-      "plugins": ["line-numbers"],
-      "theme": "twilight",
+      "languages": ["markup","javascript","tsx","less","json","markdown","bash"],
+      "plugins": ["line-numbers","normalize-whitespace"],
+      "theme": "okaidia",
       "css": true
     }],
     "transform-runtime",

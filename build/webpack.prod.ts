@@ -1,7 +1,6 @@
 /**
  * 生产环境配置
  */
-import * as path from 'path';
 const chalk = require('chalk');//终端样式
 const webpack = require('webpack');
 const merge = require('webpack-merge');

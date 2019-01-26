@@ -13,7 +13,7 @@ const existsDllLibrary = (env)=>fs.existsSync(resolveApp(`${paths.appStatic}/${s
 const devDllLibrary = `${paths.appStatic}/${systemPath.appdllLibrary}_dev.dll.js`
 const hint = (msg)=> console.log(chalk.green(msg));
 
-const PromiseAll=(params)=>{
+const PromiseAll=(params):any=>{
 	if(Array.isArray(params)){
 		const length = params.length;
 		let num = 0;

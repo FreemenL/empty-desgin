@@ -1,6 +1,5 @@
-import * as path from 'path';
-import * as fs from 'fs';
-
+import path from 'path';
+const fs = require('fs');
 const paths = require("./paths");
 const chalk = require('chalk');
 const webpack = require('webpack');
@@ -12,6 +11,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+const { CheckerPlugin } = require("awesome-typescript-loader");
 //优化
 const HappyPack = require('happypack');
 const os = require('os');
@@ -46,6 +46,9 @@ const webpackBaseConfig = {
           useTranspileModule: false,
           sourceMap: devMode,
           forceIsolatedModules: true,
+          reportFiles: [
+            "src/**/*.{ts,tsx}"
+          ],
           configFileName: paths.appTsConfig
         },
       },
@@ -157,34 +160,35 @@ const webpackBaseConfig = {
         ignore: [".*"],
       }
     ]),
-    new ForkTsCheckerWebpackPlugin({
-      ignoreLints: [
-        'no-console',
-        'object-literal-sort-keys',
-        'quotemark',
-      ],
-      async: false,
-      checkSyntacticErrors: true,
-      tsconfig: paths.appTsConfig,
-      compilerOptions: {
-        module: "esnext",
-        target: "es6",
-        moduleResolution: 'node',
-        resolveJsonModule: true,
-        isolatedModules: true,
-        noEmit: true,
-        jsx: 'preserve',
-      },
-      reportFiles: [
-        '**',
-        '!**/*.json',
-        '!**/*.(less|css)',
-        '!**/__tests__/**',
-        '!**/?(*.)(spec|test).*'
-      ],
-      watch: paths.appSrc,
-      silent: true,
-    }),
+    new CheckerPlugin(),
+    // new ForkTsCheckerWebpackPlugin({
+    //   ignoreLints: [
+    //     'no-console',
+    //     'object-literal-sort-keys',
+    //     'quotemark',
+    //   ],
+    //   async: false,
+    //   checkSyntacticErrors: true,
+    //   tsconfig: paths.appTsConfig,
+    //   compilerOptions: {
+    //     module: "esnext",
+    //     target: "es6",
+    //     moduleResolution: 'node',
+    //     resolveJsonModule: true,
+    //     isolatedModules: true,
+    //     noEmit: true,
+    //     jsx: 'preserve',
+    //   },
+    //   reportFiles: [
+    //     '**',
+    //     '!**/*.json',
+    //     '!**/*.(less|css)',
+    //     '!**/__tests__/**',
+    //     '!**/?(*.)(spec|test).*'
+    //   ],
+    //   watch: paths.appSrc,
+    //   silent: true,
+    // }),
     new HtmlWebpackPlugin({
       title,
       template: htmlTemplate,

@@ -3,10 +3,11 @@
 .@{empty-prefix}-system-content{
     min-height: 100%;
     &-wrapper{
-      background: #fff;
+      height: 600px;
+      overflow: auto;
+      background: #f0f2f5;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      margin-right:10px;
     }
     &-footer{
         text-align: center;
@@ -56,9 +57,9 @@
   }
 
   .empty-code{
-    color: #c41d7f;
+    color: #5b5be0;
     padding: 4px 8px;
-    background-color: #f0eaea;
+    background-color: #d4d4f7;
     border-radius: 4px;
     margin: 0 5px;
   }
@@ -68,8 +69,12 @@
     line-height: 40px;
   }
   .emptyd-content{
-    padding-left:10px;
+    padding-left:20px;
     padding-top:10px;
+    background: #fff;
+    min-height: calc(~'100%-70px');
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  

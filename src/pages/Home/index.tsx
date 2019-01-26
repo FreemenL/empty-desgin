@@ -107,11 +107,11 @@ class Home extends Component<any,any> {
               }              
                 <Content id='content' className={contentWrapperClass}>
                     <ChildRoute route={Routes.filter((route:any)=>!mainRoute.includes(route.path))} type='child' />
+                    <Footer className={contentFooterClass}>
+                      { footerText }
+                    </Footer>
                 </Content>
-                <Footer className={contentFooterClass}>
-                    { footerText }
-                </Footer>
-              <BackTop  target ={()=>document.getElementById('content')} visibilityHeight='100'/>
+              <BackTop  target ={()=>document.getElementById('content')} visibilityHeight={100}/>
             </Layout>
         </Layout>
       </Layout>
