@@ -206,7 +206,116 @@ class Test extends Component<any, any> {
         <p className="empty-line-content">
           5、回到组件中
         </p>
-
+        <EcodeHighlight.component language='tsx'>{`
+          import React, { Component } from 'react';
+          ...
+    
+          // 配置action 函数
+          @connectAid([Actions.LOGIN])
+          //在组件的props 中便能获取到action函数和所有的状态 
+          class doLogin extends Component<any, any>{
+              refForm
+              constructor(props) {
+                 ...
+              }
+              validataFunc(registerForm){
+                  ...
+              }
+              handleSubmit(event){
+                  ...
+                  //派发action
+                  this.props.Actions.doLogin('username',1234);
+              }
+              render() {
+                  return (
+                     ...
+                  )
+              }
+          }
+          
+          export default doLogin;              
+        `}
+        </EcodeHighlight.component>
+        <p className="empty-line-content">
+          5、关于<code className="empty-code">异步action</code> 我们用的<code className="empty-code">redux-saga</code>来做的处理
+        </p>
+        <EcodeHighlight.component language='tsx'>{`
+          import { all, call ,put, takeEvery } from "redux-saga/effects";
+          import * as types from '../action-types';
+          import { push } from 'connected-react-router'
+          import service from "@service/load-service";
+          
+          interface Login{
+            type:string,
+            username:string,
+            password:string|number
+          }
+          
+          function* login(){
+            yield takeEvery(types.LOGIN_REQUEST,function*({type,username,password}:Login){
+              try{
+                // 接口调用
+                let token = yield call(service.system.login,username,password);
+                yield put({type:types.LOGIN_SUCCESS,token});
+                yield put(push('/home/home'));
+                return token;
+               }catch(error){
+                put({type:types.LOGIN_ERROR,error});
+               }	
+            });
+          
+          }
+          
+          export function* rootSaga({dispatch,getState}){
+            yield all([login()])
+          }                        
+        `}
+        </EcodeHighlight.component>
+        <h1 className="empty-title"> 接口调用规范 @service/** </h1>
+        <p className="empty-line-content">
+          1、在<code className="empty-code">@service</code> 目录下新建 *.api.ts 
+        </p>
+        <EcodeHighlight.component language='tsx'>{`
+          export default {
+            //命名空间  业务模块名称
+            namespace:"system",
+            // 定义接口函数 
+            apis:{
+              login(username,password){
+                return new Promise((resolve,reject)=>{
+                  setTimeout(()=>{
+                    resolve(username+password);
+                  },1000)
+                })
+              }
+            }
+          }                  
+        `}
+        </EcodeHighlight.component>
+        <p className="empty-line-content">
+          2 、调用
+        </p>
+        <EcodeHighlight.component language='tsx'>{`
+          ...
+          import service from "@service/load-service";
+          
+          ...
+          function* login(){
+            yield takeEvery(types.LOGIN_REQUEST,function*({type,username,password}:Login){
+              try{
+                // 接口调用
+                let token = yield call(service.system.login,username,password);
+                ...
+               }catch(error){
+                ...
+               }	
+            });
+          
+          }
+          
+          ...                      
+        `}
+        </EcodeHighlight.component>
       </div>
     );
   }

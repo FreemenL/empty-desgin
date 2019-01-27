@@ -1,4 +1,4 @@
-import { all, call ,put, takeEvery ,fork } from "redux-saga/effects";
+import { all, call ,put, takeEvery } from "redux-saga/effects";
 import * as types from '../action-types';
 import { push } from 'connected-react-router'
 import service from "@service/load-service";
@@ -12,7 +12,7 @@ interface Login{
 function* login(){
 	yield takeEvery(types.LOGIN_REQUEST,function*({type,username,password}:Login){
 		try{
-			let token = yield call(service.home.login,username,password);
+			let token = yield call(service.system.login,username,password);
 			yield put({type:types.LOGIN_SUCCESS,token});
 			yield put(push('/home/home'));
 			return token;

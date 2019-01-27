@@ -1,5 +1,5 @@
 export default {
-	namespace:"home",
+	namespace:"system",
 	apis:{
 		login(username,password){
 			return new Promise((resolve,reject)=>{
