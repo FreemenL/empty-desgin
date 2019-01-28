@@ -52,6 +52,16 @@
       padding:0px 13px
   }
 }
+.empty-layout-flex(@layout) when( @layout = between ){
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty-layout-flex(@layout) when( @layout = around ){
+  display: flex;
+  justify-content: space-around;
+}
+
 .generatorEmptyDrawer(@direction)when( @direction = left ){
   min-height: calc(~"100% - 70px") !important;
   margin-top: 64px !important;

@@ -3,7 +3,7 @@ import components from '@components/load-component';
 
 const { EcodeHighlight } = components;
 
-class Test extends Component<any, any> {
+class Intro extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
@@ -314,4 +314,4 @@ class Test extends Component<any, any> {
   }
 }
 
-export default Test;
+export default Intro;

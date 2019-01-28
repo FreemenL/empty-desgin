@@ -22,7 +22,7 @@ class EcodeHighlight extends Component<Props,any>{
     render(){
         const { children ,showNumber, language } = this.props;
         return(
-            <div ref={this.ref}>
+            <div ref={this.ref} style={{borderTop:"1px dashed #ebedf0",padding:"10px 15px"}} className="animated fadeIn">
                 <pre className={showNumber?'line-numbers':''}>
                     <code className={`language-${language}`}>{`
                         ${children}

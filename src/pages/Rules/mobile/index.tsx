@@ -3,7 +3,7 @@ import components from '@components/load-component';
 
 const { EcodeHighlight } = components;
 
-class Test extends Component<any, any> {
+class Mobile extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
@@ -20,7 +20,10 @@ class Test extends Component<any, any> {
         </p>
         <h1 className="empty-title"> 移动端自适应方案 </h1>
         <p className="empty-line-content">
-          1、在 <code className="empty-code">postcss.config.js</code>中，用如下 代码框的配置 替换全部，再修改 viewportWidth 和 viewportHeight 对应设计稿的宽度和高度
+          1、移动端适配采用的是<code className="empty-code">vw vh 方案 </code>具体配置如下 相对rem的好处就是 不同去单独处理iphone4和ipbone5的适配,经过postcss的处理直接写px单位即可
+        </p>
+        <p className="empty-line-content">
+          2、在 <code className="empty-code">postcss.config.js</code>中，用如下 代码框的配置 替换全部，再修改 viewportWidth 和 viewportHeight 对应设计稿的宽度和高度
         </p>
         <EcodeHighlight.component language='tsx'>{`
           module.exports = (ctx) => ({
@@ -60,9 +63,6 @@ class Test extends Component<any, any> {
         `}
         </EcodeHighlight.component>
         <p className="empty-line-content">
-          2、移动端适配采用的是vw vh 方案 具体配置如下 相对rem的好处就是 不同去单独处理iphone4和ipbone5的是适配
-        </p>
-        <p className="empty-line-content">
           3、安装插件包：
         </p>
         <EcodeHighlight.component language='bash' showNumber={false}>
@@ -75,4 +75,4 @@ class Test extends Component<any, any> {
   }
 }
 
-export default Test;
+export default Mobile;

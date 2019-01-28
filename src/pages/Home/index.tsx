@@ -17,6 +17,9 @@ const contentFooterClass = styles["empty-system-content-footer"];
 
 @hot(module)
 class Home extends Component<any, any> {
+  state
+  setState
+  props
   static getDerivedStateFromProps(nextProps, prevState) {
     return null
   }
@@ -92,7 +95,7 @@ class Home extends Component<any, any> {
       pathname = `${path}/${ends}`;
     }
     const menuLists = freeTool.getMenuList(pathname, menuList) || [];
-    const isHome = this.props.location.pathname == "/home/home";
+    const isHome = this.props.location.pathname == "/home/home";    
     return (
       <Layout className={contentClass} >
         <HeaderCom />
