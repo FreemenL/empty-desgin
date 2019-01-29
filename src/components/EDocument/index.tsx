@@ -7,7 +7,7 @@ import EcodeHighlight from '@components/EcodeHighlight';
 import styles from './index.less';
 
 const render =  (text ,type) => {
-  const textContent = text.replace(/(\b\w+\b)|([<>{},.;:"'!])/g,function(content){
+  const textContent = text.replace(/(\b\w+\b)|([<>(){},.;:"'!])/g,function(content){
     return (`<span class="empty-api-${type}">${content}</span>`)
   })
   return (<span dangerouslySetInnerHTML={{__html:textContent}}></span>)
@@ -42,19 +42,17 @@ const columns = [{
 }];
 
 interface Props{
+  components:Array<{code:string,titDescripttion:string,component:React.ReactNode}>,
   documentData:Array<string>,
   title:string,
-  titDescripttion:string,
   doctitle?:string,
   docDescripttion:string,
-  component:React.ReactNode
 }
 
-class EDocument extends Component<Props,any>{
+class Edocument extends Component<Props,any>{
 
   static defaultProps={
     title:"组件标题",
-    titDescripttion:"组件基本描述",
     doctitle:"API",
     docDescripttion:"文档属性描述",
   }
@@ -65,38 +63,46 @@ class EDocument extends Component<Props,any>{
   }
 
   state = {
-    //是否显示行号
-    showCode:false
+    //是否显示代码
+    showCode:this.props.components.map((doc,idx)=>({showCode:false})),
+
   }
 
-  iconClick(){
+  iconClick(event){
+    const idx = event.target.getAttribute("data-index");    
     this.setState((prevState,props)=>{
-      return {showCode:!prevState.showCode}
+      const newState =  {showCode:!(prevState["showCode"][idx]["showCode"])};
+      prevState.showCode.splice(idx,1,newState)
+      return {showCode:prevState.showCode}
     })
   }
 
   render(){
 
-    const { documentData , title, titDescripttion, doctitle, docDescripttion ,component , code } = this.props;
-    
+    const { components , documentData , title, doctitle, docDescripttion } = this.props;
+    const len = components.length;
     return(
       <div className={styles["empty-module"]}>
       <h1 className="empty-title"> { title } </h1>
-      <section className={styles["empty-module-information-bar"]}>
-        <div  className={styles["empty-module-information-bar-title"]}>
-          {component}
-        </div>
-        <div  className={styles["empty-module-information-bar-panel"]}>
-        <code className="empty-code">{ titDescripttion }</code>
-          <img onClick={this.iconClick} className={styles["empty-module-information-bar-panel-icon"]} src={this.state.showCode?"https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg":"https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"} alt=""/>
-        </div>
-        {this.state.showCode?
-          <EcodeHighlight.component language='tsx'>
-          { code }
-          </EcodeHighlight.component>:
-          null
-        }
-      </section>
+      {(len&&len>0)&&components.map(({component,titDescripttion,code},index)=>{
+        return(
+          <section className={styles["empty-module-information-bar"]} key={`${titDescripttion}`}>
+          <div  className={styles["empty-module-information-bar-title"]}>
+            { component }
+          </div>
+          <div  className={styles["empty-module-information-bar-panel"]}>
+          <code className="empty-code">{ titDescripttion }</code>
+            <img data-index={index} onClick={this.iconClick} className={styles["empty-module-information-bar-panel-icon"]} src={this.state["showCode"][index]["showCode"]?"https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg":"https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"} alt=""/>
+          </div>
+          {this.state["showCode"][index]["showCode"]?
+            <EcodeHighlight.component language='tsx'>
+            { code }
+            </EcodeHighlight.component>:
+            null
+          }
+        </section>
+        )
+      })}
       <h1 className="empty-title" style={{marginTop:"100px"}}> { doctitle } </h1>
       <p className="empty-line-content">{ docDescripttion }</p>
       <Table columns={columns} dataSource={documentData} pagination={false} />
@@ -106,6 +112,6 @@ class EDocument extends Component<Props,any>{
 }
 
 export default {
-  name:"EDocument",
-  component:EDocument
+  name:"Edocument",
+  component:Edocument
 }

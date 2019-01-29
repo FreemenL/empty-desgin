@@ -1,6 +1,7 @@
 /**
  * 输出编译内容
  */
+const querystring = require("querystring");
 const fs = require("fs");
 class FilesPlugin{
 	options
@@ -11,7 +12,7 @@ class FilesPlugin{
 		compiler.hooks.emit.tapAsync("file",(compilation,cb)=>{
 			let content = `##编译输出内容：\n\n`;
 			for(let attr in compilation.assets) {
-				content+=`-${attr}\n`
+				content+=`#--->  [{ file  :  ${attr}  }-----{ size  :  ${(Buffer.byteLength(compilation["assets"][attr]["source"](), 'utf8')/1024)}kb }]\n\n`
 			}
 			var buffer = new Buffer(content);
 			let ws = fs.createWriteStream(`${this.options.path||compilation.options.context}/${this.options.filename||"file-list.md"}`, {start: 0});

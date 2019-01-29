@@ -8,7 +8,11 @@ export default [
 		component:"Documents/EcodeHighlight/index",
 	},
 	{
-		path:'/home/documents/EColorPicker',
-		component:"Documents/EColorPicker/index",
+		path:'/home/documents/EcolorPicker',
+		component:"Documents/EcolorPicker/index",
+	},
+	{
+		path:'/home/documents/Edrawer',
+		component:"Documents/Edrawer/index",
 	}
 ]

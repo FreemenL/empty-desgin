@@ -9,18 +9,19 @@ interface Props {
   cursor:string,
   defaultValue:string,
   showValue:boolean,
+  animation:string,
   handleChange: Function;
 }
 
-class EColorPicker extends Component<Props, any> {
-  handleChange;
-
+class EcolorPicker extends Component<Props, any> {
+  handleChange
   static defaultProps = {
     width: "200px",
     pickerWidth:220,
     cursor:"crosshair",
     defaultValue:"#000",
-    showValue:true
+    showValue:true,
+    animation:"flipInY"
   };
 
   constructor(props) {
@@ -72,7 +73,8 @@ class EColorPicker extends Component<Props, any> {
   }
 
   render() {
-    const { width, defaultValue ,pickerWidth ,cursor, showValue } = this.props;
+    const { width, defaultValue ,pickerWidth ,cursor, showValue ,animation} = this.props;
+    
     const colorPanel = (
       <div
         className={styles["picker-wrapper"]}
@@ -85,9 +87,10 @@ class EColorPicker extends Component<Props, any> {
             color={this.state.values}
             onChange={this.handleChange}
             className={`
+              animated
               ${styles["empty-color-picker"]}
               ${styles[this.state.showPicker]}
-              animated flipInY
+              ${ animation }
             `}
           />
       </section>
@@ -96,11 +99,11 @@ class EColorPicker extends Component<Props, any> {
     return (
       <span className={styles["empty-color"]}>
         {showValue?<Input
-            style={{ minWidth: "220px", width}}
+            style = {{ minWidth: "220px", width}}
             placeholder="点击左侧选择"
             disabled
-            value={this.state.values==defaultValue?"点击左侧选择":this.state.values}
-            addonBefore={
+            value = {this.state.values==defaultValue?"点击左侧选择":this.state.values}
+            addonBefore = {
               colorPanel
             }
         />:colorPanel}
@@ -110,6 +113,6 @@ class EColorPicker extends Component<Props, any> {
 }
 
 export default {
-  name: "EColorPicker",
-  component: EColorPicker
+  name: "EcolorPicker",
+  component: EcolorPicker
 };

@@ -3,7 +3,7 @@ import { Row, Col, Tree ,Spin} from 'antd';
 import styles from './index.less';
 import { Button ,Modal } from 'antd';
 import EsearchListHoc from '../EsearchListHoc/index';
-import EDrawer from '../EDrawer';
+import Edrawer from '../Edrawer';
 
 import freetool from 'freetool';
 const { GetType } = freetool;
@@ -188,9 +188,9 @@ function EtreeHoc(treeOptions:treeOptions){
                 </div>
               </Spin>
             </Col>
-            <EDrawer.component {...EDprops}>
+            <Edrawer.component {...EDprops}>
               <RenderNode/>
-            </EDrawer.component>
+            </Edrawer.component>
         </Row>
       )
     }

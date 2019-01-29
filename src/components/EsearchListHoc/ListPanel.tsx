@@ -2,7 +2,7 @@ import React,{ Component } from "react";
 import autobind from 'autobind-decorator';
 import TableTemplate from "./TableTemplate";
 import CardTemplate from "./CardTemplate";
-import EDrawer from '../EDrawer';
+import Edrawer from '../Edrawer';
 import EModalHoc from '../EModalHoc';
 
 import freetool from 'freetool';
@@ -109,9 +109,9 @@ class ListPanel extends Component<Props,any>{
 		return(
 		  <div>
 		  	<ElementNode/>
-		  	<EDrawer.component {...EDprops}>
+		  	<Edrawer.component {...EDprops}>
 		  		{renderContext[this.state.handle]}
-		  	</EDrawer.component>
+		  	</Edrawer.component>
 		  	<span id="listAdd" onClick={this.handleListAdd} style={{visibility:"hidden"}}></span>
 		  	<Modal {...modalConfig}>
 		  		<AddNode/>

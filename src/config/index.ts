@@ -19,7 +19,7 @@ export const config ={
                 { pathname: '/home/documents/Ebeard', title: '面包屑导航：Ebeard' },
                 { pathname: '/home/documents/EcodeHighlight', title: '代码高亮：EcodeHighlight'},
                 { pathname: '/home/documents/EcolorPicker', title: '颜色选择器：EcolorPicker'},
-                { pathname: '/home/documents/EDrawer', title: '抽屉组件：EDrawer'},
+                { pathname: '/home/documents/Edrawer', title: '抽屉组件：Edrawer'},
                 { pathname: '/home/documents/Eform', title: '表单组件：Eform'},
                 { pathname: '/home/documents/EformHoc', title: 'HOC表单组件：EformHoc'},
                 { pathname: '/home/documents/EHeaderHoc', title: '头部组件：EHeaderHoc'},
