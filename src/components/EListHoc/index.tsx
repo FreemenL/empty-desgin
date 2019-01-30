@@ -28,35 +28,44 @@ const emptyListpanelList = styles["empty-list-panel-list"];
 
 const { transData } = tool;
 function EListHoc(data, Effect?: any) {
+  
+  const textAlign = data.textAlign || 'center';
   const type = data.type || "default";
+  const panelStyle = { width: data.width || "", padding: data.interlayer ? 0 : '5px 0px' };
+  const bordered = {border:data.bordered?"1px solid #eee":"none"};
+  const listClass = data.interlayer ? "" : emptyListpanelList;
+  const listContentStyle = {textAlign:data.interlayer ? textAlign : ""};
+
+
   if (_.isEmpty(data)) {
     return ({ params }) => <Effect />;
   }
+
   const listResult = {
-    panel: function() {
+    panel: function () {
       return (
-        <ul className={emptyListpanel} style={{ width: data.width || "" }}>
+        <ul className={emptyListpanel} style={panelStyle}>
           {data.data.map((dataItem, index) => {
-			const interlayer = data.interlayer&&(!(index%=2));
+            const interlayer = data.interlayer && (!(index %= 2));
             return (
               <li
-				key={dataItem.title}
-				style={{background : interlayer?"#e7f1fa":""}}
-				onClick={dataItem.click && dataItem.click.bind(this)}
-				className={data.interlayer?"":emptyListpanelList}
+                key={dataItem.title}
+                style={{ background: interlayer ? "#e7f1fa" : "" }}
+                onClick={dataItem.click && dataItem.click.bind(this)}
+                className={listClass}
               >
-                { dataItem.icon ? <Icon type={dataItem.icon} /> : null }
-                { dataItem.title }
+                {dataItem.icon ? <Icon type={dataItem.icon} /> : null}
+                <em style={listContentStyle}>{dataItem.title}</em>
               </li>
             );
           })}
         </ul>
       );
     },
-    default: function({ params }) {
+    default: function ({ params }) {
       const currentData = transData(params)(data.data);
       return (
-        <section className={styles["empty-detail-wrapper"]}>
+        <section className={styles["empty-detail-wrapper"]} style={bordered}>
           <Row gutter={24}>
             {currentData.map((item, index) => {
               return (

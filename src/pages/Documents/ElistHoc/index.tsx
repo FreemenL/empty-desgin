@@ -23,6 +23,18 @@ const data = [{
   explain: "是否启用隔行换色",
   type:"boolean",
   default: 'false',
+},{
+  key: '4',
+  title: ' textAlign ',
+  explain: " 文本对齐方式 interlayer为false时无效 ",
+  type:"string",
+  default: 'center',
+},{
+  key: '5',
+  title: ' data ',
+  explain: " 列表数据 类型是array或者object 用例见上",
+  type:"Array<{icon:string,title:string,click:Function}>|object",
+  default: '-',
 }];
 
 const List = EListHoc.component({
@@ -37,13 +49,51 @@ const List = EListHoc.component({
       title: "颜色选择器"
     }, {
       title: "抽屉组件"
-    }, {
-      title: "表单组件"
-    }, {
-      title: "菜单组件"
     }]
-  });
-}
+});
+
+const MenuList = EListHoc.component({
+  type: "panel",
+  width: "350px",
+  data: [{
+    icon: "user",
+    title: "个人中心",
+    click: function () {
+      Prompt.component["info"]("个人中心")
+    }
+  }, {
+    icon: "setting",
+    title: "系统设置",
+    click: function () {
+      Prompt.component["info"]("系统设置");
+    }
+  }]
+});
+
+
+const DetailList = React.createElement(EListHoc.component({
+  type:"default",
+  data:{
+    "班次名称":"name",
+    "所属部门":"deptName",
+    "班次类型":"dutyType",
+    "上班时间":"startTime",
+    "下班时间":"endTime",
+    "上班打卡时间范围":"onRange",
+    "下班打卡时间范围":"offRange",
+    "午休时间":"duration"
+  }}),{
+    params:{
+      name:"freemenL",
+      deptName:"技术研发部",
+      dutyType:"早班",
+      startTime:"9:00",
+      endTime:"6:00",
+      onRange:"9:00-9:30",
+      offRange:"6:00-11:59",
+      duration:"1小时"
+    }
+  },null)
 
 @hot(module)
 class ElistHocDocuments extends Component<any, any> {
@@ -81,6 +131,70 @@ class ElistHocDocuments extends Component<any, any> {
 
               ReactDOM.render(
                 <List />
+              )
+            `
+          },{
+            component:MenuList,
+            titDescripttion:"作为菜单项使用的时候可以添加 点击事件",
+            code:`
+              import components from '@components/load-component';
+              const { EListHoc } = components;
+    
+              const MenuList = EListHoc.component({
+                type: "panel",
+                width: "300px",
+                data: [{
+                  icon: "user",
+                  title: "个人中心",
+                  click: function () {
+                    Prompt.component["info"]("个人中心")
+                  }
+                }, {
+                  icon: "setting",
+                  title: "系统设置",
+                  click: function () {
+                    Prompt.component["info"]("系统设置");
+                  }
+                }]
+              });
+
+              ReactDOM.render(
+                <MenuList />
+              )
+            `
+          },,{
+            component:DetailList,
+            titDescripttion:"表格形式 作为详情页展示",
+            code:`
+              import components from '@components/load-component';
+              const { EListHoc } = components;
+    
+              const DetailList = React.createElement(EListHoc.component({
+                type:"default",
+                data:{
+                  "班次名称":"name",
+                  "所属部门":"deptName",
+                  "班次类型":"dutyType",
+                  "上班时间":"startTime",
+                  "下班时间":"endTime",
+                  "上班打卡时间范围":"onRange",
+                  "下班打卡时间范围":"offRange",
+                  "午休时间":"duration"
+                }}),{
+                  params:{
+                    name:"freemenL",
+                    deptName:"技术研发部",
+                    dutyType:"早班",
+                    startTime:"9:00",
+                    endTime:"6:00",
+                    onRange:"9:00-9:30",
+                    offRange:"6:00-11:59",
+                    duration:"1小时"
+                  }
+                },null)
+
+              ReactDOM.render(
+                <DetailList/>
               )
             `
           }]}

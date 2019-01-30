@@ -14,6 +14,13 @@
 		padding:@list-panel-item-padding;
 		height: 40px;
 		line-height: 40px;
+		i{
+			flex:1;
+		}
+		em{
+			flex:2;
+			font-style: normal;
+		}
 		.flex-around;
 	}
 }
@@ -21,7 +28,7 @@
 .@{empty-prefix}-detail-wrapper{
 	background:#fff;
 	border:1px solid #eee;
-	border-top:0;
+	margin-top:-1px;
 	height:100%;
 	padding:16px;
 	&-row{

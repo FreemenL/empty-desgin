@@ -204,7 +204,7 @@ class EdrawerDocuments extends Component<any, any> {
                   class Effrext extends Component{
                     render(){
                       return(
-                        <span className="empty-title">/***这里的组件都可以在props中获取到params，实用场景:详情页***/</span>
+                        <span className="empty-title-size-16-yellow">这里的组件都可以在props中获取到params，用例场景:详情页</span>
                       )
                     }
                   }
