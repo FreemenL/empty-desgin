@@ -5,7 +5,6 @@ import { Drawer, Icon, Tag } from "antd";
 import styles from "./index.less";
 
 const hideBtn = styles["empty-hide-btn"];
-const drawerTitle = styles["empty-drawer-title"];
 
 interface Props {
   title: string;
@@ -15,17 +14,21 @@ interface Props {
   placement?: any;
   params?: any;
   children?: any;
-  [ propName: string ]: any
+  maskWidth:string;
+  [propName: string]: any;
 }
 
 class Edrawer extends React.Component<any, any> {
   static defaultProps = {
-    titleColor: "#87d068"
+    titleColor: "#87d068",
+    maskWidth:"300px",
+    placement:"right",
   };
 
   constructor(props) {
     super(props);
   }
+
   shouldComponentUpdate(nextProps, nextState) {
     if (
       !_.isEqual(this.props.params, nextProps.params) ||
@@ -38,7 +41,6 @@ class Edrawer extends React.Component<any, any> {
   }
 
   render() {
-
     const {
       title,
       visible,
@@ -46,8 +48,9 @@ class Edrawer extends React.Component<any, any> {
       closable,
       placement,
       params,
-	  children,
-	  ...restet
+      children,
+      maskWidth,
+      ...restet
     } = this.props;
 
     const EdrawerClassNames = classNames({
@@ -71,8 +74,9 @@ class Edrawer extends React.Component<any, any> {
         onClose={onClose}
         visible={visible}
         className={EdrawerClassNames}
-		destroyOnClose
-		{...restet}
+        destroyOnClose
+        width={`${placement=="right"?`calc(100% - ${ maskWidth })`:""}`}
+        {...restet}
       >
         <Icon
           type={arrowIcon[placement]}

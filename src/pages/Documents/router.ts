@@ -14,5 +14,9 @@ export default [
 	{
 		path:'/home/documents/Edrawer',
 		component:"Documents/Edrawer/index",
+	},
+	{
+		path:"/home/documents/ElistHoc",
+		component:"Documents/ElistHoc/index",
 	}
 ]

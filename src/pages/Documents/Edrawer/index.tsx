@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Button } from 'antd';
 import { hot } from 'react-hot-loader';
-import freetool from 'freetool';
 
 import components from '@components/load-component';
 
-const { GetType } = freetool;
 const { Edocument, Edrawer  , EListHoc } = components;
+
 
 const data = [{
   key: '1',
@@ -52,6 +51,12 @@ const data = [{
   default: '-',
 },{
   key: '8',
+  title: 'maskWidth',
+  explain: "mask区域宽度",
+  type:"string",
+  default: '300px',
+},{
+  key: '9',
   title: '...restet',
   explain: "剩余参数可参照 antd 官网自行配置 ",
   type:"any",
@@ -60,20 +65,31 @@ const data = [{
 
 @hot(module)
 class EdrawerDocuments extends Component<any, any> {
+
+  handleClose
+  handleShow
+  handleGroupClose
+  handleGroupShow
+
   constructor(props){
+
     super(props);
-    this.handleClose = this.eDrawerController.bind(this,false);
-    this.handleShow = this.eDrawerController.bind(this,true);
+    this.handleClose = this.eDrawerController.bind(this,"visible",false);
+    this.handleShow = this.eDrawerController.bind(this,"visible",true);
+    this.handleGroupClose = this.eDrawerController.bind(this,"groupVisible",false);
+    this.handleGroupShow = this.eDrawerController.bind(this,"groupVisible",true);
+
   }
 
   state={
     visible:false,
+    groupVisible:false
   }
 
-  eDrawerController(visible){
+  eDrawerController(type,visible){
     this.setState((prevState,props)=>{
       return{
-        visible
+        [type]:visible
       }
     })
   }
@@ -84,12 +100,17 @@ class EdrawerDocuments extends Component<any, any> {
 			title:`抽屉组件标题`,
 			visible:this.state.visible,
 			onClose:this.handleClose,
-			closable:true,
-			placement:"right",
+      closable:true,
+      maskWidth:"80%",
+			placement:"bottom",
     }
     
     const groupEDprops = {
       ...EDprops,
+      visible:this.state.groupVisible,
+      onClose:this.handleGroupClose,
+      maskWidth:"300px",
+      placement:"right",
       params:{
         name:"freemenL",
         deptName:"技术研发部",
@@ -102,18 +123,6 @@ class EdrawerDocuments extends Component<any, any> {
       }
     }
 
-    // const List =  EListHoc.component({
-    //   "班次名称":"name",
-    //   "所属部门":"deptName",
-    //   "班次类型":"dutyType",
-    //   "上班时间":"startTime",
-    //   "下班时间":"endTime",
-    //   "上班打卡时间范围":"onRange",
-    //   "下班打卡时间范围":"offRange",
-    //   "午休时间":"duration"
-    // });
-    // console.log(EListHoc.component({data:{ "午休时间":"duration"}}));
-    
     return (
       <div className={"animated fadeIn emptyd-content"}>
         <Edocument.component
@@ -123,65 +132,8 @@ class EdrawerDocuments extends Component<any, any> {
               <section>
                 <Button onClick={ this.handleShow }>抽屉组件</Button>
                 <Edrawer.component {...EDprops}>
-                    <p>终于等到你，还好没放弃...</p>
-                    <p>接下来自由发挥吧...</p>
-                </Edrawer.component>  
-              </section>
-            ),
-            titDescripttion:"基本用法123123",
-            code:`
-              import components from '@components/load-component';
-              const { Edrawer } = components;
-    
-              class EdrawerDocuments exrends Component{
-
-                constructor(props){
-                  super(props);
-                  this.handleClose = this.eDrawerController.bind(this,false);
-                  this.handleShow = this.eDrawerController.bind(this,true);
-                }
-              
-                state={
-                  visible:false,
-                }
-              
-                eDrawerController(visible){
-                  this.setState((prevState,props)=>{
-                    return{
-                      visible
-                    }
-                  })
-                }
-                              
-                render(){
-
-                  const EDprops = {
-                    title:"抽屉组件标题",
-                    visible:this.state.visible,
-                    onClose:this.handleClose,
-                    closable:true,
-                    placement:"right",
-                    params:{userId:12300}
-                  }
-
-                  return(
-                    <section>
-                      <Button onClick={this.handleShow}>抽屉组件</Button>
-                      <Edrawer.component {...EDprops}>
-                          <p>终于等到你，还好没放弃...</p>
-                          <p>接下来自由发挥吧...</p>
-                      </Edrawer.component>  
-                    </section>
-                  )
-                }
-              }
-            ` 
-          },{
-            component:(
-              <section>
-                <Button onClick={this.handleShow}>抽屉组件</Button>
-                <Edrawer.component {...EDprops}>
-                 
+                    <p className="empty-title">终于等到你，还好没放弃...</p>
+                    <p className="empty-title-size-16-yellow">接下来自由发挥吧...</p>
                 </Edrawer.component>  
               </section>
             ),
@@ -217,8 +169,7 @@ class EdrawerDocuments extends Component<any, any> {
                     visible:this.state.visible,
                     onClose:this.handleClose,
                     closable:true,
-                    placement:"right",
-                    params:{userId:12300}
+                    placement:"bottom"
                   }
 
                   return(
@@ -233,10 +184,132 @@ class EdrawerDocuments extends Component<any, any> {
                 }
               }
             ` 
+          },{
+            component:(
+              <section>
+                <Button type="primary" onClick={this.handleGroupShow}> 完美搭配 </Button>
+                <Edrawer.component {...groupEDprops}>
+                  { React.createElement(EListHoc.component({
+                    type:"default",
+                    data:{
+                      "班次名称":"name",
+                      "所属部门":"deptName",
+                      "班次类型":"dutyType",
+                      "上班时间":"startTime",
+                      "下班时间":"endTime",
+                      "上班打卡时间范围":"onRange",
+                      "下班打卡时间范围":"offRange",
+                      "午休时间":"duration"
+                  }},
+                  class Effrext extends Component{
+                    render(){
+                      return(
+                        <span className="empty-title">/***这里的组件都可以在props中获取到params，实用场景:详情页***/</span>
+                      )
+                    }
+                  }
+                  ))}
+                </Edrawer.component>  
+              </section>
+            ),
+            titDescripttion:"搭配EListHoc",
+            code:`
+            import components from '@components/load-component';
+            const { Edrawer } = components;
+
+            class EdrawerDocuments extends Component<any, any> {
+
+              handleClose
+              handleShow
+              handleGroupClose
+              handleGroupShow
+            
+              constructor(props){
+            
+                super(props);
+                this.handleClose = this.eDrawerController.bind(this,"visible",false);
+                this.handleShow = this.eDrawerController.bind(this,"visible",true);
+                this.handleGroupClose = this.eDrawerController.bind(this,"groupVisible",false);
+                this.handleGroupShow = this.eDrawerController.bind(this,"groupVisible",true);
+            
+              }
+            
+              state={
+                visible:false,
+                groupVisible:false
+              }
+            
+              eDrawerController(type,visible){
+                this.setState((prevState,props)=>{
+                  return{
+                    [type]:visible
+                  }
+                })
+              }
+            
+              render() {
+            
+                const EDprops = {
+                  title:"抽屉组件标题",
+                  visible:this.state.visible,
+                  onClose:this.handleClose,
+                  closable:true,
+                  maskWidth:"80%",
+                  placement:"right",
+                }
+                
+                const groupEDprops = {
+                  ...EDprops,
+                  visible:this.state.groupVisible,
+                  onClose:this.handleGroupClose,
+                  maskWidth:"300px",
+                  params:{
+                    name:"freemenL",
+                    deptName:"技术研发部",
+                    dutyType:"早班",
+                    startTime:"9:00",
+                    endTime:"6:00",
+                    onRange:"9:00-9:30",
+                    offRange:"6:00-11:59",
+                    duration:"1小时"
+                  }
+                }
+
+                  return(
+                    <section>
+                      <Button type="primary" onClick={this.handleGroupShow}> 完美搭配 </Button>
+                      <Edrawer.component {...groupEDprops}>
+                      { React.createElement(EListHoc.component({
+                        type:"default",
+                        data:{
+                          "班次名称":"name",
+                          "所属部门":"deptName",
+                          "班次类型":"dutyType",
+                          "上班时间":"startTime",
+                          "下班时间":"endTime",
+                          "上班打卡时间范围":"onRange",
+                          "下班打卡时间范围":"offRange",
+                          "午休时间":"duration"
+                      }},
+                      class Effrext extends Component{
+                        render(){
+                          return(
+                              <span className="empty-title">/***这里的组件都可以在props中获取到params，实用场景:详情页***/</span>
+                          )
+                        }
+                      }
+                      ))}
+                      </Edrawer.component>  
+                    </section>
+                  )
+                }
+              }
+            ` 
           }]}
           docDescripttion="Edrawer 属性如下:"   
           documentData={data}        
         />
+        
       </div>
     );
   }

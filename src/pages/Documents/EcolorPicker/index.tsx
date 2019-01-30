@@ -117,7 +117,7 @@ class EcolorPickerDocuments extends Component<any, any> {
               }
             ` 
           },{
-            component:(<EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer"/>),
+            component:(<EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer" animation="slideInRight"/>),
             titDescripttion:"回填区域不显示颜色值，且cursor属性为:pointer的情况",
             code:`
               import components from '@components/load-component';

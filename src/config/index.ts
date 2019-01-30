@@ -16,6 +16,7 @@ export const config ={
         {
             pathname: '/home/documents', title: '组件', icon: 'form',
             sub: [
+                { pathname: '/home/documents/ElistHoc', title: '列表组件：ElistHoc'},
                 { pathname: '/home/documents/Ebeard', title: '面包屑导航：Ebeard' },
                 { pathname: '/home/documents/EcodeHighlight', title: '代码高亮：EcodeHighlight'},
                 { pathname: '/home/documents/EcolorPicker', title: '颜色选择器：EcolorPicker'},
@@ -23,7 +24,6 @@ export const config ={
                 { pathname: '/home/documents/Eform', title: '表单组件：Eform'},
                 { pathname: '/home/documents/EformHoc', title: 'HOC表单组件：EformHoc'},
                 { pathname: '/home/documents/EHeaderHoc', title: '头部组件：EHeaderHoc'},
-                { pathname: '/home/documents/EListHoc', title: '列表组件：EListHoc'},
                 { pathname: '/home/documents/ELoading', title: 'loading组件：ELoading'},
                 { pathname: '/home/documents/EMenu', title: '菜单组件：EMenu'},
                 { pathname: '/home/documents/EsearchListHoc', title: '查询列表页面：EsearchListHoc'},

@@ -17,6 +17,21 @@
     }
 }
 
+/* mixin */
+.title-func(){
+  background: #f2f2f2;
+  color:#000;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left:20px;
+  border-left: 5px solid @yellow-color;
+}
+
+.empty-title-size(@size){
+  .title-func;
+  .title-font-family(@size);
+}
+
 :global{ 
     /* Base Application Styles */
   a{
@@ -47,18 +62,25 @@
     height:100%;
   }
 
+  .empty-title{
+    .title-func;
+    .title-font-family(32px);
+  }
+  .empty-title-size-16{
+    .empty-title-size(16px);
+  }
+  .empty-title-size-16-yellow{
+    .empty-title-size(16px);
+    border-color:@theme-bg!important;
+  }
   .ant-layout-sider{
     margin-right:20px;
   }
 
-  .empty-title{
-    color:#000;
-    font-weight:600;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+  
+
   .empty-api-marker{
-    color:@emptyd-document-color;
+    color: @emptyd-document-color;
     margin:0 3px;
   }
   .empty-api-type{
