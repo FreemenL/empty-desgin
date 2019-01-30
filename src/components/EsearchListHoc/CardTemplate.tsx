@@ -1,6 +1,6 @@
 import React ,{ Fragment }from 'react';
 import freetool from 'freetool';
-import { List,Card, Skeleton ,Icon , Button ,Spin ,Tooltip} from 'antd';
+import { List,Card, Button ,Spin ,Tooltip} from 'antd';
 
 //less
 import styles from './index.less';

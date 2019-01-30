@@ -64,19 +64,19 @@
 
 #--->  [{ file  :  index.html  }-----{ size  :  7.9033203125kb }]
 
-#--->  [{ file  :  static/js/2.90c9aef1678591fce78e.js.gz  }-----{ size  :  5.0625kb }]
-
-#--->  [{ file  :  static/js/9.f20ee11ba2725da5b199.js.gz  }-----{ size  :  5.7314453125kb }]
-
 #--->  [{ file  :  1.d44a3cad7aa927d1fed0.css.gz  }-----{ size  :  12.83984375kb }]
+
+#--->  [{ file  :  static/js/2.90c9aef1678591fce78e.js.gz  }-----{ size  :  5.0625kb }]
 
 #--->  [{ file  :  static/js/11.332be7f6e7b706d5f79f.js.gz  }-----{ size  :  4.25kb }]
 
+#--->  [{ file  :  static/js/9.f20ee11ba2725da5b199.js.gz  }-----{ size  :  5.7314453125kb }]
+
 #--->  [{ file  :  17.d44a3cad7aa927d1fed0.css.gz  }-----{ size  :  8.3681640625kb }]
 
-#--->  [{ file  :  static/js/14.e8564953ce6308b60c0d.js.gz  }-----{ size  :  21.8876953125kb }]
-
 #--->  [{ file  :  static/js/16.e108c45f6b04498c83ff.js.gz  }-----{ size  :  16.8525390625kb }]
+
+#--->  [{ file  :  static/js/14.e8564953ce6308b60c0d.js.gz  }-----{ size  :  21.8876953125kb }]
 
 #--->  [{ file  :  static/js/13.2210f0a0d7b8803f984b.js.gz  }-----{ size  :  53.7578125kb }]
 

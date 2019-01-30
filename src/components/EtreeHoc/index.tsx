@@ -1,14 +1,8 @@
 import React,{ Component } from 'react';
 import { Row, Col, Tree ,Spin} from 'antd';
 import styles from './index.less';
-import { Button ,Modal } from 'antd';
 import EsearchListHoc from '../EsearchListHoc/index';
-import Edrawer from '../Edrawer';
-
-import freetool from 'freetool';
-const { GetType } = freetool;
-
-
+import Edrawer from '../Edrawer/index';
 
 const { component:Esearch } = EsearchListHoc;
 const { TreeNode } = Tree;

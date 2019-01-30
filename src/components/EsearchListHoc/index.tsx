@@ -5,8 +5,8 @@ import SearchControl from './SearchControl';
 import BadeSearch from "./BadeSearch";
 import ListPanel from "./ListPanel";
 import { defaultEsearchConfig } from "../constant";
-//less
-import styles from './index.less';
+
+
 //utils 
 const { mergeConfig } = freetool;
 

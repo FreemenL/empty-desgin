@@ -2,7 +2,7 @@ import React,{ Component } from "react";
 import autobind from 'autobind-decorator';
 import TableTemplate from "./TableTemplate";
 import CardTemplate from "./CardTemplate";
-import Edrawer from '../Edrawer';
+import Edrawer from '../Edrawer/index';
 import EModalHoc from '../EModalHoc';
 
 import freetool from 'freetool';
