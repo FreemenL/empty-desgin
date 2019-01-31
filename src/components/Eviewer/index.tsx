@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import { Icon } from 'antd';
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
 import styles from './index.less';
@@ -12,19 +13,12 @@ class Eviewer extends Component<Props,any>{
 	viewer
 	containerRef
 	static defaultProps={
-		imgUrl:[{
-			url:"https://img3.doubanio.com/view/note/l/public/p55800842.webp",
-			alt:"pic"
-		},{
-			url:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535975713921&di=6cf5521422438b1f165d3bd82d10e406&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01ca2a59eeec68a801216a4b01865c.jpg%401280w_1l_2o_100sh.jpg",
-			alt:"pic"
-		}],
+		imgUrl:[],
 		closeTag:true
 	}
 	constructor(props){
 		super(props);
 		this.containerRef = React.createRef();
-		this.handleDel = this.handleDel.bind(this);
 	}
 
 	componentDidMount(){
@@ -69,8 +63,8 @@ class Eviewer extends Component<Props,any>{
 	    });
 	}
 
-	handleDel(event){
-		this.props.handleDel(event);
+	handleDel(index,event){	
+		this.props.handleDel && this.props.handleDel(index,event);
 	}
 
 	render(){
@@ -78,9 +72,9 @@ class Eviewer extends Component<Props,any>{
 	      <ul className={styles["empty-viewer-container"]} ref={this.containerRef} >
 	        {this.props.imgUrl.map((img,index)=>{
 	        	return(
-	        		<li key={img.url}>
-						<img src={img.url} alt={img.alt||"pic"}  data-original={img.url}/>
-						{this.props.closeTag?<span className={styles["empty-close-icon"]} onClick={this.handleDel}></span>:null}
+	        		<li key={ img.url } className={"animated flipInY"}>
+						<img src={ img.url } alt={img.alt||"pic"}  data-original={img.url}/>
+						{this.props.closeTag?<span className={`${styles["empty-close-icon"]} animated flipInY`} onClick={this.handleDel.bind(this,index)}><Icon type="delete" /></span>:null}
 					</li>
 	        	)
 	        })}

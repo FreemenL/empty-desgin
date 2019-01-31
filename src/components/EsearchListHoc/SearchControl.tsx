@@ -1,7 +1,7 @@
 /*第三方模块*/
 import classNames from 'classnames';
-import  React,{ Component ,Fragment} from 'react';
-import { Form, Row, Col, Input, Button, Icon ,Select ,DatePicker} from 'antd';
+import  React,{ Component } from 'react';
+import { Form } from 'antd';
 import autobind from 'autobind-decorator';
 
 /* 自定义模块 */

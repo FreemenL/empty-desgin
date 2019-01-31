@@ -74,11 +74,11 @@
   border-radius:10px;
   li{
   	float: left;
-  	width:120px;
+  	width:220px;
   	height:120px;
   	position:relative;
   	img{
-		width:120px;
+		width:220px;
 		height:120px;
 		cursor:pointer;
   	}
@@ -96,13 +96,22 @@
 .@{empty-prefix}-close-icon{
 	display: none;
 	position:absolute;
-	width:20px;
-	height:20px;
-	background:url("../asset/images/red_close.png") center no-repeat;
-	border-radius:50%;
-	top:-12px;
-	right:-12px;
+	width:40px;
+	height:100%;
+	background:rgba(0,0,0,.5);
+	top:0;
+	right:0;
 	cursor:pointer;
+	i{
+		color:#fff;
+		position: absolute;
+		left:50%;
+		top:50%;
+		margin-left:-8px;
+		margin-top:-8px;
+		color:@red-color;
+		font-size:16px;
+	}
 }
 
 

@@ -2,9 +2,11 @@ import React,{ Component } from 'react';
 import { Row, Col, Tree ,Spin} from 'antd';
 import styles from './index.less';
 import EsearchListHoc from '../EsearchListHoc/index';
+import Prompt from '../Prompt/index';
 import Edrawer from '../Edrawer/index';
 
 const { component:Esearch } = EsearchListHoc;
+const { component:EPrompt } = Prompt;
 const { TreeNode } = Tree;
 
 const emptyTreeClass = styles["empty-tree"];
@@ -38,7 +40,7 @@ function EtreeHoc(treeOptions:treeOptions){
       treeData:[],
       spinning:true,
       visible:false,
-      placement:"bottom",
+      placement:"right",
       params:null,
       showPattern:"show"
     }
@@ -84,6 +86,7 @@ function EtreeHoc(treeOptions:treeOptions){
       method:{
          // [ 可选 ] 查询图标点击钩子 返回false 屏蔽查询功能
          searchClickHook(){
+            !treeOptions.isSearch&&EPrompt["warning"]("查询功能暂未开放");
             return treeOptions.isSearch
          }
       },
@@ -157,6 +160,7 @@ function EtreeHoc(treeOptions:treeOptions){
       })
     }
     render(){
+
       const EDprops = {
         title:`${treeOptions.header}-"详情"`,
         visible: this.state.visible,
@@ -165,14 +169,18 @@ function EtreeHoc(treeOptions:treeOptions){
         placement:this.state.placement,
         params:this.state.params
       }
+
+      
       const renderContext = {
         show:treeOptions.showPage,
         edit:treeOptions.editPage,       
       }
+
       const RenderNode = renderContext[this.state.showPattern]();
+
       return(
         <Row>
-            <Col span={treeOptions.span} className={ emptyTreeClass }>
+            <Col span={treeOptions.span||12} className={ emptyTreeClass }>
               <Spin spinning={this.state.spinning} size="large">
                 <this.Search/>
                 <div className={ emptyTreeContainer } style={{minHeight:treeOptions.minHeight}}>

@@ -50,15 +50,15 @@ function EForm(this:any){
   const handleBtn = renderButton.apply(this);
 
 	return(
-		<Form onSubmit={this.handleSearch} {...formOptions} >
-      <Row gutter={24}>
+		<Form onSubmit={this.handleSearch} {...formOptions}>
+      <Row gutter={24} className={"animated flipInX"}>
        {search.map((item,index)=>{
        		const {type,...other} = item;
        		const otherParams = {...other,itemLayout,getFieldDecorator,labelLayout};
        		return new renderElement(otherParams)[type]()
        })}
        </Row>
-       <Row type="flex" justify={layout} className={handleBtnStyle}>
+       <Row type="flex" style={{justifyContent:layout}} className={handleBtnStyle}>
          {buttonGroup.map((params,index)=>{
           return handleBtn(params)
          })}
@@ -80,7 +80,7 @@ function renderButton(this:any){
   const that = this;
   return function(params){
       const btntype = {
-        reset:"",
+        reset:"default",
         submit:"primary",
         clear:"danger"
       }

@@ -65,7 +65,6 @@ class Edrawer extends React.Component<any, any> {
       left: "left",
       right: "right"
     };
-
     return (
       <Drawer
         title={<Tag color="#87d068">{title}</Tag>}
@@ -93,6 +92,7 @@ class Edrawer extends React.Component<any, any> {
     );
   }
 }
+
 export default {
   name: "Edrawer",
   component: Edrawer

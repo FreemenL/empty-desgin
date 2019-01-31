@@ -1,0 +1,66 @@
+/*覆盖antd的样式*/
+@import './default.less';
+@import '../../ant-theme-vars.less';
+:global{
+    .ant-btn.ant-btn-primary.christmas:before {
+        display: none!important;
+    }
+      .ant-layout-sider{
+        margin-right:20px;
+      }
+     .ant-btn-primary:not([disabled]) {
+          background-image:  @blue-tint;
+
+      }
+      .ant-btn-danger:not([disabled]){
+          background-image:@red-tint;
+          &:hover,&:focus{
+              background-image:none;
+              background-color:@red-tint;
+              border-color:@red-tint;
+          }
+          &:active{
+              background-image:none;
+              background-color:@red-color;
+              border-color:@red-color;
+          }
+      }
+      .ant-input-search{
+          border-top-right-radius:@btn-border-radius-base;
+          border-bottom-right-radius:@btn-border-radius-base;
+          .ant-input{
+            border-top-right-radius:@btn-border-radius-base;
+            border-bottom-right-radius:@btn-border-radius-base;
+          }
+      }
+      .ant-table-pagination {
+        margin-right: 30px!important;
+      }
+      .ant-card-bordered{
+        border-radius: 8px!important;
+        overflow: hidden !important;
+      }
+
+    .ant-pagination.ant-table-pagination {
+        width: 100%;
+        text-align: right;
+        .ant-pagination-total-text {
+            float: left;
+            font-weight: bold;
+        }
+    }
+    .ant-tree li span.ant-tree-switcher {
+        height: 26px !important;
+        line-height: 26px !important;
+    }
+    .ant-tree li span[draggable], .ant-tree li span[draggable="true"] {
+        border-top: none;
+    }
+
+    .ant-table.ant-table-bordered .ant-table-title {
+        background: #FAFAFA;
+    }
+    .ant-card-extra {
+        padding: 12.5px 0 !important;
+    }
+}

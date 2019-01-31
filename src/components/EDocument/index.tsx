@@ -7,7 +7,7 @@ import EcodeHighlight from '@components/EcodeHighlight';
 import styles from './index.less';
 
 const render =  (text ,type) => {
-  const textContent = text.replace(/(\b\w+\b)|([<>(){},.;:"'!])/g,function(content){
+  const textContent = text.replace(/(\b\w+\b)|([<>=(){},.;:"'!])/g,function(content){
     return (`<span class="empty-api-${type}">${content}</span>`)
   })
   return (<span dangerouslySetInnerHTML={{__html:textContent}}></span>)

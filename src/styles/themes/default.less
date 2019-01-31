@@ -1,17 +1,4 @@
-/*********	字体  ***********/
-
-@font-face {
-	font-family: 'MyFont';
-	src:url('../fonts/NotoSerifSC-Black.otf') format('otf');
-	font-weight: 800;
-	font-style: normal;
-}
-
-.title-font-family(@size){
-	font-family: 'MyFont';
-	font-size:@size;
-}
-
+/* 定义基础样式变量 */
 @empty-prefix:empty;
 
 /**** color *****/
@@ -27,6 +14,7 @@
 
 @red-color:#FA7070;
 @red-tint:#FD7A7A;
+@emptyd-document-color:#1890ff;
 
 /*shadow*/
 @base-shadow:rgba(217, 217, 217, 0.5) 0px 2px 4px 0px;;
@@ -59,3 +47,4 @@
 .@{empty-prefix}-btn-group{
 	margin:@btn-group-margin;
 }
+

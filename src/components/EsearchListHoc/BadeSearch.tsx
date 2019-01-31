@@ -90,7 +90,7 @@ class BadeSearch extends Component<Props,any>{
   getTableData(values){
     let getDatatimes = 0;
     const { ownAction , ApiConfig:{ listEffectParams } } = this.props;
-    this.props.ownAction.forEach((item,index)=>{
+    ownAction.forEach((item,index)=>{
       if(item["actionType"].endsWith("DATALIST") && getDatatimes<=1){
         getDatatimes++;
         let effectQurey = {};

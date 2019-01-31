@@ -22,7 +22,7 @@
     font-size: 18px;
     font-weight: bold;
     padding-left: 12px;
-    border-left: 4px solid #666;
+    border-left: 4px solid #1890ff;
   }
   &-menu-operation{
   		.display(grid);
@@ -53,17 +53,13 @@
 }
 .@{empty-prefix}-search-section{
 	background:@white;
-	box-shadow: @base-shadow;
 	border-top:@common-border;
   	overflow: hidden;
 	&-show{
-		max-height: 500px;
-	transition: max-height 0.5s ease-in;
+		display: block;
 	}
 	&-hide{
-		max-height: 0;
-	transition: max-height 0.5s ease-in 0.5;
-	
+		display: none;
 	}
 }
 /*card data */

@@ -21,6 +21,8 @@ export const config ={
                 { pathname: '/home/documents/EcodeHighlight', title: '代码高亮：EcodeHighlight'},
                 { pathname: '/home/documents/EcolorPicker', title: '颜色选择器：EcolorPicker'},
                 { pathname: '/home/documents/Edrawer', title: '抽屉组件：Edrawer'},
+                { pathname: '/home/documents/EtreeHoc', title: '树形菜单：EtreeHoc'},
+                { pathname: '/home/documents/Eviewer', title: '图片查看器：Eviewer'},
                 { pathname: '/home/documents/Eform', title: '表单组件：Eform'},
                 { pathname: '/home/documents/EformHoc', title: 'HOC表单组件：EformHoc'},
                 { pathname: '/home/documents/EHeaderHoc', title: '头部组件：EHeaderHoc'},
@@ -29,9 +31,7 @@ export const config ={
                 { pathname: '/home/documents/EsearchListHoc', title: '查询列表页面：EsearchListHoc'},
                 { pathname: '/home/documents/ESiderMenu', title: '侧栏导航：ESiderMenu'},
                 { pathname: '/home/documents/EText', title: '动态文字：EText'},
-                { pathname: '/home/documents/EtreeHoc', title: '树形菜单：EtreeHoc'},
                 { pathname: '/home/documents/EuploadHoc', title: '上传文件：EuploadHoc'},
-                { pathname: '/home/documents/Eviewer', title: '图片查看器：Eviewer'},
             ]
         },
     ],

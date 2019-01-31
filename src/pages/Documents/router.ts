@@ -1,3 +1,4 @@
+import { Component } from 'react';
 export default [
 	{
 		path:'/home/documents/Ebeard',
@@ -18,5 +19,13 @@ export default [
 	{
 		path:"/home/documents/ElistHoc",
 		component:"Documents/ElistHoc/index",
+	},
+	{
+		path:"/home/documents/EtreeHoc"	,
+		component:"Documents/EtreeHoc/index",
+	},
+	{
+		path:"/home/documents/Eviewer",
+		component:"Documents/Eviewer/index"
 	}
 ]

@@ -9,7 +9,7 @@ import { config } from '@config/index';
 
 const RouteWithSubRoutes = (route) =>{
   return(
-  <Route  path={route.path} render={props =>{ 
+  <Route exact={route.childRoute?true:false}  path={route.path} render={props =>{ 
     return(
       <route.component  jump={props.history.push} params={props.match.params} {...props}/>
   )}}/>
@@ -55,7 +55,7 @@ class Routes extends Component<any>{
       child:(
         <Switch>
         {this.props.route.map((route:any, i) =>(
-            <RouteWithSubRoutes key={route.path} {...route}/>
+            <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
           ))}
         </Switch>
       )
