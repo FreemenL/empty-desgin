@@ -20,7 +20,7 @@ function EwapperHoc(wrapperCfg){
 			const { children } = this.props;
 			return(
 				<section className={styles["empty-detail-page-wrapper"]} id="detailNode">
-					<Row {...Rowlayout} gutter={24} style={{height:"100%",overflowY:"auto",marginLeft:"-1px",}} id="pageContainer">
+					<Row {...Rowlayout} gutter={24} style={{height:"100%",marginLeft:"-1px",}} id="pageContainer">
 						{ React.Children.map(children,(children:any)=>{
 							return React.cloneElement(children,{
 

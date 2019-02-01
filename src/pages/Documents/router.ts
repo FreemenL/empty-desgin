@@ -27,5 +27,10 @@ export default [
 	{
 		path:"/home/documents/Eviewer",
 		component:"Documents/Eviewer/index"
+	},
+	{
+		path:"/home/documents/EformHoc",
+		component:"Documents/EformHoc/index"
 	}
 ]
+

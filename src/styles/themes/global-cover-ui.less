@@ -2,6 +2,19 @@
 @import './default.less';
 @import '../../ant-theme-vars.less';
 :global{
+    .ant-form-item:active{
+        label{
+            color:#f40;
+        }
+    }
+    .ant-select-selection,.ant-input,.ant-time-picker-input,.ant-input-number{
+        height:36px;
+        line-height: 36px;
+        border-color:#e6e6e6!important;
+        border-radius:0 !important;
+        outline: none;
+        box-shadow:none !important;
+    }
     .ant-btn.ant-btn-primary.christmas:before {
         display: none!important;
     }

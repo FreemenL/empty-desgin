@@ -14,12 +14,12 @@ interface Props {
 }
 
 class EcolorPicker extends Component<Props, any> {
-  handleChange
+
   static defaultProps = {
     width: "200px",
     pickerWidth:220,
     cursor:"crosshair",
-    defaultValue:"#000",
+    defaultValue:"#ddd",
     showValue:true,
     animation:"flipInY"
   };

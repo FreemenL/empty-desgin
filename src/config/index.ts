@@ -23,7 +23,6 @@ export const config ={
                 { pathname: '/home/documents/Edrawer', title: '抽屉组件：Edrawer'},
                 { pathname: '/home/documents/EtreeHoc', title: '树形菜单：EtreeHoc'},
                 { pathname: '/home/documents/Eviewer', title: '图片查看器：Eviewer'},
-                { pathname: '/home/documents/Eform', title: '表单组件：Eform'},
                 { pathname: '/home/documents/EformHoc', title: 'HOC表单组件：EformHoc'},
                 { pathname: '/home/documents/EHeaderHoc', title: '头部组件：EHeaderHoc'},
                 { pathname: '/home/documents/ELoading', title: 'loading组件：ELoading'},

@@ -293,67 +293,19 @@ export const emptyFormConfig = function(this:any){
                   message: 'Please input your name',
                 }]
               }
-            },{
-              field:'timePicker',
-              type:"DatePicker",
-              label:"案件编号",
-              DatePickerConfig:{// antd input 配置
-                placeholder:"测试holder",
-              },
-              antdFormItemOptions:{
-                colon:false
-              },
-            },{
-              field:'caseNo1',
-              type:"TextArea",
-              label:"案件编号",
-              textAreaConfig:{// antd input 配置
-                placeholder:"测试holder",
-                autosize:{ minRows: 8, maxRows:15 }
-              },
-              antdFormItemOptions:{
-                colon:false
-              },
-            },{
-              field:'caseNo2',
-              type:"CheckboxGroup",
-              label:"案件编号",
-              checkboxGroupConfig:{
-                 options:['Apple', 'Pear', 'Orange']
-              },
-              antdFormItemOptions:{
-                colon:false
-              },
-            },{
-              field:'case1o2',
-              type:"Custom",//自定义类型  
-              label:"案件编号",
-              renderCustom:function(){//自定义渲染函数
-                  return(
-                    <Select defaultValue="lucy">
-                      <Option value="jack">Jack</Option>
-                      <Option value="lucy">Lucy</Option>
-                      <Option value="disabled" disabled>Disabled</Option>
-                      <Option value="Yiminghe">yiminghe</Option>
-                    </Select>
-                  )
-              },
-              antdFormItemOptions:{
-                colon:false
-              },
-          }],
+            }],
         //对应antd 中的 form的配置项   [ 可选 ]
         formOptions:{ 
-          hideRequiredMark:true,
-          style:{
-            width:"1400px",
-            background:"#fff",
-            paddingTop:"30px",
-            height:"100%",
-            paddingRight:"40px",
-            borderRight:"1px solid #d8ecfc",
-            borderLeft:"1px solid #d8ecfc"
-          }
+          // hideRequiredMark:true,
+          // style:{
+          //   width:"1400px",
+          //   background:"#fff",
+          //   paddingTop:"30px",
+          //   height:"100%",
+          //   paddingRight:"40px",
+          //   borderRight:"1px solid #d8ecfc",
+          //   borderLeft:"1px solid #d8ecfc"
+          // }
         },
         //对应antd 中的 栅格配置   [ 可选 ]
         searchLayout:{

@@ -42,7 +42,7 @@ const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
  */
 const handleBtnStyle =  styles["empty-btn-handle"];
 function EForm(this:any){
-	const { search ,operation:{buttonGroup,layout},formOptions } = this.props.searchPanel;
+	const { search ,operation:{buttonGroup,layout},formOptions ,animation } = this.props.searchPanel;
 	const { form } = this.props;
 	const {getFieldDecorator} = form;
   const itemLayout = this.props.searchPanel.layout||FourLayout;
@@ -51,11 +51,11 @@ function EForm(this:any){
 
 	return(
 		<Form onSubmit={this.handleSearch} {...formOptions}>
-      <Row gutter={24} className={"animated flipInX"}>
+      <Row gutter={24}>
        {search.map((item,index)=>{
        		const {type,...other} = item;
        		const otherParams = {...other,itemLayout,getFieldDecorator,labelLayout};
-       		return new renderElement(otherParams)[type]()
+       		return new renderElement(otherParams)[type](`animated ${animation|| "slideInDown"}`)
        })}
        </Row>
        <Row type="flex" style={{justifyContent:layout}} className={handleBtnStyle}>
@@ -157,9 +157,9 @@ class renderElement{
       this.uploadImgConfig = renderItem.uploadImgConfig
   }
 
-  Input=()=>{
+  Input=(classname)=>{
       return(
-        <Col {...this.labelLayout} key={this.field} className={sarchItemLayout}>
+        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${classname}`}>
           <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
             <Tooltip
                 trigger={'hover'}
@@ -175,9 +175,9 @@ class renderElement{
       )
   }
 
-  TextArea =()=>{
+  TextArea =(classname)=>{
       return(
-        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}`}>
+        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}  ${classname}`}>
           <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
             {this.getFieldDecorator(this.field,this.antdOptions)(
               <TextArea {...this.textAreaConfig}/>
@@ -186,9 +186,9 @@ class renderElement{
         </Col>
       )
   }
-  CheckboxGroup = ()=>{
+  CheckboxGroup = (classname)=>{
       return(
-        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}`}>
+        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}  ${classname}`}>
           <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
             {this.getFieldDecorator(this.field,this.antdOptions)(
               <CheckboxGroup {...this.checkboxGroupConfig}/>
@@ -198,9 +198,9 @@ class renderElement{
       )
   }
 
-  uploadImage =()=>{
+  uploadImage =(classname)=>{
     return(
-      <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}`}>
+      <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout} ${searchCheckBox}  ${classname}`}>
           <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
             {this.getFieldDecorator(this.field,this.antdOptions)(
               <EuploadImg.component {...this.uploadImgConfig}/>
@@ -210,9 +210,9 @@ class renderElement{
     )
   }
 
-  DatePicker = ()=>{
+  DatePicker = (classname)=>{
      return(
-        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout}`}>
+        <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout}  ${classname}`}>
           <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
             {this.getFieldDecorator(this.field,this.antdOptions)(
               <DatePicker {...this.DatePickerConfig} style={{ width: '100%' }}/>
@@ -221,9 +221,9 @@ class renderElement{
         </Col>
       )
   }
-  Custom = ()=>{
+  Custom = (classname)=>{
     return(
-      <Col {...this.labelLayout} key={this.field} className={`${sarchItemLayout}`}>
+      <Col {...this.labelLayout} style={{zIndex:99999}} key={this.field} className={`${sarchItemLayout}  ${classname}`}>
         <FormItem label={this.label} {...this.antdFormItemOptions} {...this.itemLayout} >
           {this.getFieldDecorator(this.field,this.antdOptions)(
             <this.renderCustom style={{width:"100%"}} {...this.CustomConfig}/>

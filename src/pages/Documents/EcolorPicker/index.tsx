@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { hot } from 'react-hot-loader';
-import freetool from 'freetool';
 
 import components from '@components/load-component';
 
-const { GetType } = freetool;
 const { Edocument, EcolorPicker , Prompt } = components;
 
 
@@ -31,7 +29,7 @@ const data = [{
   title: 'defaultValue',
   explain: "初始颜色值,支持十六进制和RGB模式，如 #FFFFFF、rgba(255,214,21,0.9)",
   type:"string",
-  default: '#000',
+  default: '#ddd',
 },{
   key: '5',
   title: 'showValue',
@@ -45,7 +43,7 @@ const data = [{
   type:"string",
   default: "flipInY",
 },{
-  key: '7',:
+  key: '7',
   title: 'handleChange',
   explain: "颜色改变时的回调",
   type:"function(color, event)",

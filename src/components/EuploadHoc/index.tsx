@@ -63,22 +63,23 @@ function EuploadHoc(loadConfig:Props){
         const uploadObj = Object.assign({},loadConfig.defaultParams,{
           fileName:events.files[0].name,
         })
-        let response:any={};
-        if(loadConfig.method.name=="step"){
-          const res = await loadConfig.postFunction.step(uploadObj);
-          const { code ,data ,message} =  res;
-          if( 200==code ){
-            const { uploadUrl ,fileId } = data;
-            const isLimit = events.files[0].size / 1024 / 1024 <loadConfig.limit.size;
-            if (!isLimit) {
-              Prompt["component"]["error"](`图片必须小于${loadConfig.limit.size}MB`);
-              return false;
-            }
-            this.uploadData(loadConfig.method.detail,uploadUrl,events.files[0],loadConfig.method.field,fileId);
-          }else{
-             Prompt["component"]["error"](message);
-          }
-        }
+        Prompt.component['info']("暂无接口！");
+        // let response:any={};
+        // if(loadConfig.method.name=="step"){
+        //   const res = await loadConfig.postFunction.step(uploadObj);
+        //   const { code ,data ,message} =  res;
+        //   if( 200==code ){
+        //     const { uploadUrl ,fileId } = data;
+        //     const isLimit = events.files[0].size / 1024 / 1024 <loadConfig.limit.size;
+        //     if (!isLimit) {
+        //       Prompt["component"]["error"](`图片必须小于${loadConfig.limit.size}MB`);
+        //       return false;
+        //     }
+        //     this.uploadData(loadConfig.method.detail,uploadUrl,events.files[0],loadConfig.method.field,fileId);
+        //   }else{
+        //      Prompt["component"]["error"](message);
+        //   }
+        // }
       }
 
       async uploadData(type,uploadUrl,events,field,fileId){
@@ -96,13 +97,13 @@ function EuploadHoc(loadConfig:Props){
             return await loadConfig.postFunction.stepTwo(uploadUrl.substring(uploadUrl.indexOf("/szcg-base")),fd,configs);
           }
         }
-        response= await method[type]();
-        const { code, message } = response;
-        if(200==code){
-          this.showPic(events,fileId)
-        }else{
-          Prompt["component"]["error"](message);
-        }
+        // response= await method[type]();
+        // const { code, message } = response;
+        // if(200==code){
+        //   this.showPic(events,fileId)
+        // }else{
+        //   Prompt["component"]["error"](message);
+        // }
       }
 
       showPic(events,fileId){
@@ -124,7 +125,7 @@ function EuploadHoc(loadConfig:Props){
             <input type="file" onChange={this.handleChange} className={uploadInputClass} ref={this.loadImgNode} />
             <div className={ uploadButtonClass } onClick={this.handleAdd.bind(this)}>
                 <span className={uploadIconClass}></span>
-                <p>Upload</p>
+                <p>点击上传</p>
             </div>
           </section>
         );
