@@ -36,7 +36,7 @@
 .@{empty-prefix}-prev{
   .viewerBtn;
   border-top-right-radius:10px;
-	border-bottom-right-radius:10px;
+  border-bottom-right-radius:10px;
   left:0;
   :global{
 		.empty-prev-btn{
@@ -69,6 +69,7 @@
 .@{empty-prefix}-viewer-container{
   .clearfix;
   padding:10px;
+  padding-bottom: 0;
   border:1px solid #d9d9d9;
   display: inline-block;
   border-radius:10px;
@@ -76,10 +77,12 @@
   	float: left;
   	width:220px;
   	height:120px;
-  	position:relative;
+	position:relative;
+	margin-bottom: 10px;
   	img{
 		width:220px;
 		height:120px;
+		
 		cursor:pointer;
   	}
   	&:not(:last-child){

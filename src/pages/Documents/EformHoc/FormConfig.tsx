@@ -13,7 +13,6 @@ const format = 'HH:mm';
 export const FormConfig = function(this:any,params){
     const that = this;
     const result:any = {
-          Rowlayout:{ type:"flex",justify:"start" },
           searchPanel:{
             search:[
             {  // 筛选项  
@@ -21,7 +20,7 @@ export const FormConfig = function(this:any,params){
                 label:"班次名称",
                 type:"Input",
                 inputConfig:{// antd input 配置
-                  placeholder:"测试holder"
+                  placeholder:"名称"
                 },
                 //antd ->Form.Item 配置
                 antdFormItemOptions:{ 
@@ -74,40 +73,6 @@ export const FormConfig = function(this:any,params){
                     required: true,
                     message: '请输入时间',
                 }]
-                }
-            },{
-                field:'color',
-                type:"Custom",//自定义类型  
-                label:"班次标记",
-                renderCustom:(
-                    class InputColor extends Component<any,any>{
-
-                        constructor(props){
-                            super(props);
-                            this.handleChange = this.handleChange.bind(this);
-                        }
-                    
-                        handleChange(color, event){
-                            this.props.onChange(color.hex);
-                        }
-                    
-                        render(){
-                            return(
-                                <EcolorPicker.component handleChange={this.handleChange} width="100%"/>
-                            )
-                        }
-                    }
-                ),
-                antdFormItemOptions:{
-                  colon:false,
-                },
-                tag:"InputColor",
-                antdOptions:{
-                 initialValue:(that&&that.params)?that.params.color:"#f40",
-                 rules: [{
-                    required: true,
-                    message: '请输入时间',
-                  }]
                 }
             },{
                 field:'timePicker',
@@ -164,7 +129,7 @@ export const FormConfig = function(this:any,params){
                 label:"班次名称",
                 type:"Input",
                 inputConfig:{// antd input 配置
-                  placeholder:"测试holder"
+                  placeholder:"名称"
                 },
                 //antd ->Form.Item 配置
                 antdFormItemOptions:{ 
@@ -183,7 +148,7 @@ export const FormConfig = function(this:any,params){
                 label:"班次名称",
                 type:"Input",
                 inputConfig:{// antd input 配置
-                  placeholder:"测试holder"
+                  placeholder:"名称"
                 },
                 //antd ->Form.Item 配置
                 antdFormItemOptions:{ 
@@ -198,9 +163,43 @@ export const FormConfig = function(this:any,params){
                   }]
                 }
               },{
+                field:'color',
+                type:"Custom",//自定义类型  
+                label:"班次标记",
+                renderCustom:(
+                    class InputColor extends Component<any,any>{
+
+                        constructor(props){
+                            super(props);
+                            this.handleChange = this.handleChange.bind(this);
+                        }
+                    
+                        handleChange(color, event){
+                            this.props.onChange(color.hex);
+                        }
+                    
+                        render(){
+                            return(
+                                <EcolorPicker.component handleChange={this.handleChange} width="100%" />
+                            )
+                        }
+                    }
+                ),
+                antdFormItemOptions:{
+                  colon:false,
+                },
+                tag:"InputColor",
+                antdOptions:{
+                 initialValue:(that&&that.params)?that.params.color:"#f40",
+                 rules: [{
+                    required: true,
+                    message: '请选择标记',
+                  }]
+                }
+            },{
                 field:'caseNo2',
                 type:"CheckboxGroup",
-                label:"案件编号",
+                label:"喜欢的水果",
                 checkboxGroupConfig:{
                    options:['Apple', 'Pear', 'Orange']
                 },
@@ -231,34 +230,14 @@ export const FormConfig = function(this:any,params){
               e.preventDefault();
               this.props.form.validateFields((err, values) => {
                 if (!err) {
-                  Prompt["component"]["loading"]("数据提交中");
                   Reflect.ownKeys(values).forEach((item,index)=>{
-                    if(values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
+                    if((typeof values[item]!=="number")&&values[item].constructor&&values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
                       values[item] = values[item].format(format);
                     }
                   })
-                //   console.log(values)
+                  Prompt["component"]["success"]("提交成功！具体数据可log查看");
                 }
               });
-          },
-          //对应antd 中的 form的配置项   [ 可选 ]
-          formOptions:{ 
-            hideRequiredMark:false,
-            layout:"vertical",
-            style:{
-              paddingTop:"30px",
-              height:"100%",
-              paddingRight:"40px",
-              paddingLeft:"40px",
-            }
-          },
-          //对应antd 中的 栅格配置   [ 可选 ]
-          searchLayout:null,
-          //筛选表单项 label 和表单的布局 label wrapper   [ 可选 ]
-          layout:null,
-          operation:{   //[ 必填  ]  
-            layout:"center" ,//提交按钮组 布局
-            buttonGroup:[{type:"submit",text:"提交"},{type:"reset",text:"重置"}]  //提交按钮项
           }
         }
     }

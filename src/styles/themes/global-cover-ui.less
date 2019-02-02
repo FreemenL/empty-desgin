@@ -2,9 +2,16 @@
 @import './default.less';
 @import '../../ant-theme-vars.less';
 :global{
-    .ant-form-item:active{
-        label{
-            color:#f40;
+    .ant-select-selection__placeholder,input::placeholder{
+        color:#999;
+        font-size:16px;
+    }
+    .ant-select-selection__placeholder{
+        opacity: .6;
+    }
+    .ant-form-item-with-help{
+        .ant-select-selection,.ant-input,.ant-time-picker-input,.ant-input-number{
+            border-color:@red-tint!important;
         }
     }
     .ant-select-selection,.ant-input,.ant-time-picker-input,.ant-input-number{

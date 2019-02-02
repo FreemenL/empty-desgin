@@ -51,7 +51,7 @@ export const defaultEsearchConfig = {
                 if(Actios.length>0){
                   Actios.forEach((actions,index)=>{
                     if(actions.actionType.endsWith("DATALIST_DELETE")){
-                      console.log(actions.actionType)
+                      //console.log(actions.actionType)
                     }
                   })
                 }
@@ -238,88 +238,31 @@ export const emptyFormConfig = function(this:any){
   return{
         Rowlayout:{type:"flex",justify:"start"},
         searchPanel:{
-          search:[{
-              field:'dutyType',
-              type:"Custom",//自定义类型  
-              label:"班次类型",
-              renderCustom:function(){//自定义渲染函数
-                  return(
-                    <Select defaultValue={that.params?that.params.dutyType:""}>
-                      <Option value={1}>内勤班次</Option>
-                      <Option value={2}>外勤班次</Option>
-                    </Select>
-                  )
-              },
-              antdFormItemOptions:{
-                colon:false
-              },
-          },{  // 筛选项  
-              field:'name',
-              label:"班次名称",
-              type:"Input",
-              inputConfig:{// antd input 配置
-                placeholder:"测试holder"
-              },
-              placeholder:'请输入分组名称',
-              //antd ->Form.Item 配置
-              antdFormItemOptions:{ 
-                colon:false
-              },
-              //antd ->getFieldDecorator(id, options)    antdOptions对应 options 配置
-              antdOptions:{
-               initialValue:that.params?that.params.name:"",
-               rules: [{
-                  required: true,
-                  message: '请输入班次名称',
-                }]
-              }
-            },{  // 筛选项  
-              field:'groupName1',
-              label:"分组查询",
-              type:"Input",
-              inputConfig:{// antd input 配置
-                placeholder:"测试holder"
-              },
-              placeholder:'请输入分组名称',
-              //antd ->Form.Item 配置
-              antdFormItemOptions:{ 
-                colon:false
-              },
-              //antd ->getFieldDecorator(id, options)    antdOptions对应 options 配置
-              antdOptions:{
-               initialValue:"Please input your namePlease input your namePlease input your name",
-               rules: [{
-                  required: true,
-                  message: 'Please input your name',
-                }]
-              }
-            }],
+          search:[],
         //对应antd 中的 form的配置项   [ 可选 ]
         formOptions:{ 
-          // hideRequiredMark:true,
-          // style:{
-          //   width:"1400px",
-          //   background:"#fff",
-          //   paddingTop:"30px",
-          //   height:"100%",
-          //   paddingRight:"40px",
-          //   borderRight:"1px solid #d8ecfc",
-          //   borderLeft:"1px solid #d8ecfc"
-          // }
+          hideRequiredMark:false,
+          layout:"vertical",
+          style:{
+            paddingTop:"30px",
+            height:"100%",
+            paddingRight:"40px",
+            paddingLeft:"40px",
+          }
         },
         //对应antd 中的 栅格配置   [ 可选 ]
         searchLayout:{
-          xl:8,lg:12,md:24,sm:24,xs:24
+          xl:12,lg:12,md:12,sm:24,xs:24
         },
         //筛选表单项 label 和表单的布局 label wrapper   [ 可选 ]
         layout:{ 
           //对应antd 中的配置
-         labelCol: {
+        labelCol: {
             xs: {span: 10},
             sm: {span: 12},
             md: {span: 10},
             lg: {span: 6},
-            xl: {span: 6},
+            xl: {span: 4},
             xxl: {span: 6}
           },
           wrapperCol: {
@@ -327,7 +270,7 @@ export const emptyFormConfig = function(this:any){
             sm: {span: 12},
             md: {span: 10},
             lg: {span: 16},
-            xl: {span: 16},
+            xl: {span: 20},
             xxl: {span: 18}
           },
         },

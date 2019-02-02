@@ -5,21 +5,51 @@ const { Edocument, EFormHoc } = components;
 
 const data = [{
   key: '1',
-  title: 'imgUrl',
-  explain: "图片链接的数组",
-  type: "Array",
+  title: 'field',
+  explain: "表单提交时的字段名",
+  type: "string",
   default: '-',
 },{
   key: '2',
-  title: 'closeTag',
-  explain: "是否显示删除按钮",
-  type:"boolean",
-  default: 'false',
+  title: 'label',
+  explain: "表单标签",
+  type:"string",
+  default: '-',
 },{
   key: '3',
-  title: ' handleDel ',
-  explain: " 删除逻辑处理函数 接受被删除图片的索引 index 和事件元 event 为参数 ",
-  type:"function(index,event)",
+  title: ' type ',
+  explain: "表单元素类型 Custom | DatePicker | uploadImage | CheckboxGroup | TextArea | Input",
+  type:"string",
+  default: '-',
+},{
+  key: '4',
+  title: 'inputConfig',
+  explain: "参照antd中input配置，注：type类型为Input时有效 ",
+  type:"Object",
+  default: '-',
+},{
+  key: '5',
+  title: 'antdFormItemOptions',
+  explain: "参照antd中 iForm.Item 配置 ",
+  type:"Object",
+  default: '-',
+},{
+  key: '6',
+  title: 'antdOptions',
+  explain: "参照antd中getFieldDecorator(id, options)，antdOptions对应options配置 ",
+  type:"Object",
+  default: '-',
+},{
+  key: '7',
+  title: 'renderCustom',
+  explain: "自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ",
+  type: "React.ReactNode",
+  default: '-',
+},{
+  key: '8',
+  title: 'CustomConfig',
+  explain: "自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ",
+  type: " object ",
   default: '-',
 }];
 
@@ -29,48 +59,271 @@ class EFormHocDocuments extends Component<any, any> {
     return (
       <div className={"animated fadeIn emptyd-content"}>
         <Edocument.component
-          title="图片展示组件:EFormHoc" 
+          title="表单配置组件:EFormHoc" 
           components={[{
             component:React.createElement(EFormHoc.component(FormConfig)),
-            titDescripttion:"带删除功能的图片展示",
+            titDescripttion:"表单配置化",
             code:`
               import components from '@components/load-component';
               const { EFormHoc } = components;
 
-              class EFormHocDemo extends Component{
+              import { TimePicker , InputNumber , Select } from 'antd';
+              import moment from 'moment';
+              import freetool from 'freetool';
+              import components from '@components/load-component';
 
-                handleDel(index,event){
-                  Prompt.component["success"]("删除了第"+index+"张");
-                }
+              const {  EcolorPicker , Prompt } = components;
+              const Option = Select.Option;
+              const { GetType } = freetool;
+              const format = 'HH:mm';
 
-                render(){
-                  return(
-                    React.createElement(EFormHoc.component,{
-                      handleDel:this.handleDel,
-                      imgUrl:[{
-                        url:"http://5b0988e595225.cdn.sohucs.com/images/20180914/9d15e25d6b1946f28b196f597e3002ba.jpeg",
-                        alt:"pic"
-                      },{
-                        url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRGKDR-Haw_F52ti3wGVR4FDLDX1D2j72RMGsXAfp2YmAjnGeb",
-                        alt:"pic"
-                      },{
-                        url:"https://imgcdn.yicai.com/uppics/slides/2017/12/636495403828283780.jpg",
-                        alt:"pic"
-                      },{
-                        url:"https://cdn.pixabay.com/photo/2017/11/03/09/30/west-lake-2913829_960_720.jpg",
-                        alt:"pic"
-                      },{
-                        url:"https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_720,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/jeoolpih7jpkduacsvno/%E5%B9%BF%E5%B7%9E%E5%A1%94%E3%80%8C%E5%B0%8F%E8%9B%AE%E8%85%B0%E3%80%8D%E9%97%A8%E7%A5%A8%EF%BC%88%E4%B8%AD%E5%9B%BD%E7%B1%8D%E6%B8%B8%E5%AE%A2%E9%99%90%E5%AE%9A%EF%BC%89.jpg",
-                        alt:"pic"
-                      }],
-                      closeTag:true
+
+              export const FormConfig = function(this:any,params){
+                  const that = this;
+                  const result:any = {
+                        searchPanel:{
+                          search:[
+                          {  // 筛选项  
+                              field:'name',
+                              label:"班次名称",
+                              type:"Input",
+                              inputConfig:{// antd input 配置
+                                placeholder:"名称"
+                              },
+                              //antd ->Form.Item 配置
+                              antdFormItemOptions:{ 
+                                colon:false
+                              },
+                              //antd ->getFieldDecorator(id, options)    antdOptions对应 options 配置
+                              antdOptions:{
+                                initialValue:(that&&that.params)?that.params.name:"",
+                                rules: [{
+                                  required: true,
+                                  message: '请输入班次名称',
+                                }]
+                              }
+                            },{
+                              field:'startTime',
+                              type:"Custom",//自定义类型  
+                              label:"上班时间",
+                              renderCustom:(
+                                    TimePicker 
+                              ),
+                              antdFormItemOptions:{
+                                colon:false
+                              },
+                              CustomConfig:{
+                                format
+                              },
+                              antdOptions:{
+                              initialValue:(that&&that.params)?moment(that.params.startTime,format):moment(),
+                              rules: [{
+                                  required: true,
+                                  message: '请输入上班时间',
+                                }]
+                              }
+                          },{
+                              field:'duration',
+                              type:"Custom",//自定义类型  
+                              label:"午休时间",
+                              renderCustom:(
+                              InputNumber
+                              ),
+                              CustomConfig:{
+                                  placeholder:"请选择时间"
+                              },
+                              antdFormItemOptions:{
+                              colon:false
+                              },
+                              antdOptions:{
+                              initialValue:(that&&that.params)?that.params.duration:0,
+                              rules: [{
+                                  required: true,
+                                  message: '请输入时间',
+                              }]
+                              }
+                          },{
+                              field:'timePicker',
+                              type:"DatePicker",
+                              label:"日期选择",
+                              DatePickerConfig:{// antd input 配置
+                                placeholder:"日期选择",
+                              },
+                              antdFormItemOptions:{
+                                colon:false
+                              },
+                              antdOptions:{
+                                  rules: [{
+                                    required: true,
+                                    message: '请输入时间',
+                                  }]
+                              }
+                          },{
+                              field:'case1o2',
+                              type:"Custom",//自定义类型  
+                              label:"下拉选择",
+                              renderCustom:(
+                                  class extends Component<any,any>{
+                                    constructor(props){
+                                      super(props);
+                                      this.handleChange = this.handleChange.bind(this);
+                                    }
+                                    handleChange(value){
+                                      this.props.onChange(value)
+                                    }
+                                    render(){
+                                      const initialValue = this.props['data-__meta']["rules"][0]["initialValue"];
+                                      const values = this.props.value;
+                                      return(
+                                        <Select onChange={this.handleChange} value={values||initialValue} placeholder="下拉选择框">
+                                          <Option value={1}>内勤班次</Option>
+                                          <Option value={2}>外勤班次</Option>
+                                        </Select>
+                                      )
+                                    }
+                                  }
+                              ),
+                              antdOptions:{
+                                  rules: [{
+                                    required: true,
+                                    message: '请输入时间',
+                                  }]
+                              },
+                              antdFormItemOptions:{
+                                colon:false
+                              }
+                          },{  // 筛选项  
+                              field:'name1',
+                              label:"班次名称",
+                              type:"Input",
+                              inputConfig:{// antd input 配置
+                                placeholder:"名称"
+                              },
+                              //antd ->Form.Item 配置
+                              antdFormItemOptions:{ 
+                                colon:false
+                              },
+                              //antd ->getFieldDecorator(id, options)    antdOptions对应 options 配置
+                              antdOptions:{
+                              initialValue:(that&&that.params)?that.params.name:"",
+                              rules: [{
+                                  required: true,
+                                  message: '请输入班次名称',
+                                }]
+                              }
+                            },{  // 筛选项  
+                              field:'name2',
+                              label:"班次名称",
+                              type:"Input",
+                              inputConfig:{// antd input 配置
+                                placeholder:"名称"
+                              },
+                              //antd ->Form.Item 配置
+                              antdFormItemOptions:{ 
+                                colon:false
+                              },
+                              //antd ->getFieldDecorator(id, options)    antdOptions对应 options 配置
+                              antdOptions:{
+                              initialValue:(that&&that.params)?that.params.name:"",
+                              rules: [{
+                                  required: true,
+                                  message: '请输入班次名称',
+                                }]
+                              }
+                            },{
+                              field:'color',
+                              type:"Custom",//自定义类型  
+                              label:"班次标记",
+                              renderCustom:(
+                                  class InputColor extends Component<any,any>{
+
+                                      constructor(props){
+                                          super(props);
+                                          this.handleChange = this.handleChange.bind(this);
+                                      }
+                                  
+                                      handleChange(color, event){
+                                          this.props.onChange(color.hex);
+                                      }
+                                  
+                                      render(){
+                                          return(
+                                              <EcolorPicker.component handleChange={this.handleChange} width="100%" />
+                                          )
+                                      }
+                                  }
+                              ),
+                              antdFormItemOptions:{
+                                colon:false,
+                              },
+                              tag:"InputColor",
+                              antdOptions:{
+                              initialValue:(that&&that.params)?that.params.color:"#f40",
+                              rules: [{
+                                  required: true,
+                                  message: '请选择标记',
+                                }]
+                              }
+                          },{
+                              field:'caseNo2',
+                              type:"CheckboxGroup",
+                              label:"喜欢的水果",
+                              checkboxGroupConfig:{
+                                options:['Apple', 'Pear', 'Orange']
+                              },
+                              antdFormItemOptions:{
+                                colon:false
+                              },
+                          },{
+                              field:'uploadImage',
+                              type:"uploadImage",
+                              label:"附件图片",
+                              tag:"uploadImage",
+                              uploadImgConfig:{
+                              },
+                              antdOptions:{
+                              initialValue:[{url:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542869766716&di=3f9a2a6f5c5b2c950fab91a7212c78ce&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd439b6003af33a8724e4b645cb5c10385243b5e0.jpg",fileId:123}],
+                              rules: [{
+                                  required: false,
+                                  message: '请选择图片',
+                                }]
+                              },
+                              antdFormItemOptions:{
+                                colon:false
+                              },
+                            }
+                            ],
+                            //提交函数
+                          submit:function(this:any,e,parent){
+                            e.preventDefault();
+                            this.props.form.validateFields((err, values) => {
+                              if (!err) {
+                                Reflect.ownKeys(values).forEach((item,index)=>{
+                                  if((typeof values[item]!=="number")&&values[item].constructor&&values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
+                                    values[item] = values[item].format(format);
+                                  }
+                                })
+                                Prompt["component"]["success"]("提交成功！具体数据可log查看");
+                              }
+                            });
+                        }
+                      }
+                  }
+                  if(GetType(that)==="undefined"){
+                    result.searchPanel.search.forEach((item,index)=>{
+                      if( item.antdOptions&& item.tag!=="InputColor"&&item.tag!=="uploadImage"){ delete item.antdOptions.initialValue };
+                      if(index!==0&&item.antdOptions){item.antdOptions.initialValue = null};
                     })
-                  )
+                  }
+                  return result
                 }
-              }
+
+                ReactDOM.render(
+                  React.createElement(EFormHoc.component(FormConfig))
+                )
             `
           }]}
-          docDescripttion="EFormHoc属性如下:"   
+          docDescripttion=" FormConfig 函数中 search 配置数组的具体参数如下"   
           documentData={data}        
         />
       </div>

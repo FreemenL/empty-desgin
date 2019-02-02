@@ -69,7 +69,7 @@ function EtreeHoc(treeOptions:treeOptions){
               sm: {span: 6},
               md: {span: 8},
               lg: {span: 6},
-              xl: {span: 8},
+              xl: {span: 4},
               xxl: {span:4}
             },
             //对应antd 中的配置
@@ -78,7 +78,7 @@ function EtreeHoc(treeOptions:treeOptions){
               sm: {span: 18},
               md: {span: 14},
               lg: {span: 18},
-              xl: {span: 16},
+              xl: {span: 20},
               xxl: {span: 19}
             },
         },
