@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import childRoutes from '@pages/load-child-routes';
 import getConfirmation from '@components/getConfirmation';
 import { HashRouter as Router, Route, Switch ,Redirect} from 'react-router-dom';

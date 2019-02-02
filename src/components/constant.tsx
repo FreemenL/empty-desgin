@@ -100,7 +100,7 @@ export const defaultEsearchConfig = {
       },
       //对应antd 中的 栅格配置   [ 可选 ]
       searchLayout:{
-       xl:6,lg:12,md:12,sm:24,xs:24
+        xl:6,lg:12,md:12,sm:24,xs:24
       },
       //筛选表单项 label 和表单的布局 label wrapper   [ 可选 ]
       layout:{ 
@@ -252,26 +252,26 @@ export const emptyFormConfig = function(this:any){
         },
         //对应antd 中的 栅格配置   [ 可选 ]
         searchLayout:{
-          xl:12,lg:12,md:12,sm:24,xs:24
+          xl:12,lg:12,md:24,sm:24,xs:24,xxl:6
         },
         //筛选表单项 label 和表单的布局 label wrapper   [ 可选 ]
         layout:{ 
           //对应antd 中的配置
         labelCol: {
             xs: {span: 10},
-            sm: {span: 12},
-            md: {span: 10},
-            lg: {span: 6},
-            xl: {span: 4},
-            xxl: {span: 6}
+            sm: {span: 4},
+            md: {span: 2},
+            lg: {span: 4},
+            xl: {span: 2},
+            xxl: {span:4}
           },
           wrapperCol: {
             xs: {span: 14},
-            sm: {span: 12},
-            md: {span: 10},
-            lg: {span: 16},
-            xl: {span: 20},
-            xxl: {span: 18}
+            sm: {span: 20},
+            md: {span: 22},
+            lg: {span: 20},
+            xl: {span: 22},
+            xxl: {span: 20}
           },
         },
         operation:{   //[ 必填  ]  

@@ -31,6 +31,14 @@ export default [
 	{
 		path:"/home/documents/EformHoc",
 		component:"Documents/EformHoc/index"
+	},
+	{
+		path:"/home/documents/EheaderHoc",
+		component:"Documents/EheaderHoc/index"
+	},
+	{
+		path:"/home/documents/Eloading",
+		component:"Documents/Eloading/index"
 	}
 ]
 

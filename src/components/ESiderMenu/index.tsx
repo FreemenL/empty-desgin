@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
-
-import { Link , withRouter ,RouteComponentProps} from 'react-router-dom';
+import { enquireScreen } from 'enquire-js';
+import { Link , withRouter } from 'react-router-dom';
 import styles from './index.less';
 import classNames from 'classnames';
 
@@ -11,7 +11,6 @@ const { Sider } = Layout;
 interface Props{
 	width:number,
 	style:any,
-	callback:Function,
 	menuList:Array<any>,
 	[propName: string]: any,
 }
@@ -42,6 +41,16 @@ class ESiderMenu extends Component<Props,any>{
 		this.changeSider = this.changeSider.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 
+	}
+
+	componentDidMount() {
+		enquireScreen(mobile => {
+			this.setState((prevState,props)=>{
+				return{
+					collapsed:mobile
+				}
+			})
+		},'only screen and (max-width: 1000px)');
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot){
@@ -86,8 +95,6 @@ class ESiderMenu extends Component<Props,any>{
 			return{
 				collapsed:!prevState.collapsed
 			}
-		},()=>{
-			this.props.callback(this.state.collapsed);
 		})
 	}
 
@@ -123,7 +130,7 @@ class ESiderMenu extends Component<Props,any>{
 			[`${styles["empty-sider-trigger-vertical"]}`]:!this.state.collapsed,
 			[`${styles["empty-sider-trigger-across"]}`]:this.state.collapsed,
 	    });
-	    const {callback,
+	    const {
 			history,
 			location,
 			match,

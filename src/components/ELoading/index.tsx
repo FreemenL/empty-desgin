@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './index.less';
+import { Spin } from 'antd';
 
-function ELoading(){
+const baseClass = styles["lds-spinner-container"];
+const baseClassModel = styles["lds-spinner-model"];
+const spinnerClass = styles["lds-spinner"];
+
+function Eloading({children,show=true,model="",...reset}){
+
+    const result = show?(model=="global"?baseClass:`${baseClass} ${baseClassModel}`):"" ;
+
     return(
-        <div className={styles["lds-spinner"]}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div className={result}>
+            {children&&children}
+            {show?<Spin wrapperClassName={show?spinnerClass:""}  spinning={show} {...reset}></Spin>:null}
         </div>
     )
 }
 
-
 export default{
-	name:"ELoading",
-	component:ELoading
+	name:"Eloading",
+	component:Eloading
 }
 

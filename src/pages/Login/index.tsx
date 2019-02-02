@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import ReactDOM from 'react-dom';
-import { compose } from 'redux';
 import styles from './index.less';
 import connectAid, { Actions } from '@store/connect';
 import { Validator } from 'free-validator';

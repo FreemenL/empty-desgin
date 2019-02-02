@@ -70,9 +70,26 @@ class Mobile extends Component<any, any> {
             $ npm install postcss-aspect-ratio-mini postcss-write-svg postcss-preset-env postcss-px-to-viewport cssnano cssnano-preset-advanced --save-dev
           `}
         </EcodeHighlight.component>
+        <p className="empty-line-content">
+          4、添加如下meta 标签 ：
+        </p>
+        <EcodeHighlight.component language='markup' showNumber={false}>
+          {`
+            <!-- 视口适配 兼容iphonex -->
+            <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <!-- 用于设定是否将网页内容中的手机号码显示为拨号的超链接，iPhone上默认为yes -->
+            <meta content="telephone=no,email=no" name="format-detection">
+            <!-- 把一个web app添加到了主屏幕中，那么从主屏幕中打开这个web app则全屏显示 -->
+            <meta name="apple-touch-fullscreen" content="yes">
+            <!-- 通过删除苹果默认的工具栏和菜单栏，来给用户腾出更多的空间从而让网页得到更好的展现  -->
+            <meta name=”apple-mobile-web-app-capable” content=”yes” />
+          `}
+        </EcodeHighlight.component>
       </div>
     );
   }
 }
 
 export default Mobile;
+
+

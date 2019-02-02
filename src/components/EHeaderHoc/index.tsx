@@ -1,20 +1,14 @@
 import React,{ Component } from 'react';
 import {  withRouter} from 'react-router-dom';
-import { Layout, Menu , Icon ,Avatar ,Dropdown ,Button  } from 'antd';
+import { Layout, Menu ,Avatar } from 'antd';
+import freetool from 'freetool';
 
-
-import EText from '../EText';
 import styles from './index.less';
 import EMenu from '../EMenu';
-import freetool from 'freetool';
 import { transformMemuList } from '../utils/tool';
 
 
-const { cookieUtil } = freetool;
-const { SubMenu } = Menu;
 const { Header } = Layout;
-
-
 const EmptyPageHeader = styles["empty-page-header"];
 const EmptyPageHeaderLogo = styles["empty-page-header-logo"];
 const EmptyPageHeaderTitle = styles["empty-page-header-title"];

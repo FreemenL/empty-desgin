@@ -26,32 +26,16 @@ class Home extends Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      error: false,
-      collapsed: false,
+      error: false
     };
-    this.handleback = this.handleback.bind(this);
   }
 
-  componentDidMount() {
-    // enquireScreen(mobile => {
-    //   this.props.cutMunuStatus("CUT_STATUS",mobile);
-    // },'only screen and (max-width: 1000px)');
-    // this.getSubAndTitle(menus,location.hash.substr(1))
-  }
 
   componentDidCatch(error, info) {
     this.setState((prevState, props) => {
       return {
         error,
         info
-      }
-    })
-  }
-
-  handleback(collapsed) {
-    this.setState((prevState, props) => {
-      return {
-        collapsed
       }
     })
   }
@@ -100,18 +84,16 @@ class Home extends Component<any, any> {
       <Layout className={contentClass} >
         <HeaderCom />
         <Layout>
-          {menuLists.length > 0 ? <ESiderMenu.component callback={this.handleback} menuList={menuLists} /> : null}
+          {menuLists.length > 0 ? <ESiderMenu.component menuList={menuLists} /> : null}
           <Layout>
             {(isHome) ?
               null :
-              <div style={{ left: this.state.collapsed ? "80px" : "280px" }}>
-                <Ebeard.component menus={menuLists} />
-              </div>
+                (<Ebeard.component menus={menuLists} />)
             }
             <Content id='content' className={contentWrapperClass}>
               <ChildRoute route={Routes.filter((route: any) => !mainRoute.includes(route.path))} type='child' />
               <Footer className={contentFooterClass}>
-                {footerText}
+                { footerText }
               </Footer>
             </Content>
             <BackTop target={() => document.getElementById('content')} visibilityHeight={100} />

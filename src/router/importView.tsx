@@ -2,7 +2,7 @@ import React from 'react';
 import NProgress from 'nprogress'
 import Loadable from 'react-loadable';
 import components from '@components/load-component';
-const { ELoading } = components;
+const { Eloading } = components;
 
 
 const _import_views = file => Loadable.Map({
@@ -12,8 +12,8 @@ const _import_views = file => Loadable.Map({
   loading,
   timeout: 8000,
   render(loaded, props: any) {
-    const { history, location } = props;
     const Com = loaded.Component.default;
+    NProgress.done();
     return React.createElement(Com, { ...props }, null);
   }
 });
@@ -30,7 +30,7 @@ const loadingProxy = {
     return (<div>加载超时...... <button onClick={params.retry}>重试</button></div>);
   },
   pastDelay(){
-    return <ELoading.component/>;
+    return <Eloading.component/>;
   }
 }
 

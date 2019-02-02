@@ -114,6 +114,7 @@
     "autobind-decorator": "2.4.0",
     "classnames": "2.2.6",
     "connected-react-router": "6.0.0",
+    "enquire-js": "^0.2.1",
     "free-validator": "1.0.7",
     "history": "4.7.2",
     "lodash": "4.17.11",
