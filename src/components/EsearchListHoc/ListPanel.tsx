@@ -1,11 +1,11 @@
 import React,{ Component } from "react";
 import autobind from 'autobind-decorator';
+import freetool from 'freetool';
 import TableTemplate from "./TableTemplate";
 import CardTemplate from "./CardTemplate";
-import Edrawer from '../Edrawer/index';
+import EDrawer from '../Edrawer';
 import EModalHoc from '../EModalHoc';
 
-import freetool from 'freetool';
 const { GetType } = freetool;
 
 interface Props{
@@ -17,6 +17,7 @@ class ListPanel extends Component<Props,any>{
 	constructor(props){
 		super(props);
 	}
+
 	state = { 
 		visible: false ,
 		handle:"show",
@@ -26,7 +27,7 @@ class ListPanel extends Component<Props,any>{
 	};
 
 	componentDidMount(){
-	    const Ele:any = document.getElementById('editNode');
+		this.props.handleEvent.getChild("bindObj",this);
 	}
 
 	shouldComponentUpdate(nextProps,nextState){
@@ -57,14 +58,14 @@ class ListPanel extends Component<Props,any>{
 	      }
 	    })
 	}
+
 	handleClose(){
 		this.setState((prevState,props)=>{
-			return {
+			return{
 				visible:false
 			}
 		})
 	}
-	
 	handleListAdd(){
 		this.setState((prevState,props)=>{
           return{
@@ -74,11 +75,10 @@ class ListPanel extends Component<Props,any>{
 	}
 
 	handleCancel(){
-		
 	    this.setState({
-	      modalVisibale: false,
+	      	modalVisibale: false,
 	    });
-	 }
+	}
     render(){
 		const ElementNode = this.props.state.menuList?TableTemplate.bind(this):CardTemplate.bind(this);
 		const Modal = EModalHoc.component();
@@ -106,13 +106,13 @@ class ListPanel extends Component<Props,any>{
 			footer:null,
 			...this.props.addConfig.modal
 		}
+
 		return(
 		  <div>
 		  	<ElementNode/>
-		  	<Edrawer.component {...EDprops}>
+		  	<EDrawer.component {...EDprops}>
 		  		{renderContext[this.state.handle]}
-		  	</Edrawer.component>
-		  	<span id="listAdd" onClick={this.handleListAdd} style={{visibility:"hidden"}}></span>
+		  	</EDrawer.component>
 		  	<Modal {...modalConfig}>
 		  		<AddNode/>
 		  	</Modal>

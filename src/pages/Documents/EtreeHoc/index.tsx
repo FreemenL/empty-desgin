@@ -46,8 +46,8 @@ const data = [{
 },{
   key: '7',
   title: ' getData ',
-  explain: " 接口调用函数 返回Promise",
-  type:"( )=> Promise",
+  explain: " 接口调用函数 参数params 为每次点击查询时候需要进行筛选的参数 返回 Promise",
+  type:"( params )=> Promise",
   default: '-',
 },{
   key: '8',
@@ -80,30 +80,30 @@ class EtreeHocDocuments extends Component<any, any> {
                   },
                 }
               ],
-              showPage(){
-                 return EListHoc.component({
-                    type:"default",
-                    data:{
-                      "部门名称":"title",
-                      "部门id":"key"
-                    }
-                  })
-              },
-              getData(treeNode){
-                return new Promise((resolve,reject)=>{
-                  setTimeout(()=>{
-                    let res = num!=0?[
-                      { title: '测试数据-C', key: `${Math.random()}-0` },
-                      { title: '测试数据-C', key: `${Math.random()}-1` },
-                    ]:[
-                      { title: '测试数据-P', key: '0' , id:1},
-                      { title: '测试数据-P', key: '1' , id:2},
-                      { title: '测试数据-P', key: '2', isLeaf: true ,id:3},
-                    ];
-                    num++
-                    resolve(res);
-                  },500)      
-                })
+                showPage(){
+                  return EListHoc.component({
+                     type:"default",
+                     data:{
+                       "部门名称":"title",
+                       "部门id":"key"
+                     }
+                   })
+               },
+               getData(treeNode){
+                 return new Promise((resolve,reject)=>{
+                   setTimeout(()=>{
+                     let res = num!=0?[
+                       { title: '测试数据-C', key: `${Math.random()}-0` },
+                       { title: '测试数据-C', key: `${Math.random()}-1` },
+                     ]:[
+                       { title: '测试数据-P', key: '0' , id:1},
+                       { title: '测试数据-P', key: '1' , id:2},
+                       { title: '测试数据-P', key: '2', isLeaf: true ,id:3},
+                     ];
+                     num++
+                     resolve(res);
+                   },500)      
+                 })
               },
               handlePanel:[{
                   node:(props)=><Button type="primary" size="small" {...props}>新增子节点</Button>,
@@ -159,13 +159,13 @@ class EtreeHocDocuments extends Component<any, any> {
                     }
                   ],
                   showPage(){
-                     return EListHoc.component({
-                        type:"default",
-                        data:{
-                          "部门名称":"title",
-                          "部门id":"key"
-                        }
-                      })
+                      return EListHoc.component({
+                         type:"default",
+                         data:{
+                           "部门名称":"title",
+                           "部门id":"key"
+                         }
+                       })
                   },
                   getData(treeNode){
                     return new Promise((resolve,reject)=>{

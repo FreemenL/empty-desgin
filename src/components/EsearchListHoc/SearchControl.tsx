@@ -1,19 +1,16 @@
 /*第三方模块*/
 import classNames from 'classnames';
-import  React,{ Component } from 'react';
+import  React,{ Component ,Fragment} from 'react';
 import { Form } from 'antd';
 import autobind from 'autobind-decorator';
 
 /* 自定义模块 */
-import freetool from 'freetool';
-import { SearchLayout } from '@src/components/Layout/layout';
-import EformIndex from '@src/components/Eform';
+import { SearchLayout } from '../Layout/layout';
+import EformIndex from '../Eform/index';
 
 //less
 import styles from './index.less';
 
-
-const { GetType } = freetool;
 const FormItem = Form.Item;
 const { FourLayout ,searchLayout } = SearchLayout;
 const {component:Eform} = EformIndex;
@@ -39,14 +36,11 @@ class Search extends Component<SearchControlProps,any>{
     this.inputLebgth = 0;
     this.Eform = Eform.bind(this);
   }
-
   componentDidMount(){
-    this.props.onRef(this)
-    const { renderChildType } = this.props;
-    renderChildType=="" && this.props.handleEvent.getListData();
+     this.props.handleEvent.getListData();
   }
-
   shouldComponentUpdate(nextProps,nextState){
+
     const currentValue = this.props.form.getFieldsValue();
     const length = JSON.stringify(currentValue).length;
     if(this.props.state.searchState===nextProps.state.searchState&&length===this.inputLebgth){
@@ -60,8 +54,8 @@ class Search extends Component<SearchControlProps,any>{
   handleSearch(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (!err){
-        this.props.handleEvent.getListData(values);
+      if (!err) {
+          this.props.handleEvent.getListData(values);
       }
     });
   }
@@ -74,7 +68,6 @@ class Search extends Component<SearchControlProps,any>{
     const SearchItem = this.Eform
     return this.props.searchPanel?(<SearchItem/>):null;
   }
-  
   render(){
     const listPanelMenuListClass = classNames(listSearchSection,{//筛选栏收展状态
       [`${styles['empty-search-section-show']}`]:!this.props.state.searchState,

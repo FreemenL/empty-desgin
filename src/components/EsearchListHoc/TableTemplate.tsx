@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Divider, Tag } from 'antd';
+import { Table } from 'antd';
 
 const TableTemplate = (function (this:any){
 	let prevSata = [];
@@ -9,7 +9,7 @@ const TableTemplate = (function (this:any){
 		let dataSource = [];
 		const { tableConfig,tableColumns,pagination} = this.props.listConfig;
 		Object.keys(this.props.ownState).forEach((item,index)=>{
-			if(item.endsWith("DATALIST")&&!this.props.ownState[item]["loading"]){
+			if(item.endsWith(this.props.listActionName)&&!this.props.ownState[item]["loading"]){
 
 				const responseData = this.props.ownState[item]["response"];
 				loading = this.props.ownState[item]["loading"];

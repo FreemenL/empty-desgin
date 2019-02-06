@@ -53,6 +53,7 @@ function EtreeHoc(treeOptions:treeOptions){
 
     Search = Esearch({
       header:treeOptions.header,
+
       searchPanel:{
         search:treeOptions.search,
         searchLayout:{
@@ -92,7 +93,7 @@ function EtreeHoc(treeOptions:treeOptions){
       },
       renderChildType:"treeNode",
       callback:this.callback,
-    })
+    });
 
 
     componentDidMount(){

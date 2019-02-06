@@ -39,6 +39,10 @@ export default [
 	{
 		path:"/home/documents/Eloading",
 		component:"Documents/Eloading/index"
+	},
+	{
+		path:"/home/documents/EsearchListHoc",
+		component:"Documents/EsearchListHoc/index"
 	}
 ]
 

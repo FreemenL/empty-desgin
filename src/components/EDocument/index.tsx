@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Table, Divider, Tag } from 'antd';
-import { hot } from 'react-hot-loader';
 
 import EcodeHighlight from '@components/EcodeHighlight';
 

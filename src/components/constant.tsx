@@ -65,10 +65,10 @@ export const defaultEsearchConfig = {
       
     },
     searchPanel:{
-      type:"table",//表单展示类型  table|card
+      type:"",//表单展示类型  table|card
       search:[
         // {  // 筛选项  
-        //   field:'groupName',
+        //   field:'groupName'ƒhead,
         //   type:"Input",
         //   label:"分组查询",
         //   placeholder:'请输入分组名称',

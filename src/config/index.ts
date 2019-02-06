@@ -26,7 +26,6 @@ export const config ={
                 { pathname: '/home/documents/EformHoc', title: 'HOC表单组件：EformHoc'},
                 { pathname: '/home/documents/EheaderHoc', title: '头部组件：EheaderHoc'},
                 { pathname: '/home/documents/Eloading', title: 'loading组件：ELoading'},
-                { pathname: '/home/documents/EMenu', title: '菜单组件：EMenu'},
                 { pathname: '/home/documents/EsearchListHoc', title: '查询列表页面：EsearchListHoc'},
                 { pathname: '/home/documents/ESiderMenu', title: '侧栏导航：ESiderMenu'},
                 { pathname: '/home/documents/EText', title: '动态文字：EText'},

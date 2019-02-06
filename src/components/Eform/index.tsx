@@ -3,27 +3,18 @@
  * @Author   freemenL
  * @DateTime 2018-10-27T17:58:03+0800
 */
-import React ,{ Component ,Fragment ,ReactNode} from 'react'; 
-import moment from 'moment';
+import React from 'react'; 
 import { 
   Col, 
   Row, 
   Button,
-  Icon, 
   Form, 
   Select,
   Checkbox, 
   Input, 
-  DatePicker, 
-  Cascader, 
-  Upload, 
-  Modal, 
-  TimePicker, 
-  InputNumber, 
-  TreeSelect,
+  DatePicker,
   Tooltip,  
 } from 'antd';
-import classNames from 'classnames';
 import EuploadImg from "../EuploadImg";
 import { SearchLayout } from '../Layout/layout';
 import styles from './index.less';
