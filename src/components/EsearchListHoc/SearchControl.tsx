@@ -1,23 +1,14 @@
 /*第三方模块*/
 import classNames from 'classnames';
-import  React,{ Component ,Fragment} from 'react';
+import  React,{ Component } from 'react';
 import { Form } from 'antd';
 import autobind from 'autobind-decorator';
 
 /* 自定义模块 */
-import { SearchLayout } from '../Layout/layout';
 import EformIndex from '../Eform/index';
-
-//less
 import styles from './index.less';
 
-const FormItem = Form.Item;
-const { FourLayout ,searchLayout } = SearchLayout;
 const {component:Eform} = EformIndex;
-
-
-
-//classname
 const listSearchSection = styles['empty-search-section'] //筛选区域基本样式
 
 
@@ -37,10 +28,10 @@ class Search extends Component<SearchControlProps,any>{
     this.Eform = Eform.bind(this);
   }
   componentDidMount(){
-     this.props.handleEvent.getListData();
+   this.props.handleEvent.getListData();
   }
-  shouldComponentUpdate(nextProps,nextState){
 
+  shouldComponentUpdate(nextProps,nextState){
     const currentValue = this.props.form.getFieldsValue();
     const length = JSON.stringify(currentValue).length;
     if(this.props.state.searchState===nextProps.state.searchState&&length===this.inputLebgth){

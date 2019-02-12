@@ -14,7 +14,8 @@ interface Props {
 
 let action: any = {};
 Object.keys(controller).forEach((item, index) => {
-	action[item] = item;
+	action[ item ] = item;
+	action[ item + "_action" ] = controller[item];
 })
 
 const handleActionState = (trigger: string[]) => {

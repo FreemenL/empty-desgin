@@ -15,6 +15,7 @@ interface Props{
 }
 
 //classname
+const listPanelWrapperClass = styles["empty-list-panel-wrapper"]
 const listPanelClass = styles['empty-search-panel']; //筛选项面板
 const listPanelTitleClass = styles['empty-search-panel-title']; //筛选项标题
 const listPanelMenuClass = styles['empty-search-panel-menu-operation'];//筛选项菜单容器
@@ -23,13 +24,12 @@ const listPanelMenuBaseClass = styles['empty-search-panel-menu-operation-base'];
 class BadeSearch extends Component<Props,any>{
   EProxy
   getChild
-  ref
+  refProps
   constructor(props) {
     super(props);
     this.state={
       menuList:this.props.searchPanel.type==="table"?true:false,//菜单样式
       searchState:true,
-      loading:true,
       pagination:this.props.listConfig.pagination
     }
     this.EProxy = throttle(this.EventProxy.bind(this),700);
@@ -37,22 +37,14 @@ class BadeSearch extends Component<Props,any>{
     this.getListData = this.getListData.bind(this);
     this.getChild = this.getChild.bind(this);
   }
-  componentDidMount(){
-    this.setState((prevState,props)=>{
-      return{
-        loading:false
-      }
-    })
-  }
-
   getChild(type,ref){
     const _this = this;
     const proxy = {
       bindObj(){
-        _this.ref = ref;
+        _this.refProps = ref;
       },
       execute(){
-       _this.ref[ref]();
+       _this.refProps[ref]();
       }
     }
     proxy[type]();
@@ -70,26 +62,20 @@ class BadeSearch extends Component<Props,any>{
     }
     this.setState((prevState,props)=>{
       return{
-        [eventTarget]:!prevState[eventTarget],
-        loading:false
+        [eventTarget]:!prevState[eventTarget]
       }
     })
   }
 
   @autobind
   iconClick(event){
-    this.setState((prevState,props)=>{
-      return{
-        loading:true
-      }
-    })
     event.persist();
     this.getListData();
     this.EProxy(event);
   }
 
-  async getListData(params?:any){
-    if(this.props.method.componentDidMount ){
+  getListData(params?:any){
+    if(this.props.method.componentDidMount ){    
       return this.props.method.componentDidMount(params,this.props,this.state);
     }
     if(this.props.renderChildType){
@@ -97,6 +83,8 @@ class BadeSearch extends Component<Props,any>{
     }
   }
   
+  menuLength = this.props.headMenu && this.props.headMenu.length
+
   render() {
     const listPanelMenuListClass = classNames(`${listPanelMenuBaseClass}`,{//筛选展示模式菜单图标
       [`${styles['empty-search-panel-menu-operation-list']} `]:this.state.menuList,
@@ -106,15 +94,15 @@ class BadeSearch extends Component<Props,any>{
       [`${styles['empty-search-panel-menu-operation-search-hide']} `]:this.state.searchState,
       [`${styles['empty-search-panel-menu-operation-search-show']} `]:!this.state.searchState,
     });
-    const menuLength = this.props.headMenu&&this.props.headMenu.length;
     const { renderChildType } = this.props;
+
     return (
-      <Spin spinning={this.state.loading} size="large">
+      <section className={listPanelWrapperClass}>
         <div className={listPanelClass}>
           <div className={listPanelTitleClass}>
             {this.props.header}
           </div>
-          <section className={listPanelMenuClass} style={{gridTemplateColumns: `repeat(${2+menuLength},30px)` }}>
+          <section className={listPanelMenuClass} style={{gridTemplateColumns: `repeat(${2+this.menuLength},30px)` }}>
             <span 
               data-icon="searchState"
               className={listPanelMenuSearchClass}
@@ -136,7 +124,7 @@ class BadeSearch extends Component<Props,any>{
           getListData:this.getListData,
           reload:this.getListData.bind(this)
         })}
-      </Spin>
+      </section>
     );
   }
 }

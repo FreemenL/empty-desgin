@@ -13,16 +13,16 @@ import "normalize.css";
 import "animate.css";
 
 const App = {
-	run: function (Component) {
+	run: function (Component) {		
 		performance.init((perfData) => {
 			
 		});
 		render(
 			<Provider store={store}>
 				<LocaleProvider locale={zh_CN}>
-					<ConnectedRouter history={history}>
+					{/* <ConnectedRouter history={history}> */}
 						<Component />
-					</ConnectedRouter>
+					{/* </ConnectedRouter> */}
 				</LocaleProvider>
 			</Provider>,
 			document.getElementById('root') as HTMLElement

@@ -1,10 +1,6 @@
 import { run } from 'runjs';
-const chalk = require('chalk');
 const utils = require('./utils');
 const queue = utils.queueGenerator();
-
-const SUCCESS = "SUCCESS";
-const ERROR = "ERROR";
 
 /**
  * 删除开发环境dll

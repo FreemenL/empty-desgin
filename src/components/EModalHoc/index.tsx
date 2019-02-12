@@ -40,11 +40,12 @@ function EModalHoc(params?:any){
 		    return (
 		      <div>
 		        <Modal
+							centered
 		          visible={ visibles }
 		          onOk={ this.handleOk }
 		          confirmLoading={ confirmLoading }
 		          onCancel={ this.handleCancel}
-		          {...props}
+							{...props}
 		        >
 		        {this.props.children}
 		        </Modal>

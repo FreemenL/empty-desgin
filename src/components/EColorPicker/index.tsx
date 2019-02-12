@@ -74,12 +74,11 @@ class EcolorPicker extends Component<Props, any> {
 
   render() {
     const { width, defaultValue ,pickerWidth ,cursor, showValue ,animation} = this.props;
-    
     const colorPanel = (
       <div
         className={styles["picker-wrapper"]}
         onClick={this.showPicker}
-        style={{ background: this.state.values,width:showValue?"100%":parseInt(width)/2,padding:showValue?0:"5px",border:showValue?"none":"8px ridge #ebedf0"}}
+        style={{ background: this.state.values,width:showValue?"100%":parseInt(width)/2,padding:showValue?0:"5px"}}
       > 
       <section style={{cursor}}>
         <SketchPicker
@@ -106,7 +105,7 @@ class EcolorPicker extends Component<Props, any> {
             addonBefore = {
               colorPanel
             }
-        />:colorPanel}
+        />: <span className={styles['empty-color-wrapper']}>{colorPanel}</span>}
       </span>      
     );
   }

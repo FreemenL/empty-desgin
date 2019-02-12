@@ -8,22 +8,29 @@ interface Props{
 }
 class EcodeHighlight extends Component<Props,any>{
     ref
+
     static defaultProps={
         showNumber:true,
         language:"tsx"
     }
+
     constructor(props){
         super(props);
         this.ref = React.createRef();
     }
+
     componentDidMount(){
         prism.highlightAllUnder(this.ref.current);
     }
+
+    _style_wrapper = {borderTop:"1px dashed #ebedf0",padding:"10px 15px"}
+    _style_code = {maxHeight:"1200px"}
+
     render(){
         const { children ,showNumber, language } = this.props;
         return(
-            <div ref={this.ref} style={{borderTop:"1px dashed #ebedf0",padding:"10px 15px"}} className="animated fadeIn">
-                <pre className={showNumber?'line-numbers':''}>
+            <div ref={this.ref} style={this._style_wrapper} className="animated fadeIn">
+                <pre className={showNumber?'line-numbers':''} style={this._style_code}>
                     <code className={`language-${language}`}>{`
                         ${children}
                     `}

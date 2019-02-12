@@ -1,9 +1,8 @@
 /* eslint-disable */
-import React,{ Fragment } from 'react';
-import { Modal ,Button ,Select} from 'antd';
+import React from 'react';
+import { Modal } from 'antd';
 import Prompt from './Prompt'
 
-const Option = Select.Option;
 const confirm = Modal.confirm;
 export const defaultEsearchConfig = {
 		header:"高德测试",
@@ -257,22 +256,22 @@ export const emptyFormConfig = function(this:any){
         //筛选表单项 label 和表单的布局 label wrapper   [ 可选 ]
         layout:{ 
           //对应antd 中的配置
-        labelCol: {
-            xs: {span: 10},
-            sm: {span: 4},
-            md: {span: 2},
-            lg: {span: 4},
-            xl: {span: 2},
-            xxl: {span:4}
-          },
-          wrapperCol: {
-            xs: {span: 14},
-            sm: {span: 20},
-            md: {span: 22},
-            lg: {span: 20},
-            xl: {span: 22},
-            xxl: {span: 20}
-          },
+          labelCol: {
+              xs: {span: 10},
+              sm: {span: 4},
+              md: {span: 2},
+              lg: {span: 4},
+              xl: {span: 2},
+              xxl: {span:4}
+            },
+            wrapperCol: {
+              xs: {span: 14},
+              sm: {span: 20},
+              md: {span: 22},
+              lg: {span: 20},
+              xl: {span: 22},
+              xxl: {span: 20}
+            },
         },
         operation:{   //[ 必填  ]  
           layout:"center" ,//提交按钮组 布局

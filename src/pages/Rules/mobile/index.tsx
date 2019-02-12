@@ -71,7 +71,7 @@ class Mobile extends Component<any, any> {
           `}
         </EcodeHighlight.component>
         <p className="empty-line-content">
-          4、添加如下meta 标签 ：
+          4、选择性添加如下meta 标签 ：
         </p>
         <EcodeHighlight.component language='markup' showNumber={false}>
           {`

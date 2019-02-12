@@ -1,4 +1,4 @@
-import { all, call ,put, takeEvery } from "redux-saga/effects";
+import { all, call ,put, takeEvery ,take} from "redux-saga/effects";
 import * as types from '../action-types';
 import { push } from 'connected-react-router'
 import service from "@service/load-service";
@@ -23,7 +23,18 @@ function* login(){
 
 }
 
+function* testDemo(){
+	yield takeEvery(types.DATALIST_REQUEST,function*({type,params}:any){
+		try{
+			yield put({type:types.DATALIST_LOADING});
+			const res  = yield call(service.testDemo.dataList,params);
+			yield put({type:types.DATALIST,pyload:{ request:params,response :res.data ,loading:false}});
+		 }catch(error){
+			throw Error(error);
+		 }	
+	});
+}
 
 export function* rootSaga({dispatch,getState}){
-	yield all([login()])
+	yield all([login(),testDemo()])
 }

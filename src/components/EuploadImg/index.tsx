@@ -6,7 +6,7 @@ import service from "@service/load-service";
 class EuploadImg extends Component<any,any>{
   constructor(props){
     super(props);
-    const imgArr=this.props["data-__meta"]["initialValue"]||[];
+    const imgArr = (this.props["data-__meta"]&&this.props["data-__meta"]["initialValue"])||[];
     let imgUrl = [];
     let fileIds = [];
 
@@ -21,7 +21,7 @@ class EuploadImg extends Component<any,any>{
       imgUrl,
       fileIds
     }
-    this.props.onChange(fileIds);
+    this.props.onChange && this.props.onChange(fileIds);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDel = this.handleDel.bind(this);
   }
@@ -38,7 +38,7 @@ class EuploadImg extends Component<any,any>{
         fileIds:prevState.fileIds.concat([fileId])
       }
     },()=>{
-       this.props.onChange(this.state.fileIds);
+      this.props.onChange && this.props.onChange(this.state.fileIds);
     })
   }
   handleDel(event){
@@ -60,28 +60,35 @@ class EuploadImg extends Component<any,any>{
 
   render(){
     const that = this;
-    const Eupload = EuploadHoc.component({
-      defaultParams: {
-        clientType:"web",
-        userId:103,
-        owner:"string",
-        transferType:"normal",
-        fileSize:0
-      },
-      limit:{number:3,size:2},
-      method:{name:"step",detail:"formData",field:"filer"},
-      postFunction:{
-        step:function(params){
-          return  service.upload.uploadImg("testUplaod",params)
-        },
-        stepTwo:function(url,params,config){
-          return  service.upload.uploadImg(url,params,config)
-        }
-      },
-      callback(params){
-          that.handleAdd(params);
-      }
-    });
+    const Eupload = EuploadHoc.component(
+      this.props.config ?
+        { ...this.props.config,
+          callback(params){
+            that.handleAdd(params);
+          }
+        }:
+        {
+          defaultParams: {
+            clientType:"web",
+            userId:103,
+            owner:"string",
+            transferType:"normal",
+            fileSize:0
+          },
+          limit:{number:3,size:2},
+          method:{name:"step",detail:that.props.mode||"formData",field:"filer"},
+          postFunction:{
+            step:function(params){
+              return  service.upload.uploadImg("testUplaod",params)
+            },
+            stepTwo:function(url,params,config){
+              return  service.upload.uploadImg(url,params,config)
+            }
+          },
+          callback(params){
+              that.handleAdd(params);
+          }
+      });
     return(
       <div>
         { this.state.imgUrl.length>0?<Eviewer.component imgUrl={this.state.imgUrl} handleDel={this.handleDel} closeTag/>:null}

@@ -203,6 +203,11 @@ export const FormConfig = function(this:any,params){
                 checkboxGroupConfig:{
                    options:['Apple', 'Pear', 'Orange']
                 },
+                antdOptions:{
+                  rules: [{
+                     required: true
+                   }]
+                 },
                 antdFormItemOptions:{
                   colon:false
                 },

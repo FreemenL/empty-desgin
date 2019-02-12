@@ -1,6 +1,9 @@
 @import "../styles/index.less";
 @white:#fff;
 
+.@{empty-prefix}-list-panel-wrapper{
+	background:@white;
+}
 .search-panel(){
 	background:@white;
 	border:@base-border;
@@ -65,7 +68,7 @@
 /*card data */
 .@{empty-prefix}-card-list{
 	margin-top:20px;
-	padding: 12px;
+	padding: 12px!important;
 	&-content{
 		overflow: hidden;
 		text-overflow:ellipsis;
@@ -101,7 +104,10 @@
   			color:#000;
   			flex:1;
   	  		background: #e7f1fa;
-  	  	}
+		}
+		div{
+			margin:0 5px!important;
+		}
   	 }
   }
 }

@@ -23,6 +23,7 @@ const columns = [{
   title: '参数',
   dataIndex: 'title',
   key: 'title',
+  className:"document-title",
   render:renderParams,
 }, {
   title: '说明',

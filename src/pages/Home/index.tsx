@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import { Layout, BackTop } from 'antd';
 import componentes from '@components/load-component';
 import styles from './index.less';
@@ -7,29 +6,30 @@ import { config } from '@config/index';
 import Routes from '@pages/load-child-routes';
 import ChildRoute from '@router/router';
 import freeTool from 'freetool';
+
 const { Content, Footer } = Layout;
+const { LogoSrc, name, menuList, userMsg, footerText, mainRoute } = config;
 const { EheaderHoc, EListHoc, Prompt, ESiderMenu, Ebeard } = componentes;
-
-
 const contentClass = styles["empty-system-content"];
 const contentWrapperClass = `${styles["empty-system-content-wrapper"]}`;
 const contentFooterClass = styles["empty-system-content-footer"];
 
-@hot(module)
 class Home extends Component<any, any> {
+
   state
   setState
   props
+
   static getDerivedStateFromProps(nextProps, prevState) {
     return null
   }
+
   constructor(props) {
     super(props);
     this.state = {
       error: false
     };
   }
-
 
   componentDidCatch(error, info) {
     this.setState((prevState, props) => {
@@ -60,8 +60,7 @@ class Home extends Component<any, any> {
     });
   }
 
-  render() {
-    const { LogoSrc, name, menuList, userMsg, footerText, mainRoute } = config;
+  render() {  
     const HeaderCom = EheaderHoc.component({
       LogoSrc,
       name,
@@ -82,13 +81,13 @@ class Home extends Component<any, any> {
     const isHome = this.props.location.pathname == "/home/home";    
     return (
       <Layout className={contentClass} >
-        <HeaderCom />
+        <HeaderCom/>
         <Layout>
           {menuLists.length > 0 ? <ESiderMenu.component menuList={menuLists} /> : null}
           <Layout>
             {(isHome) ?
               null :
-                (<Ebeard.component menus={menuLists} />)
+                (<Ebeard.component menus={menuList} />)
             }
             <Content id='content' className={contentWrapperClass}>
               <ChildRoute route={Routes.filter((route: any) => !mainRoute.includes(route.path))} type='child' />

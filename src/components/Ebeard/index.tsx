@@ -6,14 +6,13 @@ import styles from './index.less';
 let breadcrumbNameMap = {};
 const readMenuData = (data) => {
   if (data.length && data.length > 0) {
-    data.forEach((item, index) => {
+    data.forEach((item, index) => {      
       if (item.sub) {
         readMenuData(item.sub);
       }
       breadcrumbNameMap[item.pathname] = item.title;
     })
   }
-  breadcrumbNameMap['/home'] = "开发规范";
   return breadcrumbNameMap
 }
 const Ebeard = withRouter((props: any) => {

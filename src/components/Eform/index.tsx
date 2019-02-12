@@ -39,11 +39,11 @@ function EForm(this:any){
   const itemLayout = this.props.searchPanel.layout||FourLayout;
 	const labelLayout = this.props.searchPanel.searchLayout||searchLayout;
   const handleBtn = renderButton.apply(this);
-
+  
 	return(
 		<Form onSubmit={this.handleSearch} {...formOptions}>
       <Row gutter={24}>
-       {search.map((item,index)=>{
+       {search.length>0&&search.map((item,index)=>{
        		const {type,...other} = item;
        		const otherParams = {...other,itemLayout,getFieldDecorator,labelLayout};
        		return new renderElement(otherParams)[type](`animated ${animation|| "slideInDown"}`)

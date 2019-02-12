@@ -12,9 +12,10 @@ class EText extends Component<Props,object>{
 		super(props);
 	}
 	render(){
+		const { style,...reset } = this.props;
 		return(
-			<div className="texty-demo" style={{...this.props.style}}>
-		    <Texty>
+			<div className="texty-demo" style={ style }>
+		    <Texty {...reset} >
 		    	{this.props.children}
 		    </Texty>
 		  </div>

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
 import styles from './index.less';
 import connectAid, { Actions } from '@store/connect';
 import { Validator } from 'free-validator';
 const avatarPic = require("./assets/img/avatar.png");
 
 @connectAid([Actions.LOGIN])
-@hot(module)
-
 class doLogin extends Component<any, any>{
     refForm
     constructor(props) {

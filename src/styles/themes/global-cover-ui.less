@@ -2,6 +2,19 @@
 @import './default.less';
 @import '../../ant-theme-vars.less';
 :global{
+    .ant-form{
+        border:none!important;
+        padding: 0!important;
+    }
+    .ant-form-item-label{
+        padding-left:0!important;
+    }
+    .ant-drawer-wrapper-body{
+        .ant-form{
+            padding-left: 20px!important;
+            padding-top: 20px!important;
+        } 
+    }
     .ant-select-selection__placeholder,input::placeholder{
         color:#999;
         font-size:16px;

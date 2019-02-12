@@ -1,12 +1,26 @@
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import childRoutes from '@pages/load-child-routes';
 import getConfirmation from '@components/getConfirmation';
-import { HashRouter as Router, Route, Switch ,Redirect} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch ,withRouter } from 'react-router-dom';
 import { config } from '@config/index';
 
+// 初始化滚动状态 
+class ScrollToTop extends Component<any,any>{
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      const container:any = document.getElementById("content");
+      container.scrollTo(0,0)
+    }
+  }
+  render() {
+    return this.props.children
+  }
+}
+const ScrollToTopComponent = withRouter(ScrollToTop);
 
+// render props 模式为子组件 赋值
 const RouteWithSubRoutes = (route) =>{
   return(
   <Route exact={route.childRoute?true:false}  path={route.path} render={props =>{ 
@@ -26,6 +40,7 @@ childRoutes.forEach((route:any)=>{
   })
 })
 
+// 路由组件 控制 一二级路由
 class Routes extends Component<any>{
   static defaultProps = {
     route:transRoute,
@@ -40,16 +55,17 @@ class Routes extends Component<any>{
     this.state={};
     NProgress.start();
   }
-
-  render() {
+  render() {  
     const renderEle={
       main:(
         <Router  getUserConfirmation={getConfirmation("comfirm")}>
-            <Switch>
-              {this.props.route.map((route:any, i) =>(
-                <RouteWithSubRoutes key={route.path} {...route}/>
-              ))}
-            </Switch>
+           <ScrollToTopComponent>
+              <Switch>
+                {this.props.route.map((route:any, i) =>(
+                  <RouteWithSubRoutes key={route.path} {...route}/>
+                ))}
+              </Switch>
+            </ScrollToTopComponent>
         </Router>
       ),
       child:(

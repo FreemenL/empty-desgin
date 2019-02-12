@@ -51,7 +51,7 @@ module.exports = {
   // 系统常量
   systemConstant: {
     // 系统名称
-    title: 'emptyd系统',
+    title: 'emptyd-design',
     // html模板文件 路径相对命令行启动目录
     htmlTemplate: './build/template/index.html'
   },

@@ -30,28 +30,70 @@ class Web extends Component<any, any> {
           7、react : 给节点设置合理的key值 减小<code className="empty-code">dom  diff</code>时的开销和避免出错
         </p>
         <p className="empty-line-content">
-          8、导入<code className="empty-code">echarts lodash</code>等第三方库的时候请按需导入 具体方法可参考其文档
+          8、react : 通过chrome 扩展工具 识别不必要的渲染，将经常更新的区域提取为孤立的组件 
         </p>
         <p className="empty-line-content">
-          9、巧用<code className="empty-code">shouldComponentUpdate 或者 PureComponent </code> 避免不必要的渲染
+          9、避免将新对象作为 props 传递,如下：   
+        </p>
+        <EcodeHighlight.component language='tsx'>
+          {`
+            //  错误写法
+            class Description extends Component {
+              render() {
+                const i = {
+                  value: "i"
+                };
+                return (
+                  <p>
+                    <I i={i} />
+                    <Am />
+                    <A />
+                    <Profession profession={this.props.description} />
+                  </p>
+                );
+              }
+            }  
+            //正确写法
+            class Description extends Component {
+              i = {
+                value: "i"
+              };
+              render() {
+                return (
+                  <p>
+                   <I i={this.i} />
+                   <Am /> 
+                   <A />
+                   <Profession profession={this.props.description} />
+                  </p>
+                );
+              }
+            }           
+          `}
+        </EcodeHighlight.component>
+        <p className="empty-line-content">
+         10、巧用<code className="empty-code">shouldComponentUpdate 或者 PureComponent </code> 避免不必要的渲染
         </p>
         <p className="empty-line-content">
-          10、先导入<code className="empty-code">第三方模块</code> 自定义模块后导入
+          11、导入<code className="empty-code">echarts lodash</code>等第三方库的时候请按需导入 具体方法可参考其文档
         </p>
         <p className="empty-line-content">
-          11、导入方式<code className="empty-code">import 和 require </code> 并行时<code className="empty-code">先写import</code>
+          12、先导入<code className="empty-code">第三方模块</code> 自定义模块后导入
         </p>
         <p className="empty-line-content">
-          12、条件判断<code className="empty-code">先写可能性较大的</code> , 并在适当的情境下用<code className="empty-code">策略模式</code>代替 大量if else 嵌套的写法,增强代码可读性 降低维护成本
+          13、导入方式<code className="empty-code">import 和 require </code> 并行时<code className="empty-code">先写import</code>
         </p>
         <p className="empty-line-content">
-          13、删除元素的时候要删除其绑定的事件 否则会存在<code className="empty-code">内存泄漏</code>的问题
+          14、条件判断<code className="empty-code">先写可能性较大的</code> , 并在适当的情境下用<code className="empty-code">策略模式</code>代替 大量if else 嵌套的写法,增强代码可读性 降低维护成本
         </p>
         <p className="empty-line-content">
-          14、dom操作<code className="empty-code">读写分离</code> 避免不必要的dom回流和重绘
+          15、删除元素的时候要删除其绑定的事件 否则会存在<code className="empty-code">内存泄漏</code>的问题
         </p>
         <p className="empty-line-content">
-          15、样式尽可能的用类选择器代替 标签选择器，  减少渲染引擎查找的过程
+          16、dom操作<code className="empty-code">读写分离</code> 避免不必要的dom回流和重绘
+        </p>
+        <p className="empty-line-content">
+          17、样式尽可能的用类选择器代替 标签选择器，  减少渲染引擎查找的过程
         </p>
         <h1 className="empty-title"> 静态资源 </h1>
         <p className="empty-line-content">

@@ -88,7 +88,7 @@ class Intro extends Component<any, any> {
         </p>
 
         <p className="empty-line-content">
-          12、 <code className="empty-code">optimization splitChunks</code> 合并公共代码
+          12、 <code className="empty-code">optimization splitChunks</code> 代码拆分
         </p>
 
         <p className="empty-line-content">
@@ -157,7 +157,7 @@ class Intro extends Component<any, any> {
             │   ├── router               # 路由相关路径 
             │   ├── service              # api相关路径
             │   ├── store                # redux 状态管理相关路径
-            │   ├── styles               # redux 通用样式文件路径
+            │   ├── styles               # 通用样式文件路径
             │   ├── index.tsx            # 入口文件 
             ├── static                   # 静态资路径(直接拷贝的文件)
             ├── typings                  # ts类型声明文件

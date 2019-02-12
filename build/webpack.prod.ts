@@ -8,7 +8,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
-const FilesPlugin = require("./plugins/FilesPlugin");
+const FilesPlugin = require("./plugins/FilePlugin.ts");
 const devMode = process.env.NODE_ENV !== 'production';
 const common = require('./webpack.base.ts');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
