@@ -22,9 +22,6 @@ const listPanelMenuClass = styles['empty-search-panel-menu-operation'];//筛选�
 const listPanelMenuBaseClass = styles['empty-search-panel-menu-operation-base'];//菜单图标基本样式
 
 class BadeSearch extends Component<Props,any>{
-  EProxy
-  getChild
-  refProps
   constructor(props) {
     super(props);
     this.state={
@@ -37,6 +34,8 @@ class BadeSearch extends Component<Props,any>{
     this.getListData = this.getListData.bind(this);
     this.getChild = this.getChild.bind(this);
   }
+  EProxy
+  refProps
   getChild(type,ref){
     const _this = this;
     const proxy = {

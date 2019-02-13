@@ -9,7 +9,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 const { CheckerPlugin } = require("awesome-typescript-loader");
 //优化
@@ -161,34 +160,6 @@ const webpackBaseConfig = {
       }
     ]),
     new CheckerPlugin(),
-    // new ForkTsCheckerWebpackPlugin({
-    //   ignoreLints: [
-    //     'no-console',
-    //     'object-literal-sort-keys',
-    //     'quotemark',
-    //   ],
-    //   async: false,
-    //   checkSyntacticErrors: true,
-    //   tsconfig: paths.appTsConfig,
-    //   compilerOptions: {
-    //     module: "esnext",
-    //     target: "es6",
-    //     moduleResolution: 'node',
-    //     resolveJsonModule: true,
-    //     isolatedModules: true,
-    //     noEmit: true,
-    //     jsx: 'preserve',
-    //   },
-    //   reportFiles: [
-    //     '**',
-    //     '!**/*.json',
-    //     '!**/*.(less|css)',
-    //     '!**/__tests__/**',
-    //     '!**/?(*.)(spec|test).*'
-    //   ],
-    //   watch: paths.appSrc,
-    //   silent: true,
-    // }),
     new HtmlWebpackPlugin({
       title,
       template: htmlTemplate,
@@ -271,6 +242,7 @@ const webpackBaseConfig = {
           loader: 'eslint-loader',
           options: {
             emitWarning: true,
+            emitError: true,
             formatter: require('eslint-friendly-formatter')
           }
         }
@@ -305,7 +277,7 @@ const effect: Effects = {
     )
   },
   onLint() {
-    webpackBaseConfig.module.rules.unshift({
+    webpackBaseConfig.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: ['happypack/loader?id=happyLint'],
       include: [paths.appSrc, ...paths.appTsLoader], // 精确指定要处理的目录

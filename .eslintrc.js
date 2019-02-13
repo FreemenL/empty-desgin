@@ -8,6 +8,23 @@ module.exports = {
     amd: true,
     node: true
   },
+  settings : {
+    react: {
+      pragma: "React",  // Pragma to use, default to "React"
+      version: "999.999.999", // React version. "detect" automatically picks the version you have installed.
+    },
+    propWrapperFunctions: [
+        // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+        "forbidExtraProps",
+        {property: "freeze", object: "Object"},
+        {property: "myFavoriteWrapper"}
+    ],
+    linkComponents: [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      {name: "Link", linkAttribute: "to"}
+    ]
+  },
   parserOptions: {
     ecmaFeatures: { // 使用的额外的语言特性
       jsx: true
@@ -15,12 +32,13 @@ module.exports = {
     ecmaVersion: 6, // ECMAScript 版本
     sourceType: 'module'
   },
-  'plugins': [
-    'typescript',
-    'react'
+  plugins: [
+    'react',
+    'typescript'
   ],
   rules: {
     /* react */
+    "react/no-unsafe":2,
     'react/no-access-state-in-setstate': 2,
     'react/no-children-prop': 0,
     'react/no-array-index-key': 2,
@@ -38,6 +56,7 @@ module.exports = {
     'react/require-render-return': 2,
     'react/sort-comp': 2,
     'react/style-prop-object': 2,
+    "react/no-deprecated":2,
     'react/void-dom-elements-no-children': 2,
     /*   jsx   */
     'react/jsx-filename-extension': [1, { 'extensions': ['.ts', '.tsx'] }], // 限制文件后缀名必须为ts|tsx
@@ -75,7 +94,7 @@ module.exports = {
     'no-extra-semi': 0, // 禁止不必要的分号
     'no-inner-declarations': 2, // 禁止在嵌套的块中出现变量声明或 function 声明
     'no-invalid-regexp': 2, // 禁止 RegExp 构造函数中存在无效的正则表达式字符串
-    'no-irregular-whitespace': 2, // 禁止在字符串和注释之外不规则的空白
+    'no-irregular-whitespace': 0, // 禁止在字符串和注释之外不规则的空白
     'no-obj-calls': 2, // 禁止把全局对象作为函数调用
     'no-regex-spaces': 2, // 禁止正则表达式字面量中出现多个空格
     'no-template-curly-in-string': 2, // 禁止在常规字符串中出现模板字面量占位符语法      

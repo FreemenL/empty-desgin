@@ -66,11 +66,6 @@ const data = [{
 @hot(module)
 class EdrawerDocuments extends Component<any, any> {
 
-  handleClose
-  handleShow
-  handleGroupClose
-  handleGroupShow
-
   constructor(props){
 
     super(props);
@@ -94,6 +89,11 @@ class EdrawerDocuments extends Component<any, any> {
     })
   }
 
+  handleClose
+  handleShow
+  handleGroupClose
+  handleGroupShow
+  
   render() {
 
     const EDprops = {

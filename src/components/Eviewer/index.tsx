@@ -10,8 +10,6 @@ interface Props{
 	handleDel:Function //点击清除的回调
 }
 class Eviewer extends Component<Props,any>{
-	viewer
-	containerRef
 	static defaultProps={
 		imgUrl:[],
 		closeTag:true
@@ -67,6 +65,9 @@ class Eviewer extends Component<Props,any>{
 		this.props.handleDel && this.props.handleDel(index,event);
 	}
 
+	viewer
+	containerRef
+	
 	render(){
 		return(
 	      <ul className={styles["empty-viewer-container"]} ref={this.containerRef} >

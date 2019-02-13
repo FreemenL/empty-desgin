@@ -3,10 +3,7 @@ import { Button } from 'antd';
 import { hot } from 'react-hot-loader';
 import styles from './index.less';
 
-@hot(module)
 class MyComponent extends React.Component {
-    handleStart
-    handleJump
 
     constructor(props){
         super(props);
@@ -26,6 +23,8 @@ class MyComponent extends React.Component {
           window.open('https://github.com/FreemenL/emptyd-admin-webpack')
        }
     }
+    handleStart
+    handleJump
 
     render() {
         return (

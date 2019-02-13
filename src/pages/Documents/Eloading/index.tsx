@@ -23,7 +23,6 @@ const data = [
 
 @autobind
 class EloadingDocuments extends Component<any, any> {
-  timmer;
 
   state = {
     show: false,
@@ -50,7 +49,9 @@ class EloadingDocuments extends Component<any, any> {
       }
     );
   }
-
+  
+  timmer
+  
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>

@@ -30,7 +30,6 @@ interface headerConfig{
 function EheaderHoc(headerConfig:headerConfig){
 	@(withRouter as any)
 	class Eheader extends Component<any>{
-	myRef
 	constructor(props){
 		super(props);
 		this.myRef = React.createRef();
@@ -45,6 +44,7 @@ function EheaderHoc(headerConfig:headerConfig){
 		  }
 	  })
 	}
+	myRef
 	render(){
 			transformMemuList.func(headerConfig.menuList);
 			return(

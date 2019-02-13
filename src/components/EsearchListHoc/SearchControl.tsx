@@ -20,8 +20,6 @@ interface SearchControlProps{
 
 @autobind
 class Search extends Component<SearchControlProps,any>{
-  inputLebgth //为优化render 保存的实例属性
-  Eform
   constructor(props){
     super(props);
     this.inputLebgth = 0;
@@ -59,6 +57,8 @@ class Search extends Component<SearchControlProps,any>{
     const SearchItem = this.Eform
     return this.props.searchPanel?(<SearchItem/>):null;
   }
+  inputLebgth //为优化render 保存的实例属性
+  Eform
   render(){
     const listPanelMenuListClass = classNames(listSearchSection,{//筛选栏收展状态
       [`${styles['empty-search-section-show']}`]:!this.props.state.searchState,

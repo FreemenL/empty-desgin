@@ -15,8 +15,6 @@ function EFormHoc(this:any,EformConfig,pattern){
 	let defaultProps = mergeConfig(emptyFormConfig.call(this),(EformConfig&&pattern=="edit")?EformConfig.call(this):(EformConfig&&EformConfig(pattern)));
 	@autobind
 	class  EFormWrapper extends Component<any>{
-		Eform
-		Ewapper
 		static displayName="EFormHoc(EFormWrapper)"
 		static defaultProps = defaultProps
 		constructor(props){
@@ -24,6 +22,8 @@ function EFormHoc(this:any,EformConfig,pattern){
 			this.Eform = Eform.bind(this);
 			this.Ewapper = EwapperHoc.component({Rowlayout:this.props.Rowlayout})
 		}
+		Eform
+		Ewapper
 		getElement(){
 		    const SearchItem = this.Eform
 		    return this.props.searchPanel?(<SearchItem/>):null;

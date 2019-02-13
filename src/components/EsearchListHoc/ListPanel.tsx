@@ -30,11 +30,7 @@ class ListPanel extends Component<Props,any>{
 	componentDidMount(){
 		this.props.handleEvent.getChild("bindObj",this);
 	}
-	componentWillUnmount(){
-	 this.setState = (state,callback)=>{
-		return false;
-	  };
-	}
+
 	shouldComponentUpdate(nextProps,nextState){
 		if(this.state.display!==nextState.display){
 			return true

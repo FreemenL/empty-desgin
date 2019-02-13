@@ -45,6 +45,10 @@ function EtreeHoc(treeOptions:treeOptions){
       showPattern:"show"
     }
 
+    componentDidMount(){
+      this.loadData();
+    }
+
     callback={
       treeNode:function(this:any,values){
         this.loadData(values);
@@ -53,7 +57,6 @@ function EtreeHoc(treeOptions:treeOptions){
 
     Search = Esearch({
       header:treeOptions.header,
-
       searchPanel:{
         search:treeOptions.search,
         searchLayout:{
@@ -95,11 +98,6 @@ function EtreeHoc(treeOptions:treeOptions){
       callback:this.callback,
     });
 
-
-    componentDidMount(){
-      this.loadData();
-    }
-
     loadData(params?:any){
       this.setState((prevState,props)=>{
         return{
@@ -121,9 +119,9 @@ function EtreeHoc(treeOptions:treeOptions){
     onLoadData = treeNode =>  new Promise((resolve,reject)=>{
         treeOptions.getData(treeNode).then(res=>{
           treeNode.props.dataRef.children = res;
-            this.setState({
-              treeData: [...this.state.treeData],
-            });
+            this.setState((prevState:any,props)=>({
+              treeData: [...prevState.treeData],
+            }));
             resolve();
         })
     })

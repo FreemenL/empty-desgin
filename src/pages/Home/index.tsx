@@ -16,29 +16,17 @@ const contentFooterClass = styles["empty-system-content-footer"];
 
 class Home extends Component<any, any> {
 
-  state
-  setState
-  props
-
   static getDerivedStateFromProps(nextProps, prevState) {
     return null
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      error: false
-    };
   }
 
-  componentDidCatch(error, info) {
-    this.setState((prevState, props) => {
-      return {
-        error,
-        info
-      }
-    })
-  }
+  state
+  setState
+  props
 
   getMenu() {
     return EListHoc.component({

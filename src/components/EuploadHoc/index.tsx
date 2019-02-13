@@ -51,14 +51,14 @@ function EuploadHoc(loadConfig:Props){
     },loadConfig)
 
     return class extends React.Component<any,any>{
-      loadImgNode
+      
       constructor(props){
         super(props);
         this.loadImgNode = React.createRef();
         this.handleChange = this.handleChange.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
       }
-      async handleChange(event){
+      handleChange(event){
         const events = event.target;
         const uploadObj = Object.assign({},loadConfig.defaultParams,{
           fileName:events.files[0].name,
@@ -82,7 +82,7 @@ function EuploadHoc(loadConfig:Props){
         // }
       }
 
-      async uploadData(type,uploadUrl,events,field,fileId){
+      uploadData(type,uploadUrl,events,field,fileId){
         let response:any={};
         const fd = new FormData();
         const configs = {headers: {'Content-Type': 'multipart/form-data'}};
@@ -90,11 +90,13 @@ function EuploadHoc(loadConfig:Props){
           blob:async function(){
             const datas = new Blob([events]);
             fd.append(field,datas);
-            return await loadConfig.postFunction.stepTwo(`${uploadUrl.substring(uploadUrl.indexOf("/szcg-base"))}?startPos=0&endPos=${datas.size}`,fd,configs);
+            await loadConfig.postFunction.stepTwo(`${uploadUrl.substring(uploadUrl.indexOf("/szcg-base"))}?startPos=0&endPos=${datas.size}`,fd,configs);
+            return void 0;
           },
           formData:async function(){
             fd.append(field,events);
-            return await loadConfig.postFunction.stepTwo(uploadUrl.substring(uploadUrl.indexOf("/szcg-base")),fd,configs);
+            await loadConfig.postFunction.stepTwo(uploadUrl.substring(uploadUrl.indexOf("/szcg-base")),fd,configs);
+            return void 0;
           }
         }
         // response= await method[type]();
@@ -119,6 +121,7 @@ function EuploadHoc(loadConfig:Props){
       handleAdd(){
           this.loadImgNode.current.click()
       }
+      loadImgNode
       render() {
         return (
           <section className={uploadWrapperClass} style={this.props.style}>

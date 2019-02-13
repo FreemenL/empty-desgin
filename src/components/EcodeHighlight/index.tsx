@@ -7,7 +7,6 @@ interface Props{
     language?:string
 }
 class EcodeHighlight extends Component<Props,any>{
-    ref
 
     static defaultProps={
         showNumber:true,
@@ -22,7 +21,7 @@ class EcodeHighlight extends Component<Props,any>{
     componentDidMount(){
         prism.highlightAllUnder(this.ref.current);
     }
-
+    ref
     _style_wrapper = {borderTop:"1px dashed #ebedf0",padding:"10px 15px"}
     _style_code = {maxHeight:"1200px"}
 

@@ -6,12 +6,13 @@ const avatarPic = require("./assets/img/avatar.png");
 
 @connectAid([Actions.LOGIN])
 class doLogin extends Component<any, any>{
-    refForm
+
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.refForm  = React.createRef();
     }
+
     validataFunc(registerForm){
         let validator = new Validator();
         validator.add(registerForm.elements[0],[{
@@ -31,6 +32,7 @@ class doLogin extends Component<any, any>{
         let errorMsg = validator.start();
         return errorMsg;
     }
+
     handleSubmit(event){
         const formElement = this.refForm.current
         const error = this.validataFunc(formElement);
@@ -59,6 +61,9 @@ class doLogin extends Component<any, any>{
         }
         this.props.Actions.doLogin('username',1234);
     }
+
+    refForm
+    
     render() {
         return (
             <div className={styles.container}>
