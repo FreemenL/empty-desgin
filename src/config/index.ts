@@ -29,6 +29,7 @@ export const config ={
                 { pathname: '/home/documents/EsearchListHoc', title: '查询列表页面：EsearchListHoc'},
                 { pathname: '/home/documents/EText', title: '文字动效：EText'},
                 { pathname: '/home/documents/EuploadImg', title: '图片上传：EuploadImg'},
+                { pathname: '/home/documents/EFabButton', title: '浮动按钮：EFabButton'},
             ]
         },
     ],

@@ -20,9 +20,9 @@ const App = {
 		render(
 			<Provider store={store}>
 				<LocaleProvider locale={zh_CN}>
-					{/* <ConnectedRouter history={history}> */}
+					<ConnectedRouter history={history}>
 						<Component />
-					{/* </ConnectedRouter> */}
+					</ConnectedRouter>
 				</LocaleProvider>
 			</Provider>,
 			document.getElementById('root') as HTMLElement

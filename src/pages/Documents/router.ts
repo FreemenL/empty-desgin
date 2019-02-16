@@ -38,6 +38,9 @@ export default [
 	},{
 		path:"/home/documents/EuploadImg",
 		component:"Documents/EuploadImg/index"
+	},{
+		path:"/home/documents/EFabButton",
+		component:"Documents/EFabButton/index"
 	}
 ]
 

@@ -33,11 +33,13 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
+    "react-hooks",
     'react',
     'typescript'
   ],
   rules: {
     /* react */
+    "react-hooks/rules-of-hooks": "error",
     "react/no-unsafe":2,
     'react/no-access-state-in-setstate': 2,
     'react/no-children-prop': 0,

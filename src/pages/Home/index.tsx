@@ -16,10 +16,6 @@ const contentFooterClass = styles["empty-system-content-footer"];
 
 class Home extends Component<any, any> {
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return null
-  }
-
   constructor(props) {
     super(props);
   }

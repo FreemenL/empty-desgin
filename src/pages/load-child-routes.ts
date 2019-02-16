@@ -1,6 +1,5 @@
 let childRoutes = [];
 import _import_views from '@router/importView';
-import { hot } from 'react-hot-loader';
 const childRouter = require.context('./',true,/router\.(tsx|ts)$/);
 
 childRouter.keys().find((item,index,array)=>{

@@ -1,5 +1,32 @@
 import {catchTransArrFromObj} from './captureError';
 
+export function transformArrayToCircle(arr , circleBtnDirection=['top',"right",'bottom','left']){
+    let newArr:Array<any> = [];
+    let index = 0;
+    for(let a = 0; a <arr.length; a++){
+        let currentValue = (a+1)/4;
+        if( Math.floor(currentValue) !== currentValue){
+            if(!Array.isArray(newArr[index])){
+                newArr[index]=[]
+            }
+            newArr[index].push(arr[a]);
+        }else{
+            newArr[index].push(arr[a]);
+            newArr[++index] = [];
+        }  
+    }
+    let result:object = {};
+    newArr.forEach(( array ,index)=> {
+        for(let a = 0; a <array.length; a++){
+            if(!Array.isArray(result[circleBtnDirection[a]])){
+                result[circleBtnDirection[a]] = [];
+            }
+            result[circleBtnDirection[a]].push(array[a]);
+        }
+    })
+    return result;
+};
+
 export function transData(data){
 	catchTransArrFromObj(data);
 	return function(res){

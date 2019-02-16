@@ -33,6 +33,8 @@ module.exports = {
     appExcludeCssModule: ["prismjs",'antd', 'normalize.css','animate.css', 'rc-texty', 'nprogress', 'braft-editor', 'rc-queue-anim', 'viewerjs'],
     // 路径别名相对源码目录
     appPathAlias: {
+      "react": '../node_modules/react',
+      'react-dom': '../node_modules/react-dom',
       '@src': '',
       '@config':'config',
       '@styles':"styles",
