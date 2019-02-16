@@ -14,20 +14,40 @@ const EFabButtonHoc = ({ name,renderItem, direction="top", delay = .2 , centerSt
         
         constructor(props){
             super(props);
-            this.setShowFab = this.setShowFab.bind(this); 
+            this.showFab = this.showFab.bind(this); 
         }
 
         state = {
             showFab:false
         }
 
-        setShowFab(){
+        componentDidMount() {
+            document.addEventListener("click", this.handleEvent.bind(this), false);
+        }
+        
+        componentWillUnmount() {
+            document.removeEventListener("click", this.handleEvent.bind(this), false);
+        }
+
+        handleEvent(event: any) {
+            if(this.state.showFab){
+                this.setShowFab(false)
+            }
+        }
+
+        showFab(event){
+            event.nativeEvent.stopImmediatePropagation();
+            this.setShowFab();
+        }
+
+        setShowFab(state?:boolean){
             this.setState((prevState:{showFab:boolean},props)=>{
                 return{
-                    showFab:!prevState.showFab
+                    showFab:typeof state=='boolean'?state:(!prevState.showFab)
                 }
             })
         }
+
 
         getDirectionStyle(index,position){
             const directive = position || direction ;
@@ -79,7 +99,7 @@ const EFabButtonHoc = ({ name,renderItem, direction="top", delay = .2 , centerSt
         render(){
             return (
                 <section className={ EFabButtonHocWrapper }  style = {centerStyle} >
-                    <WrapperComponent  className={ EFabButtonHocWrapperTrigger }  type="primary" size="small" icon={ this.state.showFab ? ((direction  =="top"|| direction =="bottom")?"caret-up":"caret-right" ): ((direction == "top"|| direction == "bottom")?"caret-down":"caret-left")  } onClick={this.setShowFab}>{ name }</WrapperComponent>
+                    <WrapperComponent  className={ EFabButtonHocWrapperTrigger }  type="primary" size="small" icon={ this.state.showFab ? ((direction  =="top"|| direction =="bottom")?"caret-up":"caret-right" ): ((direction == "top"|| direction == "bottom")?"caret-down":"caret-left")  } onClick={this.showFab}>{ name }</WrapperComponent>
                     {this.renderRabButton()}
                 </section>
             )

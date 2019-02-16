@@ -179,7 +179,7 @@ class EFabButtonHocDocuments extends Component<any, any> {
                   return(
                     React.createElement(EFabButtonHoc.component({
                         name:"更多",
-                        direction:"circle",
+                        direction:"top",
                         centerStyle:{marginLeft:"40px"},
                         renderItem:[
                             {
