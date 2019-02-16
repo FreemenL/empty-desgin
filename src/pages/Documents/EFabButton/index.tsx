@@ -48,42 +48,59 @@ class EFabButtonHocDocuments extends Component<any, any> {
         <Edocument.component
           title="浮动按钮:EFabButtonHoc" 
           components={[{
-            component:React.createElement(EFabButtonHoc.component({
-                name:"更多",
-                direction:"circle",
-                centerStyle:{marginLeft:"40px"},
-                renderItem:[
-                    {
-                        name:"锁定",
-                        icon:"lock",
-                        id:"001",
-                        click(id){
-                            Prompt.component['info'](`点击了${id}按钮`)
+            component:(
+                <div>
+                    {React.createElement(EFabButtonHoc.component({
+                    name:"更多",
+                    direction:"circle",
+                    renderItem:[
+                        {
+                            name:"锁定",
+                            icon:"lock",
+                            id:"001",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
                         }
-                    },{
-                        name:'爱心',
-                        icon:"heart",
-                        id:"002",
-                        click(id){
-                            Prompt.component['info'](`点击了${id}按钮`)
+                    ]
+                })())}
+                {React.createElement(EFabButtonHoc.component({
+                    name:"更多",
+                    direction:"circle",
+                    centerStyle:{marginLeft:'40px'},
+                    renderItem:[
+                        {
+                            name:"锁定",
+                            icon:"lock",
+                            id:"001",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'爱心',
+                            icon:"heart",
+                            id:"002",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'解锁',
+                            icon:"unlock",
+                            id:"003",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'资料',
+                            icon:"folder",
+                            id:"004",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
                         }
-                    },{
-                        name:'解锁',
-                        icon:"unlock",
-                        id:"003",
-                        click(id){
-                            Prompt.component['info'](`点击了${id}按钮`)
-                        }
-                    },{
-                        name:'资料',
-                        icon:"folder",
-                        id:"004",
-                        click(id){
-                            Prompt.component['info'](`点击了${id}按钮`)
-                        }
-                    }
-                ]
-            })()),
+                    ]
+                })())}
+            </div>),
             titDescripttion:"环绕按钮",
             code:`
               import components from '@components/load-component';
@@ -136,7 +153,6 @@ class EFabButtonHocDocuments extends Component<any, any> {
             component:React.createElement(EFabButtonHoc.component({
                 name:"更多",
                 direction:"top",
-                centerStyle:{marginLeft:"40px"},
                 renderItem:[
                     {
                         name:"锁定",
