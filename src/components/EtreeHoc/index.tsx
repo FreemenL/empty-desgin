@@ -145,7 +145,7 @@ function EtreeHoc(treeOptions:treeOptions){
           <div>
             {treeOptions["handlePanel"].map((Option:any,index)=>{
               return(
-                <Option.node key={"index"+Math.random()} onClick={()=>Option.click.call(this,item)}/>
+                <Option.node key={"index"+Math.random()} onClick={()=> Option.click && Option.click.call(this,item)}/>
               )
             })}
           </div>

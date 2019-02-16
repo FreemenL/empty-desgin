@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { hot } from 'react-hot-loader';
 import components from '@components/load-component';
-import { Button , Modal} from 'antd';
+import { Button , Modal } from 'antd';
 
 const confirm = Modal.confirm;
-const { Edocument,EtreeHoc ,EListHoc , Prompt } = components;
+const { Edocument,EtreeHoc ,EListHoc , Prompt , EFabButtonHoc } = components;
 let num = 0;
 
 const data = [{
@@ -133,6 +132,42 @@ class EtreeHocDocuments extends Component<any, any> {
                       }
                     })
                   }
+                },{
+                  node:EFabButtonHoc.component({
+                    name:"更多",
+                    direction:"circle",
+                    renderItem:[
+                        {
+                            name:"锁定",
+                            icon:"lock",
+                            id:"001",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'爱心',
+                            icon:"heart",
+                            id:"002",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'解锁',
+                            icon:"unlock",
+                            id:"003",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        },{
+                            name:'资料',
+                            icon:"folder",
+                            id:"004",
+                            click(id){
+                                Prompt.component['info'](`点击了${id}按钮`)
+                            }
+                        }
+                    ]
+                })(),
                 }
               ]
             })),
