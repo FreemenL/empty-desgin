@@ -15,7 +15,7 @@ function EFormHoc(this:any,EformConfig,pattern){
 	let defaultProps = mergeConfig(emptyFormConfig.call(this),(EformConfig&&pattern=="edit")?EformConfig.call(this):(EformConfig&&EformConfig(pattern)));
 	@autobind
 	class  EFormWrapper extends Component<any>{
-		static displayName="EFormHoc(EFormWrapper)"
+		static displayName = "EFormHoc(EFormWrapper)"
 		static defaultProps = defaultProps
 		constructor(props){
 			super(props)

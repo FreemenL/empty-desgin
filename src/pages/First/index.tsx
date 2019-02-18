@@ -25,7 +25,6 @@ class MyComponent extends React.Component {
     }
     handleStart
     handleJump
-
     render() {
         return (
             <div className={styles['empty-page-container']}>

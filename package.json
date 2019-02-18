@@ -8,8 +8,13 @@
     "build": "ts-node -P config/tsconfig-for-webpack-config.json scripts/build.ts",
     "ls": "http-server dist",
     "upload": "gulp",
-    "eslint": "eslint src --ext .tsx"
+    "lint": "eslint src --ext .tsx",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
+  "pre-commit": [ 
+    "precommit-msg",
+    "lint" 
+  ],
   "repository": {
     "type": "git",
     "url": "github.com/freemenL/emptyd-webpack-admin"
@@ -81,6 +86,7 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.5.0",
     "postcss-url": "8.0.0",
+    "pre-commit": "^1.2.2",
     "progress-bar-webpack-plugin": "1.11.0",
     "react-hot-loader": "4.3.12",
     "redux-devtools-extension": "2.13.7",
