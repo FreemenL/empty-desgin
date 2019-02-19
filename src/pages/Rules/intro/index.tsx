@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
-
-const { EcodeHighlight } = components;
+import  { EcodeHighlight } from 'emptyd';
 
 class Intro extends Component<any, any> {
   render() {
@@ -19,8 +17,38 @@ class Intro extends Component<any, any> {
         </p>
         <p className="empty-line-content">
           <code className="empty-code">emptyd</code> 需要搭配
-          <code className="empty-code">emptyd-admin-webpack</code> 脚手架使用
+          <code className="empty-code">emptyd-admin-webpack</code> 脚手架使用，
+          或者用<code className="empty-code">处理ts文件的loader</code>处理<code className="empty-code">node_modules/emptyd</code>目录
         </p>
+        <p className="empty-line-content">
+          <code className="empty-code">emptyd</code>支持按需加载，并强烈建议进行按需加载相关配置，配置方式如下
+        </p>
+        <p className="empty-line-content">
+          1、下载emptyd的babel插件<code className="empty-code">babel-plugin-empty-import</code>
+        </p>
+         <EcodeHighlight language='bash' showNumber={false} >
+          {`
+            $cnpm install babel-plugin-empty-import -D
+          `}
+        </EcodeHighlight>
+        <p className="empty-line-content">
+          2、在<code className="empty-code">.babelrc</code>中添加如下配置。
+        </p>
+         <EcodeHighlight language='json' showNumber={false} >
+          {`
+             {
+                "presets": [
+                 ...
+                ],
+                "plugins": [
+                  ...,
+                  ["empty-import",{
+                    "libraryName": "emptyd",
+                  }]
+                ]
+              }
+          `}
+        </EcodeHighlight>
         <h1 className="empty-title">emptyd-admin-webpack 脚手架 v0.0.1 </h1>
         <p className="empty-line-content">
           基于
@@ -139,7 +167,7 @@ class Intro extends Component<any, any> {
           24、脚手架 配置化
         </p>
         <h1 className="empty-title"> 脚手架目录结构 </h1>
-        <EcodeHighlight.component language='markdown' >
+        <EcodeHighlight language='markdown' >
           {`
             ├── build                    # webpack 配置目录
             │   ├── loaders              # 自定义loader目录
@@ -167,7 +195,7 @@ class Intro extends Component<any, any> {
             ├── postcss.config.js        # postcss配置
             └── tsconfig.json            # ts配置
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title">项目启动</h1>
         <p className="empty-line-content">
           1、环境配置  为了把保证项目正常运行，请自行更新相关环境。
@@ -179,36 +207,36 @@ class Intro extends Component<any, any> {
         <p className="empty-line-content">
           2、通过<code className="empty-code">git</code>拉取代码
         </p>
-        <EcodeHighlight.component language='bash' showNumber={false}>
+        <EcodeHighlight language='bash' showNumber={false}>
           {`
             $ git clone https://github.com/FreemenL/emptyd-admin-webpack.git
             $ cd emptyd-admin-webpack 
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           3、下载依赖  请确保你的环境配置完成，然后就可以开始以下步骤
         </p>
-        <EcodeHighlight.component language='bash' showNumber={false} >
+        <EcodeHighlight language='bash' showNumber={false} >
           {`
             $ npm install                   # Install project dependencies
             $ npm start                     # Compile and launch
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title"> 命令说明 </h1>
         <p className="empty-line-content">
         开发过程中，你用得最多的会是npm start，但是这里还有很多其它的处理：
         </p>
-        <EcodeHighlight.component language='bash' showNumber={false} >
+        <EcodeHighlight language='bash' showNumber={false} >
           {`
             $ npm start                   # 初始化启动项目（生成Dll文件并启动服务）
             $ npm run build               # 打包 
             $ npm run ls                  # 将dist目录在本地8080端口运行 
             $ npm run upload              # 上传dist目录到服务器 （ 没有配置jenkins等持续集成的情况下方便上传代码 ） 
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title">系统配置说明</h1>
         <p className="empty-line-content"> 配置文件位置 <code className="empty-code">config/index.js</code></p>
-        <EcodeHighlight.component language='javascript' >
+        <EcodeHighlight language='javascript' >
           {`
             module.exports = {
               // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
@@ -308,9 +336,9 @@ class Intro extends Component<any, any> {
             }
             
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title">eslint 规则</h1>
-        <EcodeHighlight.component language='javascript'>
+        <EcodeHighlight language='javascript'>
           {`
            rules: {
             /* react */
@@ -393,7 +421,7 @@ class Intro extends Component<any, any> {
             'no-this-before-super': 2, // 在构造函数中禁止在调用super()之前使用this或super
           }
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
       </div>
     );
   }

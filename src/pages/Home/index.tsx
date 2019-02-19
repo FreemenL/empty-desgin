@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Layout, BackTop } from 'antd';
-import componentes from '@components/load-component';
 import styles from './index.less';
 import { config } from '@config/index';
 import Routes from '@pages/load-child-routes';
 import ChildRoute from '@router/router';
 import freeTool from 'freetool';
+import  { EheaderHoc, ElistHoc, Prompt, EsiderMenu ,Ebeard } from 'emptyd';
 
 const { Content, Footer } = Layout;
 const { LogoSrc, name, menuList, userMsg, footerText, mainRoute } = config;
-const { EheaderHoc, EListHoc, Prompt, ESiderMenu, Ebeard } = componentes;
+
 const contentClass = styles["empty-system-content"];
-const contentWrapperClass = `${styles["empty-system-content-wrapper"]}`;
+const contentWrapperClass = styles["empty-system-content-wrapper"];
 const contentFooterClass = styles["empty-system-content-footer"];
 
 class Home extends Component<any, any> {
@@ -25,27 +25,27 @@ class Home extends Component<any, any> {
   props
 
   getMenu() {
-    return EListHoc.component({
+    return ElistHoc({
       type: "panel",
       width: "150px",
       data: [{
         icon: "user",
         title: "个人中心",
         click: function () {
-          Prompt.component["info"]("个人中心")
+          Prompt["info"]("个人中心")
         }
       }, {
         icon: "setting",
         title: "个人设置",
         click: function () {
-          Prompt.component["info"]("个人设置");
+          Prompt["info"]("个人设置");
         }
       }]
     });
   }
 
   render() {  
-    const HeaderCom = EheaderHoc.component({
+    const HeaderCom = EheaderHoc({
       LogoSrc,
       name,
       menuList,
@@ -67,11 +67,11 @@ class Home extends Component<any, any> {
       <Layout className={contentClass} >
         <HeaderCom/>
         <Layout>
-          {menuLists.length > 0 ? <ESiderMenu.component menuList={menuLists} /> : null}
+          {menuLists.length > 0 ? <EsiderMenu menuList={menuLists} /> : null}
           <Layout>
             {(isHome) ?
               null :
-                (<Ebeard.component menus={menuList} />)
+                (<Ebeard menus={menuList} />)
             }
             <Content id='content' className={contentWrapperClass}>
               <ChildRoute route={Routes.filter((route: any) => !mainRoute.includes(route.path))} type='child' />

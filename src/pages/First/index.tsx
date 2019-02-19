@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from 'antd';
-import { hot } from 'react-hot-loader';
 import styles from './index.less';
 
 class MyComponent extends React.Component {

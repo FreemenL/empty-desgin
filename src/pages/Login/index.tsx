@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import connectAid, { Actions } from '@store/connect';
 import { Validator } from 'free-validator';
+
 const avatarPic = require("./assets/img/avatar.png");
 
 @connectAid([Actions.LOGIN])

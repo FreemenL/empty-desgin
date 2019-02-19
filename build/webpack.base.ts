@@ -36,7 +36,7 @@ const webpackBaseConfig = {
   module: {
     rules: [{
       test: /\.(ts|tsx)$/,
-      use: [{
+      use: ['happypack/loader?id=happyBabel',{
         loader: 'awesome-typescript-loader',
         options: {
           useCache: true,
@@ -166,7 +166,7 @@ const webpackBaseConfig = {
       favicon: paths.appFavicon,
       hash: true
     }),
-    //new webpack.ProvidePlugin({}),
+    // new webpack.ProvidePlugin({}),
     new ProgressBarPlugin({
       format: chalk.yellow('build for ' + process.env.NODE_ENV) + '[:bar]' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
       width: 300,

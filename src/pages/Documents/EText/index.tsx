@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
+import { Edocument, Etext } from 'emptyd';
 
-const { Edocument, EText } = components;
 const data = [{
   key: '1',
   title: 'style',
@@ -28,55 +27,53 @@ const data = [{
   default: '0',
 }];
 
-class ETextDocuments extends Component<any, any> {
+class EtextDocuments extends Component<any, any> {
   _testStyle={fontSize:"20px",color:"#000"}
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
-          title="文字动效:EText" 
+        <Edocument
+          title="文字动效:Etext" 
           components={[{
             component:
-              <EText.component 
+              <Etext 
                 style={this._testStyle}
                 mode = "sync"
               >
                 文字动效展示文字动效展示
-              </EText.component>,
+              </Etext>,
             titDescripttion:"基本用法 : 同时下落",
             code:`
-              import components from '@components/load-component';
-              const { EText } = components;
+              import { Etext } from 'emptyd';
 
               ReactDOM.render(
-                React.createElement(EText.component,{
+                React.createElement(Etext,{
                   mode = "sync"
                 },"文字动效展示文字动效展示")
               )
             `
           },{
             component:
-              <EText.component 
+              <Etext 
                 style={this._testStyle}
                 duration={800}
                 delay={500}
               >
                 文字动效展示文字动效展示
-              </EText.component>,
+              </Etext>,
             titDescripttion:" duration={800}  delay={500} ",
             code:`
-              import components from '@components/load-component';
-              const { EText } = components;
+              import { Etext } from 'emptyd';
 
               ReactDOM.render(
-                React.createElement(EText.component,{
+                React.createElement(Etext,{
                   duration={800}
                   delay={500}
                 },"文字动效展示文字动效展示")
               )
             `
           }]}
-          docDescripttion="EText属性如下:"   
+          docDescripttion="Etext属性如下:"   
           documentData={data}        
         />
       </div>
@@ -84,4 +81,4 @@ class ETextDocuments extends Component<any, any> {
   }
 }
 
-export default ETextDocuments;
+export default EtextDocuments;

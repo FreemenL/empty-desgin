@@ -2,10 +2,9 @@ import React,{ Component } from 'react';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import childRoutes from '@pages/load-child-routes';
-import getConfirmation from '@components/getConfirmation';
 import { HashRouter as Router, Route, Switch ,withRouter } from 'react-router-dom';
 import { config } from '@config/index';
-
+import  { getConfirmation } from 'emptyd';
 // 初始化滚动状态 
 class ScrollToTop extends Component<any,any>{
   componentDidUpdate(prevProps) {

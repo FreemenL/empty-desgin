@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
 import { Button , Modal } from 'antd';
+import { Edocument,EtreeHoc ,ElistHoc , Prompt , EfabButtonHoc} from 'emptyd';
 
 const confirm = Modal.confirm;
-const { Edocument,EtreeHoc ,EListHoc , Prompt , EFabButtonHoc } = components;
 let num = 0;
 
 const data = [{
@@ -60,10 +59,10 @@ class EtreeHocDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="树形菜单组件:EtreeHoc" 
           components={[{
-            component:React.createElement(EtreeHoc.component({
+            component:React.createElement(EtreeHoc({
               header:"组织架构",
               minHeight:"150px",
               span:12,
@@ -80,7 +79,7 @@ class EtreeHocDocuments extends Component<any, any> {
                 }
               ],
                 showPage(){
-                  return EListHoc.component({
+                  return ElistHoc({
                      type:"default",
                      data:{
                        "部门名称":"title",
@@ -107,7 +106,7 @@ class EtreeHocDocuments extends Component<any, any> {
               handlePanel:[{
                   node:(props)=><Button type="primary" size="small" {...props}>新增子节点</Button>,
                   click:function(this:any,treeData){
-                    Prompt["component"]["success"](`在${treeData.key} 节点上新增`);   
+                    Prompt["success"](`在${treeData.key} 节点上新增`);   
                   }
                 },{
                   node:(props)=><Button size="small" {...props}>详情</Button>,
@@ -128,12 +127,12 @@ class EtreeHocDocuments extends Component<any, any> {
                       okType: 'danger',
                       cancelText: '取消',
                       onOk:()=>{
-                        Prompt["component"]["success"]("删除成功！");
+                        Prompt["success"]("删除成功！");
                       }
                     })
                   }
                 },{
-                  node:EFabButtonHoc.component({
+                  node:EfabButtonHoc({
                     name:"更多",
                     direction:"circle",
                     renderItem:[
@@ -142,28 +141,28 @@ class EtreeHocDocuments extends Component<any, any> {
                             icon:"lock",
                             id:"001",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'爱心',
                             icon:"heart",
                             id:"002",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'解锁',
                             icon:"unlock",
                             id:"003",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'资料',
                             icon:"folder",
                             id:"004",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         }
                     ]
@@ -173,11 +172,10 @@ class EtreeHocDocuments extends Component<any, any> {
             })),
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
-              const { EtreeHoc ,EListHoc , Prompt } = components;
+              import { Edocument,EtreeHoc ,ElistHoc , Prompt , EfabButtonHoc} from 'emptyd';
     
               ReactDOM.render(
-                React.createElement(EtreeHoc.component({
+                React.createElement(EtreeHoc({
                   header:"组织架构",
                   minHeight:"150px",
                   span:12,
@@ -194,7 +192,7 @@ class EtreeHocDocuments extends Component<any, any> {
                     }
                   ],
                   showPage(){
-                      return EListHoc.component({
+                      return ElistHoc({
                          type:"default",
                          data:{
                            "部门名称":"title",
@@ -221,7 +219,7 @@ class EtreeHocDocuments extends Component<any, any> {
                   handlePanel:[{
                       node:(props)=><Button type="primary" size="small" {...props}>新增子节点</Button>,
                       click:function(this:any,treeData){
-                        Prompt["component"]["success"]("在"+treeData.key+"节点上新增");   
+                        Prompt["success"]("在"+treeData.key+"节点上新增");   
                       }
                     },{
                       node:(props)=><Button size="small" {...props}>详情</Button>,
@@ -242,7 +240,7 @@ class EtreeHocDocuments extends Component<any, any> {
                           okType: 'danger',
                           cancelText: '取消',
                           onOk:()=>{
-                            Prompt["component"]["success"]("删除成功！");
+                            Prompt["success"]("删除成功！");
                           }
                         })
                       }

@@ -16,6 +16,9 @@
       "theme": "okaidia",
       "css": true
     }],
+    ["empty-import",{
+      "libraryName": "emptyd",
+    }],
     "transform-runtime",
     "syntax-dynamic-import",
     "react-hot-loader/babel"

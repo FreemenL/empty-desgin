@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
-import { FormConfig } from './FormConfig'
-const { Edocument, EFormHoc } = components;
+import { FormConfig } from './FormConfig';
+import { Edocument, EformHoc } from 'emptyd';
 
 const data = [{
   key: '1',
@@ -54,30 +53,26 @@ const data = [{
 }];
 
 
-class EFormHocDocuments extends Component<any, any> {
+class EformHocDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
-          title="表单配置组件:EFormHoc" 
+        <Edocument
+          title="表单配置组件:EformHoc" 
           components={[{
-            component:React.createElement(EFormHoc.component(FormConfig)),
+            component:React.createElement(EformHoc(FormConfig)),
             titDescripttion:"表单配置化",
             code:`
               import components from '@components/load-component';
-              const { EFormHoc } = components;
-
+              const { EformHoc } = components;
               import { TimePicker , InputNumber , Select } from 'antd';
               import moment from 'moment';
               import freetool from 'freetool';
               import components from '@components/load-component';
-
               const {  EcolorPicker , Prompt } = components;
               const Option = Select.Option;
               const { GetType } = freetool;
               const format = 'HH:mm';
-
-
               export const FormConfig = function(this:any,params){
                   const that = this;
                   const result:any = {
@@ -236,7 +231,6 @@ class EFormHocDocuments extends Component<any, any> {
                               label:"班次标记",
                               renderCustom:(
                                   class InputColor extends Component<any,any>{
-
                                       constructor(props){
                                           super(props);
                                           this.handleChange = this.handleChange.bind(this);
@@ -248,7 +242,7 @@ class EFormHocDocuments extends Component<any, any> {
                                   
                                       render(){
                                           return(
-                                              <EcolorPicker.component handleChange={this.handleChange} width="100%" />
+                                              <EcolorPicker handleChange={this.handleChange} width="100%" />
                                           )
                                       }
                                   }
@@ -317,9 +311,8 @@ class EFormHocDocuments extends Component<any, any> {
                   }
                   return result
                 }
-
                 ReactDOM.render(
-                  React.createElement(EFormHoc.component(FormConfig))
+                  React.createElement(EformHoc(FormConfig))
                 )
             `
           }]}
@@ -331,4 +324,4 @@ class EFormHocDocuments extends Component<any, any> {
   }
 }
 
-export default EFormHocDocuments;
+export default EformHocDocuments;

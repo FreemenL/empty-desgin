@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
-
-const { Edocument, Eviewer ,Prompt } = components;
+import { Edocument, Eviewer ,Prompt } from "emptyd";
 
 const data = [{
   key: '1',
@@ -26,15 +24,15 @@ const data = [{
 
 class EviewerDocuments extends Component<any, any> {
   handleDel(index,event){
-    Prompt.component["success"](`删除了第${index}张`);
+    Prompt["success"](`删除了第${index}张`);
   }
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="图片展示组件:Eviewer" 
           components={[{
-            component:React.createElement(Eviewer.component,{
+            component:React.createElement(Eviewer,{
               imgUrl:[{
                 url:"http://5b0988e595225.cdn.sohucs.com/images/20180914/9d15e25d6b1946f28b196f597e3002ba.jpeg",
                 alt:"pic"
@@ -55,11 +53,10 @@ class EviewerDocuments extends Component<any, any> {
             }),
             titDescripttion:"基本用法 : 点击图片查看大图",
             code:`
-              import components from '@components/load-component';
-              const { Eviewer } = components;
+              import { Edocument, Eviewer ,Prompt } from "emptyd";
 
               ReactDOM.render(
-                React.createElement(Eviewer.component,{
+                React.createElement(Eviewer,{
                   imgUrl:[{
                     url:"http://5b0988e595225.cdn.sohucs.com/images/20180914/9d15e25d6b1946f28b196f597e3002ba.jpeg",
                     alt:"pic"
@@ -81,7 +78,7 @@ class EviewerDocuments extends Component<any, any> {
               )
             `
           },{
-            component:React.createElement(Eviewer.component,{
+            component:React.createElement(Eviewer,{
               handleDel:this.handleDel,
               imgUrl:[{
                 url:"http://5b0988e595225.cdn.sohucs.com/images/20180914/9d15e25d6b1946f28b196f597e3002ba.jpeg",
@@ -103,18 +100,17 @@ class EviewerDocuments extends Component<any, any> {
             }),
             titDescripttion:"带删除功能的图片展示",
             code:`
-              import components from '@components/load-component';
-              const { Eviewer } = components;
+              import { Edocument, Eviewer ,Prompt } from "emptyd";
 
               class EviewerDemo extends Component{
 
                 handleDel(index,event){
-                  Prompt.component["success"]("删除了第"+index+"张");
+                  Prompt["success"]("删除了第"+index+"张");
                 }
 
                 render(){
                   return(
-                    React.createElement(Eviewer.component,{
+                    React.createElement(Eviewer,{
                       handleDel:this.handleDel,
                       imgUrl:[{
                         url:"http://5b0988e595225.cdn.sohucs.com/images/20180914/9d15e25d6b1946f28b196f597e3002ba.jpeg",

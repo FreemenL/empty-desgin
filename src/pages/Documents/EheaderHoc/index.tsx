@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
 import { config } from '@config/index';
-const { Edocument, EListHoc ,Prompt ,EheaderHoc} = components;
 
+import  { Edocument, ElistHoc ,Prompt ,EheaderHoc} from 'emptyd';
 
 const data = [{
   key: '1',
@@ -39,20 +38,20 @@ const data = [{
 
 class EheaderHocDocuments extends Component<any, any> {
   getMenu() {
-    return EListHoc.component({
+    return ElistHoc({
       type: "panel",
       width: "150px",
       data: [{
         icon: "user",
         title: "个人中心",
         click: function () {
-          Prompt.component["info"]("个人中心")
+          Prompt["info"]("个人中心")
         }
       }, {
         icon: "setting",
         title: "个人设置",
         click: function () {
-          Prompt.component["info"]("个人设置");
+          Prompt["info"]("个人设置");
         }
       }]
     });
@@ -61,10 +60,10 @@ class EheaderHocDocuments extends Component<any, any> {
     const { LogoSrc, name, menuList, userMsg } = config;
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="头部组件:EheaderHoc" 
           components={[{
-            component:React.createElement(EheaderHoc.component({
+            component:React.createElement(EheaderHoc({
               LogoSrc,
               name,
               menuList,
@@ -73,26 +72,25 @@ class EheaderHocDocuments extends Component<any, any> {
             })),
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
+              import  { ElistHoc ,Prompt ,EheaderHoc} from 'emptyd';
               import { config } from '@config/index';
-              const { Edocument, EListHoc ,Prompt ,EheaderHoc} = components;
 
               class EheaderHocDocuments extends Component<any, any> {
                 getMenu() {
-                  return EListHoc.component({
+                  return ElistHoc({
                     type: "panel",
                     width: "150px",
                     data: [{
                       icon: "user",
                       title: "个人中心",
                       click: function () {
-                        Prompt.component["info"]("个人中心")
+                        Prompt["info"]("个人中心")
                       }
                     }, {
                       icon: "setting",
                       title: "个人设置",
                       click: function () {
-                        Prompt.component["info"]("个人设置");
+                        Prompt["info"]("个人设置");
                       }
                     }]
                   });
@@ -100,7 +98,7 @@ class EheaderHocDocuments extends Component<any, any> {
                 render(){
                   const { LogoSrc, name, menuList, userMsg } = config;
                   return(
-                    React.createElement(EheaderHoc.component({
+                    React.createElement(EheaderHoc({
                       LogoSrc,
                       name,
                       menuList,

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
+import { Edocument, EuploadImg } from 'emptyd';
 
-const { Edocument, EuploadImg } = components;
 const data = [{
   key: '1',
   title: 'defaultParams',
@@ -33,17 +32,16 @@ class ETextDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="图片上传:EuploadImg" 
           components={[{
-            component:<EuploadImg.component/>,
+            component:<EuploadImg/>,
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
-              const { EText } = components;
+              import { EuploadImg } from 'emptyd';
 
               ReactDOM.render(
-                <EuploadImg.component config={
+                <EuploadImg config={
                   defaultParams: {
                     clientType:"web",
                     userId:103,

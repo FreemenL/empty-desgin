@@ -2,9 +2,8 @@ import React,{ Component } from 'react';
 import { TimePicker , InputNumber , Select } from 'antd';
 import moment from 'moment';
 import freetool from 'freetool';
-import components from '@components/load-component';
+import {  EcolorPicker , Prompt } from'emptyd';
 
-const {  EcolorPicker , Prompt } = components;
 const Option = Select.Option;
 const { GetType } = freetool;
 const format = 'HH:mm';
@@ -180,7 +179,7 @@ export const FormConfig = function(this:any,params){
                     
                         render(){
                             return(
-                                <EcolorPicker.component handleChange={this.handleChange} width="100%" />
+                                <EcolorPicker handleChange={this.handleChange} width="100%" />
                             )
                         }
                     }
@@ -240,7 +239,7 @@ export const FormConfig = function(this:any,params){
                       values[item] = values[item].format(format);
                     }
                   })
-                  Prompt["component"]["success"]("提交成功！具体数据可log查看");
+                  Prompt["success"]("提交成功！具体数据可log查看");
                 }
               });
           }

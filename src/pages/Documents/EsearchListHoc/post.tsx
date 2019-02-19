@@ -203,54 +203,20 @@ export const emptyFormConfig = function(this:any,params){
                   message: '请输入时间',
                 }]
               }
-          },
-          // {
-          //     field:'caseNo2',
-          //     type:"uploadImage",
-          //     label:"附件图片",
-          //     tag:"uploadImage",
-          //     uploadImgConfig:{
-          //     },
-          //     antdOptions:{
-          //      initialValue:[{url:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542869766716&di=3f9a2a6f5c5b2c950fab91a7212c78ce&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd439b6003af33a8724e4b645cb5c10385243b5e0.jpg",fileId:123}],
-          //      rules: [{
-          //         required: false,
-          //         message: '请选择图片',
-          //       }]
-          //     },
-          //     antdFormItemOptions:{
-          //       colon:false
-          //     },
-          //   }
+          }
             ],
           //提交函数
         submit:function(this:any,e,parent){
             e.preventDefault();
             this.props.form.validateFields((err, values) => {
-              // console.log(err,values);
               if (!err) {
-                parent.Prompt["loading"]("数据提交中");
+                
                 Reflect.ownKeys(values).forEach((item,index)=>{
                   if(values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
                     values[item] = values[item].format(format);
                   }
                 })
-                if(that&&that.params&&that.params.id){values.id = that.params.id}
-                values.onRange = `${values.startTimeStart}-${values.startTimeEnd}`;
-                values.offRange = `${values.endTimeStart}-${values.endTimeEnd}`
-                parent.ownAction.forEach((item,index)=>{
-                  if(item.actionType=="DUTY_DATALIST_UPDATE"&&GetType(that)!=="undefined"){
-                    delete values.endTimeEnd;
-                    delete values.endTimeStart;
-                    delete values.startTimeEnd;
-                    delete values.startTimeStart;
-                    item.dispatch(item.actionType,{...values,Prompt:parent.Prompt,onClose:this.props.onClose,reload:parent.handleEvent.reload});
-                  }else if(item.actionType=="DUTY_DATALIST_ADD"&&GetType(that)==="undefined"){
-                    values.deptId = parent.ownState.res_LOGIN["data"]["deptId"];
-                    values.deptName = parent.ownState.res_LOGIN["data"]["departmentNameList"];
-                    item.dispatch(item.actionType,{...values,Prompt:parent.Prompt,onClose:params.cancel,reload:parent.handleEvent.reload});
-                  }
-                })
+                parent.Prompt["info"](JSON.stringify(values));
               }
             });
         },

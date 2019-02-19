@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
-const { Edocument, Prompt , EFabButtonHoc } = components;
+import  {  Edocument, Prompt , EfabButtonHoc} from 'emptyd';
 
 const data = [{
   key: '1',
@@ -41,17 +40,17 @@ const data = [{
   }];
 
 
-class EFabButtonHocDocuments extends Component<any, any> {
+class EfabButtonHocDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
-          title="浮动按钮:EFabButtonHoc" 
+        <Edocument
+          title="浮动按钮:EfabButtonHoc" 
           components={[{
             component:(
                 <div>
                     {
-                        React.createElement(EFabButtonHoc.component({
+                        React.createElement(EfabButtonHoc({
                             name:"看右边",
                             direction:"right",
                             centerStyle:{marginRight:'40px'},
@@ -61,34 +60,34 @@ class EFabButtonHocDocuments extends Component<any, any> {
                                     icon:"lock",
                                     id:"001",
                                     click(id){
-                                        Prompt.component['info'](`点击了${id}按钮`)
+                                        Prompt['info'](`点击了${id}按钮`)
                                     }
                                 },{
                                     name:'爱心',
                                     icon:"heart",
                                     id:"002",
                                     click(id){
-                                        Prompt.component['info'](`点击了${id}按钮`)
+                                        Prompt['info'](`点击了${id}按钮`)
                                     }
                                 },{
                                     name:'解锁',
                                     icon:"unlock",
                                     id:"003",
                                     click(id){
-                                        Prompt.component['info'](`点击了${id}按钮`)
+                                        Prompt['info'](`点击了${id}按钮`)
                                     }
                                 },{
                                     name:'资料',
                                     icon:"folder",
                                     id:"004",
                                     click(id){
-                                        Prompt.component['info'](`点击了${id}按钮`)
+                                        Prompt['info'](`点击了${id}按钮`)
                                     }
                                 }
                             ]
                         })())
                     }
-                    {React.createElement(EFabButtonHoc.component({
+                    {React.createElement(EfabButtonHoc({
                     name:"点我",
                     direction:"top",
                     renderItem:[
@@ -97,12 +96,12 @@ class EFabButtonHocDocuments extends Component<any, any> {
                             icon:"lock",
                             id:"001",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         }
                     ]
                 })())}
-                {React.createElement(EFabButtonHoc.component({
+                {React.createElement(EfabButtonHoc({
                     name:"更多",
                     direction:"circle",
                     centerStyle:{marginLeft:'40px'},
@@ -112,34 +111,34 @@ class EFabButtonHocDocuments extends Component<any, any> {
                             icon:"lock",
                             id:"001",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'爱心',
                             icon:"heart",
                             id:"002",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'解锁',
                             icon:"unlock",
                             id:"003",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         },{
                             name:'资料',
                             icon:"folder",
                             id:"004",
                             click(id){
-                                Prompt.component['info'](`点击了${id}按钮`)
+                                Prompt['info'](`点击了${id}按钮`)
                             }
                         }
                     ]
                 })())}
                 {
-                    React.createElement(EFabButtonHoc.component({
+                    React.createElement(EfabButtonHoc({
                         name:"点我",
                         direction:"bottom",
                         centerStyle:{marginLeft:'40px'},
@@ -149,35 +148,35 @@ class EFabButtonHocDocuments extends Component<any, any> {
                                 icon:"lock",
                                 id:"001",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'爱心',
                                 icon:"heart",
                                 id:"002",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'解锁',
                                 icon:"unlock",
                                 id:"003",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'资料',
                                 icon:"folder",
                                 id:"004",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             }
                         ]
                     })())
                 }
                 {
-                    React.createElement(EFabButtonHoc.component({
+                    React.createElement(EfabButtonHoc({
                         name:"看左边",
                         direction:"left",
                         centerStyle:{marginLeft:'40px'},
@@ -187,28 +186,28 @@ class EFabButtonHocDocuments extends Component<any, any> {
                                 icon:"lock",
                                 id:"001",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'爱心',
                                 icon:"heart",
                                 id:"002",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'解锁',
                                 icon:"unlock",
                                 id:"003",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             },{
                                 name:'资料',
                                 icon:"folder",
                                 id:"004",
                                 click(id){
-                                    Prompt.component['info'](`点击了${id}按钮`)
+                                    Prompt['info'](`点击了${id}按钮`)
                                 }
                             }
                         ]
@@ -217,13 +216,12 @@ class EFabButtonHocDocuments extends Component<any, any> {
             </div>),
             titDescripttion:"浮动按钮支持单方向和多方向渲染，多方向渲染时默认顺序为上右下左，也可自行配置",
             code:`
-              import components from '@components/load-component';
-              const { EFabButtonHoc ,Prompt } = components;
+              import  {  Edocument, Prompt , EfabButtonHoc} from 'emptyd';
 
-              class EFabButtonHocDocuments extends Component<any, any> {
+              class EfabButtonHocDocuments extends Component<any, any> {
                 render(){
                   return(
-                    React.createElement(EFabButtonHoc.component({
+                    React.createElement(EfabButtonHoc({
                         name:"更多",
                         direction:"circle",
                         centerStyle:{marginLeft:"40px"},
@@ -233,28 +231,28 @@ class EFabButtonHocDocuments extends Component<any, any> {
                                 icon:"lock",
                                 id:"001",
                                 click(id){
-                                    Prompt.component['info']("点击了"+id+"按钮")
+                                    Prompt['info']("点击了"+id+"按钮")
                                 }
                             },{
                                 name:'爱心',
                                 icon:"heart",
                                 id:"002",
                                 click(id){
-                                    Prompt.component['info']("点击了"+id+"按钮")
+                                    Prompt['info']("点击了"+id+"按钮")
                                 }
                             },{
                                 name:'解锁',
                                 icon:"unlock",
                                 id:"003",
                                 click(id){
-                                    Prompt.component['info']("点击了"+id+"按钮")
+                                    Prompt['info']("点击了"+id+"按钮")
                                 }
                             },{
                                 name:'资料',
                                 icon:"folder",
                                 id:"004",
                                 click(id){
-                                    Prompt.component['info']("点击了"+id+"按钮")
+                                    Prompt['info']("点击了"+id+"按钮")
                                 }
                             }
                         ]
@@ -264,7 +262,7 @@ class EFabButtonHocDocuments extends Component<any, any> {
               }
             `
           }]}
-          docDescripttion="EFabButtonHoc属性如下:"   
+          docDescripttion="EfabButtonHoc属性如下:"   
           documentData={data}        
         />
       </div>
@@ -272,4 +270,4 @@ class EFabButtonHocDocuments extends Component<any, any> {
   }
 }
 
-export default EFabButtonHocDocuments;
+export default EfabButtonHocDocuments;

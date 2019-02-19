@@ -1,18 +1,19 @@
 import React,{ Fragment ,Component  } from 'react';
+import { Button } from 'antd';
+import { EsearchListHoc, ElistHoc ,EformHoc ,Edocument, Edrawer ,Prompt} from 'emptyd';
+
 import connectAid, { Actions } from '@store/connect';
 import { config } from '@config/index';
-import components from '@components/load-component';
-import { Button } from 'antd';
 import { emptyFormConfig } from "./post";
 import styles from './index.less';
 
-const { EsearchListHoc, EListHoc ,EFormHoc ,Edocument, Edrawer } = components;
 const { DATALIST ,DUTY_DATALIST_DELETE , DUTY_DATALIST_UPDATE , DUTY_DATALIST_ADD ,LOGIN } = Actions;
 
 const EsearchListHocDome =  connectAid(
 	  [ LOGIN,DATALIST,DUTY_DATALIST_DELETE ,DUTY_DATALIST_UPDATE,DUTY_DATALIST_ADD ]
-  )(EsearchListHoc.component({
+  )(EsearchListHoc({
 		header:"数据展示",
+		Prompt,
 		headMenu:[
 			function(this:any,callback){
 			   return(
@@ -217,17 +218,17 @@ const EsearchListHocDome =  connectAid(
 	    editConfig:{
 	      content:function(this:any,params){
 	      	this.params = params
-	        return EFormHoc.component.call(this,emptyFormConfig,"edit")
+	        return EformHoc.call(this,emptyFormConfig,"edit")
 	      }
 	    },
 	    addConfig:{
 	   	   content:function(this:any,params){
-	        return EFormHoc.component.call(this,emptyFormConfig,{cancel:this.handleCancel})
+	        return EformHoc.call(this,emptyFormConfig,{cancel:this.handleCancel})
 	      }
 	    },
 	    detailCofig:{
 	        content:function(){
-		      return EListHoc.component({
+		      return ElistHoc({
 						type:"default",
 						data:{
 							"班次名称":"name",
@@ -314,34 +315,33 @@ class EdrawerDocuments extends Component<any, any> {
 
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="表格查询页面 EsearchListHoc"
           components={[{
             component:(
               <section>
                 <Button onClick={ this.handleShow }>页面配置化</Button>
-                <Edrawer.component {...EDprops}>
+                <Edrawer {...EDprops}>
 									<EsearchListHocDome/>
-                </Edrawer.component>  
+                </Edrawer>  
               </section>
             ),
             titDescripttion:"像echarts 一样配置你的页面",
 						code:`
 						/************************* index.tsx *************************/
 						import React,{ Fragment ,Component  } from 'react';
+						import { EsearchListHoc, ElistHoc ,EformHoc, Edrawer} from 'emptyd';
+						import { Button } from 'antd';
 						import connectAid, { Actions } from '@store/connect';
 						import { config } from '@config/index';
-						import components from '@components/load-component';
-						import { Button } from 'antd';
 						import { emptyFormConfig } from "./post";
 						import styles from './index.less';
 						
-						const { EsearchListHoc, EListHoc ,EFormHoc } = components;
 						const { DATALIST ,DUTY_DATALIST_DELETE , DUTY_DATALIST_UPDATE , DUTY_DATALIST_ADD ,LOGIN } = Actions;
 						
 						const EsearchListHocDome =  connectAid(
 								[ LOGIN,DATALIST,DUTY_DATALIST_DELETE ,DUTY_DATALIST_UPDATE,DUTY_DATALIST_ADD ]
-								)(EsearchListHoc.component({
+								)(EsearchListHoc({
 								header:"数据展示",
 								headMenu:[
 									function(this:any,callback){
@@ -548,17 +548,17 @@ class EdrawerDocuments extends Component<any, any> {
 									editConfig:{
 										content:function(this:any,params){
 											this.params = params
-											return EFormHoc.component.call(this,emptyFormConfig,"edit")
+											return EformHoc.call(this,emptyFormConfig,"edit")
 										}
 									},
 									addConfig:{
 											content:function(this:any,params){
-											return EFormHoc.component.call(this,emptyFormConfig,{cancel:this.handleCancel})
+											return EformHoc.call(this,emptyFormConfig,{cancel:this.handleCancel})
 										}
 									},
 									detailCofig:{
 											content:function(){
-											return EListHoc.component({
+											return ElistHoc({
 												type:"default",
 												data:{
 													"班次名称":"name",

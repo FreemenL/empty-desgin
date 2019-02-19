@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import components from '@components/load-component';
-
-const { EcodeHighlight } = components;
+import  { EcodeHighlight } from 'emptyd';
 
 class Web extends Component<any, any> {
   render() {
@@ -35,7 +33,7 @@ class Web extends Component<any, any> {
         <p className="empty-line-content">
           9、避免将新对象作为 props 传递,如下：   
         </p>
-        <EcodeHighlight.component language='tsx'>
+        <EcodeHighlight language='tsx'>
           {`
             //  错误写法
             class Description extends Component {
@@ -70,7 +68,7 @@ class Web extends Component<any, any> {
               }
             }           
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
          10、巧用<code className="empty-code">shouldComponentUpdate 或者 PureComponent </code> 避免不必要的渲染
         </p>
@@ -108,7 +106,7 @@ class Web extends Component<any, any> {
           1、一个组件就是一个文件夹，文件夹命名与组件命名相同，里面有对应的<code className="empty-code">index.tsx</code> （必需文件）和 <code className="empty-code">style.less</code>,
             如 EFormHoc 组件。
         </p>
-        <EcodeHighlight.component language='tsx'>
+        <EcodeHighlight language='tsx'>
           {`
             import React,{Component}from 'react';
             import { Form } from 'antd';
@@ -135,7 +133,7 @@ class Web extends Component<any, any> {
                 constructor(props){
                   super(props)
                   this.Eform = Eform.bind(this);
-                  this.Ewapper = EwapperHoc.component({Rowlayout:this.props.Rowlayout})
+                  this.Ewapper = EwapperHoc({Rowlayout:this.props.Rowlayout})
                 }
                 getElement(){
                     const SearchItem = this.Eform
@@ -164,17 +162,17 @@ class Web extends Component<any, any> {
               component:EFormHoc
             }            
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           2、必须以如下方式导出组件
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
             export default{
               name:"EFormHoc",
               component:EFormHoc
             }            
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title"> 系统路由 @pages/**/router.ts （新建页面）</h1>
         <p className="empty-line-content">
           1、在 <code className="empty-code">@pages</code>目录下新建页面目录 并新建一个组件 *.tsx
@@ -182,7 +180,7 @@ class Web extends Component<any, any> {
         <p className="empty-line-content">
           2、路由用 <code className="empty-code">require.context</code> 做了去中心化处理,要求按如下方式导出
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
             export default [
               {
                 //匹配的路径
@@ -200,7 +198,7 @@ class Web extends Component<any, any> {
               }
             ]      
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title"> 全局状态管理 @store/**  （用的react-redux+redux-saga中间件）并进行了简单的封装</h1>
         <p className="empty-line-content">
           <code className="empty-code">以登陆为例 梳理一个流程</code>
@@ -208,17 +206,17 @@ class Web extends Component<any, any> {
         <p className="empty-line-content">
           1、在 <code className="empty-code">@store/action-types</code>目录下 <code className="empty-code">index.ts</code>中新建action的type
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
             // 登录相关
             export const  LOGIN_REQUEST = "LOGIN_REQUEST";
             export const  LOGIN_SUCCESS = "LOGIN_SUCCESS";
             export const  LOGIN_ERROR = "LOGIN_ERROR";    
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           2、在 <code className="empty-code">@reducers</code>目录下 新建 user.reducer.ts
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
             // 登录相关
             import * as types from '../action-types';
             //函数名称要求以state_开头 action函数名结尾  此处为 state_doLogin 
@@ -233,22 +231,22 @@ class Web extends Component<any, any> {
               }
             }    
           `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           3、用HOC的思想对<code className="empty-code">react-redux中的connect 函数</code>做了一层逻辑抽象 ，不必在每个子组件中都用 connect 去操作store
         </p>
         <p>只需在 <code className="empty-code">@connect/controller.ts中进行一次配置，如下</code> </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           const controller = { //key: action-type value:action函数名
             LOGIN: "doLogin",
           };
           export default controller;
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           4 、在<code className="empty-code">@actions</code>目录下新建相应的action操作函数
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           import * as types from '../action-types';
           export default {
             doLogin(username,password){
@@ -259,11 +257,11 @@ class Web extends Component<any, any> {
             }
           }          
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           5、回到组件中
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           import React, { Component } from 'react';
           ...
     
@@ -292,11 +290,11 @@ class Web extends Component<any, any> {
           
           export default doLogin;              
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           6、关于<code className="empty-code">异步action</code> 我们用的<code className="empty-code">redux-saga</code>来做的处理
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           import { all, call ,put, takeEvery } from "redux-saga/effects";
           import * as types from '../action-types';
           import { push } from 'connected-react-router'
@@ -327,12 +325,12 @@ class Web extends Component<any, any> {
             yield all([login()])
           }                        
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <h1 className="empty-title"> 接口调用规范 @service/** </h1>
         <p className="empty-line-content">
           1、在<code className="empty-code">@service</code> 目录下新建 *.api.ts 
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           export default {
             //命名空间  业务模块名称
             namespace:"system",
@@ -348,11 +346,11 @@ class Web extends Component<any, any> {
             }
           }                  
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
         <p className="empty-line-content">
           2 、调用
         </p>
-        <EcodeHighlight.component language='tsx'>{`
+        <EcodeHighlight language='tsx'>{`
           ...
           import service from "@service/load-service";
           
@@ -372,7 +370,7 @@ class Web extends Component<any, any> {
           
           ...                      
         `}
-        </EcodeHighlight.component>
+        </EcodeHighlight>
       </div>
     );
   }

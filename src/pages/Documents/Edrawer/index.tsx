@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { Button } from 'antd';
-import { hot } from 'react-hot-loader';
 
-import components from '@components/load-component';
-
-const { Edocument, Edrawer  , EListHoc } = components;
-
+import  {  Edocument, Edrawer  , ElistHoc } from 'emptyd';
 
 const data = [{
   key: '1',
@@ -63,7 +59,6 @@ const data = [{
   default: '-',
 }];
 
-@hot(module)
 class EdrawerDocuments extends Component<any, any> {
 
   constructor(props){
@@ -125,22 +120,21 @@ class EdrawerDocuments extends Component<any, any> {
 
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="抽屉组件:Edrawer"
           components={[{
             component:(
               <section>
                 <Button onClick={ this.handleShow }>抽屉组件</Button>
-                <Edrawer.component {...EDprops}>
+                <Edrawer {...EDprops}>
                     <p className="empty-title">终于等到你，还好没放弃...</p>
                     <p className="empty-title-size-16-yellow">接下来自由发挥吧...</p>
-                </Edrawer.component>  
+                </Edrawer>  
               </section>
             ),
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
-              const { Edrawer } = components;
+              import  { Edrawer  , ElistHoc } from 'emptyd';
     
               class EdrawerDocuments exrends Component{
 
@@ -175,10 +169,10 @@ class EdrawerDocuments extends Component<any, any> {
                   return(
                     <section>
                       <Button onClick={this.handleShow}>抽屉组件</Button>
-                      <Edrawer.component {...EDprops}>
+                      <Edrawer {...EDprops}>
                           <p>终于等到你，还好没放弃...</p>
                           <p>接下来自由发挥吧...</p>
-                      </Edrawer.component>  
+                      </Edrawer>  
                     </section>
                   )
                 }
@@ -188,8 +182,8 @@ class EdrawerDocuments extends Component<any, any> {
             component:(
               <section>
                 <Button type="primary" onClick={this.handleGroupShow}> 完美搭配 </Button>
-                <Edrawer.component {...groupEDprops}>
-                  { React.createElement(EListHoc.component({
+                <Edrawer {...groupEDprops}>
+                  { React.createElement(ElistHoc({
                     type:"default",
                     data:{
                       "班次名称":"name",
@@ -209,13 +203,12 @@ class EdrawerDocuments extends Component<any, any> {
                     }
                   }
                   ))}
-                </Edrawer.component>  
+                </Edrawer>  
               </section>
             ),
-            titDescripttion:"搭配EListHoc",
+            titDescripttion:"搭配ElistHoc",
             code:`
-            import components from '@components/load-component';
-            const { Edrawer } = components;
+            import  { Edrawer ,ElistHoc } from 'emptyd';
 
             class EdrawerDocuments extends Component<any, any> {
 
@@ -278,8 +271,8 @@ class EdrawerDocuments extends Component<any, any> {
                   return(
                     <section>
                       <Button type="primary" onClick={this.handleGroupShow}> 完美搭配 </Button>
-                      <Edrawer.component {...groupEDprops}>
-                      { React.createElement(EListHoc.component({
+                      <Edrawer {...groupEDprops}>
+                      { React.createElement(ElistHoc({
                         type:"default",
                         data:{
                           "班次名称":"name",
@@ -299,7 +292,7 @@ class EdrawerDocuments extends Component<any, any> {
                         }
                       }
                       ))}
-                      </Edrawer.component>  
+                      </Edrawer>  
                     </section>
                   )
                 }

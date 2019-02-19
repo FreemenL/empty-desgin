@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import { hot } from 'react-hot-loader';
-
-import components from '@components/load-component';
-
-const { Edocument, EcolorPicker , Prompt } = components;
-
+import  { Edocument ,  EcolorPicker , Prompt } from 'emptyd';
 
 const data = [{
   key: '1',
@@ -50,7 +45,6 @@ const data = [{
   default: '-',
 }];
 
-@hot(module)
 class EcolorPickerDocuments extends Component<any, any> {
   constructor(props){
     super(props);
@@ -58,20 +52,19 @@ class EcolorPickerDocuments extends Component<any, any> {
   }
 
   handleChange(color, event){
-    Prompt["component"]["info"](`您选择了 ${color.hex} `);
+    Prompt["info"](`您选择了 ${color.hex} `);
   }
 
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="颜色选择器:EcolorPicker"
           components={[{
-            component:(<EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40"/>),
+            component:(<EcolorPicker handleChange={this.handleChange} defaultValue="#f40"/>),
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
-              const { EcolorPicker , Prompt } = components;
+              import  { EcolorPicker , Prompt } from 'emptyd';
     
               class EcolorPickerDemo exrends Component{
                 constructor(props){
@@ -80,22 +73,21 @@ class EcolorPickerDocuments extends Component<any, any> {
                 }
               
                 handleChange(color, event){
-                  Prompt["component"]["info"]("您选择了 "$"{color.hex} ");
+                  Prompt["info"]("您选择了 "$"{color.hex} ");
                 }
                 
                 render(){
                   return(
-                    <EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40"/>
+                    <EcolorPicker handleChange={this.handleChange} defaultValue="#f40"/>
                   )
                 }
               }
             ` 
           },{
-            component:(<EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40" cursor="pointer"  animation="rotateInDownRight"/>),
+            component:(<EcolorPicker handleChange={this.handleChange} defaultValue="#f40" cursor="pointer"  animation="rotateInDownRight"/>),
             titDescripttion:"rotateInDownRight动画",
             code:`
-              import components from '@components/load-component';
-              const { EcolorPicker , Prompt } = components;
+              import  { EcolorPicker , Prompt } from 'emptyd';
     
               class EcolorPickerDemo exrends Component{
                 constructor(props){
@@ -104,22 +96,21 @@ class EcolorPickerDocuments extends Component<any, any> {
                 }
               
                 handleChange(color, event){
-                  Prompt["component"]["info"]("您选择了 "$"{color.hex} ");
+                  Prompt["info"]("您选择了 "$"{color.hex} ");
                 }
                 
                 render(){
                   return(
-                    <EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40"  animation="slideInRight"/>
+                    <EcolorPicker handleChange={this.handleChange} defaultValue="#f40"  animation="slideInRight"/>
                   )
                 }
               }
             ` 
           },{
-            component:(<EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer" animation="slideInRight"/>),
+            component:(<EcolorPicker handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer" animation="slideInRight"/>),
             titDescripttion:"回填区域不显示颜色值，且cursor属性为:pointer的情况",
             code:`
-              import components from '@components/load-component';
-              const { EcolorPicker , Prompt } = components;
+              import  { EcolorPicker , Prompt } from 'emptyd';
     
               class EcolorPickerDemo exrends Component{
                 constructor(props){
@@ -128,12 +119,12 @@ class EcolorPickerDocuments extends Component<any, any> {
                 }
               
                 handleChange(color, event){
-                  Prompt["component"]["info"]("您选择了 "$"{color.hex} ");
+                  Prompt["info"]("您选择了 "$"{color.hex} ");
                 }
                 
                 render(){
                   return(
-                    <EcolorPicker.component handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer"/>
+                    <EcolorPicker handleChange={this.handleChange} defaultValue="#f40" showValue={false} cursor="pointer"/>
                   )
                 }
               }

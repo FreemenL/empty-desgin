@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { hot } from 'react-hot-loader';
-import components from '@components/load-component';
-
-const { Edocument, EListHoc ,Prompt } = components;
+import { Edocument, ElistHoc ,Prompt } from 'emptyd';
 
 
 const data = [{
@@ -37,7 +34,7 @@ const data = [{
   default: '-',
 }];
 
-const List = EListHoc.component({
+const List = ElistHoc({
     type: "panel",
     width: "350px",
     interlayer:true,
@@ -52,26 +49,26 @@ const List = EListHoc.component({
     }]
 });
 
-const MenuList = EListHoc.component({
+const MenuList = ElistHoc({
   type: "panel",
   width: "350px",
   data: [{
     icon: "user",
     title: "个人中心",
     click: function () {
-      Prompt.component["info"]("个人中心")
+      Prompt["info"]("个人中心")
     }
   }, {
     icon: "setting",
     title: "系统设置",
     click: function () {
-      Prompt.component["info"]("系统设置");
+      Prompt["info"]("系统设置");
     }
   }]
 });
 
 
-const DetailList = React.createElement(EListHoc.component({
+const DetailList = React.createElement(ElistHoc({
   type:"default",
   data:{
     "班次名称":"name",
@@ -95,21 +92,19 @@ const DetailList = React.createElement(EListHoc.component({
     }
   },null)
 
-@hot(module)
 class ElistHocDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="列表组件:ElistHoc" 
           components={[{
             component:List,
             titDescripttion:"基本用法",
             code:`
-              import components from '@components/load-component';
-              const { EListHoc } = components;
+              import { ElistHoc ,Prompt } from 'emptyd';
     
-              const List = EListHoc.component({
+              const List = ElistHoc({
                   type: "panel",
                   width: "350px",
                   interlayer:true,
@@ -137,23 +132,22 @@ class ElistHocDocuments extends Component<any, any> {
             component:MenuList,
             titDescripttion:"作为菜单项使用的时候可以添加 点击事件",
             code:`
-              import components from '@components/load-component';
-              const { EListHoc } = components;
+              import { ElistHoc ,Prompt } from 'emptyd';
     
-              const MenuList = EListHoc.component({
+              const MenuList = ElistHoc({
                 type: "panel",
                 width: "300px",
                 data: [{
                   icon: "user",
                   title: "个人中心",
                   click: function () {
-                    Prompt.component["info"]("个人中心")
+                    Prompt["info"]("个人中心")
                   }
                 }, {
                   icon: "setting",
                   title: "系统设置",
                   click: function () {
-                    Prompt.component["info"]("系统设置");
+                    Prompt["info"]("系统设置");
                   }
                 }]
               });
@@ -162,14 +156,13 @@ class ElistHocDocuments extends Component<any, any> {
                 <MenuList />
               )
             `
-          },,{
+          },{
             component:DetailList,
             titDescripttion:"表格形式 作为详情页展示",
             code:`
-              import components from '@components/load-component';
-              const { EListHoc } = components;
+              import { ElistHoc ,Prompt } from 'emptyd';
     
-              const DetailList = React.createElement(EListHoc.component({
+              const DetailList = React.createElement(ElistHoc({
                 type:"default",
                 data:{
                   "班次名称":"name",

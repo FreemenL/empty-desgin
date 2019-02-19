@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { hot } from 'react-hot-loader';
-import components from '@components/load-component';
-
-
-const { Edocument, EcodeHighlight } = components;
+import  { Edocument , EcodeHighlight } from 'emptyd';
 
 const data = [{
   key: '1',
@@ -25,33 +21,30 @@ const data = [{
   default: '-',
 }];
 
-@hot(module)
 class EcodeHighlightDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="代码高亮:EcodeHighlight" 
           components={[{
-            component:(<EcodeHighlight.component language='tsx'>
+            component:(<EcodeHighlight language='tsx'>
                 {`
-                import components from '@components/load-component';
-                const { EcodeHighlight } = components;
+                import  { Ebeard } from 'emptyd';
 
                 const menus = [{pathname:"/home/components/Ebeard",title:"面包屑导航：Ebeard"},{pathname:"/home/components/EcodeHighlight",title:"代码高亮：EcodeHighlight"}]
 
                 ReactDOM.render(
-                  <Ebeard.component menus={menus} />
+                  <Ebeard menus={menus} />
                 )
               `} 
-              </EcodeHighlight.component>),
+              </EcodeHighlight>),
              titDescripttion:"基本用法",
              code:`
-              import components from '@components/load-component';
-              const { EcodeHighlight } = components;
+              import  { EcodeHighlight } from 'emptyd';
     
               ReactDOM.render(
-                <EcodeHighlight.component language='tsx'>
+                <EcodeHighlight language='tsx'>
                   {"
                   import components from '@components/load-component';
                   const { EcodeHighlight } = components;
@@ -59,10 +52,10 @@ class EcodeHighlightDocuments extends Component<any, any> {
                   const menus = [{pathname:"/home/components/Ebeard",title:"面包屑导航：Ebeard"},{pathname:"/home/components/EcodeHighlight",title:"代码高亮：EcodeHighlight"}]
     
                   ReactDOM.render(
-                    <Ebeard.component menus={menus} />
+                    <Ebeard menus={menus} />
                   )
                 "} 
-                </EcodeHighlight.component>
+                </EcodeHighlight>
               )
               `
           }]}

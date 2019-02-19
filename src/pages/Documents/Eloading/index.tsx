@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "antd";
-import components from "@components/load-component";
 import autobind from "autobind-decorator";
-
-const { Edocument, Eloading } = components;
+import { Edocument, Eloading } from 'emptyd';
 
 const data = [
   {
@@ -55,24 +53,22 @@ class EloadingDocuments extends Component<any, any> {
   render() {
     return (
       <div className={"animated fadeIn emptyd-content"}>
-        <Edocument.component
+        <Edocument
           title="loading组件:Eloading"
           components={[
             {
               component: (
-                <Eloading.component show={this.state.show} size="large">
-                  <Button onClick={() => this.showLoading()}>
+                <Eloading show={this.state.show} size="large">
+                  <Button onClick={() => this.showLoading(false)}>
                     容器loading
                   </Button>
-                </Eloading.component>
+                </Eloading>
               ),
               titDescripttion: "容器级别的loading",
               code: `
               import { Button } from 'antd';
-              import components from '@components/load-component';
+              import { Edocument, Eloading } from 'emptyd';
               import autobind from 'autobind-decorator';
-
-              const { Edocument, Eloading } = components;
     
               @autobind
               class EloadingDocuments extends Component<any, any> {
@@ -96,11 +92,11 @@ class EloadingDocuments extends Component<any, any> {
 
                 render(){
                   return(
-                    <Eloading.component 
+                    <Eloading 
                       show={this.state.show} 
                       size="large">
                         <Button onClick={this.showLoading} >展示loading</Button>
-                    </Eloading.component>
+                    </Eloading>
                   )
                 }
 
@@ -109,7 +105,7 @@ class EloadingDocuments extends Component<any, any> {
             },
             {
               component: (
-                <Eloading.component
+                <Eloading
                   show={this.state.globalShow}
                   model="global"
                   size="large"
@@ -117,15 +113,13 @@ class EloadingDocuments extends Component<any, any> {
                   <Button onClick={() => this.showLoading("globalShow")}>
                     页面loading
                   </Button>
-                </Eloading.component>
+                </Eloading>
               ),
               titDescripttion: "页面级别的loading",
               code: `
               import { Button } from 'antd';
-              import components from '@components/load-component';
+              import { Eloading } from 'emptyd';
               import autobind from 'autobind-decorator';
-
-              const { Edocument, Eloading } = components;
     
               @autobind
               class EloadingDocuments extends Component<any, any> {
@@ -158,7 +152,7 @@ class EloadingDocuments extends Component<any, any> {
             
                 render(){
                   return(
-                    <Eloading.component
+                    <Eloading
                       show={this.state.globalShow}
                       model="global"
                       size="large"
@@ -166,7 +160,7 @@ class EloadingDocuments extends Component<any, any> {
                       <Button onClick={() => this.showLoading("globalShow")}>
                         全局loading
                       </Button>
-                    </Eloading.component>
+                    </Eloading>
                   )
                 }
 

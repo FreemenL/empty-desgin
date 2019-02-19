@@ -11,9 +11,9 @@
     "lint": "eslint src --ext .tsx",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
-  "pre-commit": [ 
+  "pre-commit": [
     "precommit-msg",
-    "lint" 
+    "lint"
   ],
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "10.12.15",
-    "@types/react": "^16.8.1",
-    "@types/react-dom": "^16.8.1",
+    "@types/react": "16.8.1",
+    "@types/react-dom": "16.8.1",
     "@types/react-redux": "6.0.11",
     "@types/react-router-dom": "4.3.1",
     "@types/redux": "3.6.0",
@@ -38,6 +38,7 @@
     "awesome-typescript-loader": "5.2.1",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
+    "babel-plugin-empty-import": "0.0.2",
     "babel-plugin-import": "1.11.0",
     "babel-plugin-prismjs": "1.0.2",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
@@ -58,8 +59,8 @@
     "eslint": "5.10.0",
     "eslint-friendly-formatter": "4.0.1",
     "eslint-loader": "2.1.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.0.2",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.0.2",
     "eslint-plugin-typescript": "0.14.0",
     "file-loader": "2.0.0",
     "freetool": "0.0.3",
@@ -121,7 +122,8 @@
     "autobind-decorator": "2.4.0",
     "classnames": "2.2.6",
     "connected-react-router": "6.0.0",
-    "enquire-js": "^0.2.1",
+    "emptyd": "^0.1.5",
+    "enquire-js": "0.2.1",
     "free-validator": "1.0.7",
     "history": "4.7.2",
     "lodash": "4.17.11",
@@ -130,9 +132,9 @@
     "nprogress": "0.2.0",
     "prismjs": "1.15.0",
     "rc-texty": "0.2.0",
-    "react": "^16.8.2",
+    "react": "16.8.2",
     "react-color": "2.17.0",
-    "react-dom": "^16.8.2",
+    "react-dom": "16.8.2",
     "react-loadable": "5.5.0",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
