@@ -4,7 +4,7 @@ import  { EcodeHighlight } from 'emptyd';
 class Mobile extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
+      <>
         <h1 className="empty-title"> 移动网页开发 </h1>
         <p className="empty-line-content">
           <code className="empty-code">emptyd-admin-webpack</code> 同样适用于 <code className="empty-code">h5 及 微信公众号</code>开发 
@@ -83,7 +83,7 @@ class Mobile extends Component<any, any> {
             <meta name=”apple-mobile-web-app-capable” content=”yes” />
           `}
         </EcodeHighlight>
-      </div>
+      </>
     );
   }
 }

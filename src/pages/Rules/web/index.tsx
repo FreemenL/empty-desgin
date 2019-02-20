@@ -4,7 +4,7 @@ import  { EcodeHighlight } from 'emptyd';
 class Web extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
+      <>
         <h1 className="empty-title"> 代码书写约定规范 </h1>
         <p className="empty-line-content">
           1、less: className的单词之间以<code className="empty-code">“-”</code>连接,如<code className="empty-code">empty-tree-content;</code> 相同的样式值多次使用到请使用变量（less 变量写法如：<code className="empty-code"> @base-padding:10px </code>）;
@@ -371,7 +371,7 @@ class Web extends Component<any, any> {
           ...                      
         `}
         </EcodeHighlight>
-      </div>
+      </>
     );
   }
 }

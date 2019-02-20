@@ -4,7 +4,7 @@ import  { EcodeHighlight } from 'emptyd';
 class Intro extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
+      <>
         <h1 className="empty-title">empty-desgin 简称 emptyd </h1>
         <p className="empty-line-content">
           <code className="empty-code">emptyd</code>
@@ -59,7 +59,7 @@ class Intro extends Component<any, any> {
         <p className="empty-line-content">
           1、针对不同的
           <code className="empty-code">loader</code>
-          采用了多线程编译，指定精确处理的目录和排除的目录，并开启缓存 极大的加快了编译速度。
+          采用了多进程编译，指定精确处理的目录和排除的目录，并开启缓存 极大的加快了编译速度。
         </p>
 
         <p className="empty-line-content">
@@ -422,7 +422,7 @@ class Intro extends Component<any, any> {
           }
           `}
         </EcodeHighlight>
-      </div>
+      </>
     );
   }
 }

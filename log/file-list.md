@@ -4,15 +4,15 @@
 
 #--->  [{ file  :  static/imgs/login.png?21491d4bfd00f7bd7115fa7be3ccb441  }-----{ size  :  446.537109375kb }]
 
-#--->  [{ file  :  0.4b9788527a96d350cd93.css  }-----{ size  :  52.169921875kb }]
+#--->  [{ file  :  0.68cae5964c3825a0d84e.css  }-----{ size  :  52.169921875kb }]
 
 #--->  [{ file  :  static/js/0.c4f0db3e629055b7adad.js  }-----{ size  :  2.9033203125kb }]
 
-#--->  [{ file  :  1.4b9788527a96d350cd93.css  }-----{ size  :  273.3544921875kb }]
+#--->  [{ file  :  1.68cae5964c3825a0d84e.css  }-----{ size  :  273.3544921875kb }]
 
 #--->  [{ file  :  static/js/1.431a6472593e52bbac36.js  }-----{ size  :  1201.7978515625kb }]
 
-#--->  [{ file  :  static/js/2.7e0284f79b5ea9845a7a.js  }-----{ size  :  22.8935546875kb }]
+#--->  [{ file  :  static/js/2.740871e7a7acad555afa.js  }-----{ size  :  23.06640625kb }]
 
 #--->  [{ file  :  static/js/3.e32dfdef6faa73e2aa11.js  }-----{ size  :  41.267578125kb }]
 
@@ -46,25 +46,25 @@
 
 #--->  [{ file  :  static/js/18.8d2b85913fd2c8f69564.js  }-----{ size  :  2.79296875kb }]
 
-#--->  [{ file  :  static/js/19.48e527f5134300bcb401.js  }-----{ size  :  19.84375kb }]
+#--->  [{ file  :  static/js/19.86e579a22ca8b94fef75.js  }-----{ size  :  19.8115234375kb }]
 
-#--->  [{ file  :  static/js/20.4727c6c391ef09574f57.js  }-----{ size  :  5.0205078125kb }]
+#--->  [{ file  :  static/js/20.9c3af95744727a930438.js  }-----{ size  :  4.98828125kb }]
 
-#--->  [{ file  :  static/js/21.209373b2458f545709b8.js  }-----{ size  :  16.263671875kb }]
+#--->  [{ file  :  static/js/21.01d1d90db647649646db.js  }-----{ size  :  16.2314453125kb }]
 
 #--->  [{ file  :  static/js/22.93553cf6089ea2747a63.js  }-----{ size  :  7.3720703125kb }]
 
 #--->  [{ file  :  static/js/23.95d2d655a33f639d35cb.js  }-----{ size  :  7.25390625kb }]
 
-#--->  [{ file  :  24.4b9788527a96d350cd93.css  }-----{ size  :  20.927734375kb }]
+#--->  [{ file  :  24.68cae5964c3825a0d84e.css  }-----{ size  :  20.927734375kb }]
 
 #--->  [{ file  :  static/js/24.154e3738bf3c8de46152.js  }-----{ size  :  12.7421875kb }]
 
-#--->  [{ file  :  static/js/25.e5fe2fd0848f714f99a7.js  }-----{ size  :  38.1259765625kb }]
+#--->  [{ file  :  static/js/25.5949fa8404e28cd12806.js  }-----{ size  :  38.0576171875kb }]
 
-#--->  [{ file  :  static/js/manifest.9518222e0aa7a9eed629.js  }-----{ size  :  4.4189453125kb }]
+#--->  [{ file  :  static/js/manifest.1601b62cc7dc3ef6ec43.js  }-----{ size  :  4.4189453125kb }]
 
-#--->  [{ file  :  27.4b9788527a96d350cd93.css  }-----{ size  :  61.3896484375kb }]
+#--->  [{ file  :  27.68cae5964c3825a0d84e.css  }-----{ size  :  61.3896484375kb }]
 
 #--->  [{ file  :  static/js/27.8798c81970c615b058da.js  }-----{ size  :  214.2744140625kb }]
 
@@ -90,9 +90,9 @@
 
 #--->  [{ file  :  index.html  }-----{ size  :  7.166015625kb }]
 
-#--->  [{ file  :  static/js/2.7e0284f79b5ea9845a7a.js.gz  }-----{ size  :  5.822265625kb }]
+#--->  [{ file  :  static/js/2.740871e7a7acad555afa.js.gz  }-----{ size  :  5.8740234375kb }]
 
-#--->  [{ file  :  0.4b9788527a96d350cd93.css.gz  }-----{ size  :  9.150390625kb }]
+#--->  [{ file  :  0.68cae5964c3825a0d84e.css.gz  }-----{ size  :  9.150390625kb }]
 
 #--->  [{ file  :  static/js/3.e32dfdef6faa73e2aa11.js.gz  }-----{ size  :  7.822265625kb }]
 
@@ -102,19 +102,19 @@
 
 #--->  [{ file  :  static/js/4.58192e3781ac6c9d61bc.js.gz  }-----{ size  :  12.1328125kb }]
 
-#--->  [{ file  :  static/js/19.48e527f5134300bcb401.js.gz  }-----{ size  :  5.9560546875kb }]
+#--->  [{ file  :  static/js/19.86e579a22ca8b94fef75.js.gz  }-----{ size  :  5.947265625kb }]
 
-#--->  [{ file  :  static/js/21.209373b2458f545709b8.js.gz  }-----{ size  :  4.5146484375kb }]
+#--->  [{ file  :  static/js/21.01d1d90db647649646db.js.gz  }-----{ size  :  4.5048828125kb }]
+
+#--->  [{ file  :  24.68cae5964c3825a0d84e.css.gz  }-----{ size  :  4.0126953125kb }]
 
 #--->  [{ file  :  static/js/24.154e3738bf3c8de46152.js.gz  }-----{ size  :  3.353515625kb }]
 
-#--->  [{ file  :  24.4b9788527a96d350cd93.css.gz  }-----{ size  :  4.0126953125kb }]
+#--->  [{ file  :  static/js/25.5949fa8404e28cd12806.js.gz  }-----{ size  :  8.6875kb }]
 
-#--->  [{ file  :  static/js/25.e5fe2fd0848f714f99a7.js.gz  }-----{ size  :  8.716796875kb }]
+#--->  [{ file  :  27.68cae5964c3825a0d84e.css.gz  }-----{ size  :  5.5322265625kb }]
 
-#--->  [{ file  :  27.4b9788527a96d350cd93.css.gz  }-----{ size  :  5.5322265625kb }]
-
-#--->  [{ file  :  1.4b9788527a96d350cd93.css.gz  }-----{ size  :  41.5712890625kb }]
+#--->  [{ file  :  1.68cae5964c3825a0d84e.css.gz  }-----{ size  :  41.5712890625kb }]
 
 #--->  [{ file  :  static/js/27.8798c81970c615b058da.js.gz  }-----{ size  :  43.78515625kb }]
 

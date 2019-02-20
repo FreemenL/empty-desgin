@@ -69,11 +69,9 @@ class Routes extends Component<any>{
       ),
       child:(
         <Switch>
-          <div className="animated fadeIn emptyd-content">
-            {this.props.route.map((route:any, i) =>(
-              <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
-            ))}
-          </div>
+        {this.props.route.map((route:any, i) =>(
+            <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
+        ))}
         </Switch>
       )
     }

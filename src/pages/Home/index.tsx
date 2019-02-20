@@ -44,6 +44,12 @@ class Home extends Component<any, any> {
     });
   }
 
+  renderChildren(){
+    const Child = <ChildRoute route={Routes.filter((route: any) => !mainRoute.includes(route.path))} type='child' />;
+    const Result = location.hash ==="#/home/home"?Child:<div className="animated fadeIn emptyd-content">{Child}</div>
+    return(Result);
+  }
+
   render() {  
     const HeaderCom = EheaderHoc({
       LogoSrc,
@@ -74,7 +80,7 @@ class Home extends Component<any, any> {
                 (<Ebeard menus={menuList} />)
             }
             <Content id='content' className={contentWrapperClass}>
-              <ChildRoute route={Routes.filter((route: any) => !mainRoute.includes(route.path))} type='child' />
+              {this.renderChildren()}
               <Footer className={contentFooterClass}>
                 { footerText }
               </Footer>
