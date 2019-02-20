@@ -119,7 +119,6 @@ class EdrawerDocuments extends Component<any, any> {
     }
 
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="抽屉组件:Edrawer"
           components={[{
@@ -302,8 +301,6 @@ class EdrawerDocuments extends Component<any, any> {
           docDescripttion="Edrawer 属性如下:"   
           documentData={data}        
         />
-        
-      </div>
     );
   }
 }

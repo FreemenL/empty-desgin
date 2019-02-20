@@ -43,7 +43,6 @@ const data = [{
 class EfabButtonHocDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="浮动按钮:EfabButtonHoc" 
           components={[{
@@ -265,7 +264,6 @@ class EfabButtonHocDocuments extends Component<any, any> {
           docDescripttion="EfabButtonHoc属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

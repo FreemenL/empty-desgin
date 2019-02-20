@@ -52,7 +52,6 @@ class EloadingDocuments extends Component<any, any> {
   
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="loading组件:Eloading"
           components={[
@@ -171,7 +170,6 @@ class EloadingDocuments extends Component<any, any> {
           docDescripttion="Eloading除了如下属性，还有antd Spin 组件的属性:"
           documentData={data}
         />
-      </div>
     );
   }
 }

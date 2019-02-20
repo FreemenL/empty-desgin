@@ -28,7 +28,6 @@ class EviewerDocuments extends Component<any, any> {
   }
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="图片展示组件:Eviewer" 
           components={[{
@@ -138,7 +137,6 @@ class EviewerDocuments extends Component<any, any> {
           docDescripttion="Eviewer属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

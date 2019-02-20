@@ -314,7 +314,6 @@ class EdrawerDocuments extends Component<any, any> {
     }
 
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="表格查询页面 EsearchListHoc"
           components={[{
@@ -871,8 +870,6 @@ class EdrawerDocuments extends Component<any, any> {
           docDescripttion="EsearchListHoc 实现了页面配置化，根据具体的业务场景配置页面，因配置参数较多，详情参照代码注释:"   
           documentData={data}        
         />
-        
-      </div>
     );
   }
 }

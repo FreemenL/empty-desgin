@@ -31,7 +31,6 @@ class EtextDocuments extends Component<any, any> {
   _testStyle={fontSize:"20px",color:"#000"}
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="文字动效:Etext" 
           components={[{
@@ -76,7 +75,6 @@ class EtextDocuments extends Component<any, any> {
           docDescripttion="Etext属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

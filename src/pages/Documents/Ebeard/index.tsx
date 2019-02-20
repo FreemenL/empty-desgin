@@ -15,7 +15,6 @@ const data = [{
 class EbeardDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="面包屑导航:Ebeard" 
           components={[{
@@ -34,7 +33,6 @@ class EbeardDocuments extends Component<any, any> {
           docDescripttion="Ebeard属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

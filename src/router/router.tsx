@@ -10,7 +10,7 @@ class ScrollToTop extends Component<any,any>{
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       const container:any = document.getElementById("content");
-      container.scrollTo(0,0)
+      container&&container.scrollTo(0,0)
     }
   }
   render() {
@@ -69,9 +69,11 @@ class Routes extends Component<any>{
       ),
       child:(
         <Switch>
-        {this.props.route.map((route:any, i) =>(
-            <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
-          ))}
+          <div className="animated fadeIn emptyd-content">
+            {this.props.route.map((route:any, i) =>(
+              <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
+            ))}
+          </div>
         </Switch>
       )
     }

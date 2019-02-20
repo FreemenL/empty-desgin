@@ -56,7 +56,6 @@ const data = [{
 class EformHocDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="表单配置组件:EformHoc" 
           components={[{
@@ -319,7 +318,6 @@ class EformHocDocuments extends Component<any, any> {
           docDescripttion=" FormConfig 函数中 search 配置数组的具体参数如下"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

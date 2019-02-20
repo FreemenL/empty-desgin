@@ -31,7 +31,6 @@ class ETextDocuments extends Component<any, any> {
   _testStyle={fontSize:"20px",color:"#000"}
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="图片上传:EuploadImg" 
           components={[{
@@ -65,7 +64,6 @@ class ETextDocuments extends Component<any, any> {
           docDescripttion="EuploadImg组件上传图片分两步,第一步提交参数返回上传的地址,然后再进行上传,支持二进制和formData两种方式提交 props.config 属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

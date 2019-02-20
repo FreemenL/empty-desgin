@@ -24,7 +24,6 @@ const data = [{
 class EcodeHighlightDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="代码高亮:EcodeHighlight" 
           components={[{
@@ -62,7 +61,6 @@ class EcodeHighlightDocuments extends Component<any, any> {
           docDescripttion="EcodeHighlight属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

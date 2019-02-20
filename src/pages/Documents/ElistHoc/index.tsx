@@ -95,7 +95,6 @@ const DetailList = React.createElement(ElistHoc({
 class ElistHocDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="列表组件:ElistHoc" 
           components={[{
@@ -194,7 +193,6 @@ class ElistHocDocuments extends Component<any, any> {
           docDescripttion="ElistHoc属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

@@ -58,7 +58,6 @@ const data = [{
 class EtreeHocDocuments extends Component<any, any> {
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="树形菜单组件:EtreeHoc" 
           components={[{
@@ -253,7 +252,6 @@ class EtreeHocDocuments extends Component<any, any> {
           docDescripttion="EtreeHoc属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

@@ -57,7 +57,6 @@ class EcolorPickerDocuments extends Component<any, any> {
 
   render() {
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="颜色选择器:EcolorPicker"
           components={[{
@@ -133,7 +132,6 @@ class EcolorPickerDocuments extends Component<any, any> {
           docDescripttion="EcolorPicker 属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }

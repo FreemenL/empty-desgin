@@ -59,7 +59,6 @@ class EheaderHocDocuments extends Component<any, any> {
   render() {
     const { LogoSrc, name, menuList, userMsg } = config;
     return (
-      <div className={"animated fadeIn emptyd-content"}>
         <Edocument
           title="头部组件:EheaderHoc" 
           components={[{
@@ -113,7 +112,6 @@ class EheaderHocDocuments extends Component<any, any> {
           docDescripttion="EheaderHoc属性如下:"   
           documentData={data}        
         />
-      </div>
     );
   }
 }
