@@ -41,7 +41,7 @@ queue.tapAsync("generatorDll", (tag, task, result, next) => {
 queue.tapAsync("start building...", (tag, task, result, next) => {
     setTimeout(() => {
         utils.hint(tag);
-        run("cross-env NODE_ENV=production TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack --profile --json > ./log/compilation-build.json --config ./build/webpack.prod.ts")
+        run("cross-env NODE_ENV=production TS_NODE_PROJECT=\"config/tsconfig-for-webpack-config.json\" webpack --profile --config ./build/webpack.prod.ts")
     }, 0);
 })
 

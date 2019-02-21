@@ -5,23 +5,15 @@ const chalk = require('chalk');//终端样式
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const FilesPlugin = require("./plugins/FilePlugin.ts");
+const printFileSizesAfterBuildPlugin = require("./plugins/printFileSizesAfterBuildPlugin.ts");
 const devMode = process.env.NODE_ENV !== 'production';
 const common = require('./webpack.base.ts');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const paths = require('./paths');
 
-
-let pathsToClean = [
-  'dist'
-]
-
-let cleanOptions = {
-  root: process.cwd()
-}
 
 module.exports = merge(common, {
   devtool: false,
@@ -164,7 +156,6 @@ module.exports = merge(common, {
       threshold: 10240,
       minRatio: 0.8
     }),
-    new CleanWebpackPlugin(pathsToClean, cleanOptions),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'//node提供的常量api
@@ -172,6 +163,7 @@ module.exports = merge(common, {
     }),
     //  缩减代码量  使代码在浏览器中具有更快的执行时间
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new printFileSizesAfterBuildPlugin({}),
     //自定义插件 输出打包产出文件 
     new FilesPlugin({ path: paths.appLog, filename: "file-list.md" }),
   ]
