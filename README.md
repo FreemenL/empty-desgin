@@ -57,7 +57,7 @@
 │   ├── loaders              # 自定义loader目录
 │   ├── plugins              # 自定义plugin目录
 │   ├── template             # html模版目录
-├── config                   # 系统配置目录
+├── config                   # 系统配置目录
 ├── dist                     # 打包资源
 ├── log                      # 日志目录
 ├── scripts                  # 运行脚本
@@ -99,7 +99,7 @@ $ cd emptyd-admin-webpack
 |------------------|-----------|
 |start|初始化启动项目（生成Dll文件并启动服务）|
 |build|打包|
-|ls|将dist目录在本地8080端口运行|
+|ls|将dist目录在本地8080端口运行|
 
 ### 系统配置说明
 
@@ -200,3 +200,23 @@ module.exports = {
 }
 
 ```
+<h2 align="center">Maintainers</h2>
+
+<table>
+  <tbody>
+    <tr>
+     <td align="center">
+        <img width="150" height="150"
+        src="https://avatars2.githubusercontent.com/u/10083758?s=400&v=4">
+        </br>
+        <a href="https://github.com/ChasLui">ChasLui</a>
+      </td>
+      <td align="center">
+        <img width="150" height="150"
+        src="https://cdn2.ettoday.net/images/1688/d1688515.jpg">
+        </br>
+        <a href="https://github.com/freemenL">freemenL</a>
+      </td>
+    </tr>
+  <tbody>
+</table>

@@ -7,8 +7,7 @@ const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
-const FilesPlugin = require("./plugins/FilePlugin.ts");
-const printFileSizesAfterBuildPlugin = require("./plugins/printFileSizesAfterBuildPlugin.ts");
+const emptyWebpackBuildDetailPlugin = require("empty-webpack-build-detail-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 const common = require('./webpack.base.ts');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
@@ -163,8 +162,6 @@ module.exports = merge(common, {
     }),
     //  缩减代码量  使代码在浏览器中具有更快的执行时间
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new printFileSizesAfterBuildPlugin({}),
-    //自定义插件 输出打包产出文件 
-    new FilesPlugin({ path: paths.appLog, filename: "file-list.md" }),
+    new emptyWebpackBuildDetailPlugin({path: paths.appLog,filename: "file-list.md"})
   ]
 });
