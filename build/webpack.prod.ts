@@ -162,6 +162,6 @@ module.exports = merge(common, {
     }),
     //  缩减代码量  使代码在浏览器中具有更快的执行时间
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new emptyWebpackBuildDetailPlugin({path: paths.appLog,filename: "file-list.md"})
+    new emptyWebpackBuildDetailPlugin({path: paths.appLog})
   ]
 });
