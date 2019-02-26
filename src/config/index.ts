@@ -31,6 +31,12 @@ export const config ={
                 { pathname: '/home/documents/EuploadImg', title: '图片上传：EuploadImg'},
                 { pathname: '/home/documents/EFabButton', title: '浮动按钮：EFabButton'},
             ]
+        },{
+            pathname: '/home/tool', title: '样式和工具', icon: 'form',
+            sub: [
+                { pathname: '/home/tool/style', title: '通用样式'},
+                { pathname: '/home/tool/js', title: '工具类'}
+            ]
         },
     ],
     mainRoute: ["/login","/"],

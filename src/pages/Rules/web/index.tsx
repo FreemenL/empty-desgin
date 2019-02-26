@@ -6,7 +6,7 @@ class Web extends Component<any, any> {
   render() {
     return (
       <>
-        <h1 className="empty-title"> 代码书写约定规范 </h1>
+        <h1 className="e-title"> 代码书写约定规范 </h1>
         <p className="empty-line-content">
           样式:
         </p>
@@ -112,7 +112,7 @@ class Web extends Component<any, any> {
         <p className="empty-line-content">
           9、先导入<code className="empty-code">第三方模块</code> 自定义模块后导入
         </p>
-        <h1 className="empty-title"> 静态资源</h1>
+        <h1 className="e-title"> 静态资源</h1>
         <p className="empty-line-content">
           1、衡量小文件可进行打包处理的，统一放 @public 目录，如小图片在 <code className="empty-code">@public/images</code>
         </p>
@@ -120,7 +120,7 @@ class Web extends Component<any, any> {
           2、较大文件，不宜打包处理的，统一放static目录，且要以<code className="empty-code">{`<img src="../../static/images/my.png"/>`}</code>方式使用
         </p>
 
-        <h1 className="empty-title"> 通用组件 @components/**/*.tsx</h1>
+        <h1 className="e-title"> 通用组件 @components/**/*.tsx</h1>
         <p className="empty-line-content">
           1、一个组件就是一个文件夹，文件夹命名与组件命名相同，里面有对应的<code className="empty-code">index.tsx</code> （必需文件）和 <code className="empty-code">style.less</code>,
             如 EFormHoc 组件。
@@ -192,7 +192,7 @@ class Web extends Component<any, any> {
             }            
           `}
         </EcodeHighlight>
-        <h1 className="empty-title"> 系统路由 @pages/**/router.ts （新建页面）</h1>
+        <h1 className="e-title"> 系统路由 @pages/**/router.ts （新建页面）</h1>
         <p className="empty-line-content">
           1、在 <code className="empty-code">@pages</code>目录下新建页面目录 并新建一个组件 *.tsx
         </p>
@@ -218,7 +218,7 @@ class Web extends Component<any, any> {
             ]      
           `}
         </EcodeHighlight>
-        <h1 className="empty-title"> 全局状态管理 @store/**  （用的react-redux+redux-saga中间件）并进行了简单的封装</h1>
+        <h1 className="e-title"> 全局状态管理 @store/**  （用的react-redux+redux-saga中间件）并进行了简单的封装</h1>
         <p className="empty-line-content">
           <code className="empty-code">以登陆为例 梳理一个流程</code>
         </p>
@@ -345,7 +345,7 @@ class Web extends Component<any, any> {
           }                        
         `}
         </EcodeHighlight>
-        <h1 className="empty-title"> 接口调用规范 @service/** </h1>
+        <h1 className="e-title"> 接口调用规范 @service/** </h1>
         <p className="empty-line-content">
           1、在<code className="empty-code">@service</code> 目录下新建 *.api.ts 
         </p>

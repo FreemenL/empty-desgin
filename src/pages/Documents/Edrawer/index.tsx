@@ -126,8 +126,8 @@ class EdrawerDocuments extends Component<any, any> {
               <section>
                 <Button onClick={ this.handleShow }>抽屉组件</Button>
                 <Edrawer {...EDprops}>
-                    <p className="empty-title">终于等到你，还好没放弃...</p>
-                    <p className="empty-title-size-16-yellow">接下来自由发挥吧...</p>
+                    <p className="e-title">终于等到你，还好没放弃...</p>
+                    <p className="e-title-size-16-yellow">接下来自由发挥吧...</p>
                 </Edrawer>  
               </section>
             ),
@@ -197,7 +197,7 @@ class EdrawerDocuments extends Component<any, any> {
                   class Effrext extends Component{
                     render(){
                       return(
-                        <span className="empty-title-size-16-yellow">这里的组件都可以在props中获取到params，用例场景:详情页</span>
+                        <span className="e-title-size-16-yellow">这里的组件都可以在props中获取到params，用例场景:详情页</span>
                       )
                     }
                   }
@@ -286,7 +286,7 @@ class EdrawerDocuments extends Component<any, any> {
                       class Effrext extends Component{
                         render(){
                           return(
-                              <span className="empty-title">/***这里的组件都可以在props中获取到params，实用场景:详情页***/</span>
+                              <span className="e-title">/***这里的组件都可以在props中获取到params，实用场景:详情页***/</span>
                           )
                         }
                       }

@@ -5,7 +5,7 @@ class Intro extends Component<any, any> {
   render() {
     return (
       <>
-        <h1 className="empty-title">empty-desgin 简称 emptyd </h1>
+        <h1 className="e-title">empty-desgin 简称 emptyd </h1>
         <p className="empty-line-content">
           <code className="empty-code">emptyd</code>
           是基于
@@ -49,7 +49,7 @@ class Intro extends Component<any, any> {
               }
           `}
         </EcodeHighlight>
-        <h1 className="empty-title">emptyd-admin-webpack 脚手架 v0.0.1 </h1>
+        <h1 className="e-title">emptyd-admin-webpack 脚手架 v0.0.1 </h1>
         <p className="empty-line-content">
           基于
           <code className="empty-code"> react + typescript + react-router-dom + redux + react-redux + redux-saga + antd + emptyd + less </code>
@@ -166,7 +166,7 @@ class Intro extends Component<any, any> {
         <p className="empty-line-content">
           24、脚手架 配置化
         </p>
-        <h1 className="empty-title"> 脚手架目录结构 </h1>
+        <h1 className="e-title"> 脚手架目录结构 </h1>
         <EcodeHighlight language='markdown' >
           {`
             ├── build                    # webpack 配置目录
@@ -196,7 +196,7 @@ class Intro extends Component<any, any> {
             └── tsconfig.json            # ts配置
           `}
         </EcodeHighlight>
-        <h1 className="empty-title">项目启动</h1>
+        <h1 className="e-title">项目启动</h1>
         <p className="empty-line-content">
           1、环境配置  为了把保证项目正常运行，请自行更新相关环境。
         </p>
@@ -222,7 +222,7 @@ class Intro extends Component<any, any> {
             $ npm start                     # Compile and launch
           `}
         </EcodeHighlight>
-        <h1 className="empty-title"> 命令说明 </h1>
+        <h1 className="e-title"> 命令说明 </h1>
         <p className="empty-line-content">
         开发过程中，你用得最多的会是npm start，但是这里还有很多其它的处理：
         </p>
@@ -234,7 +234,7 @@ class Intro extends Component<any, any> {
             $ npm run upload              # 上传dist目录到服务器 （ 没有配置jenkins等持续集成的情况下方便上传代码 ） 
           `}
         </EcodeHighlight>
-        <h1 className="empty-title">系统配置说明</h1>
+        <h1 className="e-title">系统配置说明</h1>
         <p className="empty-line-content"> 配置文件位置 <code className="empty-code">config/index.js</code></p>
         <EcodeHighlight language='javascript' >
           {`
@@ -337,7 +337,7 @@ class Intro extends Component<any, any> {
             
           `}
         </EcodeHighlight>
-        <h1 className="empty-title">eslint 规则</h1>
+        <h1 className="e-title">eslint 规则</h1>
         <EcodeHighlight language='javascript'>
           {`
            rules: {

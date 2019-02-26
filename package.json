@@ -122,6 +122,7 @@
     "autobind-decorator": "2.4.0",
     "classnames": "2.2.6",
     "connected-react-router": "6.0.0",
+    "empty-style": "^0.0.9",
     "emptyd": "^0.1.6",
     "enquire-js": "0.2.1",
     "free-validator": "1.0.7",

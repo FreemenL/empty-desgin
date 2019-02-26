@@ -5,18 +5,18 @@ class Mobile extends Component<any, any> {
   render() {
     return (
       <>
-        <h1 className="empty-title"> 移动网页开发 </h1>
+        <h1 className="e-title"> 移动网页开发 </h1>
         <p className="empty-line-content">
           <code className="empty-code">emptyd-admin-webpack</code> 同样适用于 <code className="empty-code">h5 及 微信公众号</code>开发 
         </p>
-        <h1 className="empty-title"> 首先 </h1>
+        <h1 className="e-title"> 首先 </h1>
         <p className="empty-line-content">
           1、移动端开发不使用<code className="empty-code">antd</code>把相关部分去掉
         </p>
         <p className="empty-line-content">
           2、对于微信公众号 按照官方文档 引入<code className="empty-code">微信jssdk</code>即可
         </p>
-        <h1 className="empty-title"> 移动端自适应方案 </h1>
+        <h1 className="e-title"> 移动端自适应方案 </h1>
         <p className="empty-line-content">
           1、移动端适配采用的是<code className="empty-code">vw vh 方案 </code>具体配置如下 相对rem的好处就是 不同去单独处理iphone4和ipbone5的适配,经过postcss的处理直接写px单位即可
         </p>
