@@ -28,7 +28,7 @@ const loadingProxy = {
     return (<div>加载超时...... <button onClick={params.retry}>重试</button></div>);
   },
   pastDelay(){
-    return <Eloading/>;
+    return <Eloading  model="global" size="large"/>;
   }
 }
 

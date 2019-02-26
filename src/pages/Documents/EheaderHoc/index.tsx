@@ -65,7 +65,7 @@ class EheaderHocDocuments extends Component<any, any> {
             component:React.createElement(EheaderHoc({
               LogoSrc,
               name,
-              menuList,
+              menuList:menuList.slice(0,3),
               userMsg,
               getMenu: this.getMenu
             })),
