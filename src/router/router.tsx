@@ -1,12 +1,19 @@
-import React,{ Component } from 'react';
+import React,{ Component ,memo } from 'react';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import childRoutes from '@pages/load-child-routes';
 import { HashRouter as Router, Route, Switch ,withRouter } from 'react-router-dom';
 import { config } from '@config/index';
 import  { getConfirmation } from 'emptyd';
+import Immutable from 'immutable'
 // 初始化滚动状态 
 class ScrollToTop extends Component<any,any>{
+  shouldComponentUpdate(nextProps, nextState){
+    if(!Immutable.is(nextProps.location,this.props.location)){
+      return true
+    }
+    return false;
+  }
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       const container:any = document.getElementById("content");
@@ -26,8 +33,17 @@ const RouteWithSubRoutes = (route) =>{
     return(
       <route.component  jump={props.history.push} params={props.match.params} {...props}/>
   )}}/>
-
 )}
+
+function memoEqual(prevProps,nextProps){
+  if(nextProps.exact==prevProps.exact){
+    return false;
+  }
+  return true;
+}
+
+const RouteWithSub = memo(RouteWithSubRoutes,memoEqual)
+
 // 路由配置
 const transRoute:Array<any> = [];
 
@@ -54,6 +70,9 @@ class Routes extends Component<any>{
     this.state={};
     NProgress.start();
   }
+  componentDidUpdate(){
+    NProgress.done();
+  }
   render() {  
     const renderEle={
       main:(
@@ -61,7 +80,7 @@ class Routes extends Component<any>{
            <ScrollToTopComponent>
               <Switch>
                 {this.props.route.map((route:any, i) =>(
-                  <RouteWithSubRoutes key={route.path} {...route}/>
+                  <RouteWithSub key={route.path} {...route}/>
                 ))}
               </Switch>
             </ScrollToTopComponent>
@@ -70,7 +89,7 @@ class Routes extends Component<any>{
       child:(
         <Switch>
         {this.props.route.map((route:any, i) =>(
-            <RouteWithSubRoutes childRoute={true} key={route.path} {...route}/>
+            <RouteWithSub childRoute={true} key={route.path} {...route}/>
         ))}
         </Switch>
       )

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from 'antd';
-
+import { is } from 'immutable';
 import  {  Edocument, Edrawer  , ElistHoc } from 'emptyd';
 
 const data = [{
@@ -71,9 +71,17 @@ class EdrawerDocuments extends Component<any, any> {
 
   }
 
+  
   state={
     visible:false,
     groupVisible:false
+  }
+
+  shouldComponentUpdate(nextProps,nextState){
+    if(!is(nextProps,this.props)||this.state.visible!==nextState.visible||this.state.groupVisible!==nextState.groupVisible){
+      return true
+    }
+    return false;
   }
 
   eDrawerController(type,visible){

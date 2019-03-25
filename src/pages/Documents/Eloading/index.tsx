@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Button } from "antd";
 import autobind from "autobind-decorator";
 import { Edocument, Eloading } from 'emptyd';
@@ -20,7 +20,7 @@ const data = [
   }];
 
 @autobind
-class EloadingDocuments extends Component<any, any> {
+class EloadingDocuments extends PureComponent<any, any> {
 
   state = {
     show: false,

@@ -1,5 +1,4 @@
-import React from 'react';
-import NProgress from 'nprogress'
+import React, { memo } from 'react';
 import Loadable from 'react-loadable';
 import  { Eloading } from 'emptyd';
 
@@ -11,7 +10,6 @@ const _import_views = file => Loadable.Map({
   timeout: 8000,
   render(loaded, props: any) {
     const Com = loaded.Component.default;
-    NProgress.done();
     return React.createElement(Com, { ...props }, null);
   }
 });
@@ -34,13 +32,14 @@ const loadingProxy = {
 
 const propArr = Reflect.ownKeys(loadingProxy);
 
-const loading = (props) => {
+const loading = memo((props) => {
   for (let i = 0; i < propArr.length; i++) {
     if (props[propArr[i]]) {
       return loadingProxy[propArr[i]](props)
     }
   }
   return null;
-}
+})
+
 
 export default _import_views;

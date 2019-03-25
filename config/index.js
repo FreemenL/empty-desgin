@@ -1,6 +1,6 @@
 module.exports = {
   // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
-  pattern: 'run',
+  pattern: 'dev',
   // 系统路径配置 相对命令行启动目录 
   systemPath: {
     // 入口文件

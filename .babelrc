@@ -17,10 +17,9 @@
       "css": true
     }],
     ["empty-import",{
-      "libraryName": "emptyd",
+      "libraryName": "emptyd"
     }],
     "transform-runtime",
-    "syntax-dynamic-import",
-    "react-hot-loader/babel"
+    "syntax-dynamic-import"
   ]
 }

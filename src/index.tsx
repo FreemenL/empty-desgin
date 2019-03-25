@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { LocaleProvider } from 'antd';
+import { waitFixed } from '@config/index'
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 
 import  Routes from '@router/router';
@@ -12,8 +13,16 @@ import performance from '@utils/performance.ts';
 import "normalize.css";
 import "animate.css";
 
+// if (process.env.NODE_ENV !== 'production') {
+// 	const { whyDidYouUpdate } = require('why-did-you-update');
+// 	whyDidYouUpdate(React, { 
+// 		include: [/^E/],
+// 		exclude: waitFixed,
+// 	});
+// }
+
 const App = {
-	run: function (Component) {		
+	run: function (Component) {	
 		performance.init((perfData) => {
 			
 		});

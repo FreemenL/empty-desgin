@@ -59,3 +59,16 @@ export const config ={
         deptType: 2
     }
 }
+
+export const waitFixed = [
+    /ExpandableRow/,
+    /ExpandableTable/,
+    /Edocument/,
+    /EditableInput/,
+    /Etree/,
+    /EformHoc/,
+    /EwapperHoc()/,
+    /EloadingDocuments/,
+    /EdrawerDocuments/,
+    /EsiderMenu/
+];

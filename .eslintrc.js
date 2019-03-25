@@ -74,7 +74,7 @@ module.exports = {
     'react/jsx-uses-react': 2, // 防止React被错误地标记为未使用
     'react/jsx-uses-vars': 2, // 防止JSX中使用的变量被错误地标记为未使用
     /*  js  */
-    'no-console': 1,
+    'no-console': 0,
     'no-debugger': 0,
     'no-dupe-keys': 0, // 禁止对象字面量中出现重复的 key
     'no-extra-parens': 0, // 禁止不必要的括号

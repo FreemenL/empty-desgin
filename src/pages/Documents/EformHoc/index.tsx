@@ -59,7 +59,7 @@ class EformHocDocuments extends Component<any, any> {
         <Edocument
           title="表单配置组件:EformHoc" 
           components={[{
-            component:React.createElement(EformHoc(FormConfig)),
+            component:React.createElement(EformHoc.call(this,FormConfig,"")),
             titDescripttion:"表单配置化",
             code:`
               import components from '@components/load-component';
