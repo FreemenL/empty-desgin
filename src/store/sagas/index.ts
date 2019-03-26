@@ -1,4 +1,7 @@
-import { all, call ,put, takeEvery ,take} from "redux-saga/effects";
+/*eslint no-mixed-spaces-and-tabs: "off"*/
+/*eslint no-sparse-arrays: "off"*/
+
+import { all, call ,put, takeEvery } from "redux-saga/effects";
 import * as types from '../action-types';
 import { push } from 'connected-react-router'
 import service from "@service/load-service";
@@ -10,7 +13,7 @@ interface Login{
 }
 
 function* login(){
-	yield takeEvery(types.LOGIN_REQUEST,function*({type,username,password}:Login){
+	yield takeEvery(types.LOGIN_REQUEST,function*({/*type,*/username,password}:Login){
 		try{
 			let token = yield call(service.system.login,username,password);
 			yield put({type:types.LOGIN_SUCCESS,token});
@@ -24,7 +27,7 @@ function* login(){
 }
 
 function* testDemo(){
-	yield takeEvery(types.DATALIST_REQUEST,function*({type,params}:any){
+	yield takeEvery(types.DATALIST_REQUEST,function*({/*type,*/params}:any){
 		try{
 			yield put({type:types.DATALIST_LOADING});
 			const res  = yield call(service.testDemo.dataList,params);
@@ -35,6 +38,6 @@ function* testDemo(){
 	});
 }
 
-export function* rootSaga({dispatch,getState}){
+export function* rootSaga(/*{dispatch,getState}*/){
 	yield all([login(),testDemo()])
 }

@@ -23,7 +23,7 @@ const data = [{
 
 
 class EviewerDocuments extends Component<any, any> {
-  handleDel(index,event){
+  handleDel(index){
     Prompt["success"](`删除了第${index}张`);
   }
   render() {

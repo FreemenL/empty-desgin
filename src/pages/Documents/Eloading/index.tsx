@@ -37,10 +37,10 @@ class EloadingDocuments extends PureComponent<any, any> {
 
   handleloading(params) {
     this.setState(
-      (prevState, props) => ({ [params ? params : "show"]: true }),
+      () => ({ [params ? params : "show"]: true }),
       () => {
           this.timmer = setTimeout(() => {
-              this.setState((prevState, props) => ({
+              this.setState(() => ({
                 [params ? params : "show"]: false
               }));
           }, 3000);

@@ -1,7 +1,7 @@
 let API:any = {};
 const childRouter = require.context('./',true,/api\.(ts)$/);
 
-childRouter.keys().find((item,index,array)=>{
+childRouter.keys().find((item/*,index,array*/)=>{
 	let modules;
 	try{
 		modules = childRouter(item).default;

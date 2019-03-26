@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import  { EcodeHighlight , Edocument} from 'emptyd';
-import { hot } from 'react-hot-loader'; 
-@hot(module)
+import  { EcodeHighlight } from 'emptyd';
+
 class StyleMedia extends Component<any, any> {
   _addStyle={ color:"#fff", textIndent:"1em"}
   render() {

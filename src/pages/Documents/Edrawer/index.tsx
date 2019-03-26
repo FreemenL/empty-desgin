@@ -85,7 +85,7 @@ class EdrawerDocuments extends Component<any, any> {
   }
 
   eDrawerController(type,visible){
-    this.setState((prevState,props)=>{
+    this.setState(()=>{
       return{
         [type]:visible
       }

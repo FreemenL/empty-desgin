@@ -61,6 +61,8 @@ module.exports = {
     "react/no-deprecated":2,
     'react/void-dom-elements-no-children': 2,
     /*   jsx   */
+    "no-sparse-arrays":0,
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     'react/jsx-filename-extension': [1, { 'extensions': ['.ts', '.tsx'] }], // 限制文件后缀名必须为ts|tsx
     'react/jsx-max-depth': [2, { 'max': 20 }], // 限制jsx 最大嵌套层次 20
     'react/jsx-max-props-per-line': [2, { 'maximum': 5,'when': 'multiline' }], // Limit maximum of props on a single line in JSX 

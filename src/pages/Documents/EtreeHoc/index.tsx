@@ -86,8 +86,8 @@ class EtreeHocDocuments extends Component<any, any> {
                      }
                    })
                },
-               getData(treeNode){
-                 return new Promise((resolve,reject)=>{
+               getData(/*treeNode*/){
+                 return new Promise((resolve)=>{
                    setTimeout(()=>{
                      let res = num!=0?[
                        { title: '测试数据-C', key: `${Math.random()}-0` },
@@ -110,7 +110,7 @@ class EtreeHocDocuments extends Component<any, any> {
                 },{
                   node:(props)=><Button size="small" {...props}>详情</Button>,
                   click:function(this:any,treeData){
-                    this.setState((prevState,props)=>{
+                    this.setState(()=>{
                       return {
                         visible:true,
                         params:treeData

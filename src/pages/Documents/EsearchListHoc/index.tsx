@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: "off"*/
 import React,{ Fragment ,Component  } from 'react';
 import { Button } from 'antd';
 import { EsearchListHoc, ElistHoc ,EformHoc ,Edocument, Edrawer ,Prompt} from 'emptyd';
@@ -25,7 +26,7 @@ const EsearchListHocDome =  connectAid(
 		listActionName:DATALIST,
 		method:{
 			/* params 查询的参数   props log查看 */
-			componentDidMount(params={},props,currentState){
+			componentDidMount(params={},props/*,currentState*/){
 				const effectParams = {
 					deptId : config.userMsg["deptId"],
 					dutyType:2,
@@ -41,7 +42,7 @@ const EsearchListHocDome =  connectAid(
        		// [ 可选 ] 菜单图标点击钩子 返回false 屏蔽切换展示功能
 			menuClickHook(this:any){			  
 	          return true
-	    },
+	    	},
 			// [ 可选 ] 查询图标点击钩子 返回false 屏蔽查询功能
 			searchClickHook(){
 				// Prompt["warning"]("无需查询")
@@ -57,7 +58,7 @@ const EsearchListHocDome =  connectAid(
 							return new Promise((resolve, reject) => {
 									const Actios = this.props.ownAction;
 											if(Actios.length>0){
-												Actios.forEach(async (actions,index)=>{
+												Actios.forEach(async (actions)=>{
 													if(actions.actionType == DUTY_DATALIST_DELETE ){
 																const { actionType, dispatch } = actions;
 														const res = await dispatch(actionType,[RowData.id]);
@@ -178,7 +179,7 @@ const EsearchListHocDome =  connectAid(
           title: '操作',
 					align:"center",
 					width:300,
-          renderUseState: function(this:any,text, record, index){
+          renderUseState: function(this:any,text, record){
             return(
               <Fragment>
                 <Button  
@@ -222,7 +223,7 @@ const EsearchListHocDome =  connectAid(
 	      }
 	    },
 	    addConfig:{
-	   	   content:function(this:any,params){
+	   	   content:function(this:any,/*params*/){
 	        return EformHoc.call(this,emptyFormConfig,{cancel:this.handleCancel})
 	      }
 	    },
@@ -291,7 +292,7 @@ class EdrawerDocuments extends Component<any, any> {
   }
 
   eDrawerController(type,visible){
-    this.setState((prevState,props)=>{
+    this.setState(()=>{
       return{
         [type]:visible
       }

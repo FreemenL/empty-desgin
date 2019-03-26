@@ -4,10 +4,10 @@ const reducers = require.context("./",true,/reducer\.(ts)$/);
 const excludesArr = ["__esModule","Symbol(Symbol.toStringTag)"];
 let reducerGather = {};
 
-reducers.keys().forEach((item,index)=>{
+reducers.keys().forEach((item)=>{
 	const itemModule = reducers(item);
 	const stateItemKey = Reflect.ownKeys(itemModule);
-	stateItemKey.forEach((items,indexs)=>{
+	stateItemKey.forEach((items)=>{
 		if(!excludesArr.includes(items.toString())){
 			Reflect.set(reducerGather,items, itemModule[items]);
 		}

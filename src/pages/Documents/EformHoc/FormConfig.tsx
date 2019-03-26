@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: "off"*/
 import React,{ Component } from 'react';
 import { TimePicker , InputNumber , Select } from 'antd';
 import moment from 'moment';
@@ -9,7 +10,7 @@ const { GetType } = freetool;
 const format = 'HH:mm';
 
 
-export const FormConfig = function(this:any,params){
+export const FormConfig = function(this:any,/*params*/){
     const that = this;
     const result:any = {
           searchPanel:{
@@ -173,7 +174,7 @@ export const FormConfig = function(this:any,params){
                             this.handleChange = this.handleChange.bind(this);
                         }
                     
-                        handleChange(color, event){
+                        handleChange(color, /*event*/){
                             this.props.onChange(color.hex);
                         }
                     
@@ -230,11 +231,11 @@ export const FormConfig = function(this:any,params){
               }
               ],
             //提交函数
-          submit:function(this:any,e,parent){
+          submit:function(this:any,e,/*parent*/){
               e.preventDefault();
               this.props.form.validateFields((err, values) => {
                 if (!err) {
-                  Reflect.ownKeys(values).forEach((item,index)=>{
+                  Reflect.ownKeys(values).forEach((item)=>{
                     if((typeof values[item]!=="number")&&values[item].constructor&&values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
                       values[item] = values[item].format(format);
                     }

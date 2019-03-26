@@ -51,7 +51,7 @@ class EcolorPickerDocuments extends Component<any, any> {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(color, event){
+  handleChange(color){
     Prompt["info"](`您选择了 ${color.hex} `);
   }
 

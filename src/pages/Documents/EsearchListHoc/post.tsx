@@ -1,5 +1,6 @@
+/*eslint no-unused-vars: "off"*/
 import React,{ Component } from 'react';
-import {  Select,TimePicker , InputNumber,Input } from 'antd';
+import {  Select,TimePicker , InputNumber } from 'antd';
 import moment from 'moment';
 import freetool from 'freetool';
 
@@ -7,7 +8,7 @@ const { GetType } = freetool;
 const Option = Select.Option
 const format = 'HH:mm';
 
-export const emptyFormConfig = function(this:any,params){
+export const emptyFormConfig = function(this:any,/*params*/){
   const that = this;
   const result:any = {
         Rowlayout:{ type:"flex",justify:"start" },
@@ -211,7 +212,7 @@ export const emptyFormConfig = function(this:any,params){
             this.props.form.validateFields((err, values) => {
               if (!err) {
                 
-                Reflect.ownKeys(values).forEach((item,index)=>{
+                Reflect.ownKeys(values).forEach((item)=>{
                   if(values[item].constructor.name=="Moment"||values[item].constructor.name=="_"){
                     values[item] = values[item].format(format);
                   }

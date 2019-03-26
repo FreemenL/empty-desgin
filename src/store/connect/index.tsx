@@ -13,7 +13,7 @@ interface Props {
 }
 
 let action: any = {};
-Object.keys(controller).forEach((item, index) => {
+Object.keys(controller).forEach((item) => {
 	action[ item ] = item;
 	action[ item + "_action" ] = controller[item];
 })
@@ -21,7 +21,7 @@ Object.keys(controller).forEach((item, index) => {
 const handleActionState = (trigger: string[]) => {
 	let action = {};
 	let stateKey = []
-	trigger.forEach((actionType, index) => {
+	trigger.forEach((actionType) => {
 		if(controller.hasOwnProperty(actionType)) {
 			const actionTp = controller[actionType];
 			action[actionTp] = actions[actionTp];
@@ -48,7 +48,7 @@ const connectAid = (trigger: string[]) => (WrapperComponent) => {
 
 	const mapStateToProps = state => {
 		const State: any = {};
-		stateKey.forEach((items: any, index) => {
+		stateKey.forEach((items: any) => {
 			State[items] = state[`state_${controller[items.substring(6)]}`]
 		})
 		return { State }

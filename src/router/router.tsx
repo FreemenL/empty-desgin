@@ -8,7 +8,7 @@ import  { getConfirmation } from 'emptyd';
 import Immutable from 'immutable'
 // 初始化滚动状态 
 class ScrollToTop extends Component<any,any>{
-  shouldComponentUpdate(nextProps, nextState){
+  shouldComponentUpdate(nextProps/*, nextState*/){
     if(!Immutable.is(nextProps.location,this.props.location)){
       return true
     }
@@ -61,7 +61,7 @@ class Routes extends Component<any>{
     route:transRoute,
     type:"main"
   }
-  static getDerivedStateFromProps(nextProps,prevState){
+  static getDerivedStateFromProps(/*nextProps,prevState*/){
     NProgress.start();
     return null
   }
@@ -79,7 +79,7 @@ class Routes extends Component<any>{
         <Router  getUserConfirmation={getConfirmation("comfirm")}>
            <ScrollToTopComponent>
               <Switch>
-                {this.props.route.map((route:any, i) =>(
+                {this.props.route.map((route:any) =>(
                   <RouteWithSub key={route.path} {...route}/>
                 ))}
               </Switch>
@@ -88,7 +88,7 @@ class Routes extends Component<any>{
       ),
       child:(
         <Switch>
-        {this.props.route.map((route:any, i) =>(
+        {this.props.route.map((route:any) =>(
             <RouteWithSub childRoute={true} key={route.path} {...route}/>
         ))}
         </Switch>

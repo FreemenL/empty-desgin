@@ -4,7 +4,7 @@ declare let document:any;
 let perf = {
     init: (cb) => {
       let cycleFreq = 100; // 循环轮询的时间
-      let isDOMReady = false;
+      // let isDOMReady = false;
       let isOnload = false;
       let performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance;
   
@@ -37,7 +37,7 @@ let perf = {
             if ( performance.timing.domInteractive ) {
               clearTimeout(timer);
               callback();
-              isDOMReady = true;
+              // isDOMReady = true;
             } else {
               timer = setTimeout(runCheck, cycleFreq);
             }

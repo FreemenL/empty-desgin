@@ -2,7 +2,7 @@ let childRoutes = [];
 import _import_views from '@router/importView';
 const childRouter = require.context('./',true,/router\.(tsx|ts)$/);
 
-childRouter.keys().find((item,index,array)=>{
+childRouter.keys().find((item/*,index,array*/)=>{
 	let modules;
 	try{
 		modules = childRouter(item).default;
@@ -15,7 +15,7 @@ childRouter.keys().find((item,index,array)=>{
 	Array.prototype.push.call(childRoutes,...modules);
 })
 
-childRoutes.forEach((item:{path:string,component:string|(()=>any)|object},index)=>{
+childRoutes.forEach((item:{path:string,component:string|(()=>any)|object},/*index*/)=>{
 	item.component = _import_views(item.component);
 })
 

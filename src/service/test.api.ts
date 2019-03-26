@@ -1,8 +1,8 @@
 export default {
 	namespace:"testDemo",
 	apis:{
-		dataList(params){			
-			return new Promise((resolve,reject)=>{
+		dataList(/*params*/){			
+			return new Promise((resolve)=>{
 				setTimeout(()=>{
 					const res ={
 						code: "200",

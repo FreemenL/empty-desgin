@@ -13,17 +13,17 @@ import performance from '@utils/performance.ts';
 import "normalize.css";
 import "animate.css";
 
-// if (process.env.NODE_ENV !== 'production') {
-// 	const { whyDidYouUpdate } = require('why-did-you-update');
-// 	whyDidYouUpdate(React, { 
-// 		include: [/^E/],
-// 		exclude: waitFixed,
-// 	});
-// }
+if (process.env.NODE_ENV !== 'production') {
+	const { whyDidYouUpdate } = require('why-did-you-update');
+	whyDidYouUpdate(React, { 
+		include: [/^E/],
+		exclude: waitFixed,
+	});
+}
 
 const App = {
 	run: function (Component) {	
-		performance.init((perfData) => {
+		performance.init((/*perfData*/) => {
 			
 		});
 		render(

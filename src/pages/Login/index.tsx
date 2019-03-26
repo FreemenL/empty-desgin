@@ -34,17 +34,17 @@ class doLogin extends Component<any, any>{
         return errorMsg;
     }
 
-    handleSubmit(event){
+    handleSubmit(){
         const formElement = this.refForm.current
         const error = this.validataFunc(formElement);
         const errorMsgNode = formElement.getElementsByClassName("validator-tip");
         if(errorMsgNode.length>0){
-            Array.from(errorMsgNode).forEach((item:any,index)=>{
+            Array.from(errorMsgNode).forEach((item:any)=>{
                 item.parentNode.removeChild(item);
             })
         }
         if(error){
-            Array.from(formElement.elements).forEach((item:any,index)=>{
+            Array.from(formElement.elements).forEach((item:any)=>{
                 if(item["name"]==error["name"]){
                     const parentNode = item.parentNode;
                     const insert = parentNode.childElementCount==1;
