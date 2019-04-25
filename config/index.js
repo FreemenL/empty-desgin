@@ -73,7 +73,7 @@ module.exports = {
   // 是否生成编译报告  为true时候可在 127.0.0.1:8888查看编译结果
   bundleAnalyzerReport: false,
   // 动态连接库中排除
-  dllLibraryExclude: ['emptyd','free-validator','freetool','antd', 'normalize.css','animate.css',"empty-style"],
+  dllLibraryExclude: ['emptyd','free-validator','freetool','antd', 'normalize.css','animate.css',"empty-style","prettier"],
   // 是否开启编译缓存 
   onCompiltionCache: false,
   // 是否开启代码检查 
