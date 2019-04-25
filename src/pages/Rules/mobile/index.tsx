@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import  { EcodeHighlight } from 'emptyd';
+import React, { Component } from 'react';
+import { EcodeHighlight } from 'emptyd';
 
 class Mobile extends Component<any, any> {
   render() {
@@ -7,7 +7,8 @@ class Mobile extends Component<any, any> {
       <>
         <h1 className="e-title"> 移动网页开发 </h1>
         <p className="empty-line-content">
-          <code className="empty-code">emptyd-admin-webpack</code> 同样适用于 <code className="empty-code">h5 及 微信公众号</code>开发 
+          <code className="empty-code">emptyd-admin-webpack</code> 同样适用于{' '}
+          <code className="empty-code">h5 及 微信公众号</code>开发
         </p>
         <h1 className="e-title"> 首先 </h1>
         <p className="empty-line-content">
@@ -18,12 +19,15 @@ class Mobile extends Component<any, any> {
         </p>
         <h1 className="e-title"> 移动端自适应方案 </h1>
         <p className="empty-line-content">
-          1、移动端适配采用的是<code className="empty-code">vw vh 方案 </code>具体配置如下 相对rem的好处就是 不同去单独处理iphone4和ipbone5的适配,经过postcss的处理直接写px单位即可
+          1、移动端适配采用的是<code className="empty-code">vw vh 方案 </code>具体配置如下
+          相对rem的好处就是 不同去单独处理iphone4和ipbone5的适配,经过postcss的处理直接写px单位即可
         </p>
         <p className="empty-line-content">
-          2、在 <code className="empty-code">postcss.config.js</code>中，用如下 代码框的配置 替换全部，再修改 viewportWidth 和 viewportHeight 对应设计稿的宽度和高度
+          2、在 <code className="empty-code">postcss.config.js</code>中，用如下 代码框的配置
+          替换全部，再修改 viewportWidth 和 viewportHeight 对应设计稿的宽度和高度
         </p>
-        <EcodeHighlight language='tsx'>{`
+        <EcodeHighlight language="tsx">
+          {`
           module.exports = (ctx) => ({
             parser: ctx.parser ? 'sugarss' : false,
             map: ctx.env === 'development' ? ctx.map : false,
@@ -60,18 +64,14 @@ class Mobile extends Component<any, any> {
           })
         `}
         </EcodeHighlight>
-        <p className="empty-line-content">
-          3、安装插件包：
-        </p>
-        <EcodeHighlight language='bash' showNumber={false}>
+        <p className="empty-line-content">3、安装插件包：</p>
+        <EcodeHighlight language="bash" showNumber={false}>
           {`
             $ npm install postcss-aspect-ratio-mini postcss-write-svg postcss-preset-env postcss-px-to-viewport cssnano cssnano-preset-advanced --save-dev
           `}
         </EcodeHighlight>
-        <p className="empty-line-content">
-          4、选择性添加如下meta 标签 ：
-        </p>
-        <EcodeHighlight language='markup' showNumber={false}>
+        <p className="empty-line-content">4、选择性添加如下meta 标签 ：</p>
+        <EcodeHighlight language="markup" showNumber={false}>
           {`
             <!-- 视口适配 兼容iphonex -->
             <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -89,5 +89,3 @@ class Mobile extends Component<any, any> {
 }
 
 export default Mobile;
-
-

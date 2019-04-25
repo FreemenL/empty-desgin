@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import  { EcodeHighlight } from 'emptyd';
+import React, { Component } from 'react';
+import { EcodeHighlight } from 'emptyd';
 
 class Intro extends Component<any, any> {
   render() {
@@ -17,16 +17,18 @@ class Intro extends Component<any, any> {
         </p>
         <p className="empty-line-content">
           <code className="empty-code">emptyd</code> 需要搭配
-          <code className="empty-code">emptyd-admin-webpack</code> 脚手架使用，
-          或者用<code className="empty-code">处理ts文件的loader</code>处理<code className="empty-code">node_modules/emptyd</code>目录
+          <code className="empty-code">emptyd-admin-webpack</code> 脚手架使用， 或者用
+          <code className="empty-code">处理ts文件的loader</code>处理
+          <code className="empty-code">node_modules/emptyd</code>目录
         </p>
         <p className="empty-line-content">
-          <code className="empty-code">emptyd</code>支持按需加载，并强烈建议进行按需加载相关配置，配置方式如下
+          <code className="empty-code">emptyd</code>
+          支持按需加载，并强烈建议进行按需加载相关配置，配置方式如下
         </p>
         <p className="empty-line-content">
           1、下载emptyd的babel插件<code className="empty-code">babel-plugin-empty-import</code>
         </p>
-         <EcodeHighlight language='bash' showNumber={false} >
+        <EcodeHighlight language="bash" showNumber={false}>
           {`
             $cnpm install babel-plugin-empty-import -D
           `}
@@ -34,7 +36,7 @@ class Intro extends Component<any, any> {
         <p className="empty-line-content">
           2、在<code className="empty-code">.babelrc</code>中添加如下配置。
         </p>
-         <EcodeHighlight language='json' showNumber={false} >
+        <EcodeHighlight language="json" showNumber={false}>
           {`
              {
                 "presets": [
@@ -52,7 +54,11 @@ class Intro extends Component<any, any> {
         <h1 className="e-title">emptyd-admin-webpack 脚手架 v0.0.1 </h1>
         <p className="empty-line-content">
           基于
-          <code className="empty-code"> react + typescript + react-router-dom + redux + react-redux + redux-saga + antd + emptyd + less </code>
+          <code className="empty-code">
+            {' '}
+            react + typescript + react-router-dom + redux + react-redux + redux-saga + antd + emptyd
+            + less{' '}
+          </code>
           的 webpack4 前端开发环境
         </p>
 
@@ -68,9 +74,7 @@ class Intro extends Component<any, any> {
           根据环境自动 提取固定资源，加快编译与打包速度
         </p>
 
-        <p className="empty-line-content">
-          3、区分生产环境和开发环境,优化代码产出
-        </p>
+        <p className="empty-line-content">3、区分生产环境和开发环境,优化代码产出</p>
 
         <p className="empty-line-content">
           4、启用
@@ -98,18 +102,14 @@ class Intro extends Component<any, any> {
           让代码更优化
         </p>
 
-        <p className="empty-line-content">
-          8、更改文件,防缓存的hash规则
-        </p>
+        <p className="empty-line-content">8、更改文件,防缓存的hash规则</p>
 
         <p className="empty-line-content">
           9、把小图片转成
           <code className="empty-code">base64 码 </code>
         </p>
 
-        <p className="empty-line-content">
-          10、快速编译，热更新，自动刷新
-        </p>
+        <p className="empty-line-content">10、快速编译，热更新，自动刷新</p>
 
         <p className="empty-line-content">
           11、 <code className="empty-code">resolve.modules</code> 优化模块查找路径
@@ -127,9 +127,7 @@ class Intro extends Component<any, any> {
           14、压缩<code className="empty-code">css js</code>文件
         </p>
 
-        <p className="empty-line-content">
-          15、大文件跳过编译 直接拷贝
-        </p>
+        <p className="empty-line-content">15、大文件跳过编译 直接拷贝</p>
 
         <p className="empty-line-content">
           16、自定义<code className="empty-code">loader</code>优化文件引入
@@ -143,31 +141,19 @@ class Intro extends Component<any, any> {
           18、<code className="empty-code">nodemon</code>监听配置文件改动
         </p>
 
-        <p className="empty-line-content">
-          19、系统级的错误提示
-        </p>
+        <p className="empty-line-content">19、系统级的错误提示</p>
 
-        <p className="empty-line-content">
-          20、端口冲突自动切换
-        </p>
+        <p className="empty-line-content">20、端口冲突自动切换</p>
 
-        <p className="empty-line-content">
-          21、自动生成编译日志
-        </p>
+        <p className="empty-line-content">21、自动生成编译日志</p>
 
-        <p className="empty-line-content">
-          22、编译结果可视化
-        </p>
+        <p className="empty-line-content">22、编译结果可视化</p>
 
-        <p className="empty-line-content">
-          23、本地端口运行打包后项目
-        </p>
+        <p className="empty-line-content">23、本地端口运行打包后项目</p>
 
-        <p className="empty-line-content">
-          24、脚手架 配置化
-        </p>
+        <p className="empty-line-content">24、脚手架 配置化</p>
         <h1 className="e-title"> 脚手架目录结构 </h1>
-        <EcodeHighlight language='markdown' >
+        <EcodeHighlight language="markdown">
           {`
             ├── build                    # webpack 配置目录
             │   ├── loaders              # 自定义loader目录
@@ -198,25 +184,25 @@ class Intro extends Component<any, any> {
         </EcodeHighlight>
         <h1 className="e-title">项目启动</h1>
         <p className="empty-line-content">
-          1、环境配置  为了把保证项目正常运行，请自行更新相关环境。
+          1、环境配置 为了把保证项目正常运行，请自行更新相关环境。
         </p>
         <p className="empty-line-content">
-              安装<code className="empty-code">node.js</code>
-              安装<code className="empty-code">git</code>
+          安装<code className="empty-code">node.js</code>
+          安装<code className="empty-code">git</code>
         </p>
         <p className="empty-line-content">
           2、通过<code className="empty-code">git</code>拉取代码
         </p>
-        <EcodeHighlight language='bash' showNumber={false}>
+        <EcodeHighlight language="bash" showNumber={false}>
           {`
             $ git clone https://github.com/FreemenL/emptyd-admin-webpack.git
             $ cd emptyd-admin-webpack 
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          3、下载依赖  请确保你的环境配置完成，然后就可以开始以下步骤
+          3、下载依赖 请确保你的环境配置完成，然后就可以开始以下步骤
         </p>
-        <EcodeHighlight language='bash' showNumber={false} >
+        <EcodeHighlight language="bash" showNumber={false}>
           {`
             $ npm install                   # Install project dependencies
             $ npm start                     # Compile and launch
@@ -224,9 +210,9 @@ class Intro extends Component<any, any> {
         </EcodeHighlight>
         <h1 className="e-title"> 命令说明 </h1>
         <p className="empty-line-content">
-        开发过程中，你用得最多的会是npm start，但是这里还有很多其它的处理：
+          开发过程中，你用得最多的会是npm start，但是这里还有很多其它的处理：
         </p>
-        <EcodeHighlight language='bash' showNumber={false} >
+        <EcodeHighlight language="bash" showNumber={false}>
           {`
             $ npm start                   # 初始化启动项目（生成Dll文件并启动服务）
             $ npm run build               # 打包 
@@ -235,8 +221,11 @@ class Intro extends Component<any, any> {
           `}
         </EcodeHighlight>
         <h1 className="e-title">系统配置说明</h1>
-        <p className="empty-line-content"> 配置文件位置 <code className="empty-code">config/index.js</code></p>
-        <EcodeHighlight language='javascript' >
+        <p className="empty-line-content">
+          {' '}
+          配置文件位置 <code className="empty-code">config/index.js</code>
+        </p>
+        <EcodeHighlight language="javascript">
           {`
             module.exports = {
               // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
@@ -338,7 +327,7 @@ class Intro extends Component<any, any> {
           `}
         </EcodeHighlight>
         <h1 className="e-title">eslint 规则</h1>
-        <EcodeHighlight language='javascript'>
+        <EcodeHighlight language="javascript">
           {`
            rules: {
             /* react */

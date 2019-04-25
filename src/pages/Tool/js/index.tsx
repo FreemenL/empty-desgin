@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import  { EcodeHighlight } from 'emptyd';
-import { hot } from 'react-hot-loader'; 
+import React, { Component } from 'react';
+import { EcodeHighlight } from 'emptyd';
+import { hot } from 'react-hot-loader';
 @hot(module)
 class EmptyTool extends Component<any, any> {
   render() {
     return (
       <>
         <h1 className="e-title">empty通用工具类</h1>
-        <EcodeHighlight language='bash' >
+        <EcodeHighlight language="bash">
           {`
             $cnpm i freetool
           `}
@@ -16,7 +16,7 @@ class EmptyTool extends Component<any, any> {
           检测数据类型包括引用类型的数据
           <code className="empty-code">freetool.GetType</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             freetool.GetType(data);
             /*返回值：
@@ -40,7 +40,7 @@ class EmptyTool extends Component<any, any> {
           检测基本数据类型
           <code className="empty-code">freetool._typeof</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            //symbol类型做了浏览器兼容处理
             freetool._typeof(data);
@@ -58,7 +58,7 @@ class EmptyTool extends Component<any, any> {
           浅拷贝
           <code className="empty-code">freetool._extends</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            // 浅拷贝
            _extends() {
@@ -82,7 +82,7 @@ class EmptyTool extends Component<any, any> {
           深拷贝
           <code className="empty-code">freetool.mergeConfig</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             mergeConfig(defaultConfig, theConfig){
               return merge(cloneDeep(defaultConfig), theConfig);
@@ -90,10 +90,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-         防止constructor函数的this指向被改变 
+          防止constructor函数的this指向被改变
           <code className="empty-code">freetool._classCallCheck</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            //防止constructor函数的this指向被改变 
            _classCallCheck(instance, Constructor) {
@@ -104,10 +104,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          解析json 生成树结构对象 
+          解析json 生成树结构对象
           <code className="empty-code">freetool.menuTreeGenerator</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            const menuTreeGenerator = (menuList)=> (id,pid,children)=> {
                 let temObj = {};
@@ -132,10 +132,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-           判断对象是否相等 
+          判断对象是否相等
           <code className="empty-code">freetool.isObjectValueEqual</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            isObjectValueEqual:function(a, b) {
             let aProps = Object.getOwnPropertyNames(a);
@@ -154,10 +154,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-           串行函数 
+          串行函数
           <code className="empty-code">freetool.compose</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
            compose(...funcs) {
                 if (funcs.length === 0) {
@@ -171,10 +171,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          展开数组 
+          展开数组
           <code className="empty-code">freetool._flatten</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             _flatten(arr){
                 return [].concat(...arr.map((a)=>Array.isArray(a)?method.flatten(a):a))
@@ -184,7 +184,7 @@ class EmptyTool extends Component<any, any> {
         <p className="empty-line-content">
           <code className="empty-code">freetool.promise_all</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             promise_all(promise:Array<any>){
                 if(method.GetType(promise)!=="array"){
@@ -210,10 +210,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          函数截流 
+          函数截流
           <code className="empty-code">freetool.throttle</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             throttle:function(fn:Function,interval?:number){
                 let _self = fn;
@@ -239,10 +239,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          转换数组维度 
+          转换数组维度
           <code className="empty-code">freetool.transformArray</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             transformArray(num:number,array:Array<any>):Array<any>{
                 var Arr = new Array(Math.ceil(array.length/num));
@@ -260,10 +260,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          cookie  
+          cookie
           <code className="empty-code">freetool.cookieUtil</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             const cookieUtil = {
                 get:function(name){
@@ -302,10 +302,10 @@ class EmptyTool extends Component<any, any> {
           `}
         </EcodeHighlight>
         <p className="empty-line-content">
-          storage 相关  
+          storage 相关
           <code className="empty-code">freetool.Local|freetool.Session</code>
         </p>
-        <EcodeHighlight language='tsx' >
+        <EcodeHighlight language="tsx">
           {`
             class Storage {
                 public storage;
@@ -342,7 +342,12 @@ class EmptyTool extends Component<any, any> {
               const Session = new Storage(window.sessionStorage);
           `}
         </EcodeHighlight>
-        <h1 className="e-title">更多请参用<a href="https://www.lodashjs.com/" target="_blank">lodash </a></h1>
+        <h1 className="e-title">
+          更多请参用
+          <a href="https://www.lodashjs.com/" target="_blank">
+            lodash{' '}
+          </a>
+        </h1>
       </>
     );
   }

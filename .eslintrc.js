@@ -106,7 +106,7 @@ module.exports = {
     'no-unsafe-negation': 2, // 禁止对关系运算符的左操作数使用否定操作符
     'use-isnan': 2, // 要求使用 isNaN() 检查 NaN
     'valid-typeof': 2, // 强制 typeof 表达式与有效的字符串进行比较
-    'dot-location': 2, // 强制在点号之前和之后一致的换行
+    //'dot-location': 2, // 强制在点号之前和之后一致的换行
     'no-caller': 2, // 禁用 arguments.caller 或 arguments.callee
     'no-empty-pattern': 2, // 禁止使用空解构模式
     'no-lone-blocks': 2, // 禁用不必要的嵌套块

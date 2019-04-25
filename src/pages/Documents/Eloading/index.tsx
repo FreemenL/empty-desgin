@@ -1,30 +1,30 @@
-import React, { PureComponent } from "react";
-import { Button } from "antd";
-import autobind from "autobind-decorator";
+import React, { PureComponent } from 'react';
+import { Button } from 'antd';
+import autobind from 'autobind-decorator';
 import { Edocument, Eloading } from 'emptyd';
 
 const data = [
   {
-    key: "1",
-    title: "show",
-    explain: " 是否显示loading ",
-    type: " boolean ",
-    default: " true "
+    key: '1',
+    title: 'show',
+    explain: ' 是否显示loading ',
+    type: ' boolean ',
+    default: ' true ',
   },
   {
-    key: "2",
-    title: " model ",
+    key: '2',
+    title: ' model ',
     explain: " loading 的模式  '' | 'global' ",
-    type: "string",
-    default: "' '"
-  }];
+    type: 'string',
+    default: "' '",
+  },
+];
 
 @autobind
 class EloadingDocuments extends PureComponent<any, any> {
-
   state = {
     show: false,
-    globalShow: false
+    globalShow: false,
   };
 
   componentWillUnmount() {
@@ -37,34 +37,32 @@ class EloadingDocuments extends PureComponent<any, any> {
 
   handleloading(params) {
     this.setState(
-      () => ({ [params ? params : "show"]: true }),
+      () => ({ [params ? params : 'show']: true }),
       () => {
-          this.timmer = setTimeout(() => {
-              this.setState(() => ({
-                [params ? params : "show"]: false
-              }));
-          }, 3000);
+        this.timmer = setTimeout(() => {
+          this.setState(() => ({
+            [params ? params : 'show']: false,
+          }));
+        }, 3000);
       }
     );
   }
-  
-  timmer
-  
+
+  timmer;
+
   render() {
     return (
-        <Edocument
-          title="loading组件:Eloading"
-          components={[
-            {
-              component: (
-                <Eloading show={this.state.show} size="large">
-                  <Button onClick={() => this.showLoading(false)}>
-                    容器loading
-                  </Button>
-                </Eloading>
-              ),
-              titDescripttion: "容器级别的loading",
-              code: `
+      <Edocument
+        title="loading组件:Eloading"
+        components={[
+          {
+            component: (
+              <Eloading show={this.state.show} size="large">
+                <Button onClick={() => this.showLoading(false)}>容器loading</Button>
+              </Eloading>
+            ),
+            titDescripttion: '容器级别的loading',
+            code: `
               import { Button } from 'antd';
               import { Edocument, Eloading } from 'emptyd';
               import autobind from 'autobind-decorator';
@@ -100,22 +98,16 @@ class EloadingDocuments extends PureComponent<any, any> {
                 }
 
               }
-            `
-            },
-            {
-              component: (
-                <Eloading
-                  show={this.state.globalShow}
-                  model="global"
-                  size="large"
-                >
-                  <Button onClick={() => this.showLoading("globalShow")}>
-                    页面loading
-                  </Button>
-                </Eloading>
-              ),
-              titDescripttion: "页面级别的loading",
-              code: `
+            `,
+          },
+          {
+            component: (
+              <Eloading show={this.state.globalShow} model="global" size="large">
+                <Button onClick={() => this.showLoading('globalShow')}>页面loading</Button>
+              </Eloading>
+            ),
+            titDescripttion: '页面级别的loading',
+            code: `
               import { Button } from 'antd';
               import { Eloading } from 'emptyd';
               import autobind from 'autobind-decorator';
@@ -164,12 +156,12 @@ class EloadingDocuments extends PureComponent<any, any> {
                 }
 
               }
-            `
-            }
-          ]}
-          docDescripttion="Eloading除了如下属性，还有antd Spin 组件的属性:"
-          documentData={data}
-        />
+            `,
+          },
+        ]}
+        docDescripttion="Eloading除了如下属性，还有antd Spin 组件的属性:"
+        documentData={data}
+      />
     );
   }
 }

@@ -1,67 +1,76 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { FormConfig } from './FormConfig';
 import { Edocument, EformHoc } from 'emptyd';
 
-const data = [{
-  key: '1',
-  title: 'field',
-  explain: "表单提交时的字段名",
-  type: "string",
-  default: '-',
-},{
-  key: '2',
-  title: 'label',
-  explain: "表单标签",
-  type:"string",
-  default: '-',
-},{
-  key: '3',
-  title: ' type ',
-  explain: "表单元素类型 Custom | DatePicker | uploadImage | CheckboxGroup | TextArea | Input",
-  type:"string",
-  default: '-',
-},{
-  key: '4',
-  title: 'inputConfig',
-  explain: "参照antd中input配置，注：type类型为Input时有效 ",
-  type:"Object",
-  default: '-',
-},{
-  key: '5',
-  title: 'antdFormItemOptions',
-  explain: "参照antd中 iForm.Item 配置 ",
-  type:"Object",
-  default: '-',
-},{
-  key: '6',
-  title: 'antdOptions',
-  explain: "参照antd中getFieldDecorator(id, options)，antdOptions对应options配置 ",
-  type:"Object",
-  default: '-',
-},{
-  key: '7',
-  title: 'renderCustom',
-  explain: "自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ",
-  type: "React.ReactNode",
-  default: '-',
-},{
-  key: '8',
-  title: 'CustomConfig',
-  explain: "自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ",
-  type: " object ",
-  default: '-',
-}];
-
+const data = [
+  {
+    key: '1',
+    title: 'field',
+    explain: '表单提交时的字段名',
+    type: 'string',
+    default: '-',
+  },
+  {
+    key: '2',
+    title: 'label',
+    explain: '表单标签',
+    type: 'string',
+    default: '-',
+  },
+  {
+    key: '3',
+    title: ' type ',
+    explain: '表单元素类型 Custom | DatePicker | uploadImage | CheckboxGroup | TextArea | Input',
+    type: 'string',
+    default: '-',
+  },
+  {
+    key: '4',
+    title: 'inputConfig',
+    explain: '参照antd中input配置，注：type类型为Input时有效 ',
+    type: 'Object',
+    default: '-',
+  },
+  {
+    key: '5',
+    title: 'antdFormItemOptions',
+    explain: '参照antd中 iForm.Item 配置 ',
+    type: 'Object',
+    default: '-',
+  },
+  {
+    key: '6',
+    title: 'antdOptions',
+    explain: '参照antd中getFieldDecorator(id, options)，antdOptions对应options配置 ',
+    type: 'Object',
+    default: '-',
+  },
+  {
+    key: '7',
+    title: 'renderCustom',
+    explain: '自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ',
+    type: 'React.ReactNode',
+    default: '-',
+  },
+  {
+    key: '8',
+    title: 'CustomConfig',
+    explain: '自定义表单提交组件,针对还未封装的组件以及自定义类型的组件进行处理 ',
+    type: ' object ',
+    default: '-',
+  },
+];
 
 class EformHocDocuments extends Component<any, any> {
   render() {
     return (
-        <Edocument
-          title="表单配置组件:EformHoc" 
-          components={[{
-            component:React.createElement(EformHoc.call(this,FormConfig,"")),
-            titDescripttion:"表单配置化",
-            code:`
+      <Edocument
+        title="表单配置组件:EformHoc"
+        components={[
+          {
+            component: React.createElement(EformHoc.call(this, FormConfig, '')),
+            titDescripttion: '表单配置化',
+            code: `
               import components from '@components/load-component';
               const { EformHoc } = components;
               import { TimePicker , InputNumber , Select } from 'antd';
@@ -313,11 +322,12 @@ class EformHocDocuments extends Component<any, any> {
                 ReactDOM.render(
                   React.createElement(EformHoc(FormConfig))
                 )
-            `
-          }]}
-          docDescripttion=" FormConfig 函数中 search 配置数组的具体参数如下"   
-          documentData={data}        
-        />
+            `,
+          },
+        ]}
+        docDescripttion=" FormConfig 函数中 search 配置数组的具体参数如下"
+        documentData={data}
+      />
     );
   }
 }
