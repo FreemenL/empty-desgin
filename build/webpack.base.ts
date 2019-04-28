@@ -26,7 +26,7 @@ const { systemConstant: { htmlTemplate, title }, systemPath } = systemConfig;
 
 const webpackBaseConfig = {
   entry: {
-    app: ['babel-polyfill', paths.appIndex]
+    app: [paths.appIndex]
   },
   output: {
     filename: 'static/js/[name].js',

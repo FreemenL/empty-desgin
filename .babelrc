@@ -1,6 +1,12 @@
 {
   "presets": [
-    ["env", { "modules": false }],
+    ["env",{
+      "targets": {
+        "browsers":[ "last 2 versions" ]
+      },
+      "modules": false,
+      "useBuiltIns": true
+    }],
     "react",
     "stage-0",
     "stage-1"
@@ -19,7 +25,6 @@
     ["empty-import",{
       "libraryName": "emptyd"
     }],
-    "transform-runtime",
     "syntax-dynamic-import"
   ]
 }
