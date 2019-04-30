@@ -6,10 +6,7 @@
       },
       "modules": false,
       "useBuiltIns": true
-    }],
-    "react",
-    "stage-0",
-    "stage-1"
+    }]
   ],
   "plugins": [
     ["import",{
