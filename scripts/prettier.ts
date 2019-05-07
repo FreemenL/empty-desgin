@@ -3,7 +3,6 @@ const glob = require('glob');
 //代码格式化
 const prettier = require('prettier');
 const fs = require('fs');
-console.log("errerer")
 const prettierConfigPath = require.resolve('../.prettierrc');
 let didError = false;
 let files = [];
@@ -21,7 +20,6 @@ const ignore = [
   '**/*.jpg*',
   '**/*.webp*',
 ];
-console.log('jsFiles')
 const jsFiles = glob.sync('**/*.tsx', { ignore });
 console.log(jsFiles)
 files = files.concat(jsFiles);
@@ -55,6 +53,6 @@ files.forEach(file => {
 
 function catchError (e) {
   console.log(e);
-  process.exit(1);
 }
+
 console.log('\x1b[32m prettier success!');
