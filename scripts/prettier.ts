@@ -54,7 +54,7 @@ files.forEach(file => {
 });
 
 function catchError (e) {
-  throw e.stack;
+  console.log(e);
   process.exit(1);
 }
 console.log('\x1b[32m prettier success!');
