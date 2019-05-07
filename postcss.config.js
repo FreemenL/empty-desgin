@@ -9,6 +9,8 @@ module.exports = (ctx) => ({
       "postcss-zindex": false
     }, // 包含优化CSS大小的插件，以便在生产中使用。
     'atcss': {},
+    //css 偷懒大法
+    'rucksack-css': {},
     "postcss-url": {},
     // https://github.com/csstools/postcss-preset-env    css的polyfill
     'postcss-preset-env': { stage: 0, autoprefixer: { grid: true } },
