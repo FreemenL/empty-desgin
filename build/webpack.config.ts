@@ -37,13 +37,19 @@ const devconfig = {
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
+  node:[
+    'child_process',
+    'cluster',
+    'dgram',
+    'dns',
+    'fs',
+    'module',
+    'net',
+    'readline',
+    'repl',
+    'tls',
+  ].reduce((acc, name) => Object.assign({}, acc, { [name]: 'empty' }), {}),
+  
   cache:true,
   plugins:[
     new webpack.NamedModulesPlugin(),
