@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 const { CheckerPlugin } = require("awesome-typescript-loader");
@@ -152,6 +153,7 @@ const webpackBaseConfig = {
     }
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin([
       {
         from: paths.appStatic,
