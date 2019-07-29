@@ -221,5 +221,6 @@ module.exports = {
   <tbody>
 </table>
 
-欢迎加群学习交流
+<h2 align="center">欢迎加群学习交流</h2>
+
 <img src="https://raw.githubusercontent.com/FreemenL/first-github-pages/master/public/WechatIMG138.jpeg"/>
