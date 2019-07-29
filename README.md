@@ -220,3 +220,6 @@ module.exports = {
     </tr>
   <tbody>
 </table>
+
+欢迎加群学习交流
+<img src="https://raw.githubusercontent.com/FreemenL/first-github-pages/master/public/WechatIMG138.jpeg"/>
