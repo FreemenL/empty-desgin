@@ -10,7 +10,7 @@ module.exports = {
     // webpack ts配置
     webpackTsConfig: 'config/tsconfig-for-webpack-config',
     // 动态链接库
-    appdllLibrary: '_dllLibrary_',
+    appdllLibrary: 'dllLibrary_',
     // title图标
     appFavicon: 'src/public/favicon',
     // 依赖包路径
