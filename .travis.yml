@@ -1,0 +1,30 @@
+sudo: false
+language: node_js
+
+node_js:
+  - "10"
+
+before_install:
+  - npm install -g cnpm --registry=https://registry.npm.taobao.org
+  
+install:
+  - cnpm install
+
+# 无其他依赖项所以执行npm run build 构建就行了
+script:
+  - npm run build
+
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "Update tools"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+
+#指定分支，只有指定的分支提交时才会运行脚本
+
+branches:
+  only:
+    - master
