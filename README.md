@@ -200,27 +200,3 @@ module.exports = {
 }
 
 ```
-<h2 align="center">Maintainers</h2>
-
-<table>
-  <tbody>
-    <tr>
-     <td align="center">
-        <img width="150" height="150"
-        src="https://avatars2.githubusercontent.com/u/10083758?s=400&v=4">
-        </br>
-        <a href="https://github.com/ChasLui">ChasLui</a>
-      </td>
-      <td align="center">
-        <img width="150" height="150"
-        src="https://cdn2.ettoday.net/images/1688/d1688515.jpg">
-        </br>
-        <a href="https://github.com/freemenL">freemenL</a>
-      </td>
-    </tr>
-  <tbody>
-</table>
-
-<h2 align="center">欢迎加群学习交流</h2>
-
-<img src="https://raw.githubusercontent.com/FreemenL/first-github-pages/master/public/WechatIMG138.jpeg"/>
