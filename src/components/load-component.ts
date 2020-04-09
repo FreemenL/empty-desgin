@@ -1,7 +1,7 @@
 let components:any = {};
 const childComponents = require.context('./',true,/index\.(tsx)$/);
 
-childComponents.keys().find((item,index,array)=>{
+childComponents.keys().forEach((item,index)=>{
 	let modules;
 	try{
 		modules = childComponents(item).default;
