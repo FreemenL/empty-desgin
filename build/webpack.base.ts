@@ -89,7 +89,19 @@ const webpackBaseConfig = {
       include: paths.appExcludeCssModule,
       use: [{
         loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-      }, 'happypack/loader?id=happyStyle']
+      },  {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+        }
+      }, {
+        loader: "less-loader",
+        options: {
+          sourceMap: devMode,
+          modifyVars: themeVariables,
+          javascriptEnabled: true
+        }
+      }]
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       use:[{
