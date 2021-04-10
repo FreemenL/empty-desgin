@@ -1,4 +1,7 @@
 # emptyd-admin-webpack
+
+[![GitHub issues](https://img.shields.io/github/issues/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/issues) [![GitHub forks](https://img.shields.io/github/forks/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/network) [![GitHub stars](https://img.shields.io/github/stars/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/stargazers)[![GitHub license](https://img.shields.io/github/license/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack)
+
 基于typescript react webpack的脚手架 
 
 ### 关于本项目功能
