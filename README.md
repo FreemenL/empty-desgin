@@ -4,6 +4,13 @@
 
 基于typescript react webpack的脚手架 
 
+### empty-desgin 生态:
+
+* 工程脚手架: [create-empty-app](https://github.com/FreemenL/create-empty-app.git)    empty-desgin 工程脚手架
+* babel插件: [babel-plugin-empty-import](https://github.com/FreemenL/babel-plugin-empty-import) 解决自身组件及第三方模块全量导入的问
+* webpack插件:  [empty-webpack-build-detail-plugin](https://github.com/FreemenL/empty-webpack-build-detail-plugin.git) 对webpack的编译过程进行日志监控
+* 静态资源服务:   [empty-server](https://github.com/FreemenL/empty-server.git) 一个简单的、零配置的命令行 http 服务器。它对于生产使用来说足够强大，但它足够简单且易于破解，可用于测试、本地开发和学习。
+
 ### 关于本项目功能
 
 1.针对不同的loader采用了多进程编译，指定精确处理的目录和排除的目录，并开启缓存 极大的加快了编译速度。
