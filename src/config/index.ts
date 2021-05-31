@@ -1,5 +1,5 @@
 export const config ={
-    name:"emptyd-design",
+    name:"empty-design",
     LogoSrc:require('../public/favicon.png'),
     menuList:[
         {

@@ -2,7 +2,7 @@ let childRoutes = [];
 import _import_views from '@router/importView';
 const childRouter = require.context('./',true,/router\.(tsx|ts)$/);
 
-childRouter.keys().find((item/*,index,array*/)=>{
+childRouter.keys().forEach((item/*,index,array*/)=>{
 	let modules;
 	try{
 		modules = childRouter(item).default;
