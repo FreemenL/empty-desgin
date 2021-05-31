@@ -91,8 +91,8 @@
 ### 依赖配置
 1. 首先clone项目
 ```bash
-$ git clone https://github.com/FreemenL/emptyd-admin-webpack.git
-$ cd emptyd-admin-webpack
+$ git clone https://github.com/FreemenL/empty-desgin.git
+$ cd empty-desgin
 ```
 2. 下载依赖
 * 请确保你的环境配置完成，然后就可以开始以下步骤
