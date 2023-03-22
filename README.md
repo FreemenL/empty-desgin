@@ -88,8 +88,8 @@
 * 为了把保证项目正常运行，请自行更新相关环境。
 1. 安装[node.js](https://nodejs.org/)
 2. 安装[git](https://git-scm.com/)
-
-### 依赖配置
+``` (注意使用node版本v16.17.0)```
+### 依赖配置ß
 1. 首先clone项目
 ```bash
 $ git clone https://github.com/FreemenL/empty-desgin.git
@@ -98,7 +98,8 @@ $ cd empty-desgin
 2. 下载依赖
 * 请确保你的环境配置完成，然后就可以开始以下步骤
   ```bash
-  $ npm install                   # Install project dependencies
+  $ npm install -g cnpm --registry=https://registry.npm.taobao.org
+  $ cnpm i 
   $ npm start                     # Compile and launch
   ```
 
