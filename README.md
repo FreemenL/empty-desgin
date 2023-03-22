@@ -2,7 +2,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/issues) [![GitHub forks](https://img.shields.io/github/forks/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/network) [![GitHub stars](https://img.shields.io/github/stars/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack/stargazers)[![GitHub license](https://img.shields.io/github/license/FreemenL/emptyd-admin-webpack)](https://github.com/FreemenL/emptyd-admin-webpack)
 
-基于typescript react webpack的脚手架 
+基于typescript react webpack的小型前端生态 
 ![WechatIMG121](https://user-images.githubusercontent.com/23741346/227056477-2048bdd9-4834-46c2-a783-1b805fe33a76.png)
 ![WechatIMG122](https://user-images.githubusercontent.com/23741346/227056579-cbbf6261-70b9-432a-a151-665ab55c2ac9.jpeg)
 ![WechatIMG123](https://user-images.githubusercontent.com/23741346/227056591-c93e0ab8-f701-4184-b247-04f243fbe363.jpeg)
