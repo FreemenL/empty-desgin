@@ -1,3 +1,16 @@
+const OS = require("os")
+
+const platform = OS.platform()
+let appTsLoader = [];
+
+
+if("darwin"===platform){
+  appTsLoader = ['node_modules/emptyd','node_modules/free-validator', 'node_modules/freetool'];
+}else{
+  appTsLoader = ['node_modules/_emptyd@0.1.7@emptyd','node_modules/_free-validator@1.0.7@free-validator', 'node_modules/_freetool@0.0.3@freetool'];
+}
+
+
 module.exports = {
   // 模式  dev | run  区别:dev 会开启配置文件监听 run 不会
   pattern: 'dev',
@@ -26,7 +39,7 @@ module.exports = {
     // 自定义loader目录 
     appLoader: 'build/loaders',
     // 自定义　依赖包路径下需要awesome-typescript-loader 处理的文件目录
-    appTsLoader: ['node_modules/_emptyd@0.1.7@emptyd','node_modules/_free-validator@1.0.7@free-validator', 'node_modules/_freetool@0.0.3@freetool'],
+    appTsLoader,
     // 静态资源路径 存放较大文件 该目录下存放文件会被 CopyWebpackPlugin 直接复制到打包后dist/static 路径
     appStatic: 'static',
     // 下不会被 cssmodule 处理的文件路径
